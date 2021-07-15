@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>hjd</title>
+      <title>关于const char * 和const int的一个小问题</title>
       <link href="/yyds/38830.html"/>
       <url>/yyds/38830.html</url>
       
-        <content type="html"><![CDATA[<h2 id="测试-mathjax"><a href="#测试-mathjax" class="headerlink" title="测试 mathjax"></a>测试 mathjax</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hjd is a good man"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><ul><li><script type="math/tex; mode=display">\int_{\infty}^{-\infty}\frac{2}{3}x^2dx</script></li></ul><ul><li><script type="math/tex; mode=display">\int_{\infty}^{-\infty}\frac{2}{3}x^2dx</script></li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="测试-mathjax"><a href="#测试-mathjax" class="headerlink" title="测试 mathjax"></a>测试 mathjax</h2><pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"hjd is a good man"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><ul><li><script type="math/tex; mode=display">\int_{\infty}^{-\infty}\frac{2}{3}x^2dx</script></li></ul><ul><li><script type="math/tex; mode=display">\int_{\infty}^{-\infty}\frac{2}{3}x^2dx</script></li><li><p>emotion测试：:smile:</p></li><li></li></ul>]]></content>
       
       
       <categories>
