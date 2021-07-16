@@ -430,12 +430,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/OpenGL/">
+                                <span class="chip bg-color">OpenGL</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E9%85%8D%E7%BD%AE/" class="post-category">
+                                配置
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -486,7 +499,7 @@
 <li>GLFW</li>
 <li>GLAD</li>
 </ul>
-<h1 id="三、步骤"><a href="#三、步骤" class="headerlink" title="三、步骤"></a>三、步骤</h1><h2 id="1-配置GLFW"><a href="#1-配置GLFW" class="headerlink" title="　　1.配置GLFW"></a>　　1.配置GLFW</h2><ul>
+<h1 id="三、步骤"><a href="#三、步骤" class="headerlink" title="三、步骤"></a>三、步骤</h1><h2 id="1-配置GLFW"><a href="#1-配置GLFW" class="headerlink" title="1.配置GLFW"></a>1.配置GLFW</h2><ul>
 <li>进入官网下载GLFW并解压：<a target="_blank" rel="noopener" href="https://www.glfw.org/download.html">GLFW下载</a></li>
 <li>这里选择32位的，因为64位的可能有些问题</li>
 <li><img src="https://ftp.bmp.ovh/imgs/2020/03/cf3f2b89bc4d4b76.png" alt="img"></li>
@@ -499,8 +512,8 @@
 <li>接着将为项目添加依赖项：仍然是属性-&gt;链接器-&gt;输入-&gt;附加依赖项-&gt;编辑，将opengl32.lib，glfw3.lib，msvcrt.lib添加进去</li>
 <li><img src="https://ftp.bmp.ovh/imgs/2020/03/34dbf4338810d7de.png" alt="img"></li>
 </ul>
-<h2 id="2-GLAD"><a href="#2-GLAD" class="headerlink" title="　　2.GLAD"></a>　　2.GLAD</h2><ul>
-<li>进入GLAD官网：<a target="_blank" rel="noopener" href="https://glad.dav1d.de/">GLAD下载</a></li>
+<h2 id="2-GLAD"><a href="#2-GLAD" class="headerlink" title="2.GLAD"></a>2.GLAD</h2><ul>
+<li> 进入GLAD官网：<a target="_blank" rel="noopener" href="https://glad.dav1d.de/">GLAD下载</a></li>
 <li>Language选C\C++，Profile选core，version根据需要选择（3.3版本及以上），然后GRNERATE，之后选择zip文件下载并解压</li>
 <li><img src="https://ftp.bmp.ovh/imgs/2020/03/a5647816217d1437.png" alt="img"></li>
 <li>将include下的.h文件全部拷贝进项目文件夹下的includes下，将src下的glad.c拷贝进项目文件夹下</li>
@@ -508,7 +521,7 @@
 <li><img src="https://ftp.bmp.ovh/imgs/2020/03/16650f8004bd5b7f.png" alt="img"></li>
 <li>至此库文件配置完成，接下来测试是否能正常使用OpenGL</li>
 </ul>
-<h2 id="3-测试OpenGL"><a href="#3-测试OpenGL" class="headerlink" title="　　3.测试OpenGL"></a>　　3.测试OpenGL</h2><ul>
+<h2 id="3-测试OpenGL"><a href="#3-测试OpenGL" class="headerlink" title="3.测试OpenGL"></a>3.测试OpenGL</h2><ul>
 <li><p>创建源文件，首先需要引用glad.h和glfw3.h文件</p>
 </li>
 <li><p>因为使用的是自己添加的文件，这里引用需要使用“ “而非&lt;&gt;，使用” “时，它会自动出现你所添加的目录</p>
@@ -594,10 +607,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     &#x2F;&#x2F; make sure the viewport matches the new window dimensions; note that width and 
     &#x2F;&#x2F; height will be significantly larger than specified on retina displays. 
     glViewport(0, 0, width, height); 
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ul>
-<ul>
+&#125; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>出现图示窗口即可正常使用OpenGL</p>
 </li>
 <li><p><img src="https://ftp.bmp.ovh/imgs/2020/03/db51f81eec2503b4.png" alt="img"></p>
@@ -670,7 +680,11 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/OpenGL/">
+                                    <span class="chip bg-color">OpenGL</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -914,13 +928,25 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            hjd
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E9%85%8D%E7%BD%AE/" class="post-category">
+                                    配置
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/OpenGL/">
+                        <span class="chip bg-color">OpenGL</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
