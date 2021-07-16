@@ -471,7 +471,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    884
+                    817
                 </div>
                 
 
@@ -497,9 +497,12 @@
 <li>解法：摩尔投票法</li>
 </ul>
 </li>
-<li>摩尔投票法：<ul>
-<li>原理：当一个数在数组中出现次数大于n/2，那么每次删除两个不同的元素，剩下的元素一定是该数</li>
-<li>实现思路：<ul>
+<li><p>摩尔投票法：</p>
+<ul>
+<li><p>原理：当一个数在数组中出现次数大于n/2，那么每次删除两个不同的元素，剩下的元素一定是该数</p>
+</li>
+<li><p>实现思路：</p>
+<ul>
 <li>要求时间复杂度O(n)，空间复杂度O(1)，因此不可能真的在数组中遍历并执行删除操作。</li>
 <li>其实现有一定技巧：假设存在一个虚拟数组，用于存放还未和不同元素一起删除的数，该数组只存在若干同一元素；遍历原数组，若有与虚拟数组元素不同的数，则会将两个数一起从虚拟数组中删去。</li>
 <li>因此只需要两个变量，一个存储可能是满足条件的值（虚拟数组中的数），一个存储个数。</li>
@@ -507,95 +510,97 @@
 <li>因为保证一定存储，所以最后虚拟数组剩下的数就是满足条件的“多数”。</li>
 </ul>
 </li>
-<li>leetcode代码：</li>
-</ul>
+<li><p>leetcode代码：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution &#123;
+public:
+    &#x2F;*摩尔投票法(寻找众数)*&#x2F;
+    int majorityElement(vector&lt;int&gt;&amp; nums) &#123;
+        int candidate &#x3D; -1;
+        int cnt &#x3D; 0;
+        for (int num : nums) &#123;
+            if(cnt &#x3D;&#x3D; 0)
+            &#123;
+                candidate &#x3D; num;
+                cnt &#x3D; 1;
+            &#125;
+            else if(num &#x3D;&#x3D; candidate) 
+                ++cnt;
+            else    
+                --cnt;
+        &#125;
+        return candidate;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++"> 1 class Solution &#123;
- 2 public:
- 3     &#x2F;*摩尔投票法(寻找众数)*&#x2F;
- 4     int majorityElement(vector&lt;int&gt;&amp; nums) &#123;
- 5         int candidate &#x3D; -1;
- 6         int cnt &#x3D; 0;
- 7         for (int num : nums) &#123;
- 8             if(cnt &#x3D;&#x3D; 0)
- 9             &#123;
-10                 candidate &#x3D; num;
-11                 cnt &#x3D; 1;
-12             &#125;
-13             else if(num &#x3D;&#x3D; candidate) 
-14                 ++cnt;
-15             else    
-16                 --cnt;
-17         &#125;
-18         return candidate;
-19     &#125;
-20 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
+</li>
 <li><p>问题2（进阶）：</p>
 <p>在一个数组中找到所有出现次数大于n/3的数 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/majority-element-ii/">leetcode229题（求众数II）</a></p>
 <ul>
-<li>要求：实现时间复杂度为O(n)，空间复杂度为O(1)的解法</li>
-<li>问题分析：<ul>
+<li><p>要求：实现时间复杂度为O(n)，空间复杂度为O(1)的解法</p>
+</li>
+<li><p>问题分析：</p>
+<ul>
 <li>在一个数组中出现次数大于n/3的数最多有2个</li>
 <li>题目未说明保证存在满足条件的数</li>
 </ul>
 </li>
-<li>思路：<ul>
+<li><p>思路：</p>
+<ul>
 <li>仍然是用摩尔投票法，只是因为没有保证该数存在，因此需要增加一个验证环节。</li>
 <li>最多可能有2个满足条件数，因此需要四个变量</li>
 </ul>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">class Solution &#123;
+public:
+    &#x2F;*摩尔投票法*&#x2F;
+    vector&lt;int&gt; majorityElement(vector&lt;int&gt;&amp; nums) &#123;
+        int cnt1 &#x3D; 0, cnt2 &#x3D; 0;
+        int can1 &#x3D; 0, can2 &#x3D; 0;
+        for(int num:nums)
+        &#123;
+            if(can1 &#x3D;&#x3D; num)    
+                ++cnt1;
+            else if(can2 &#x3D;&#x3D; num)
+                ++cnt2;
+            &#x2F;&#x2F;candidate和cnt的判断不能交换顺序，否则可能为两个候选值赋为同一个值
+            else if(cnt1 &#x3D;&#x3D; 0)
+            &#123;
+                can1 &#x3D; num;
+                cnt1 &#x3D; 1;
+            &#125;
+            else if(cnt2 &#x3D;&#x3D; 0)
+            &#123;
+                can2 &#x3D; num;
+                cnt2 &#x3D; 1;
+            &#125;
+            else
+            &#123;
+                --cnt1;
+                --cnt2;
+            &#125;
+        &#125;
+        &#x2F;&#x2F;验证是否满足条件
+        vector&lt;int&gt; res;
+        cnt1 &#x3D; 0, cnt2 &#x3D; 0;
+        for(int num:nums)
+        &#123;
+            if(can1 &#x3D;&#x3D; num)
+                ++cnt1;
+        &#x2F;&#x2F;注意一定要用else if，保证两数的判断是有先后的，才不会出现两候选数相同的情况
+            else if(can2 &#x3D;&#x3D; num) 
+                ++cnt2;
+        &#125;
+        if(cnt1 &gt; nums.size()&#x2F;3)
+            res.emplace_back(can1);
+        if(cnt2 &gt; nums.size()&#x2F;3)
+            res.emplace_back(can2);
+        return res;
+    &#125;
+&#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 </li>
 </ul>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++"> 1 class Solution &#123;
- 2 public:
- 3     &#x2F;*摩尔投票法*&#x2F;
- 4     vector&lt;int&gt; majorityElement(vector&lt;int&gt;&amp; nums) &#123;
- 5         int cnt1 &#x3D; 0, cnt2 &#x3D; 0;
- 6         int can1 &#x3D; 0, can2 &#x3D; 0;
- 7         for(int num:nums)
- 8         &#123;
- 9             if(can1 &#x3D;&#x3D; num)    
-10                 ++cnt1;
-11             else if(can2 &#x3D;&#x3D; num)
-12                 ++cnt2;
-13             &#x2F;&#x2F;candidate和cnt的判断不能交换顺序，否则可能为两个候选值赋为同一个值
-14             else if(cnt1 &#x3D;&#x3D; 0)
-15             &#123;
-16                 can1 &#x3D; num;
-17                 cnt1 &#x3D; 1;
-18             &#125;
-19             else if(cnt2 &#x3D;&#x3D; 0)
-20             &#123;
-21                 can2 &#x3D; num;
-22                 cnt2 &#x3D; 1;
-23             &#125;
-24             else
-25             &#123;
-26                 --cnt1;
-27                 --cnt2;
-28             &#125;
-29         &#125;
-30         &#x2F;&#x2F;验证是否满足条件
-31         vector&lt;int&gt; res;
-32         cnt1 &#x3D; 0, cnt2 &#x3D; 0;
-33         for(int num:nums)
-34         &#123;
-35             if(can1 &#x3D;&#x3D; num)
-36                 ++cnt1;
-37         &#x2F;&#x2F;注意一定要用else if，保证两数的判断是有先后的，才不会出现两候选数相同的情况
-38             else if(can2 &#x3D;&#x3D; num) 
-39                 ++cnt2;
-40         &#125;
-41         if(cnt1 &gt; nums.size()&#x2F;3)
-42             res.emplace_back(can1);
-43         if(cnt2 &gt; nums.size()&#x2F;3)
-44             res.emplace_back(can2);
-45         return res;
-46     &#125;
-47 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>

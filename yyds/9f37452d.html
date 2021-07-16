@@ -458,7 +458,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    885
+                    836
                 </div>
                 
 
@@ -512,118 +512,98 @@
 <li><p>创建源文件，首先需要引用glad.h和glfw3.h文件</p>
 </li>
 <li><p>因为使用的是自己添加的文件，这里引用需要使用“ “而非&lt;&gt;，使用” “时，它会自动出现你所添加的目录</p>
-</li>
-<li><pre><code class="lang-c++">  1 #include&quot;includes/glad.h&quot;
-  2 
-  3 #include&quot;includes/glfw3.h&quot;
-  4 
-  5 #include &lt;iostream&gt;
-  6 
-  7 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-  8 
-  9 void processInput(GLFWwindow *window); // settings
- 10 
- 11 const unsigned int SCR_WIDTH = 800;
- 12 
- 13 const unsigned int SCR_HEIGHT = 600;
- 14 
- 15 int main() &#123;
- 16 
- 17     // glfw: initialize and configure
- 18 
- 19     // ------------------------------
- 20 
- 21     glfwInit();
- 22 
- 23     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
- 24 
- 25     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
- 26 
- 27     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
- 28 
- 29 #ifdef __APPLE__ glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
- 30 
- 31     // uncomment this statement to fix compilation on OS X
- 32 
- 33 #endif
- 34 
- 35 // glfw window creation
- 36 
- 37 // --------------------
- 38 
- 39     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, &quot;LearnOpenGL&quot;, NULL, NULL);
- 40 
- 41     if (window == NULL)
- 42 
- 43     &#123;
- 44 
- 45         std::cout &lt;&lt; &quot;Failed to create GLFW window&quot; &lt;&lt; std::endl; glfwTerminate(); return -1;
- 46 
- 47     &#125;
- 48 
- 49     glfwMakeContextCurrent(window);
- 50 
- 51     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
- 52 
- 53     // glad: load all OpenGL function pointers
- 54 
- 55     // ---------------------------------------
- 56 
- 57     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
- 58 
- 59     &#123;
- 60 
- 61         std::cout &lt;&lt; &quot;Failed to initialize GLAD&quot; &lt;&lt; std::endl; return -1;
- 62 
- 63     &#125;
- 64 
- 65     // render loop
- 66 
- 67     // -----------
- 68 
- 69     while (!glfwWindowShouldClose(window))
- 70 
- 71     &#123;
- 72 
- 73         // input // -----
- 74 
- 75         processInput(window);
- 76 
- 77         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
- 78 
- 79         // -------------------------------------------------------------------------------
- 80 
- 81         glfwSwapBuffers(window);
- 82 
- 83         glfwPollEvents();
- 84     &#125;
- 85 
- 86     // glfw: terminate, clearing all previously allocated GLFW resources. 
- 87     // ------------------------------------------------------------------ 
- 88     glfwTerminate(); return 0; 
- 89 &#125; 
- 90 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly 
- 91 // --------------------------------------------------------------------------------------------------------- 
- 92 void processInput(GLFWwindow *window) 
- 93 &#123; 
- 94     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) 
- 95         glfwSetWindowShouldClose(window, true); 
- 96 &#125;
- 97  // glfw: whenever the window size changed (by OS or user resize) this callback function executes 
- 98  // --------------------------------------------------------------------------------------------- 
- 99 void framebuffer_size_callback(GLFWwindow* window, int width, int height) 
-100 &#123; 
-101     // make sure the viewport matches the new window dimensions; note that width and 
-102     // height will be significantly larger than specified on retina displays. 
-103     glViewport(0, 0, width, height); 
-104 &#125;
-</code></pre>
+  <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&quot;includes&#x2F;glad.h&quot;
+#include&quot;includes&#x2F;glfw3.h&quot;
+
+#include &lt;iostream&gt;
+
+void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+void processInput(GLFWwindow *window); &#x2F;&#x2F; settings 
+
+const unsigned int SCR_WIDTH &#x3D; 800;
+const unsigned int SCR_HEIGHT &#x3D; 600;
+
+int main() &#123;
+    &#x2F;&#x2F; glfw: initialize and configure
+
+    &#x2F;&#x2F; ------------------------------
+    glfwInit();
+    
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    #ifdef __APPLE__ glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+
+    &#x2F;&#x2F; uncomment this statement to fix compilation on OS X
+	#endif
+	&#x2F;&#x2F; glfw window creation
+
+	&#x2F;&#x2F; --------------------
+	GLFWwindow* window &#x3D; glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, &quot;LearnOpenGL&quot;, NULL, NULL);
+
+    if (window &#x3D;&#x3D; NULL)
+    &#123;
+		std::cout &lt;&lt; &quot;Failed to create GLFW window&quot; &lt;&lt; std::endl;
+         glfwTerminate();
+         return -1;
+    &#125;
+
+    glfwMakeContextCurrent(window);
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+    &#x2F;&#x2F; glad: load all OpenGL function pointers
+
+    &#x2F;&#x2F; ---------------------------------------
+
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    &#123;
+        std::cout &lt;&lt; &quot;Failed to initialize GLAD&quot; &lt;&lt; std::endl; return -1;
+    &#125;
+
+    &#x2F;&#x2F; render loop
+
+    &#x2F;&#x2F; -----------
+
+    while (!glfwWindowShouldClose(window))
+    &#123;
+        &#x2F;&#x2F; input &#x2F;&#x2F; -----
+        processInput(window);
+        &#x2F;&#x2F; glfw: swap buffers and poll IO events (keys pressed&#x2F;released, mouse moved etc.)
+        &#x2F;&#x2F; -------------------------------------------------------------------------------
+        glfwSwapBuffers(window);
+        glfwPollEvents();
+    &#125;
+
+    &#x2F;&#x2F; glfw: terminate, clearing all previously allocated GLFW resources. 
+    &#x2F;&#x2F; ------------------------------------------------------------------ 
+    glfwTerminate(); 
+    return 0; 
+&#125; 
+&#x2F;&#x2F; process all input: query GLFW whether relevant keys are pressed&#x2F;released this frame and react accordingly 
+&#x2F;&#x2F; --------------------------------------------------------------------------------------------------------- 
+void processInput(GLFWwindow *window) 
+&#123;
+    if(glfwGetKey(window, GLFW_KEY_ESCAPE) &#x3D;&#x3D; GLFW_PRESS) 
+    glfwSetWindowShouldClose(window, true); 
+&#125;
+&#x2F;&#x2F; glfw: whenever the window size changed (by OS or user resize) this callback function executes 
+&#x2F;&#x2F; --------------------------------------------------------------------------------------------- 
+void framebuffer_size_callback(GLFWwindow* window, int width, int height) 
+&#123; 
+    &#x2F;&#x2F; make sure the viewport matches the new window dimensions; note that width and 
+    &#x2F;&#x2F; height will be significantly larger than specified on retina displays. 
+    glViewport(0, 0, width, height); 
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 </ul>
 <ul>
-<li>出现图示窗口即可正常使用OpenGL</li>
-<li><img src="https://ftp.bmp.ovh/imgs/2020/03/db51f81eec2503b4.png" alt="img"></li>
-<li>若出现报错：默认库MSVCRTD与……冲突，属性-&gt;链接器-&gt;输入-&gt;忽略特定默认库-&gt;编辑，将MSVCRTD.lib添加进去即可</li>
+<li><p>出现图示窗口即可正常使用OpenGL</p>
+</li>
+<li><p><img src="https://ftp.bmp.ovh/imgs/2020/03/db51f81eec2503b4.png" alt="img"></p>
+</li>
+<li><p>若出现报错：默认库MSVCRTD与……冲突，属性-&gt;链接器-&gt;输入-&gt;忽略特定默认库-&gt;编辑，将MSVCRTD.lib添加进去即可</p>
+</li>
 </ul>
 <h1 id="四、参考"><a href="#四、参考" class="headerlink" title="四、参考"></a>四、参考</h1><p>最后推荐一个学习OpenGL的网站，教程很舒服，本博客的测试源码也出自此：</p>
 <p><a target="_blank" rel="noopener" href="https://learnopengl-cn.github.io/">https://learnopengl-cn.github.io/</a></p>

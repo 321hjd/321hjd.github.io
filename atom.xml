@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2021-07-16T07:39:53.797Z</updated>
+  <updated>2021-07-16T08:28:13.606Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="https://321hjd.github.io/yyds/d87f7e0c.html"/>
+    <id>https://321hjd.github.io/yyds/d87f7e0c.html</id>
+    <published>2021-07-16T08:21:19.000Z</published>
+    <updated>2021-07-16T08:28:13.606Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;hr&gt;
+&lt;p&gt;这是一篇测试博客编辑功能是否正常的文档&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot; class=&quot;headerlink&quot; title=&quot;代码&quot;&gt;&lt;/a&gt;代码&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;代码块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre</summary>
+        
+      
+    
+    
+    
+    <category term="test" scheme="https://321hjd.github.io/categories/test/"/>
+    
+    
+    <category term="test" scheme="https://321hjd.github.io/tags/test/"/>
+    
+  </entry>
   
   <entry>
     <title>利用VMware将Ubuntu安装在u盘上</title>
@@ -50,7 +81,7 @@
     <link href="https://321hjd.github.io/yyds/3f704f49.html"/>
     <id>https://321hjd.github.io/yyds/3f704f49.html</id>
     <published>2020-10-15T16:51:00.000Z</published>
-    <updated>2021-07-16T08:00:28.141Z</updated>
+    <updated>2021-07-16T08:08:04.158Z</updated>
     
     
       
@@ -78,7 +109,7 @@
     <link href="https://321hjd.github.io/yyds/5b6ac126.html"/>
     <id>https://321hjd.github.io/yyds/5b6ac126.html</id>
     <published>2020-10-12T17:37:00.000Z</published>
-    <updated>2021-07-16T08:03:11.955Z</updated>
+    <updated>2021-07-16T08:11:21.373Z</updated>
     
     
       
@@ -263,7 +294,7 @@
     <link href="https://321hjd.github.io/yyds/9f37452d.html"/>
     <id>https://321hjd.github.io/yyds/9f37452d.html</id>
     <published>2020-03-06T06:33:00.000Z</published>
-    <updated>2021-07-16T07:36:29.164Z</updated>
+    <updated>2021-07-16T08:19:36.066Z</updated>
     
     
       
