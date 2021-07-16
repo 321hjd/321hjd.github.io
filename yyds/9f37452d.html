@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MYSQL删除三张表的联合信息, hjd&#39;blog">
+    <meta name="keywords" content="OpenGL安装及配置, hjd&#39;blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MYSQL删除三张表的联合信息 | hjd&#39;blog</title>
+    <title>OpenGL安装及配置 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MYSQL删除三张表的联合信息</h1>
+                    <h1 class="description center-align post-title">OpenGL安装及配置</h1>
                 </div>
             </div>
         </div>
@@ -430,25 +430,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/MYSQL/">
-                                <span class="chip bg-color">MYSQL</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E8%AF%AD%E6%B3%95/" class="post-category">
-                                语法
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -457,7 +444,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-23
+                    2020-03-06
                 </div>
                 
 
@@ -471,7 +458,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    71
+                    885
                 </div>
                 
 
@@ -491,12 +478,155 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>如要删除三张表的联合信息，使用MYSQL的左连接方法：LEFT JOIN ON</p>
-<p>例如，删除三张表中张三的所有数据：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">delete student,sc,stu 
-    from student left join sc on student.sno &#x3D; sc.sno 
-                left join stu on sc.sno &#x3D; stu.sno
-                where student.sname &#x3D; &#39;张三&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="一、环境"><a href="#一、环境" class="headerlink" title="一、环境"></a>一、环境</h1><ul>
+<li>Windows 10 64位家庭版</li>
+<li>vs版本：Visual Studio 2017</li>
+</ul>
+<h1 id="二、配置OpenGL所需"><a href="#二、配置OpenGL所需" class="headerlink" title="二、配置OpenGL所需"></a>二、配置OpenGL所需</h1><ul>
+<li>GLFW</li>
+<li>GLAD</li>
+</ul>
+<h1 id="三、步骤"><a href="#三、步骤" class="headerlink" title="三、步骤"></a>三、步骤</h1><h2 id="1-配置GLFW"><a href="#1-配置GLFW" class="headerlink" title="　　1.配置GLFW"></a>　　1.配置GLFW</h2><ul>
+<li>进入官网下载GLFW并解压：<a target="_blank" rel="noopener" href="https://www.glfw.org/download.html">GLFW下载</a></li>
+<li>这里选择32位的，因为64位的可能有些问题</li>
+<li><img src="https://ftp.bmp.ovh/imgs/2020/03/cf3f2b89bc4d4b76.png" alt="img"></li>
+<li>进入VS2017创建空项目，在项目文件夹下创建includes和libs两个文件夹（如创建项目OpenGL，则为OpenGL/OpenGL/includes）</li>
+<li>将解压文件中lib-vc2017文件夹下的.lib文件拷贝进刚刚创建的libs下，同时将include下的.h文件拷贝进刚刚创建的includes下</li>
+<li>在项目名处右键-&gt;属性-&gt;VC++目录-&gt;引用目录-&gt;编辑：粘贴项目文件夹下的.h文件所在目录</li>
+<li><img src="https://ftp.bmp.ovh/imgs/2020/03/3f9b561f13542bd6.png" alt="img"></li>
+<li>同理，库目录-&gt;编辑：粘贴项目文件夹下的.lib文件所在目录</li>
+<li><img src="https://ftp.bmp.ovh/imgs/2020/03/2b0a13d41f367eb2.png" alt="img"></li>
+<li>接着将为项目添加依赖项：仍然是属性-&gt;链接器-&gt;输入-&gt;附加依赖项-&gt;编辑，将opengl32.lib，glfw3.lib，msvcrt.lib添加进去</li>
+<li><img src="https://ftp.bmp.ovh/imgs/2020/03/34dbf4338810d7de.png" alt="img"></li>
+</ul>
+<h2 id="2-GLAD"><a href="#2-GLAD" class="headerlink" title="　　2.GLAD"></a>　　2.GLAD</h2><ul>
+<li>进入GLAD官网：<a target="_blank" rel="noopener" href="https://glad.dav1d.de/">GLAD下载</a></li>
+<li>Language选C\C++，Profile选core，version根据需要选择（3.3版本及以上），然后GRNERATE，之后选择zip文件下载并解压</li>
+<li><img src="https://ftp.bmp.ovh/imgs/2020/03/a5647816217d1437.png" alt="img"></li>
+<li>将include下的.h文件全部拷贝进项目文件夹下的includes下，将src下的glad.c拷贝进项目文件夹下</li>
+<li>然后进入vs，添加源文件-&gt;现有项，将glad.c添加进项目</li>
+<li><img src="https://ftp.bmp.ovh/imgs/2020/03/16650f8004bd5b7f.png" alt="img"></li>
+<li>至此库文件配置完成，接下来测试是否能正常使用OpenGL</li>
+</ul>
+<h2 id="3-测试OpenGL"><a href="#3-测试OpenGL" class="headerlink" title="　　3.测试OpenGL"></a>　　3.测试OpenGL</h2><ul>
+<li><p>创建源文件，首先需要引用glad.h和glfw3.h文件</p>
+</li>
+<li><p>因为使用的是自己添加的文件，这里引用需要使用“ “而非&lt;&gt;，使用” “时，它会自动出现你所添加的目录</p>
+</li>
+<li><pre><code class="lang-c++">  1 #include&quot;includes/glad.h&quot;
+  2 
+  3 #include&quot;includes/glfw3.h&quot;
+  4 
+  5 #include &lt;iostream&gt;
+  6 
+  7 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+  8 
+  9 void processInput(GLFWwindow *window); // settings
+ 10 
+ 11 const unsigned int SCR_WIDTH = 800;
+ 12 
+ 13 const unsigned int SCR_HEIGHT = 600;
+ 14 
+ 15 int main() &#123;
+ 16 
+ 17     // glfw: initialize and configure
+ 18 
+ 19     // ------------------------------
+ 20 
+ 21     glfwInit();
+ 22 
+ 23     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+ 24 
+ 25     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+ 26 
+ 27     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+ 28 
+ 29 #ifdef __APPLE__ glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+ 30 
+ 31     // uncomment this statement to fix compilation on OS X
+ 32 
+ 33 #endif
+ 34 
+ 35 // glfw window creation
+ 36 
+ 37 // --------------------
+ 38 
+ 39     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, &quot;LearnOpenGL&quot;, NULL, NULL);
+ 40 
+ 41     if (window == NULL)
+ 42 
+ 43     &#123;
+ 44 
+ 45         std::cout &lt;&lt; &quot;Failed to create GLFW window&quot; &lt;&lt; std::endl; glfwTerminate(); return -1;
+ 46 
+ 47     &#125;
+ 48 
+ 49     glfwMakeContextCurrent(window);
+ 50 
+ 51     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+ 52 
+ 53     // glad: load all OpenGL function pointers
+ 54 
+ 55     // ---------------------------------------
+ 56 
+ 57     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+ 58 
+ 59     &#123;
+ 60 
+ 61         std::cout &lt;&lt; &quot;Failed to initialize GLAD&quot; &lt;&lt; std::endl; return -1;
+ 62 
+ 63     &#125;
+ 64 
+ 65     // render loop
+ 66 
+ 67     // -----------
+ 68 
+ 69     while (!glfwWindowShouldClose(window))
+ 70 
+ 71     &#123;
+ 72 
+ 73         // input // -----
+ 74 
+ 75         processInput(window);
+ 76 
+ 77         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
+ 78 
+ 79         // -------------------------------------------------------------------------------
+ 80 
+ 81         glfwSwapBuffers(window);
+ 82 
+ 83         glfwPollEvents();
+ 84     &#125;
+ 85 
+ 86     // glfw: terminate, clearing all previously allocated GLFW resources. 
+ 87     // ------------------------------------------------------------------ 
+ 88     glfwTerminate(); return 0; 
+ 89 &#125; 
+ 90 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly 
+ 91 // --------------------------------------------------------------------------------------------------------- 
+ 92 void processInput(GLFWwindow *window) 
+ 93 &#123; 
+ 94     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) 
+ 95         glfwSetWindowShouldClose(window, true); 
+ 96 &#125;
+ 97  // glfw: whenever the window size changed (by OS or user resize) this callback function executes 
+ 98  // --------------------------------------------------------------------------------------------- 
+ 99 void framebuffer_size_callback(GLFWwindow* window, int width, int height) 
+100 &#123; 
+101     // make sure the viewport matches the new window dimensions; note that width and 
+102     // height will be significantly larger than specified on retina displays. 
+103     glViewport(0, 0, width, height); 
+104 &#125;
+</code></pre>
+</li>
+</ul>
+<ul>
+<li>出现图示窗口即可正常使用OpenGL</li>
+<li><img src="https://ftp.bmp.ovh/imgs/2020/03/db51f81eec2503b4.png" alt="img"></li>
+<li>若出现报错：默认库MSVCRTD与……冲突，属性-&gt;链接器-&gt;输入-&gt;忽略特定默认库-&gt;编辑，将MSVCRTD.lib添加进去即可</li>
+</ul>
+<h1 id="四、参考"><a href="#四、参考" class="headerlink" title="四、参考"></a>四、参考</h1><p>最后推荐一个学习OpenGL的网站，教程很舒服，本博客的测试源码也出自此：</p>
+<p><a target="_blank" rel="noopener" href="https://learnopengl-cn.github.io/">https://learnopengl-cn.github.io/</a></p>
 
                 
             </div>
@@ -523,7 +653,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://321hjd.github.io/yyds/de05866e.html">https://321hjd.github.io/yyds/de05866e.html</a>
+                    <a href="https://321hjd.github.io/yyds/9f37452d.html">https://321hjd.github.io/yyds/9f37452d.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -560,11 +690,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/MYSQL/">
-                                    <span class="chip bg-color">MYSQL</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -738,13 +864,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/yyds/91c00396.html">
+                <a href="/yyds/bc78a76b.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="关于 const char* 和 const int 的一个小问题">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="error LNK2019 无法解析的外部符号 __imp___invalid_parameter 解决方案">
                         
-                        <span class="card-title">关于 const char* 和 const int 的一个小问题</span>
+                        <span class="card-title">error LNK2019 无法解析的外部符号 __imp___invalid_parameter 解决方案</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -755,57 +881,8 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-06
                         </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AF%AD%E6%B3%95/" class="post-category">
-                                    语法
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/yyds/cf469c8c.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错">
-                        
-                        <span class="card-title">error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-23
-                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -826,6 +903,44 @@
                     </a>
                     
                 </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/yyds/9f37452d.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="OpenGL安装及配置">
+                        
+                        <span class="card-title">OpenGL安装及配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            hjd
+                            
+                        </span>
+                    </div>
+                </div>
+
                 
             </div>
         </div>

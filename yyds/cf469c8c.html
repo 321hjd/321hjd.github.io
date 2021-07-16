@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MYSQL删除三张表的联合信息, hjd&#39;blog">
+    <meta name="keywords" content="error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错, hjd&#39;blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MYSQL删除三张表的联合信息 | hjd&#39;blog</title>
+    <title>error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MYSQL删除三张表的联合信息</h1>
+                    <h1 class="description center-align post-title">error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +432,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/MYSQL/">
-                                <span class="chip bg-color">MYSQL</span>
+                            <a href="/tags/error-LNK2019/">
+                                <span class="chip bg-color">error LNK2019</span>
                             </a>
                         
                     </div>
@@ -444,8 +444,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AF%AD%E6%B3%95/" class="post-category">
-                                语法
+                            <a href="/categories/%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/" class="post-category">
+                                错误解决
                             </a>
                         
                     </div>
@@ -457,7 +457,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-23
+                    2020-03-23
                 </div>
                 
 
@@ -471,7 +471,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    71
+                    97
                 </div>
                 
 
@@ -491,12 +491,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>如要删除三张表的联合信息，使用MYSQL的左连接方法：LEFT JOIN ON</p>
-<p>例如，删除三张表中张三的所有数据：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">delete student,sc,stu 
-    from student left join sc on student.sno &#x3D; sc.sno 
-                left join stu on sc.sno &#x3D; stu.sno
-                where student.sname &#x3D; &#39;张三&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+                <ul>
+<li>先说原因，之前一直使用的是32位的glfw库，今天下载irrKlang的时候下了个64位的，查了好久才发现原来这也可以导致LNK2019错误</li>
+<li>具体报错就不放了，解决方案就是重新下了个32的irrKlang然后替换相应的文件</li>
+<li>之前还遇到过两种LNK2019的报错：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/hjd21/p/12431658.html">https://www.cnblogs.com/hjd21/p/12431658.html</a></li>
+</ul>
 
                 
             </div>
@@ -523,7 +522,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://321hjd.github.io/yyds/de05866e.html">https://321hjd.github.io/yyds/de05866e.html</a>
+                    <a href="https://321hjd.github.io/yyds/cf469c8c.html">https://321hjd.github.io/yyds/cf469c8c.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -561,8 +560,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/MYSQL/">
-                                    <span class="chip bg-color">MYSQL</span>
+                                <a href="/tags/error-LNK2019/">
+                                    <span class="chip bg-color">error LNK2019</span>
                                 </a>
                             
                         </div>
@@ -738,13 +737,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/yyds/91c00396.html">
+                <a href="/yyds/de05866e.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="关于 const char* 和 const int 的一个小问题">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="MYSQL删除三张表的联合信息">
                         
-                        <span class="card-title">关于 const char* 和 const int 的一个小问题</span>
+                        <span class="card-title">MYSQL删除三张表的联合信息</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -755,8 +754,57 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-23
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AF%AD%E6%B3%95/" class="post-category">
+                                    语法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/MYSQL/">
+                        <span class="chip bg-color">MYSQL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/yyds/868c3c39.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="error：非常量引用只能绑定到左值">
+                        
+                        <span class="card-title">error：非常量引用只能绑定到左值</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -774,55 +822,6 @@
                     
                     <a href="/tags/C/">
                         <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/yyds/cf469c8c.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错">
-                        
-                        <span class="card-title">error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-23
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/" class="post-category">
-                                    错误解决
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/error-LNK2019/">
-                        <span class="chip bg-color">error LNK2019</span>
                     </a>
                     
                 </div>

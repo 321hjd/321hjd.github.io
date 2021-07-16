@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2021-07-16T06:53:06.917Z</updated>
+  <updated>2021-07-16T07:39:53.797Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -17,21 +17,75 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>利用VMware将Ubuntu安装在u盘上</title>
+    <link href="https://321hjd.github.io/yyds/f79dbef5.html"/>
+    <id>https://321hjd.github.io/yyds/f79dbef5.html</id>
+    <published>2021-05-10T07:08:00.000Z</published>
+    <updated>2021-07-16T07:39:53.797Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、准备&quot;&gt;&lt;a href=&quot;#一、准备&quot; class=&quot;headerlink&quot; title=&quot;一、准备&quot;&gt;&lt;/a&gt;一、准备&lt;/h2&gt;&lt;div</summary>
+        
+      
+    
+    
+    
+    <category term="配置" scheme="https://321hjd.github.io/categories/%E9%85%8D%E7%BD%AE/"/>
+    
+    
+    <category term="Ubuntu" scheme="https://321hjd.github.io/tags/Ubuntu/"/>
+    
+    <category term="系统安装" scheme="https://321hjd.github.io/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/"/>
+    
+    <category term="VMware" scheme="https://321hjd.github.io/tags/VMware/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于 const char* 和 const int 的一个小问题</title>
+    <link href="https://321hjd.github.io/yyds/91c00396.html"/>
+    <id>https://321hjd.github.io/yyds/91c00396.html</id>
+    <published>2020-07-28T23:23:00.000Z</published>
+    <updated>2021-07-16T07:36:29.165Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;最近发现使用const int 定义变量时若不设初始值，编译器会报错。然而使用const char&lt;em&gt; 时却不会，并且使用const char&lt;/em&gt; 明明是const常量，却仍然可以修改其值。&lt;/p&gt;
+&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    <category term="语法" scheme="https://321hjd.github.io/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+    <category term="C++" scheme="https://321hjd.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MYSQL删除三张表的联合信息</title>
     <link href="https://321hjd.github.io/yyds/de05866e.html"/>
     <id>https://321hjd.github.io/yyds/de05866e.html</id>
     <published>2020-05-23T04:46:00.000Z</published>
-    <updated>2021-07-16T06:53:06.917Z</updated>
+    <updated>2021-07-16T07:16:06.276Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;&lt;/p&gt;&lt;p&gt;如要删除三张表的联合信息，使用MYSQL的左连接方法：LEFT JOIN ON&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;&lt;/p&gt;&lt;p&gt;例如，删除三张表中张三的所有数据：&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
-&lt;div class=&quot;cnblogs_code&quot;&gt;
-&lt;pre&gt;&lt;span</summary>
+    <summary type="html">&lt;p&gt;如要删除三张表的联合信息，使用MYSQL的左连接方法：LEFT JOIN ON&lt;/p&gt;
+&lt;p&gt;例如，删除三张表中张三的所有数据：&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-mysql&quot;</summary>
         
       
     
@@ -41,6 +95,135 @@
     
     
     <category term="MYSQL" scheme="https://321hjd.github.io/tags/MYSQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>error LNK2019: &quot;__declspec(dllimport)  使用irrKlang的库时报错</title>
+    <link href="https://321hjd.github.io/yyds/cf469c8c.html"/>
+    <id>https://321hjd.github.io/yyds/cf469c8c.html</id>
+    <published>2020-03-22T18:35:00.000Z</published>
+    <updated>2021-07-16T07:50:55.614Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;先说原因，之前一直使用的是32位的glfw库，今天下载irrKlang的时候下了个64位的，查了好久才发现原来这也可以导致LNK2019错误&lt;/li&gt;
+&lt;li&gt;具体报错就不放了，解决方案就是重新下了个32的irrKlang然后替换相应的文件&lt;/li&gt;
+&lt;li&gt;之</summary>
+        
+      
+    
+    
+    
+    <category term="错误解决" scheme="https://321hjd.github.io/categories/%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/"/>
+    
+    
+    <category term="error LNK2019" scheme="https://321hjd.github.io/tags/error-LNK2019/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>error：非常量引用只能绑定到左值</title>
+    <link href="https://321hjd.github.io/yyds/868c3c39.html"/>
+    <id>https://321hjd.github.io/yyds/868c3c39.html</id>
+    <published>2020-03-10T01:12:00.000Z</published>
+    <updated>2021-07-16T07:16:57.070Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h3&gt;&lt;p&gt;今天遇到一个关于C++引用的错误，说实话以前确实一直没注意到过引用还有这个规则&lt;/p&gt;
+&lt;pre</summary>
+        
+      
+    
+    
+    
+    <category term="语法" scheme="https://321hjd.github.io/categories/%E8%AF%AD%E6%B3%95/"/>
+    
+    
+    <category term="C++" scheme="https://321hjd.github.io/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>error LNK2019: 无法解析的外部符号 _stbi_load 使用stb_image.h库的错误</title>
+    <link href="https://321hjd.github.io/yyds/31791ebb.html"/>
+    <id>https://321hjd.github.io/yyds/31791ebb.html</id>
+    <published>2020-03-09T06:42:00.000Z</published>
+    <updated>2021-07-16T07:51:06.019Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;此错误在使用stb_image.h图片加载库时遇到&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;1&amp;gt;------ 已启动生成: 项目: OpenGL, 配置:</summary>
+        
+      
+    
+    
+    
+    <category term="错误解决" scheme="https://321hjd.github.io/categories/%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/"/>
+    
+    
+    <category term="error LNK2019" scheme="https://321hjd.github.io/tags/error-LNK2019/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>error LNK2019 无法解析的外部符号 __imp___invalid_parameter 解决方案</title>
+    <link href="https://321hjd.github.io/yyds/bc78a76b.html"/>
+    <id>https://321hjd.github.io/yyds/bc78a76b.html</id>
+    <published>2020-03-06T07:22:00.000Z</published>
+    <updated>2021-07-16T07:51:16.459Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;此报错是在用OpenGL画图时遇到的（OpenGL是项目名称）：&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;1&amp;gt;------ 已启动生成: 项目: OpenGL,</summary>
+        
+      
+    
+    
+    
+    <category term="错误解决" scheme="https://321hjd.github.io/categories/%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/"/>
+    
+    
+    <category term="error LNK2019" scheme="https://321hjd.github.io/tags/error-LNK2019/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OpenGL安装及配置</title>
+    <link href="https://321hjd.github.io/yyds/9f37452d.html"/>
+    <id>https://321hjd.github.io/yyds/9f37452d.html</id>
+    <published>2020-03-06T06:33:00.000Z</published>
+    <updated>2021-07-16T07:36:29.164Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;一、环境&quot;&gt;&lt;a href=&quot;#一、环境&quot; class=&quot;headerlink&quot; title=&quot;一、环境&quot;&gt;&lt;/a&gt;一、环境&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Windows 10 64位家庭版&lt;/li&gt;
+&lt;li&gt;vs版本：Visual Studio</summary>
+        
+      
+    
+    
+    
     
   </entry>
   

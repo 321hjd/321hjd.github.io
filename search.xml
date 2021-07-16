@@ -4,11 +4,65 @@
   
     
     <entry>
+      <title>利用VMware将Ubuntu安装在u盘上</title>
+      <link href="/yyds/f79dbef5.html"/>
+      <url>/yyds/f79dbef5.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="一、准备"><a href="#一、准备" class="headerlink" title="一、准备"></a>一、准备</h2><div class="table-container"><table><thead><tr><th>本机系统</th><th>Windows 10</th></tr></thead><tbody><tr><td>待装系统</td><td>ubuntu-21.04-desktop-amd64</td></tr><tr><td>虚拟机软件</td><td>VMware-workstation-full-16.1.0-17198959</td></tr><tr><td>工具</td><td>U盘（Sandisk 3.2Gen1，16G）（看网上教程应该8G左右都可行，注意最好使用3.0及以上的，否则安装过程将非常非常缓慢）</td></tr></tbody></table></div><h2 id="二、步骤"><a href="#二、步骤" class="headerlink" title="二、步骤"></a>二、步骤</h2><h3 id="新建虚拟机"><a href="#新建虚拟机" class="headerlink" title="新建虚拟机"></a>新建虚拟机</h3><ul><li>选择典型（自定义应该也可以，感觉区别不大）<ul><li><img src="https://i.bmp.ovh/imgs/2021/05/1575d8f7690c7c8a.png" alt="img"></li></ul></li><li>选择稍后安装操作系统<ul><li><img src="https://i.bmp.ovh/imgs/2021/05/78be4172ea7f691b.png" alt="img"></li></ul></li><li>客户机操作系统选择Linux，版本选Ubuntu64位<ul><li><img src="https://i.bmp.ovh/imgs/2021/05/96385572547c6fb9.png" alt="img"></li></ul></li><li>自定义虚拟机名称及存储位置，下一步</li><li>指定磁盘容量，默认，下一步</li><li>点击自定义硬件<ul><li>选择新CD/DVD-&gt;选择使用ISO映像文件（准备好的ubuntu的iso文件）<ul><li><img src="https://i.bmp.ovh/imgs/2021/05/f58995b28f224ddd.png" alt="img"></li></ul></li><li>选择USB控制器-&gt;兼容性选择USB3.1（我的理解是选最大的那个，都是向下兼容的），其它全选上<ul><li><img src="https://i.bmp.ovh/imgs/2021/05/a20b7ff98e2d6a0d.png" alt="img"></li></ul></li><li>其它默认，关闭，完成</li></ul></li></ul><h3 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h3><ul><li>开启虚拟机，默认选ubuntu（第一个）启动</li><li>插入U盘，根据提示将U盘接入到虚拟机或通过选项卡-&gt;可移动设备-&gt;Sandisk 3.2Gen1（这里是U盘名称）</li><li>选择合适的语言，点击试用Ubuntu</li><li>点击桌面上的安装程序进行安装</li><li>一路默认，为了节约时间，我选择了最小安装，其它选项不勾选<ul><li><img src="https://i.bmp.ovh/imgs/2021/05/574f29b2a20032a1.png" alt="img"></li></ul></li><li>安装类型选其它选项并开始分区（最重点）<ul><li>U盘引导启动有两种方式，一种是以前的Legacy BIOS方式，一种是新的UEFI方式（这里我也没有了解得很清楚）<ul><li>先查看自己的电脑的BIOS设置支持的是哪种方式：WIN+R，输入msinfo32<ul><li><img src="https://i.bmp.ovh/imgs/2021/05/befd4c0e83a7db93.png" alt="img"></li></ul></li><li>如果是UEFI启动模式，磁盘分区时不需要分/boot区，而是使用EFI系统分区</li><li>如果是Legacy BIOS启动模式，则使用/boot分区</li></ul></li><li>我的电脑支持UEFI启动模式，因此我的分区如下：（关于分区可以多参考网上的教程，我弄得不是很清楚）<ul><li>512MB的EFI系统分区（主分区+空间起始位置）（看网上有的教程说200MB就足够）<ul><li><img src="https://pic.imgdb.cn/item/6099450cd1a9ae528f086fa3.jpg" alt="img"></li><li>如果电脑只支持Legacy BIOS启动模式，则不需要此分区，改为新的XFS格式分区（大小同理，不过挂载在/boot下）</li></ul></li><li>10G的XFS格式分区（主分区+空间起始位置，挂载在/下，似乎是相当于windows的C盘，关于文件格式也可以多在网上查资料了解，不一定非要用XFS）<ul><li><img src="https://pic.imgdb.cn/item/60994675d1a9ae528f1c14f8.jpg" alt="img"></li></ul></li><li>剩下的可以全用光（仍然是XFS格式分区，主分区+空间起始位置，挂载在/home下，是用户自己的目录）<ul><li><img src="https://pic.imgdb.cn/item/60994766d1a9ae528f2ad238.jpg" alt="img"></li><li>这里不用光有个好处，就是可以利用剩下的空间当普通U盘用（需要通过磁盘管理-&gt;点击可用空间-&gt;新建简单卷-&gt;跟着引导曹操作）</li></ul></li><li>注意很重要的一步！这里需要将安装启动引导器的设备选项改为刚刚的EFI分区（即这里的dev/sdb1），否则下一步会报错<ul><li><img src="https://pic.imgdb.cn/item/60994908d1a9ae528f45575e.jpg" alt="img"></li><li>注意：如果是Legacy BIOS启动模式，这里似乎不需要更改，默认即可（我没试过，但看网上其它教程没有提到需要修改）</li></ul></li><li>然后安装（注意：看网上教程说，安装时需要断网，否则会出现一些奇怪的问题或者影响安装速度）<ul><li>选择时区，设置计算机名称和密码</li><li>经过等待（我的是新买的3.2Gen1，等待时间大概十几分钟到半小时？），安装完成，关闭虚拟机。<ul><li>注意此时电脑弹出的U盘格式化提示，一定不能格式化，否则重复上述步骤</li></ul></li><li>准备BIOS设置使用U盘启动</li></ul></li></ul></li></ul></li></ul><h3 id="进入BIOS设置，使用U盘启动"><a href="#进入BIOS设置，使用U盘启动" class="headerlink" title="进入BIOS设置，使用U盘启动"></a>进入BIOS设置，使用U盘启动</h3><ul><li>如何进入BIOS可以百度</li><li>进入BIOS后，选择U盘启动，完成。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 配置 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Ubuntu </tag>
+            
+            <tag> 系统安装 </tag>
+            
+            <tag> VMware </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于 const char* 和 const int 的一个小问题</title>
+      <link href="/yyds/91c00396.html"/>
+      <url>/yyds/91c00396.html</url>
+      
+        <content type="html"><![CDATA[<p>最近发现使用const int 定义变量时若不设初始值，编译器会报错。然而使用const char<em> 时却不会，并且使用const char</em> 明明是const常量，却仍然可以修改其值。</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int main()&#123;　 const int b;    &#x2F;&#x2F;报错    const char* a;    a &#x3D; &quot;hjd&quot;;    a &#x3D; &quot;sdf&quot;;      &#x2F;&#x2F;不会报错&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>发现原来是概念有些混淆，const char* 是常量指针，可以修改地址，不可修改指针指向的值，所以并未违背常量不可修改值的规定。这里由“hjd”变为“sdf”实际上是修改了指针a指向的地址。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 语法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MYSQL删除三张表的联合信息</title>
       <link href="/yyds/de05866e.html"/>
       <url>/yyds/de05866e.html</url>
       
-        <content type="html"><![CDATA[<p></p><p>如要删除三张表的联合信息，使用MYSQL的左连接方法：LEFT JOIN ON</p><p></p><p></p><p>例如，删除三张表中张三的所有数据：</p><p></p><div class="cnblogs_code"><pre><span style="color: #0000ff;">delete</span><span style="color: #000000;"> student,sc,stu     </span><span style="color: #0000ff;">from</span> student <span style="color: #808080;">left</span> <span style="color: #808080;">join</span> sc <span style="color: #0000ff;">on</span> student.sno <span style="color: #808080;">=</span><span style="color: #000000;"> sc.sno                 </span><span style="color: #808080;">left</span> <span style="color: #808080;">join</span> stu <span style="color: #0000ff;">on</span> sc.sno <span style="color: #808080;">=</span><span style="color: #000000;"> stu.sno                </span><span style="color: #0000ff;">where</span> student.sname <span style="color: #808080;">=</span> <span style="color: #ff0000;">'</span><span style="color: #ff0000;">张三</span><span style="color: #ff0000;">'</span>;</pre></div>]]></content>
+        <content type="html"><![CDATA[<p>如要删除三张表的联合信息，使用MYSQL的左连接方法：LEFT JOIN ON</p><p>例如，删除三张表中张三的所有数据：</p><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">delete student,sc,stu     from student left join sc on student.sno &#x3D; sc.sno                 left join stu on sc.sno &#x3D; stu.sno                where student.sname &#x3D; &#39;张三&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
       
       
       <categories>
@@ -23,6 +77,119 @@
             <tag> MYSQL </tag>
             
         </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>error LNK2019: &quot;__declspec(dllimport)  使用irrKlang的库时报错</title>
+      <link href="/yyds/cf469c8c.html"/>
+      <url>/yyds/cf469c8c.html</url>
+      
+        <content type="html"><![CDATA[<ul><li>先说原因，之前一直使用的是32位的glfw库，今天下载irrKlang的时候下了个64位的，查了好久才发现原来这也可以导致LNK2019错误</li><li>具体报错就不放了，解决方案就是重新下了个32的irrKlang然后替换相应的文件</li><li>之前还遇到过两种LNK2019的报错：<a href="https://www.cnblogs.com/hjd21/p/12431658.html">https://www.cnblogs.com/hjd21/p/12431658.html</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 错误解决 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> error LNK2019 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>error：非常量引用只能绑定到左值</title>
+      <link href="/yyds/868c3c39.html"/>
+      <url>/yyds/868c3c39.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>今天遇到一个关于C++引用的错误，说实话以前确实一直没注意到过引用还有这个规则</p><pre class="line-numbers language-none"><code class="language-none">1&gt;------ 已启动生成: 项目: OpenGL, 配置: Debug Win32 ------1&gt;Game.cpp1&gt;d:\18482\visual studio\source\repos\opengl\opengl\game.cpp(55): error C2664: “void SpriteRenderer::DrawSprite(Texture2D &amp;,glm::vec2,glm::vec2,GLfloat,glm::vec3)”: 无法将参数 1 从“Texture2D”转换为“Texture2D &amp;”1&gt;d:\18482\visual studio\source\repos\opengl\opengl\game.cpp(55): note: 非常量引用只能绑定到左值1&gt;已完成生成项目“OpenGL.vcxproj”的操作 - 失败。&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 生成: 成功 0 个，失败 1 个，最新 0 个，跳过 0 个 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>先解释左值和右值的区别：</p><ul><li>从字面意思看，左右值就是在“=”两端的变量或表达式（以前我一直是这样理解的/手动狗头），但其实不是这样的。</li><li><strong>左值（Location Value）</strong>：并不是left_value，指的是<strong>可以寻址</strong>。指的是如果一个表达式可以引用到某一个对象，并且这个对象是一块内存空间且可以被检查和存储，那么这个表达式就可以作为一个左值。</li><li><strong>右值（Read Value）</strong>：也就是<strong>可读。</strong>指的是引用了一个存储在某个内存地址里的“数据”。</li></ul><p>例子：</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void func(int &amp;a)&#123;    cout &lt;&lt; a;&#125;void main()&#123;    double i &#x3D; 4;    func(i);&#x2F;&#x2F;这里进行了强制类型转换，会产生一个临时变量&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li><p>上面的写法是不合法的，会报错“非常量的引用只能绑定到左值”，按照正常理解 i 其实是一个左值，但是由于定义的 i 和func函数需要的参数并不是相同类型，这里实际上经过了一次强制类型转换，并且生成了一个临时变量<strong>（而临时变量都是常量，不能作为左值，只能由const引用，不能改变值）</strong>，所以这里非const的引用会报错</p></li><li><p>这里解决方式有两种</p><ul><li><p>让实参和形参类型相同，不必进行强制类型转换</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void func(int &amp;a)&#123; 　cout &lt;&lt; a; &#125; void main() &#123; 　　int i &#x3D; 4; &#x2F;&#x2F;修改i的类型　　func(i);&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>使用右值引用</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void func(const int &amp;a)&#x2F;&#x2F;右值引用&#123; 　cout &lt;&lt; a; &#125; void main() &#123; 　　double i &#x3D; 4; 　　func(i);&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul></li></ul><p>另外，右值引用可以延长临时变量的生命周期，比如这个例子：</p><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int func(int a)&#123;     return  a +&#x3D; 10;　　　　　　&#x2F;&#x2F;函数返回值也是一个临时变量&#125;void main() &#123;　　int i &#x3D; 10;　　const int &amp;b &#x3D; func(i);　　&#x2F;&#x2F;变量a是对函数返回值（临时变量）的引用，因此函数返回值不会在此时立即销毁，而是一直延续到整个程序结束　　cout&lt;&lt;b;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 语法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>error LNK2019: 无法解析的外部符号 _stbi_load 使用stb_image.h库的错误</title>
+      <link href="/yyds/31791ebb.html"/>
+      <url>/yyds/31791ebb.html</url>
+      
+        <content type="html"><![CDATA[<p>此错误在使用stb_image.h图片加载库时遇到</p><pre class="line-numbers language-none"><code class="language-none">1&gt;------ 已启动生成: 项目: OpenGL, 配置: Debug Win32 ------1&gt;ResourceManager.cpp1&gt;ResourceManager.obj : error LNK2019: 无法解析的外部符号 _stbi_load，该符号在函数 &quot;private: static class Texture2D __cdecl ResourceManager::loadTextureFromFile(char const *,unsigned char)&quot; (?loadTextureFromFile@ResourceManager@@CA?AVTexture2D@@PBDE@Z) 中被引用1&gt;ResourceManager.obj : error LNK2019: 无法解析的外部符号 _stbi_image_free，该符号在函数 &quot;private: static class Texture2D __cdecl ResourceManager::loadTextureFromFile(char const *,unsigned char)&quot; (?loadTextureFromFile@ResourceManager@@CA?AVTexture2D@@PBDE@Z) 中被引用1&gt;D:\18482\visual studio\source\repos\OpenGL\Debug\OpenGL.exe : fatal error LNK1120: 2 个无法解析的外部命令1&gt;已完成生成项目“OpenGL.vcxproj”的操作 - 失败。&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 生成: 成功 0 个，失败 1 个，最新 0 个，跳过 0 个 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>解决：在include”stb_image.h”前加上#define STB_IMAGE_IMPLEMENTATION，通过定义STB_IMAGE_IMPLEMENTATION，预处理器会修改头文件，让其只包含相关的函数定义源码，相当于把这个头文件变为一个 .cpp 文件（原stb_image.h库的教程给出，具体原因未知）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 错误解决 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> error LNK2019 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>error LNK2019 无法解析的外部符号 __imp___invalid_parameter 解决方案</title>
+      <link href="/yyds/bc78a76b.html"/>
+      <url>/yyds/bc78a76b.html</url>
+      
+        <content type="html"><![CDATA[<p>此报错是在用OpenGL画图时遇到的（OpenGL是项目名称）：</p><pre class="line-numbers language-none"><code class="language-none">1&gt;------ 已启动生成: 项目: OpenGL, 配置: Debug Win32 ------1&gt;glad.c1&gt;源.cpp1&gt;源.obj : error LNK2019: 无法解析的外部符号 __imp___invalid_parameter，该符号在函数 &quot;void * __cdecl std::_Allocate_manually_vector_aligned&lt;struct std::_Default_allocate_traits&gt;(unsigned int)&quot; (??$_Allocate_manually_vector_aligned@U_Default_allocate_traits@std@@@std@@YAPAXI@Z) 中被引用1&gt;源.obj : error LNK2019: 无法解析的外部符号 __imp___CrtDbgReport，该符号在函数 &quot;void * __cdecl std::_Allocate_manually_vector_aligned&lt;struct std::_Default_allocate_traits&gt;(unsigned int)&quot; (??$_Allocate_manually_vector_aligned@U_Default_allocate_traits@std@@@std@@YAPAXI@Z) 中被引用1&gt;msvcprtd.lib(locale0_implib.obj) : error LNK2019: 无法解析的外部符号 __imp___free_dbg，该符号在函数 &quot;public: static void __cdecl std::_Fac_node::operator delete(void *)&quot; (??3_Fac_node@std@@SAXPAX@Z) 中被引用1&gt;msvcprtd.lib(locale0_implib.obj) : error LNK2019: 无法解析的外部符号 __imp___malloc_dbg，该符号在函数 &quot;public: static void * __cdecl std::_Fac_node::operator new(unsigned int)&quot; (??2_Fac_node@std@@SAPAXI@Z) 中被引用1&gt;D:\18482\visual studio\source\repos\OpenGL\Debug\OpenGL.exe : fatal error LNK1120: 4 个无法解析的外部命令1&gt;已完成生成项目“OpenGL.vcxproj”的操作 - 失败。&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 生成: 成功 0 个，失败 1 个，最新 0 个，跳过 0 个 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>在网上找了找，大概有两种可能：</p><ul><li>缺少依赖库，这种情况直接查找符号对应的库，然后将其添加至依赖库（因为这里是第二种情况，尝试失败）</li><li>运用了错误的运行库</li></ul><pre class="line-numbers language-none"><code class="language-none">在一程序中使用不同类型的运行时库或使用调试和非调试版本的运行时库，则将收到此链接错误。例如，编译一个文件以使用一种运行时库，而编译另一个文件以使用另一种运行时库（例如单线程运行时库对多线程运行时库），试图链接它们，则将得到此警告。应将所有源文件编译为使用同一运行时库。 其实就是调正编译器选项参数：&#x2F;MD、&#x2F;MT 和 &#x2F;LD此方案来自：https:&#x2F;&#x2F;blog.csdn.net&#x2F;jean7155&#x2F;article&#x2F;details&#x2F;6924806<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ul><li>解决：项目属性-&gt;C/C++-&gt;代码生成-&gt;运行库：选择正确的运行库，这个需要查一下不同库的意思，如果不想查就挨个试一遍。。。</li><li>我这里原来使用的是：多线程调试 DLL (/MDd)，更改为：多线程 DLL (/MD)，解决</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 错误解决 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> error LNK2019 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>OpenGL安装及配置</title>
+      <link href="/yyds/9f37452d.html"/>
+      <url>/yyds/9f37452d.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、环境"><a href="#一、环境" class="headerlink" title="一、环境"></a>一、环境</h1><ul><li>Windows 10 64位家庭版</li><li>vs版本：Visual Studio 2017</li></ul><h1 id="二、配置OpenGL所需"><a href="#二、配置OpenGL所需" class="headerlink" title="二、配置OpenGL所需"></a>二、配置OpenGL所需</h1><ul><li>GLFW</li><li>GLAD</li></ul><h1 id="三、步骤"><a href="#三、步骤" class="headerlink" title="三、步骤"></a>三、步骤</h1><h2 id="1-配置GLFW"><a href="#1-配置GLFW" class="headerlink" title="　　1.配置GLFW"></a>　　1.配置GLFW</h2><ul><li>进入官网下载GLFW并解压：<a href="https://www.glfw.org/download.html">GLFW下载</a></li><li>这里选择32位的，因为64位的可能有些问题</li><li><img src="https://ftp.bmp.ovh/imgs/2020/03/cf3f2b89bc4d4b76.png" alt="img"></li><li>进入VS2017创建空项目，在项目文件夹下创建includes和libs两个文件夹（如创建项目OpenGL，则为OpenGL/OpenGL/includes）</li><li>将解压文件中lib-vc2017文件夹下的.lib文件拷贝进刚刚创建的libs下，同时将include下的.h文件拷贝进刚刚创建的includes下</li><li>在项目名处右键-&gt;属性-&gt;VC++目录-&gt;引用目录-&gt;编辑：粘贴项目文件夹下的.h文件所在目录</li><li><img src="https://ftp.bmp.ovh/imgs/2020/03/3f9b561f13542bd6.png" alt="img"></li><li>同理，库目录-&gt;编辑：粘贴项目文件夹下的.lib文件所在目录</li><li><img src="https://ftp.bmp.ovh/imgs/2020/03/2b0a13d41f367eb2.png" alt="img"></li><li>接着将为项目添加依赖项：仍然是属性-&gt;链接器-&gt;输入-&gt;附加依赖项-&gt;编辑，将opengl32.lib，glfw3.lib，msvcrt.lib添加进去</li><li><img src="https://ftp.bmp.ovh/imgs/2020/03/34dbf4338810d7de.png" alt="img"></li></ul><h2 id="2-GLAD"><a href="#2-GLAD" class="headerlink" title="　　2.GLAD"></a>　　2.GLAD</h2><ul><li>进入GLAD官网：<a href="https://glad.dav1d.de/">GLAD下载</a></li><li>Language选C\C++，Profile选core，version根据需要选择（3.3版本及以上），然后GRNERATE，之后选择zip文件下载并解压</li><li><img src="https://ftp.bmp.ovh/imgs/2020/03/a5647816217d1437.png" alt="img"></li><li>将include下的.h文件全部拷贝进项目文件夹下的includes下，将src下的glad.c拷贝进项目文件夹下</li><li>然后进入vs，添加源文件-&gt;现有项，将glad.c添加进项目</li><li><img src="https://ftp.bmp.ovh/imgs/2020/03/16650f8004bd5b7f.png" alt="img"></li><li>至此库文件配置完成，接下来测试是否能正常使用OpenGL</li></ul><h2 id="3-测试OpenGL"><a href="#3-测试OpenGL" class="headerlink" title="　　3.测试OpenGL"></a>　　3.测试OpenGL</h2><ul><li><p>创建源文件，首先需要引用glad.h和glfw3.h文件</p></li><li><p>因为使用的是自己添加的文件，这里引用需要使用“ “而非&lt;&gt;，使用” “时，它会自动出现你所添加的目录</p></li><li><pre><code class="lang-c++">  1 #include&quot;includes/glad.h&quot;  2   3 #include&quot;includes/glfw3.h&quot;  4   5 #include &lt;iostream&gt;  6   7 void framebuffer_size_callback(GLFWwindow* window, int width, int height);  8   9 void processInput(GLFWwindow *window); // settings 10  11 const unsigned int SCR_WIDTH = 800; 12  13 const unsigned int SCR_HEIGHT = 600; 14  15 int main() &#123; 16  17     // glfw: initialize and configure 18  19     // ------------------------------ 20  21     glfwInit(); 22  23     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3); 24  25     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3); 26  27     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); 28  29 #ifdef __APPLE__ glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); 30  31     // uncomment this statement to fix compilation on OS X 32  33 #endif 34  35 // glfw window creation 36  37 // -------------------- 38  39     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, &quot;LearnOpenGL&quot;, NULL, NULL); 40  41     if (window == NULL) 42  43     &#123; 44  45         std::cout &lt;&lt; &quot;Failed to create GLFW window&quot; &lt;&lt; std::endl; glfwTerminate(); return -1; 46  47     &#125; 48  49     glfwMakeContextCurrent(window); 50  51     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback); 52  53     // glad: load all OpenGL function pointers 54  55     // --------------------------------------- 56  57     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) 58  59     &#123; 60  61         std::cout &lt;&lt; &quot;Failed to initialize GLAD&quot; &lt;&lt; std::endl; return -1; 62  63     &#125; 64  65     // render loop 66  67     // ----------- 68  69     while (!glfwWindowShouldClose(window)) 70  71     &#123; 72  73         // input // ----- 74  75         processInput(window); 76  77         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.) 78  79         // ------------------------------------------------------------------------------- 80  81         glfwSwapBuffers(window); 82  83         glfwPollEvents(); 84     &#125; 85  86     // glfw: terminate, clearing all previously allocated GLFW resources.  87     // ------------------------------------------------------------------  88     glfwTerminate(); return 0;  89 &#125;  90 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly  91 // ---------------------------------------------------------------------------------------------------------  92 void processInput(GLFWwindow *window)  93 &#123;  94     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)  95         glfwSetWindowShouldClose(window, true);  96 &#125; 97  // glfw: whenever the window size changed (by OS or user resize) this callback function executes  98  // ---------------------------------------------------------------------------------------------  99 void framebuffer_size_callback(GLFWwindow* window, int width, int height) 100 &#123; 101     // make sure the viewport matches the new window dimensions; note that width and 102     // height will be significantly larger than specified on retina displays. 103     glViewport(0, 0, width, height); 104 &#125;</code></pre></li></ul><ul><li>出现图示窗口即可正常使用OpenGL</li><li><img src="https://ftp.bmp.ovh/imgs/2020/03/db51f81eec2503b4.png" alt="img"></li><li>若出现报错：默认库MSVCRTD与……冲突，属性-&gt;链接器-&gt;输入-&gt;忽略特定默认库-&gt;编辑，将MSVCRTD.lib添加进去即可</li></ul><h1 id="四、参考"><a href="#四、参考" class="headerlink" title="四、参考"></a>四、参考</h1><p>最后推荐一个学习OpenGL的网站，教程很舒服，本博客的测试源码也出自此：</p><p><a href="https://learnopengl-cn.github.io/">https://learnopengl-cn.github.io/</a></p>]]></content>
+      
+      
       
     </entry>
     
