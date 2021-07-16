@@ -834,6 +834,16 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
+	<script type="text/javascript">   
+		var OriginTitile = document.title, st;    
+		document.addEventListener("visibilitychange", function () {
+			document.hidden ? (document.title = "🙈😜"有本事点我, clearTimeout(st)) : (document.title = "( ఠൠఠ )ﾉ啊你还真点啊", 
+				st = setTimeout(function () {
+					document.title = OriginTitile             
+				}, 3e3))    
+		}) 
+	</script>
+
 </body>
 
 </html>
