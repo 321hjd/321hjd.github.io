@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错, hjd&#39;blog">
+    <meta name="keywords" content="双指针-快慢指针, hjd&#39;blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错 | hjd&#39;blog</title>
+    <title>双指针-快慢指针 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错</h1>
+                    <h1 class="description center-align post-title">双指针-快慢指针</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +432,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/error-LNK2019/">
-                                <span class="chip bg-color">error LNK2019</span>
+                            <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                                <span class="chip bg-color">双指针</span>
                             </a>
                         
                     </div>
@@ -444,8 +444,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/" class="post-category">
-                                错误解决
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -457,7 +457,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-23
+                    2020-10-16
                 </div>
                 
 
@@ -471,7 +471,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    96
+                    387
                 </div>
                 
 
@@ -492,9 +492,43 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <ul>
-<li>先说原因，之前一直使用的是32位的glfw库，今天下载irrKlang的时候下了个64位的，查了好久才发现原来这也可以导致LNK2019错误</li>
-<li>具体报错就不放了，解决方案就是重新下了个32的irrKlang然后替换相应的文件</li>
-<li>之前还遇到过两种LNK2019的报错：<a href="https://321hjd.github.io/yyds/bc78a76b.html">https://321hjd.github.io/yyds/bc78a76b.html</a></li>
+<li><p>快慢指针：快慢指两个指针每次移动的步长，比如慢指针每次移动一步，快指针每次移动两步。</p>
+</li>
+<li><p>例题：<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/move-zeroes/">LeetCode283：移动零</a></p>
+<ul>
+<li><p>题目要求：给定一个数组 <code>nums</code>，编写一个函数将所有 <code>0</code> 移动到数组的末尾，同时保持非零元素的相对顺序。</p>
+</li>
+<li><p>例：<strong>输入:</strong> <code>[0,1,0,3,12]</code> <strong>输出:</strong> <code>[1,3,12,0,0]</code></p>
+</li>
+<li><p>思路1：设两个指针，一个遍历数组，一个只在元素非零时用于给数组赋值。最后再将数组剩下的位置全部填0</p>
+</li>
+<li><p>代码：</p>
+</li>
+<li><p>```c++<br> 1 class Solution {<br> 2 public:<br> 3     /<em>按顺序为数组赋值原数组的正数即可</em>/<br> 4     void moveZeroes(vector<int>&amp; nums) {<br> 5         int j = 0;<br> 6         for(int i = 0;i &lt; nums.size(); ++i)<br> 7             if(nums[i] != 0)<br> 8                 nums[j++] = nums[i];<br> 9         while(j &lt; nums.size())<br>10             nums[j++] = 0;<br>11     }<br>12 };</int></p>
+<pre class="line-numbers language-none"><code class="language-none">
+   
+
+- 思路2：由于数组每个非零数，正确位置要么在当前位置，要么在此位置之前，所以可设快慢指针，每次遇到非零数时，直接交换两个指针指向的元素。相比思路1，避免了数组前导数全为0时的多余操作。
+
+- 代码：(此源代码来自LeetCode官方)
+
+- &#96;&#96;&#96;c++
+   1 class Solution &#123;
+   2 public:
+   3     &#x2F;*快慢指针
+   4     *当前数的位置最多不动或该往前移动
+   5     *&#x2F;
+   6     void moveZeroes(vector&lt;int&gt;&amp; nums) &#123;
+   7         for (int lastNonZeroFoundAt &#x3D; 0, cur &#x3D; 0; cur &lt; nums.size(); cur++) &#123;
+   8             if (nums[cur] !&#x3D; 0) &#123;
+   9                 swap(nums[lastNonZeroFoundAt++], nums[cur]);
+  10             &#125;
+  11         &#125;
+  12     &#125;
+  13 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+</li>
 </ul>
 
                 
@@ -522,7 +556,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://321hjd.github.io/yyds/cf469c8c.html">https://321hjd.github.io/yyds/cf469c8c.html</a>
+                    <a href="https://321hjd.github.io/yyds/3f704f49.html">https://321hjd.github.io/yyds/3f704f49.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -560,8 +594,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/error-LNK2019/">
-                                    <span class="chip bg-color">error LNK2019</span>
+                                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                                    <span class="chip bg-color">双指针</span>
                                 </a>
                             
                         </div>
@@ -737,13 +771,12 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/yyds/de05866e.html">
+                <a href="/yyds/f79dbef5.html">
                     <div class="card-image">
                         
+                        <img src="https://i.loli.net/2021/07/16/hytWOjlkmsKXTFP.png" class="responsive-img" alt="利用VMware将Ubuntu安装在u盘上">
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="MYSQL删除三张表的联合信息">
-                        
-                        <span class="card-title">MYSQL删除三张表的联合信息</span>
+                        <span class="card-title">利用VMware将Ubuntu安装在u盘上</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -754,14 +787,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-23
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-10
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AF%AD%E6%B3%95/" class="post-category">
-                                    语法
+                            <a href="/categories/%E9%85%8D%E7%BD%AE/" class="post-category">
+                                    配置
                                 </a>
                             
                             
@@ -771,8 +804,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MYSQL/">
-                        <span class="chip bg-color">MYSQL</span>
+                    <a href="/tags/Ubuntu/">
+                        <span class="chip bg-color">Ubuntu</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/">
+                        <span class="chip bg-color">系统安装</span>
+                    </a>
+                    
+                    <a href="/tags/VMware/">
+                        <span class="chip bg-color">VMware</span>
                     </a>
                     
                 </div>
@@ -786,13 +827,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yyds/868c3c39.html">
+                <a href="/yyds/5b6ac126.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="error：非常量引用只能绑定到左值">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="摩尔投票法（寻找众数）">
                         
-                        <span class="card-title">error：非常量引用只能绑定到左值</span>
+                        <span class="card-title">摩尔投票法（寻找众数）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -803,14 +844,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-13
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AF%AD%E6%B3%95/" class="post-category">
-                                    语法
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -820,8 +861,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/">
+                        <span class="chip bg-color">摩尔投票</span>
                     </a>
                     
                 </div>

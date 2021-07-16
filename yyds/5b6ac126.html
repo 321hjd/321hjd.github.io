@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错, hjd&#39;blog">
+    <meta name="keywords" content="摩尔投票法（寻找众数）, hjd&#39;blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错 | hjd&#39;blog</title>
+    <title>摩尔投票法（寻找众数） | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -311,12 +311,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错</h1>
+                    <h1 class="description center-align post-title">摩尔投票法（寻找众数）</h1>
                 </div>
             </div>
         </div>
@@ -432,8 +432,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/error-LNK2019/">
-                                <span class="chip bg-color">error LNK2019</span>
+                            <a href="/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/">
+                                <span class="chip bg-color">摩尔投票</span>
                             </a>
                         
                     </div>
@@ -444,8 +444,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/" class="post-category">
-                                错误解决
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                算法
                             </a>
                         
                     </div>
@@ -457,7 +457,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-23
+                    2020-10-13
                 </div>
                 
 
@@ -471,7 +471,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    96
+                    884
                 </div>
                 
 
@@ -492,10 +492,110 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <ul>
-<li>先说原因，之前一直使用的是32位的glfw库，今天下载irrKlang的时候下了个64位的，查了好久才发现原来这也可以导致LNK2019错误</li>
-<li>具体报错就不放了，解决方案就是重新下了个32的irrKlang然后替换相应的文件</li>
-<li>之前还遇到过两种LNK2019的报错：<a href="https://321hjd.github.io/yyds/bc78a76b.html">https://321hjd.github.io/yyds/bc78a76b.html</a></li>
+<li>问题1：在一个数组中找到一个出现次数大于n/2的数（保证一定存在）<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/majority-element/">leetcode169题（多数元素）</a><ul>
+<li>要求：实现时间复杂度为O(n)，空间复杂度为O(1)的解法</li>
+<li>解法：摩尔投票法</li>
 </ul>
+</li>
+<li>摩尔投票法：<ul>
+<li>原理：当一个数在数组中出现次数大于n/2，那么每次删除两个不同的元素，剩下的元素一定是该数</li>
+<li>实现思路：<ul>
+<li>要求时间复杂度O(n)，空间复杂度O(1)，因此不可能真的在数组中遍历并执行删除操作。</li>
+<li>其实现有一定技巧：假设存在一个虚拟数组，用于存放还未和不同元素一起删除的数，该数组只存在若干同一元素；遍历原数组，若有与虚拟数组元素不同的数，则会将两个数一起从虚拟数组中删去。</li>
+<li>因此只需要两个变量，一个存储可能是满足条件的值（虚拟数组中的数），一个存储个数。</li>
+<li>遍历原数组到当前元素时，若虚拟数组为空，则将当前数放入虚拟数组；若虚拟数组非空，则比较两数是否相同，若相同，则将当前数加入到虚拟数组；若不同，则虚拟数组的数减1，继续遍历下一元素（即相当于删除两数）。</li>
+<li>因为保证一定存储，所以最后虚拟数组剩下的数就是满足条件的“多数”。</li>
+</ul>
+</li>
+<li>leetcode代码：</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++"> 1 class Solution &#123;
+ 2 public:
+ 3     &#x2F;*摩尔投票法(寻找众数)*&#x2F;
+ 4     int majorityElement(vector&lt;int&gt;&amp; nums) &#123;
+ 5         int candidate &#x3D; -1;
+ 6         int cnt &#x3D; 0;
+ 7         for (int num : nums) &#123;
+ 8             if(cnt &#x3D;&#x3D; 0)
+ 9             &#123;
+10                 candidate &#x3D; num;
+11                 cnt &#x3D; 1;
+12             &#125;
+13             else if(num &#x3D;&#x3D; candidate) 
+14                 ++cnt;
+15             else    
+16                 --cnt;
+17         &#125;
+18         return candidate;
+19     &#125;
+20 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li><p>问题2（进阶）：</p>
+<p>在一个数组中找到所有出现次数大于n/3的数 <a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/majority-element-ii/">leetcode229题（求众数II）</a></p>
+<ul>
+<li>要求：实现时间复杂度为O(n)，空间复杂度为O(1)的解法</li>
+<li>问题分析：<ul>
+<li>在一个数组中出现次数大于n/3的数最多有2个</li>
+<li>题目未说明保证存在满足条件的数</li>
+</ul>
+</li>
+<li>思路：<ul>
+<li>仍然是用摩尔投票法，只是因为没有保证该数存在，因此需要增加一个验证环节。</li>
+<li>最多可能有2个满足条件数，因此需要四个变量</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++"> 1 class Solution &#123;
+ 2 public:
+ 3     &#x2F;*摩尔投票法*&#x2F;
+ 4     vector&lt;int&gt; majorityElement(vector&lt;int&gt;&amp; nums) &#123;
+ 5         int cnt1 &#x3D; 0, cnt2 &#x3D; 0;
+ 6         int can1 &#x3D; 0, can2 &#x3D; 0;
+ 7         for(int num:nums)
+ 8         &#123;
+ 9             if(can1 &#x3D;&#x3D; num)    
+10                 ++cnt1;
+11             else if(can2 &#x3D;&#x3D; num)
+12                 ++cnt2;
+13             &#x2F;&#x2F;candidate和cnt的判断不能交换顺序，否则可能为两个候选值赋为同一个值
+14             else if(cnt1 &#x3D;&#x3D; 0)
+15             &#123;
+16                 can1 &#x3D; num;
+17                 cnt1 &#x3D; 1;
+18             &#125;
+19             else if(cnt2 &#x3D;&#x3D; 0)
+20             &#123;
+21                 can2 &#x3D; num;
+22                 cnt2 &#x3D; 1;
+23             &#125;
+24             else
+25             &#123;
+26                 --cnt1;
+27                 --cnt2;
+28             &#125;
+29         &#125;
+30         &#x2F;&#x2F;验证是否满足条件
+31         vector&lt;int&gt; res;
+32         cnt1 &#x3D; 0, cnt2 &#x3D; 0;
+33         for(int num:nums)
+34         &#123;
+35             if(can1 &#x3D;&#x3D; num)
+36                 ++cnt1;
+37         &#x2F;&#x2F;注意一定要用else if，保证两数的判断是有先后的，才不会出现两候选数相同的情况
+38             else if(can2 &#x3D;&#x3D; num) 
+39                 ++cnt2;
+40         &#125;
+41         if(cnt1 &gt; nums.size()&#x2F;3)
+42             res.emplace_back(can1);
+43         if(cnt2 &gt; nums.size()&#x2F;3)
+44             res.emplace_back(can2);
+45         return res;
+46     &#125;
+47 &#125;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -522,7 +622,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://321hjd.github.io/yyds/cf469c8c.html">https://321hjd.github.io/yyds/cf469c8c.html</a>
+                    <a href="https://321hjd.github.io/yyds/5b6ac126.html">https://321hjd.github.io/yyds/5b6ac126.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -560,8 +660,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/error-LNK2019/">
-                                    <span class="chip bg-color">error LNK2019</span>
+                                <a href="/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/">
+                                    <span class="chip bg-color">摩尔投票</span>
                                 </a>
                             
                         </div>
@@ -737,13 +837,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/yyds/de05866e.html">
+                <a href="/yyds/3f704f49.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="MYSQL删除三张表的联合信息">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="双指针-快慢指针">
                         
-                        <span class="card-title">MYSQL删除三张表的联合信息</span>
+                        <span class="card-title">双指针-快慢指针</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -754,14 +854,14 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-23
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-16
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AF%AD%E6%B3%95/" class="post-category">
-                                    语法
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
                                 </a>
                             
                             
@@ -771,8 +871,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MYSQL/">
-                        <span class="chip bg-color">MYSQL</span>
+                    <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/">
+                        <span class="chip bg-color">双指针</span>
                     </a>
                     
                 </div>
@@ -786,13 +886,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yyds/868c3c39.html">
+                <a href="/yyds/91c00396.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="error：非常量引用只能绑定到左值">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="关于 const char* 和 const int 的一个小问题">
                         
-                        <span class="card-title">error：非常量引用只能绑定到左值</span>
+                        <span class="card-title">关于 const char* 和 const int 的一个小问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -803,7 +903,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
                             </span>
                         <span class="publish-author">
                             

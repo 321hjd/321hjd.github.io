@@ -46,6 +46,60 @@
   </entry>
   
   <entry>
+    <title>双指针-快慢指针</title>
+    <link href="https://321hjd.github.io/yyds/3f704f49.html"/>
+    <id>https://321hjd.github.io/yyds/3f704f49.html</id>
+    <published>2020-10-15T16:51:00.000Z</published>
+    <updated>2021-07-16T08:00:28.141Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;快慢指针：快慢指两个指针每次移动的步长，比如慢指针每次移动一步，快指针每次移动两步。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;例题：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="https://321hjd.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="双指针" scheme="https://321hjd.github.io/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>摩尔投票法（寻找众数）</title>
+    <link href="https://321hjd.github.io/yyds/5b6ac126.html"/>
+    <id>https://321hjd.github.io/yyds/5b6ac126.html</id>
+    <published>2020-10-12T17:37:00.000Z</published>
+    <updated>2021-07-16T08:03:11.955Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;问题1：在一个数组中找到一个出现次数大于n/2的数（保证一定存在）&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="https://321hjd.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="摩尔投票" scheme="https://321hjd.github.io/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/"/>
+    
+  </entry>
+  
+  <entry>
     <title>关于 const char* 和 const int 的一个小问题</title>
     <link href="https://321hjd.github.io/yyds/91c00396.html"/>
     <id>https://321hjd.github.io/yyds/91c00396.html</id>
@@ -103,7 +157,7 @@
     <link href="https://321hjd.github.io/yyds/cf469c8c.html"/>
     <id>https://321hjd.github.io/yyds/cf469c8c.html</id>
     <published>2020-03-22T18:35:00.000Z</published>
-    <updated>2021-07-16T07:50:55.614Z</updated>
+    <updated>2021-07-16T07:56:35.399Z</updated>
     
     
       
@@ -157,7 +211,7 @@
     <link href="https://321hjd.github.io/yyds/31791ebb.html"/>
     <id>https://321hjd.github.io/yyds/31791ebb.html</id>
     <published>2020-03-09T06:42:00.000Z</published>
-    <updated>2021-07-16T07:51:06.019Z</updated>
+    <updated>2021-07-16T07:51:32.590Z</updated>
     
     
       
