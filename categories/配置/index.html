@@ -41,10 +41,12 @@
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">hjd&#39;blog</span>
+					<div>
+						
+						<img src="/medias/loading.gif" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
+						
+						<span class="logo-span">hjd&#39;blog</span>
+					</div>
                 </a>
             </div>
             
@@ -141,7 +143,7 @@
 
     <div class="mobile-head bg-color">
         
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        <img src="/medias/loading.gif" data-original="/medias/logo.png" class="logo-img circle responsive-img">
         
         <div class="logo-name">hjd&#39;blog</div>
         <div class="logo-desc">
@@ -430,7 +432,7 @@
                     <a href="/yyds/f79dbef5.html">
                         <div class="card-image tag-image">
                             
-                            <img src="https://i.loli.net/2021/07/16/hytWOjlkmsKXTFP.png" class="responsive-img" alt="利用VMware将Ubuntu安装在u盘上">
+                            <img src="/medias/loading.gif" data-original="https://i.loli.net/2021/07/16/hytWOjlkmsKXTFP.png" class="responsive-img" alt="利用VMware将Ubuntu安装在u盘上">
                             
                             <span class="card-title">利用VMware将Ubuntu安装在u盘上</span>
                         </div>
@@ -441,8 +443,10 @@
                                 一、准备
 
 
+
 本机系统
 Windows 10
+
 
 
 
@@ -455,7 +459,7 @@ VMware-workstation-full-16.1.0-17198959
 
 
 工具
-U盘（Sandis
+U盘（Sand
                             
                         </div>
                         <div class="publish-info">
@@ -501,7 +505,7 @@ U盘（Sandis
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="OpenGL安装及配置">
+                            <img src="/medias/loading.gif" data-original="/medias/featureimages/0.jpg" class="responsive-img" alt="OpenGL安装及配置">
                             
                             <span class="card-title">OpenGL安装及配置</span>
                         </div>
@@ -517,9 +521,9 @@ vs版本：Visual Studio 2017
 GLFW
 GLAD
 
-三、步骤1.配置GLFW
+三、步骤　　1.配置GLFW
 进入官网下载GLFW并解压：GLFW下载
-这里选择32位的，因为64位
+这里选择32位的，因为6
                             
                         </div>
                         <div class="publish-info">
@@ -832,6 +836,12 @@ $(function () {
 		}) 
 	</script>
 
-</body>
+<script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
