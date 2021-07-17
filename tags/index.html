@@ -415,10 +415,19 @@
                 </a>
                 
                 
+                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" title="双指针: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="双指针" style="background-color: #F8F9F9;">双指针
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/Ubuntu/" title="Ubuntu: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Ubuntu" style="background-color: #F8F9F9;">Ubuntu
+                            data-tagname="Ubuntu" style="background-color: #82E0AA;">Ubuntu
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -427,7 +436,7 @@
                 <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/" title="系统安装: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="系统安装" style="background-color: #82E0AA;">系统安装
+                            data-tagname="系统安装" style="background-color: #D7BDE2;">系统安装
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -436,7 +445,7 @@
                 <a href="/tags/VMware/" title="VMware: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="VMware" style="background-color: #D7BDE2;">VMware
+                            data-tagname="VMware" style="background-color: #A3E4D7;">VMware
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -445,16 +454,7 @@
                 <a href="/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/" title="摩尔投票: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="摩尔投票" style="background-color: #A3E4D7;">摩尔投票
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" title="双指针: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="双指针" style="background-color: #85C1E9;">双指针
+                            data-tagname="摩尔投票" style="background-color: #85C1E9;">摩尔投票
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -483,7 +483,7 @@
 <script type="text/javascript">
     
 
-    $('#tag-wordcloud').jQCloud([{"text":"MYSQL","weight":1,"link":"/tags/MYSQL/"},{"text":"OpenGL","weight":1,"link":"/tags/OpenGL/"},{"text":"error LNK2019","weight":3,"link":"/tags/error-LNK2019/"},{"text":"C++","weight":2,"link":"/tags/C/"},{"text":"test","weight":1,"link":"/tags/test/"},{"text":"Ubuntu","weight":1,"link":"/tags/Ubuntu/"},{"text":"系统安装","weight":1,"link":"/tags/系统安装/"},{"text":"VMware","weight":1,"link":"/tags/VMware/"},{"text":"摩尔投票","weight":1,"link":"/tags/摩尔投票/"},{"text":"双指针","weight":1,"link":"/tags/双指针/"}], {
+    $('#tag-wordcloud').jQCloud([{"text":"MYSQL","weight":1,"link":"/tags/MYSQL/"},{"text":"OpenGL","weight":1,"link":"/tags/OpenGL/"},{"text":"error LNK2019","weight":3,"link":"/tags/error-LNK2019/"},{"text":"C++","weight":2,"link":"/tags/C/"},{"text":"test","weight":1,"link":"/tags/test/"},{"text":"双指针","weight":1,"link":"/tags/双指针/"},{"text":"Ubuntu","weight":1,"link":"/tags/Ubuntu/"},{"text":"系统安装","weight":1,"link":"/tags/系统安装/"},{"text":"VMware","weight":1,"link":"/tags/VMware/"},{"text":"摩尔投票","weight":1,"link":"/tags/摩尔投票/"}], {
         autoResize: true
     });
 </script>
@@ -582,8 +582,8 @@
 <script> 
 	$(document).ready(function () {
 		var int = setInterval(fixCount, 50); // 50ms周期检测函数
-		var pvcountOffset = 80000; // 初始化首次数据
-		var uvcountOffset = 20000; 
+		var pvcountOffset = 0; // 初始化首次数据
+		var uvcountOffset = 0; 
 		function fixCount() { 
 			if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
 				$("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset); clearInterval(int);
