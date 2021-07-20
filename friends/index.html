@@ -926,19 +926,24 @@
 </div>
 
 <script src="/libs/valine/av-min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/valine/Valine.min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
 <script>
 	new Valine({ 
 		el: '#vcomments', 
-		enableQQ: true,
+		enableQQ: 'true',  
 		appId: 'V4ETGQevyrFzDtGcQSSRttRN-gzGzoHsz',
 		appKey: 'FahUXUXEu0pDxHsRduIOcBF6', 
 		visitor: 'true' === 'true',
-		avatar: 'mm',
+		avatar: 'monsterid',
 		pageSize: '10', 
 		lang: 'zh-cn', 
 		placeholder: 'just go go',
+		meta: ['nick', 'mail'],
 		requiredFields: ['nick','mail'],
+		tagMeta: ["博主", "小伙伴", "访客"],
+		master: ["d502ea4605b856df3b9b73bad1e8592e"],	// 似乎只能用小写，大写无法识别
+		// friends: // 小伙伴MD5加密后的邮箱
+		// metaPlaceholder: // 昵称和邮箱无内容时的显示内容
 		recordIP: true, 
 		emojiCDN: '//i0.hdslb.com/bfs/emote/',
 		// 表情title和图片映射
