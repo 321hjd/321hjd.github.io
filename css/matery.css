@@ -552,6 +552,7 @@ header .go-back i {
     height: 40vh !important;
 }
 
+/*去除首页蒙版*/
 /*.bg-cover:after {
     -webkit-animation: rainbow 60s infinite;
     animation: rainbow 60s infinite;
