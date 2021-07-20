@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/css/matery.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/css/my.css">
+	<link rel="stylesheet" type="text/css" href="/libs/artitalk/artitalk.min.css">
 
     <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/jquery/jquery.min.js"></script>
 
@@ -182,6 +183,17 @@
   
   <li class="hide-on-med-and-down nav-item">
     
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <i class="fas fa-heart" style="zoom: 0.6;"></i>
+      
+      <span>说说</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
     <a href="/contact" class="waves-effect waves-light">
       
       <i class="fas fa-comments" style="zoom: 0.6;"></i>
@@ -198,6 +210,17 @@
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
       <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tools" class="waves-effect waves-light">
+      
+      <i class="fas fa-toolbox" style="zoom: 0.6;"></i>
+      
+      <span>工具箱</span>
     </a>
     
   </li>
@@ -362,6 +385,17 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-heart"></i>
+			
+			说说
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/contact" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-comments"></i>
@@ -378,6 +412,17 @@
 			    <i class="fa-fw fas fa-address-book"></i>
 			
 			友链
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tools" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-toolbox"></i>
+			
+			工具箱
 		</a>
           
         </li>
@@ -583,7 +628,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近发现使用const int 定义变量时若不设初始值，编译器会报错。然而使用const char* 时却不会，并且使用const char* 明明是const常量，却仍然可以修改其值。</p>
+                <p>最近发现使用const int 定义变量时若不设初始值，编译器会报错。然而使用const char<em> 时却不会，并且使用const char</em> 明明是const常量，却仍然可以修改其值。</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int main()
 &#123;
 　 const int b;    &#x2F;&#x2F;报错
@@ -591,7 +636,6 @@
     a &#x3D; &quot;hjd&quot;;
     a &#x3D; &quot;sdf&quot;;      &#x2F;&#x2F;不会报错
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>发现原来是概念有些混淆，const char* 是常量指针，可以修改地址，不可修改指针指向的值，所以并未违背常量不可修改值的规定。这里由“hjd”变为“sdf”实际上是修改了指针a指向的地址。</p>
 
                 

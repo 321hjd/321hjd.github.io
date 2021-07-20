@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/css/matery.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/css/my.css">
+	<link rel="stylesheet" type="text/css" href="/libs/artitalk/artitalk.min.css">
 
     <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/jquery/jquery.min.js"></script>
 
@@ -182,6 +183,17 @@
   
   <li class="hide-on-med-and-down nav-item">
     
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <i class="fas fa-heart" style="zoom: 0.6;"></i>
+      
+      <span>说说</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
     <a href="/contact" class="waves-effect waves-light">
       
       <i class="fas fa-comments" style="zoom: 0.6;"></i>
@@ -198,6 +210,17 @@
       <i class="fas fa-address-book" style="zoom: 0.6;"></i>
       
       <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tools" class="waves-effect waves-light">
+      
+      <i class="fas fa-toolbox" style="zoom: 0.6;"></i>
+      
+      <span>工具箱</span>
     </a>
     
   </li>
@@ -362,6 +385,17 @@
         
         <li class="m-nav-item">
 	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-heart"></i>
+			
+			说说
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
 		<a href="/contact" class="waves-effect waves-light">
 			
 			    <i class="fa-fw fas fa-comments"></i>
@@ -378,6 +412,17 @@
 			    <i class="fa-fw fas fa-address-book"></i>
 			
 			友链
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tools" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-toolbox"></i>
+			
+			工具箱
 		</a>
           
         </li>
@@ -591,7 +636,6 @@
 1&gt;D:\18482\visual studio\source\repos\OpenGL\Debug\OpenGL.exe : fatal error LNK1120: 2 个无法解析的外部命令
 1&gt;已完成生成项目“OpenGL.vcxproj”的操作 - 失败。
 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 生成: 成功 0 个，失败 1 个，最新 0 个，跳过 0 个 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <p>解决：在include”stb_image.h”前加上#define STB_IMAGE_IMPLEMENTATION，通过定义STB_IMAGE_IMPLEMENTATION，预处理器会修改头文件，让其只包含相关的函数定义源码，相当于把这个头文件变为一个 .cpp 文件（原stb_image.h库的教程给出，具体原因未知）</p>
 
                 
