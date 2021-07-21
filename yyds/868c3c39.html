@@ -19,16 +19,16 @@
     <title>error：非常量引用只能绑定到左值 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/css/my.css">
-	<link rel="stylesheet" type="text/css" href="/libs/artitalk/artitalk.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/css/my.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/artitalk/artitalk.min.css">
 
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="hjd'blog" type="application/atom+xml">
 </head>
@@ -443,7 +443,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -461,7 +461,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -621,7 +621,7 @@
 
         
         <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/prism/prism.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/prism/prism.css">
         
 
         
@@ -635,6 +635,7 @@
 1&gt;d:\18482\visual studio\source\repos\opengl\opengl\game.cpp(55): note: 非常量引用只能绑定到左值
 1&gt;已完成生成项目“OpenGL.vcxproj”的操作 - 失败。
 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 生成: 成功 0 个，失败 1 个，最新 0 个，跳过 0 个 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>先解释左值和右值的区别：</p>
 <ul>
 <li>从字面意思看，左右值就是在“=”两端的变量或表达式（以前我一直是这样理解的/手动狗头），但其实不是这样的。</li>
@@ -650,6 +651,7 @@ void main()
 &#123;
     double i &#x3D; 4;
     func(i);&#x2F;&#x2F;这里进行了强制类型转换，会产生一个临时变量&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li><p>上面的写法是不合法的，会报错“非常量的引用只能绑定到左值”，按照正常理解 i 其实是一个左值，但是由于定义的 i 和func函数需要的参数并不是相同类型，这里实际上经过了一次强制类型转换，并且生成了一个临时变量<strong>（而临时变量都是常量，不能作为左值，只能由const引用，不能改变值）</strong>，所以这里非const的引用会报错</p>
 </li>
@@ -664,8 +666,7 @@ void main()
 &#123; 
 　　int i &#x3D; 4; &#x2F;&#x2F;修改i的类型
 　　func(i);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>使用右值引用</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void func(const int &amp;a)&#x2F;&#x2F;右值引用
 &#123;
@@ -675,8 +676,7 @@ void main()
 &#123; 
 　　double i &#x3D; 4; 
 　　func(i);
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 </li>
 </ul>
@@ -1271,7 +1271,7 @@ void main() &#123;　　int i &#x3D; 10;
                     <div class="card-image">
                         
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/medias/featureimages/4.jpg" class="responsive-img" alt="error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/4.jpg" class="responsive-img" alt="error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错">
                         
                         <span class="card-title">error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错</span>
                     </div>
@@ -1320,7 +1320,7 @@ void main() &#123;　　int i &#x3D; 10;
                     <div class="card-image">
                         
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/medias/featureimages/11.jpg" class="responsive-img" alt="error LNK2019: 无法解析的外部符号 _stbi_load 使用stb_image.h库的错误">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/11.jpg" class="responsive-img" alt="error LNK2019: 无法解析的外部符号 _stbi_load 使用stb_image.h库的错误">
                         
                         <span class="card-title">error LNK2019: 无法解析的外部符号 _stbi_load 使用stb_image.h库的错误</span>
                     </div>
@@ -1439,7 +1439,7 @@ void main() &#123;　　int i &#x3D; 10;
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/tocbot/tocbot.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -1525,7 +1525,7 @@ void main() &#123;　　int i &#x3D; 10;
 
     <footer class="page-footer bg-color">
 	
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/aplayer/APlayer.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
         
@@ -1575,7 +1575,7 @@ void main() &#123;　　int i &#x3D; 10;
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
     
@@ -1590,7 +1590,7 @@ void main() &#123;　　int i &#x3D; 10;
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.1k</span>&nbsp;字
+                class="white-color">5.4k</span>&nbsp;字
             
 
 			
@@ -1804,12 +1804,12 @@ $(function () {
 </div>
 
 
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/materialize/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/aos/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/js/matery.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/js/matery.js"></script>
 
     <!-- Baidu Analytics -->
 
@@ -1830,10 +1830,10 @@ $(function () {
 </script>
 
     
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/others/clicklove.js" async="async"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/others/busuanzi.pure.mini.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1849,7 +1849,7 @@ $(function () {
     
 
     
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/instantpage/instantpage.js" type="module"></script>
     
 
 	<script type="text/javascript">   

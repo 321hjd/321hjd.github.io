@@ -19,16 +19,16 @@
     <title>关于 const char* 和 const int 的一个小问题 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/css/my.css">
-	<link rel="stylesheet" type="text/css" href="/libs/artitalk/artitalk.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/css/my.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/artitalk/artitalk.min.css">
 
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/jquery/jquery.min.js"></script>
 
 <meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="hjd'blog" type="application/atom+xml">
 </head>
@@ -443,7 +443,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -461,7 +461,7 @@
 <main class="post-container content">
 
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/tocbot/tocbot.css">
 <style>
     #articleContent h1::before,
     #articleContent h2::before,
@@ -621,14 +621,14 @@
 
         
         <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/prism/prism.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/prism/prism.css">
         
 
         
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近发现使用const int 定义变量时若不设初始值，编译器会报错。然而使用const char<em> 时却不会，并且使用const char</em> 明明是const常量，却仍然可以修改其值。</p>
+                <p>最近发现使用const int 定义变量时若不设初始值，编译器会报错。然而使用const char* 时却不会，并且使用const char* 明明是const常量，却仍然可以修改其值。</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int main()
 &#123;
 　 const int b;    &#x2F;&#x2F;报错
@@ -636,6 +636,7 @@
     a &#x3D; &quot;hjd&quot;;
     a &#x3D; &quot;sdf&quot;;      &#x2F;&#x2F;不会报错
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>发现原来是概念有些混淆，const char* 是常量指针，可以修改地址，不可修改指针指向的值，所以并未违背常量不可修改值的规定。这里由“hjd”变为“sdf”实际上是修改了指针a指向的地址。</p>
 
                 
@@ -1219,7 +1220,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/medias/featureimages/12.jpg" class="responsive-img" alt="摩尔投票法（寻找众数）">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/12.jpg" class="responsive-img" alt="摩尔投票法（寻找众数）">
                         
                         <span class="card-title">摩尔投票法（寻找众数）</span>
                     </div>
@@ -1268,7 +1269,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/medias/featureimages/11.jpg" class="responsive-img" alt="MYSQL删除三张表的联合信息">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/11.jpg" class="responsive-img" alt="MYSQL删除三张表的联合信息">
                         
                         <span class="card-title">MYSQL删除三张表的联合信息</span>
                     </div>
@@ -1387,7 +1388,7 @@
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/tocbot/tocbot.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/tocbot/tocbot.min.js"></script>
 <script>
     $(function () {
         tocbot.init({
@@ -1473,7 +1474,7 @@
 
     <footer class="page-footer bg-color">
 	
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/aplayer/APlayer.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
         
@@ -1523,7 +1524,7 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
     
@@ -1538,7 +1539,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.1k</span>&nbsp;字
+                class="white-color">5.4k</span>&nbsp;字
             
 
 			
@@ -1752,12 +1753,12 @@ $(function () {
 </div>
 
 
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/materialize/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/aos/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/js/matery.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/js/matery.js"></script>
 
     <!-- Baidu Analytics -->
 
@@ -1778,10 +1779,10 @@ $(function () {
 </script>
 
     
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/others/clicklove.js" async="async"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/others/busuanzi.pure.mini.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1797,7 +1798,7 @@ $(function () {
     
 
     
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/instantpage/instantpage.js" type="module"></script>
     
 
 	<script type="text/javascript">   

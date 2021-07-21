@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MYSQL删除三张表的联合信息, hjd&#39;blog">
+    <meta name="keywords" content="从GitHub上下载单个文件(夹), hjd&#39;blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>MYSQL删除三张表的联合信息 | hjd&#39;blog</title>
+    <title>从GitHub上下载单个文件(夹) | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/awesome/css/all.css">
@@ -443,12 +443,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/tool.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">MYSQL删除三张表的联合信息</h1>
+                    <h1 class="description center-align post-title">从GitHub上下载单个文件(夹)</h1>
                 </div>
             </div>
         </div>
@@ -564,8 +564,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/MYSQL/">
-                                <span class="chip bg-color">MYSQL</span>
+                            <a href="/tags/GitHub/">
+                                <span class="chip bg-color">GitHub</span>
                             </a>
                         
                     </div>
@@ -576,8 +576,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AF%AD%E6%B3%95/" class="post-category">
-                                语法
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
+                                工具
                             </a>
                         
                     </div>
@@ -589,21 +589,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-23
+                    2021-07-21
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-16
+                    2021-07-21
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    71
+                    312
                 </div>
                 
 
@@ -628,13 +628,49 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>如要删除三张表的联合信息，使用MYSQL的左连接方法：LEFT JOIN ON</p>
-<p>例如，删除三张表中张三的所有数据：</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">delete student,sc,stu 
-    from student left join sc on student.sno &#x3D; sc.sno 
-                left join stu on sc.sno &#x3D; stu.sno
-                where student.sname &#x3D; &#39;张三&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+                <h3 id="方法一：SVN-下载单个文件夹"><a href="#方法一：SVN-下载单个文件夹" class="headerlink" title="方法一：SVN-下载单个文件夹"></a>方法一：SVN-下载单个文件夹</h3><blockquote>
+<p> 个人最适应的方法，缺点是需要借助第三方工具-svn</p>
+<p>环境：Windows 10</p>
+</blockquote>
+<p>​    若想要下载<code>&#123;username&#125;</code>的<code>&#123;repo&#125;</code>里的<code>&#123;dir&#125;</code>文件夹，</p>
+<ol>
+<li><p>主分支master（现在似乎默认是main了，区别不大）：</p>
+<ul>
+<li><p>其浏览器路径应为<code>https://github.com/&#123;username&#125;/&#123;repo&#125;/tree/master/&#123;dir&#125;</code></p>
+</li>
+<li><p>修改<code>/tree/master/</code>为<code>/trunk/</code></p>
+</li>
+<li><p>打开<code>cmd</code>，输入指令：<code>svn checkout https://github.com/&#123;username&#125;/&#123;repo&#125;/trunk/&#123;dir&#125;</code></p>
+</li>
+<li><p>该<code>&#123;dir&#125;</code>将被下载至当前目录下</p>
+<img src="/medias/loading.gif" data-original="https://i.loli.net/2021/07/21/SMxiE8ROWvDwpFn.png" alt="示例" style="zoom:80%;"></li>
+</ul>
+</li>
+<li><p>特定分支</p>
+<ul>
+<li>将<code>/trunk/</code>换成<code>/branches/&#123;branch_name&#125;</code>即可</li>
+</ul>
+</li>
+</ol>
+<h3 id="方法二：高版本-Git"><a href="#方法二：高版本-Git" class="headerlink" title="方法二：高版本 Git"></a>方法二：高版本 Git</h3><blockquote>
+<p>这个方法较为繁琐，但无需像前者一样借助其它工具</p>
+</blockquote>
+<p>方法：Git 的<code>Sparse Checkout</code>模式，指定文件/文件夹</p>
+<ol>
+<li><p>创建空的本地仓库，并将远程 <code>Git Server URL</code> 加入到 <code>Git Config</code>里</p>
+<pre class="line-numbers language-none"><code class="language-none">mkdir project_folder
+cd project_folder
+git init
+git remote add -f origin &lt;repo-url&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>在 <code>Config</code> 中设置允许使用<code>Sparse Checkout</code>模式</p>
+<pre class="line-numbers language-none"><code class="language-none">git config core.sparsecheckout true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>在<code>.git/info/</code>目录下新建<code>sparse-checkout</code>文件（注意文件名不要错了），写入需要的文件（<strong>一行为一项</strong>）</p>
+<p>如：</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;source&#x2F;tools&#x2F;index.html
+&#x2F;source&#x2F;about<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li><p>以正常方式从服务器pull下来即可</p>
+<pre class="line-numbers language-none"><code class="language-none">git pull origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
 
                 
             </div>
@@ -661,7 +697,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://321hjd.github.io/yyds/de05866e.html">https://321hjd.github.io/yyds/de05866e.html</a>
+                    <a href="https://321hjd.github.io/yyds/65b12f08.html">https://321hjd.github.io/yyds/65b12f08.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -699,8 +735,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/MYSQL/">
-                                    <span class="chip bg-color">MYSQL</span>
+                                <a href="/tags/GitHub/">
+                                    <span class="chip bg-color">GitHub</span>
                                 </a>
                             
                         </div>
@@ -1209,17 +1245,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/yyds/91c00396.html">
+                <a href="/yyds/65b12f08.html">
                     <div class="card-image">
                         
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/tool.png" class="responsive-img" alt="从GitHub上下载单个文件(夹)">
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/11.jpg" class="responsive-img" alt="关于 const char* 和 const int 的一个小问题">
-                        
-                        <span class="card-title">关于 const char* 和 const int 的一个小问题</span>
+                        <span class="card-title">从GitHub上下载单个文件(夹)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1229,26 +1265,27 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AF%AD%E6%B3%95/" class="post-category">
-                                    语法
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    工具
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/GitHub/">
+                        <span class="chip bg-color">GitHub</span>
                     </a>
                     
                 </div>
@@ -1262,13 +1299,12 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yyds/cf469c8c.html">
+                <a href="/yyds/d87f7e0c.html">
                     <div class="card-image">
                         
+                        <img src="/medias/loading.gif" data-original="https://i.loli.net/2021/07/19/TABMH8N9Ffd6yms.jpg" class="responsive-img" alt="test">
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/4.jpg" class="responsive-img" alt="error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错">
-                        
-                        <span class="card-title">error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错</span>
+                        <span class="card-title">test</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1279,14 +1315,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-16
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/" class="post-category">
-                                    错误解决
+                            <a href="/categories/test/" class="post-category">
+                                    test
                                 </a>
                             
                             
@@ -1296,8 +1332,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/error-LNK2019/">
-                        <span class="chip bg-color">error LNK2019</span>
+                    <a href="/tags/test/">
+                        <span class="chip bg-color">test</span>
                     </a>
                     
                 </div>
