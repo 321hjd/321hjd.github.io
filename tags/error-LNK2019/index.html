@@ -19,24 +19,164 @@
     <title>标签: error LNK2019 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/css/my.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/artitalk/artitalk.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/css/my.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/artitalk/artitalk.min.css">
 
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="hjd'blog" type="application/atom+xml">
+<style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="hjd'blog" type="application/atom+xml">
 </head>
 
 
 
 
-<body>
+
+ <div id="loading-container">
+     <p class="loading-text">玩命加载中 . . . </p> 
+     <div class="loading-image">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div> 
+         <div></div>
+     </div>
+ </div><body>
     <header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
@@ -498,10 +638,37 @@
             <div class="tag-chips">
                 
                 
+                <a href="/tags/Blog/" title="Blog: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Blog" style="background-color: #F9EBEA;">Blog
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Hexo/" title="Hexo: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Hexo" style="background-color: #F5EEF8;">Hexo
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/GitHub/" title="GitHub: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="GitHub" style="background-color: #D5F5E3;">GitHub
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/MYSQL/" title="MYSQL: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="MYSQL" style="background-color: #F9EBEA;">MYSQL
+                            data-tagname="MYSQL" style="background-color: #E8F8F5;">MYSQL
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -510,7 +677,7 @@
                 <a href="/tags/OpenGL/" title="OpenGL: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="OpenGL" style="background-color: #F5EEF8;">OpenGL
+                            data-tagname="OpenGL" style="background-color: #FEF9E7;">OpenGL
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -519,7 +686,7 @@
                 <a href="/tags/error-LNK2019/" title="error LNK2019: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
-                            data-tagname="error LNK2019" style="background-color: #D5F5E3;">error LNK2019
+                            data-tagname="error LNK2019" style="background-color: #F8F9F9;">error LNK2019
                         <span class="tag-length">3</span>
                     </span>
                 </a>
@@ -528,8 +695,26 @@
                 <a href="/tags/C/" title="C++: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="C++" style="background-color: #E8F8F5;">C++
+                            data-tagname="C++" style="background-color: #82E0AA;">C++
                         <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/hexo/" title="hexo: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="hexo" style="background-color: #D7BDE2;">hexo
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%8C%87%E4%BB%A4/" title="指令: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="指令" style="background-color: #A3E4D7;">指令
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -537,25 +722,7 @@
                 <a href="/tags/test/" title="test: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="test" style="background-color: #FEF9E7;">test
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/GitHub/" title="GitHub: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="GitHub" style="background-color: #F8F9F9;">GitHub
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" title="双指针: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="双指针" style="background-color: #82E0AA;">双指针
+                            data-tagname="test" style="background-color: #85C1E9;">test
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -564,7 +731,7 @@
                 <a href="/tags/Ubuntu/" title="Ubuntu: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Ubuntu" style="background-color: #D7BDE2;">Ubuntu
+                            data-tagname="Ubuntu" style="background-color: #F8C471;">Ubuntu
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -573,7 +740,7 @@
                 <a href="/tags/%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85/" title="系统安装: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="系统安装" style="background-color: #A3E4D7;">系统安装
+                            data-tagname="系统安装" style="background-color: #F9E79F;">系统安装
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -582,7 +749,16 @@
                 <a href="/tags/VMware/" title="VMware: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="VMware" style="background-color: #85C1E9;">VMware
+                            data-tagname="VMware" style="background-color: #FEF9E7;">VMware
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" title="双指针: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="双指针" style="background-color: #D5F5E3;">双指针
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -591,7 +767,7 @@
                 <a href="/tags/%E6%91%A9%E5%B0%94%E6%8A%95%E7%A5%A8/" title="摩尔投票: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="摩尔投票" style="background-color: #F8C471;">摩尔投票
+                            data-tagname="摩尔投票" style="background-color: #D7BDE2;">摩尔投票
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -612,8 +788,7 @@
                     <a href="/yyds/cf469c8c.html">
                         <div class="card-image tag-image">
                             
-                            
-                            <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/4.jpg" class="responsive-img" alt="error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错">
+                            <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/2.png" class="responsive-img" alt="error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错">
                             
                             <span class="card-title">error LNK2019: &#34;__declspec(dllimport)  使用irrKlang的库时报错</span>
                         </div>
@@ -644,8 +819,7 @@
                     <a href="/yyds/31791ebb.html">
                         <div class="card-image tag-image">
                             
-                            
-                            <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/11.jpg" class="responsive-img" alt="error LNK2019: 无法解析的外部符号 _stbi_load 使用stb_image.h库的错误">
+                            <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/3.png" class="responsive-img" alt="error LNK2019: 无法解析的外部符号 _stbi_load 使用stb_image.h库的错误">
                             
                             <span class="card-title">error LNK2019: 无法解析的外部符号 _stbi_load 使用stb_image.h库的错误</span>
                         </div>
@@ -676,8 +850,7 @@
                     <a href="/yyds/bc78a76b.html">
                         <div class="card-image tag-image">
                             
-                            
-                            <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/3.jpg" class="responsive-img" alt="error LNK2019 无法解析的外部符号 __imp___invalid_parameter 解决方案">
+                            <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/4.png" class="responsive-img" alt="error LNK2019 无法解析的外部符号 __imp___invalid_parameter 解决方案">
                             
                             <span class="card-title">error LNK2019 无法解析的外部符号 __imp___invalid_parameter 解决方案</span>
                         </div>
@@ -711,7 +884,7 @@
 
     <footer class="page-footer bg-color">
 	
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aplayer/APlayer.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/aplayer/APlayer.min.css">
 <style>
     .aplayer .aplayer-lrc p {
         
@@ -761,7 +934,7 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/aplayer/APlayer.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
 
     
@@ -776,7 +949,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.4k</span>&nbsp;字
+                class="white-color">16.3k</span>&nbsp;字
             
 
 			
@@ -786,7 +959,6 @@
 					<span id="busuanzi_container_site_pv" style='display:none'></span>    
 						&nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;   
 						<span id="busuanzi_value_site_pv" class="white-color"></span>  
-					</span>            
 				            
 				               
 					<span id="busuanzi_container_site_uv" style='display:none'></span>   
@@ -990,12 +1162,12 @@ $(function () {
 </div>
 
 
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/materialize/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aos/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/js/matery.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/materialize/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/aos/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/js/matery.js"></script>
 
     <!-- Baidu Analytics -->
 
@@ -1016,10 +1188,10 @@ $(function () {
 </script>
 
     
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/others/clicklove.js" async="async"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/others/clicklove.js" async="async"></script>
     
     
-    <script async src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/others/busuanzi.pure.mini.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
@@ -1035,7 +1207,7 @@ $(function () {
     
 
     
-    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/instantpage/instantpage.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b713392/source/libs/instantpage/instantpage.js" type="module"></script>
     
 
 	<script type="text/javascript">   
