@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2021-07-23T09:12:31.008Z</updated>
+  <updated>2021-08-05T14:35:45.384Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python爬取网页学习笔记</title>
+    <link href="https://321hjd.github.io/yyds/69a9b431.html"/>
+    <id>https://321hjd.github.io/yyds/69a9b431.html</id>
+    <published>2021-08-05T12:14:11.000Z</published>
+    <updated>2021-08-05T14:35:45.384Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本文仅涉及一些网页爬取工具的简单应用。利用python的&lt;code&gt;urllib、requests、BeautifulSoup&lt;/code&gt;等库尝试实现了简单的爬取百度图片、必应图片/每日壁纸、豆瓣评论等功能。&lt;/p&gt;
+&lt;/blockquote&gt;
+</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://321hjd.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="python" scheme="https://321hjd.github.io/tags/python/"/>
+    
+    <category term="爬虫" scheme="https://321hjd.github.io/tags/%E7%88%AC%E8%99%AB/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo常用指令</title>
