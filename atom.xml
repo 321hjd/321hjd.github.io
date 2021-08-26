@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2021-08-22T10:10:36.559Z</updated>
+  <updated>2021-08-26T02:41:17.588Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LaTeX常见错误信息</title>
+    <link href="https://321hjd.github.io/yyds/be1c3aa6.html"/>
+    <id>https://321hjd.github.io/yyds/be1c3aa6.html</id>
+    <published>2021-08-26T02:19:42.000Z</published>
+    <updated>2021-08-26T02:41:17.588Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;Reference：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="工具" scheme="https://321hjd.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="LaTeX" scheme="https://321hjd.github.io/tags/LaTeX/"/>
+    
+  </entry>
   
   <entry>
     <title>LaTeX符号表</title>
