@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="error LNK2019: 无法解析的外部符号 _stbi_load 使用stb_image.h库的错误, hjd&#39;blog">
+    <meta name="keywords" content="自省, hjd&#39;blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>error LNK2019: 无法解析的外部符号 _stbi_load 使用stb_image.h库的错误 | hjd&#39;blog</title>
+    <title>自省 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/awesome/css/all.css">
@@ -583,12 +583,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/3.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">error LNK2019: 无法解析的外部符号 _stbi_load 使用stb_image.h库的错误</h1>
+                    <h1 class="description center-align post-title">自省</h1>
                 </div>
             </div>
         </div>
@@ -704,8 +704,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/error-LNK2019/">
-                                <span class="chip bg-color">error LNK2019</span>
+                            <a href="/tags/%E3%80%8A%E6%88%91%E7%9A%84%E9%9D%92%E9%93%9C%E6%97%B6%E4%BB%A3%E3%80%8B/">
+                                <span class="chip bg-color">《我的青铜时代》</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%87%AA%E7%9C%81/">
+                                <span class="chip bg-color">自省</span>
                             </a>
                         
                     </div>
@@ -716,8 +720,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/" class="post-category">
-                                错误解决
+                            <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category">
+                                杂谈
                             </a>
                         
                     </div>
@@ -729,28 +733,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-03-09
+                    2021-08-29
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-21
+                    2021-08-30
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    275
+                    842
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -768,16 +772,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>此错误在使用stb_image.h图片加载库时遇到</p>
-<pre class="line-numbers language-none"><code class="language-none">1&gt;------ 已启动生成: 项目: OpenGL, 配置: Debug Win32 ------
-1&gt;ResourceManager.cpp
-1&gt;ResourceManager.obj : error LNK2019: 无法解析的外部符号 _stbi_load，该符号在函数 &quot;private: static class Texture2D __cdecl ResourceManager::loadTextureFromFile(char const *,unsigned char)&quot; (?loadTextureFromFile@ResourceManager@@CA?AVTexture2D@@PBDE@Z) 中被引用
-1&gt;ResourceManager.obj : error LNK2019: 无法解析的外部符号 _stbi_image_free，该符号在函数 &quot;private: static class Texture2D __cdecl ResourceManager::loadTextureFromFile(char const *,unsigned char)&quot; (?loadTextureFromFile@ResourceManager@@CA?AVTexture2D@@PBDE@Z) 中被引用
-1&gt;D:\18482\visual studio\source\repos\OpenGL\Debug\OpenGL.exe : fatal error LNK1120: 2 个无法解析的外部命令
-1&gt;已完成生成项目“OpenGL.vcxproj”的操作 - 失败。
-&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 生成: 成功 0 个，失败 1 个，最新 0 个，跳过 0 个 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>解决：在include”stb_image.h”前加上#define STB_IMAGE_IMPLEMENTATION，通过定义STB_IMAGE_IMPLEMENTATION，预处理器会修改头文件，让其只包含相关的函数定义源码，相当于把这个头文件变为一个 .cpp 文件（原stb_image.h库的教程给出，具体原因未知）</p>
+                <blockquote>
+<p>看完《我的青铜时代》有关罗翔老师的一集，记录一些自我思考的想法又重新出现在我的脑海中，那么干脆就开始做吧。仅仅作为一点反省自身、剖析自我的工具罢了。</p>
+</blockquote>
+<p>&emsp;&emsp;其中有不少触动我的地方，自我剖析、对莫名优越感的警惕、一个人生活得“好”的标准当如何、如何慢慢从“知道”跨越到“做到”，这些都是值得花费时间和精力去思考、去寻找答案的问题。</p>
+<p>&emsp;&emsp;这些问题对于目前的我来说，暂时都没有答案，甚至有些我从来都还没有想过。或者可能偶尔有一些想法出现，却又很快溜走。生活中的诱惑和世界的丰富分散掉我的注意力，有时用焦虑让我无法思考，但更多是自己对自己的麻醉。</p>
+<p>&emsp;&emsp;<strong>警惕优越感</strong>。优越感来自于比身边较多同龄人更好的学校，大学里更高的分数，比父母更高的学历，自认为较好的外表。表现于偶尔的高谈阔论，偶尔的不屑与不耐烦，偶尔的虚伪自谦。有时事后会鄙夷自己的表现、自我反省，但似乎总是起不到想象中的作用。有时候这种莫名奇妙的优越感让我感到羞愧，因为我知道很多东西并不是我本身就有的，我也有同样无知的时候，我在人前的优越感就仿佛是对昨天的自己的嘲讽。这需要时刻警惕，拥有自省的想法和能力是维持本我的锚。</p>
+<p>&emsp;&emsp;<strong>”好”的标准</strong>。说起来，似乎生活十分复杂，但仔细想想，大多数自我纠结的矛盾点，它们的根源其实还是来自关于“好”的标准。正如罗翔老师所说，“我们总是活在他人的眼光中，他人的评价中，他人的注视中。”因此忠于自我免不了有一些虚荣的、违心的阻碍，如何找到一个自己的“好”的标准，从而尽量避免与别人攀比，避免被别人攀比，是需要去经历和探索的。到底什么是好呢？对于现在的我来说，是拥有一个健壮的身体、顺利的学业、美满的家庭，以及和谐的感情。这些看似简单的词组，有时候感觉我其实已经拥有了，但总是想要更多，毕竟人是向前发展的，我不可能一直停留在原地，这就产生了各种各样的焦虑。有来自外界的，有来自自身的，听闻朋友们各自有着自己奋斗的目标，为他们高兴的同时也不免对自己有些焦急，佛系的表面下是深深的无奈。有时候我感觉自己是在被推着前进，看起来挺好了，但还是不够，避免被淘汰、争取更好是这些年来不变的主题之一。感觉有些累，但是不能停下，停下是更令人疲惫的迷茫。</p>
+<blockquote>
+<p>“对于不可控的的事情，我们保持乐观；对于可控的事情，我们保持谨慎。”        —— 爱比克泰德</p>
+</blockquote>
 
                 
             </div>
@@ -804,7 +808,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://321hjd.github.io/yyds/31791ebb.html">https://321hjd.github.io/yyds/31791ebb.html</a>
+                    <a href="https://321hjd.github.io/yyds/81231d2a.html">https://321hjd.github.io/yyds/81231d2a.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -842,8 +846,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/error-LNK2019/">
-                                    <span class="chip bg-color">error LNK2019</span>
+                                <a href="/tags/%E3%80%8A%E6%88%91%E7%9A%84%E9%9D%92%E9%93%9C%E6%97%B6%E4%BB%A3%E3%80%8B/">
+                                    <span class="chip bg-color">《我的青铜时代》</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%87%AA%E7%9C%81/">
+                                    <span class="chip bg-color">自省</span>
                                 </a>
                             
                         </div>
@@ -1352,45 +1360,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/yyds/868c3c39.html">
+                <a href="/yyds/81231d2a.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/5.png" class="responsive-img" alt="error：非常量引用只能绑定到左值">
                         
-                        <span class="card-title">error：非常量引用只能绑定到左值</span>
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/15.jpg" class="responsive-img" alt="自省">
+                        
+                        <span class="card-title">自省</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            观《我的青铜时代》- 罗翔x陈晓楠（腾讯视频）的一些感想
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AF%AD%E6%B3%95/" class="post-category">
-                                    语法
+                            <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category">
+                                    杂谈
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/%E3%80%8A%E6%88%91%E7%9A%84%E9%9D%92%E9%93%9C%E6%97%B6%E4%BB%A3%E3%80%8B/">
+                        <span class="chip bg-color">《我的青铜时代》</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%87%AA%E7%9C%81/">
+                        <span class="chip bg-color">自省</span>
                     </a>
                     
                 </div>
@@ -1404,30 +1419,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yyds/bc78a76b.html">
+                <a href="/yyds/be1c3aa6.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/4.png" class="responsive-img" alt="error LNK2019 无法解析的外部符号 __imp___invalid_parameter 解决方案">
+                        <img src="/medias/loading.gif" data-original="https://i.loli.net/2021/08/26/jdXeoWFgGpau8Ps.jpg" class="responsive-img" alt="LaTeX常见错误信息">
                         
-                        <span class="card-title">error LNK2019 无法解析的外部符号 __imp___invalid_parameter 解决方案</span>
+                        <span class="card-title">LaTeX常见错误信息</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            LaTeX 的常见错误信息
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-03-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/" class="post-category">
-                                    错误解决
+                            <a href="/categories/%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    工具
                                 </a>
                             
                             
@@ -1437,8 +1452,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/error-LNK2019/">
-                        <span class="chip bg-color">error LNK2019</span>
+                    <a href="/tags/LaTeX/">
+                        <span class="chip bg-color">LaTeX</span>
                     </a>
                     
                 </div>
