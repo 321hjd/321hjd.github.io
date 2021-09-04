@@ -258,11 +258,7 @@ npm install hexo</summary>
       
         
         
-    <summary type="html">&lt;h2 id=&quot;一、准备&quot;&gt;&lt;a href=&quot;#一、准备&quot; class=&quot;headerlink&quot; title=&quot;一、准备&quot;&gt;&lt;/a&gt;一、准备&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;本机系统&lt;/th&gt;
-&lt;th&gt;Windows</summary>
+    <summary type="html">&lt;h2 id=&quot;一、准备&quot;&gt;&lt;a href=&quot;#一、准备&quot; class=&quot;headerlink&quot; title=&quot;一、准备&quot;&gt;&lt;/a&gt;一、准备&lt;/h2&gt;&lt;div</summary>
         
       
     
@@ -320,7 +316,7 @@ npm install hexo</summary>
         
         
     <summary type="html">&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;问题1：在一个数组中找到一个出现次数大于n/2的数（保证一定存在）&lt;a</summary>
+&lt;li&gt;问题1：在一个数组中找到一个出现次数大于n/2的数（保证一定存在）&lt;a</summary>
         
       
     
@@ -345,8 +341,8 @@ npm install hexo</summary>
       
         
         
-    <summary type="html">&lt;p&gt;最近发现使用const int 定义变量时若不设初始值，编译器会报错。然而使用const char* 时却不会，并且使用const char* 明明是const常量，却仍然可以修改其值。&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-c++&quot;</summary>
+    <summary type="html">&lt;p&gt;最近发现使用const int 定义变量时若不设初始值，编译器会报错。然而使用const char&lt;em&gt; 时却不会，并且使用const char&lt;/em&gt; 明明是const常量，却仍然可以修改其值。&lt;/p&gt;
+&lt;pre class=&quot;line-numbers</summary>
         
       
     
