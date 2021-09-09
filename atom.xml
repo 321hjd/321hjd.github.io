@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2021-08-30T03:17:21.831Z</updated>
+  <updated>2021-09-09T06:27:15.143Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>DFWS简介</title>
+    <link href="https://321hjd.github.io/yyds/6e325585.html"/>
+    <id>https://321hjd.github.io/yyds/6e325585.html</id>
+    <published>2021-09-09T06:08:47.000Z</published>
+    <updated>2021-09-09T06:27:15.143Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、DFWS-Device-free-Wireless-Sensing-简介&quot;&gt;&lt;a href=&quot;#一、DFWS-Device-free-Wireless-Sensing-简介&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="通信" scheme="https://321hjd.github.io/categories/%E9%80%9A%E4%BF%A1/"/>
+    
+    
+    <category term="DFWS" scheme="https://321hjd.github.io/tags/DFWS/"/>
+    
+    <category term="WiFi" scheme="https://321hjd.github.io/tags/WiFi/"/>
+    
+  </entry>
   
   <entry>
     <title>自省</title>
