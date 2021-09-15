@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>迷茫</title>
+      <link href="/yyds/2824fd95.html"/>
+      <url>/yyds/2824fd95.html</url>
+      
+        <content type="html"><![CDATA[<p>&emsp;&emsp;保研资格的事情告一段落，拿到了预想之中的资格，但并不是很开心，反而因为最近看到的、以前知道的件件事情，再一次感到十分迷茫和痛苦。我好像还是不知道自己想要什么，想做什么，对未来又有如何的规划和期望。最近见闻的一些事情，让我不得不再次将此思考重启，却注定得不到答案😔。</p><p>&emsp;&emsp;先说说为什么会突然想起来这事儿吧。今天早上出了今年的保研名单，下午参加了华为的招聘宣讲会。看着各个部门的介绍，以及同学们的提问、会后的交流环节，我看到的是企业的宏大体量和飞速发展的潜力，是非常有朝气的朋友们，目标明确地、憧憬地、大胆地了解着自己想知道的一切，我忍不住逃离了现场。我不知道我能“符合”什么岗位的要求，不知道自己有什么能力，除了前三年的成绩还不错以外，我似乎没什么拿得出手的“特别”的能力，我有时会怀疑自己是否具备作为“人才”的能力和潜质。所以难以面对，难以认清自我。</p><p>&emsp;&emsp;另外晚上看见了另一位电科的朋友放弃保研资格准备出国的消息，内心佩服他的勇敢和坚定之余，不免再次对自己的不堪感到一丝失望。然后很多事情都浮上心头。朋友们似乎都是目标明确的啊，他们有着自己的兴趣和方向，也一直为之努力奋斗。国科大的kj实习了一段时间也在准备申国外大学了，爱跳舞的kj真是活出了大学生的样子😂，自在潇洒；北医的爽早已说过要本科直接工作，现在应该也是一直在医院实习，说那话的样子足够深沉，应该是深思熟虑的结果；人大的xyq似乎准备保北大继续学经济？一直优秀的她应该也已达成自己的目标了吧；川农的浩林法双修，以前就是个会讲道理的模样😂；川师的小洋准备跨考新传，不用想也知道会有多努力了，希望努力之后得到同等的回报；南昌大学的苦逼医学生农药在医院和学校之间辗转，生物爱好者到医学生的转变，最终也会很成功，嗯，以后生病了也有医生朋友了😂；泸医的三金同样，在学霸的路上一路狂奔……此外还有好多，包括大学里的朋友们，室友们积极备考，朝七晚十的生活也会画上完美的句号吧，祝考研上岸~应该是为了学微波的大佬恺乔去了东南，马师傅应该会继续跟着中科院的老师干，学物理的崔和云海应该也在联系心仪的外校老师，测控的守卫将去浙大，秋豪不是保研去浙大就是考去……大家似乎都能找到自己的方向和喜欢的东西，我什么时候才能摆脱持续了三年多的迷茫呢？读研其实也不过是随波逐流罢了，一次次告诉自己是通信这专业性质需要我读研，或者不断给自己找事情做，以忘掉这些烦恼，坚定自己学下去的信念。可是继续读我也不知道到底应该做什么方向啊，而且时常怀疑自己的脑子是不是够用，面对一大堆论文各种算法和idea，我很怀疑自己到底能不能做好，会不会让老师失望……一切的一切，真的令人感到无力。</p><p>&emsp;&emsp;祝大家都能找到自己的方向，考研的都能上岸吧❤️。希望我也早日摆脱如今的状态😶</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 杂谈 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 关于未来 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DFWS简介</title>
       <link href="/yyds/6e325585.html"/>
       <url>/yyds/6e325585.html</url>
@@ -195,7 +220,7 @@
       <link href="/yyds/65b12f08.html"/>
       <url>/yyds/65b12f08.html</url>
       
-        <content type="html"><![CDATA[<h3 id="方法一：SVN-下载单个文件夹"><a href="#方法一：SVN-下载单个文件夹" class="headerlink" title="方法一：SVN-下载单个文件夹"></a>方法一：SVN-下载单个文件夹</h3><blockquote><p> 个人最适应的方法，缺点是需要借助第三方工具-svn</p><p>环境：Windows 10</p></blockquote><p>​    若想要下载<code>&#123;username&#125;</code>的<code>&#123;repo&#125;</code>里的<code>&#123;dir&#125;</code>文件夹，</p><ol><li><p>主分支master（现在似乎默认是main了，区别不大）：</p><ul><li><p>其浏览器路径应为<code>https://github.com/&#123;username&#125;/&#123;repo&#125;/tree/master/&#123;dir&#125;</code></p></li><li><p>修改<code>/tree/master/</code>为<code>/trunk/</code></p></li><li><p>打开<code>cmd</code>，输入指令：<code>svn checkout https://github.com/&#123;username&#125;/&#123;repo&#125;/trunk/&#123;dir&#125;</code></p></li><li><p>该<code>&#123;dir&#125;</code>将被下载至当前目录下</p><img src="https://i.loli.net/2021/07/21/SMxiE8ROWvDwpFn.png" alt="示例" style="zoom:80%;"></li></ul></li><li><p>特定分支</p><ul><li>将<code>/trunk/</code>换成<code>/branches/&#123;branch_name&#125;</code>即可</li></ul></li></ol><h3 id="方法二：高版本-Git"><a href="#方法二：高版本-Git" class="headerlink" title="方法二：高版本 Git"></a>方法二：高版本 Git</h3><blockquote><p>这个方法较为繁琐，但无需像前者一样借助其它工具</p></blockquote><p>方法：Git 的<code>Sparse Checkout</code>模式，指定文件/文件夹</p><ol><li><p>创建空的本地仓库，并将远程 <code>Git Server URL</code> 加入到 <code>Git Config</code>里</p><pre class="line-numbers language-none"><code class="language-none">mkdir project_foldercd project_foldergit initgit remote add -f origin &lt;repo-url&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>在 <code>Config</code> 中设置允许使用<code>Sparse Checkout</code>模式</p><pre class="line-numbers language-none"><code class="language-none">git config core.sparsecheckout true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>在<code>.git/info/</code>目录下新建<code>sparse-checkout</code>文件（注意文件名不要错了），写入需要的文件（<strong>一行为一项</strong>）</p><p>如：</p><pre class="line-numbers language-none"><code class="language-none">&#x2F;source&#x2F;tools&#x2F;index.html&#x2F;source&#x2F;about<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li><li><p>以正常方式从服务器pull下来即可</p><pre class="line-numbers language-none"><code class="language-none">git pull origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ol>]]></content>
+        <content type="html"><![CDATA[<h3 id="方法一：SVN-下载单个文件夹"><a href="#方法一：SVN-下载单个文件夹" class="headerlink" title="方法一：SVN-下载单个文件夹"></a>方法一：SVN-下载单个文件夹</h3><blockquote><p> 个人最适应的方法，缺点是需要借助第三方工具-svn</p><p>环境：Windows 10</p></blockquote><p>​    若想要下载<code>&#123;username&#125;</code>的<code>&#123;repo&#125;</code>里的<code>&#123;dir&#125;</code>文件夹，</p><ol><li><p>主分支master（现在似乎默认是main了，区别不大）：</p><ul><li><p>其浏览器路径应为<code>https://github.com/&#123;username&#125;/&#123;repo&#125;/tree/master/&#123;dir&#125;</code></p></li><li><p>修改<code>/tree/master/</code>为<code>/trunk/</code></p></li><li><p>打开<code>cmd</code>，输入指令：<code>svn checkout https://github.com/&#123;username&#125;/&#123;repo&#125;/trunk/&#123;dir&#125;</code></p></li><li><p>该<code>&#123;dir&#125;</code>将被下载至当前目录下</p><img src="https://i.loli.net/2021/07/21/SMxiE8ROWvDwpFn.png" alt="示例" style="zoom:80%;"></li></ul></li><li><p>特定分支</p><ul><li>将<code>/trunk/</code>换成<code>/branches/&#123;branch_name&#125;</code>即可</li></ul></li></ol><h3 id="方法二：高版本-Git"><a href="#方法二：高版本-Git" class="headerlink" title="方法二：高版本 Git"></a>方法二：高版本 Git</h3><blockquote><p>这个方法较为繁琐，但无需像前者一样借助其它工具</p></blockquote><p>方法：Git 的<code>Sparse Checkout</code>模式，指定文件/文件夹</p><ol><li><p>创建空的本地仓库，并将远程 <code>Git Server URL</code> 加入到 <code>Git Config</code>里</p><pre class="line-numbers language-none"><code class="language-none">mkdir project_foldercd project_foldergit initgit remote add -f origin &lt;repo-url&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>在 <code>Config</code> 中设置允许使用<code>Sparse Checkout</code>模式</p><pre class="line-numbers language-none"><code class="language-none">git config core.sparsecheckout true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>在<code>.git/info/</code>目录下新建<code>sparse-checkout</code>文件（注意文件名不要错了），写入需要的文件（<strong>一行为一项</strong>）</p><p>如：</p><pre class="line-numbers language-none"><code class="language-none">&#x2F;source&#x2F;tools&#x2F;index.html&#x2F;source&#x2F;about<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li><li><p>以正常方式从服务器pull下来即可</p><pre class="line-numbers language-none"><code class="language-none">git pull origin master<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ol><h3 id="方法三：利用-DownGit-工具"><a href="#方法三：利用-DownGit-工具" class="headerlink" title="方法三：利用 DownGit 工具"></a>方法三：利用 <a href="http://tool.mkblog.cn/downgit/#/home">DownGit</a> 工具</h3>]]></content>
       
       
       <categories>

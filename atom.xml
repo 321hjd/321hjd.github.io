@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2021-09-09T06:32:07.320Z</updated>
+  <updated>2021-09-15T15:41:03.353Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>迷茫</title>
+    <link href="https://321hjd.github.io/yyds/2824fd95.html"/>
+    <id>https://321hjd.github.io/yyds/2824fd95.html</id>
+    <published>2021-09-15T14:45:28.000Z</published>
+    <updated>2021-09-15T15:41:03.353Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&amp;emsp;&amp;emsp;保研资格的事情告一段落，拿到了预想之中的资格，但并不是很开心，反而因为最近看到的、以前知道的件件事情，再一次感到十分迷茫和痛苦。我好像还是不知道自己想要什么，想做什么，对未来又有如何的规划和期望。最近见闻的一些事情，让我不得不再次将此思考重启，却注定</summary>
+        
+      
+    
+    
+    
+    <category term="杂谈" scheme="https://321hjd.github.io/categories/%E6%9D%82%E8%B0%88/"/>
+    
+    
+    <category term="关于未来" scheme="https://321hjd.github.io/tags/%E5%85%B3%E4%BA%8E%E6%9C%AA%E6%9D%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>DFWS简介</title>
@@ -221,7 +246,7 @@ npm install hexo</summary>
     <link href="https://321hjd.github.io/yyds/65b12f08.html"/>
     <id>https://321hjd.github.io/yyds/65b12f08.html</id>
     <published>2021-07-21T04:49:58.000Z</published>
-    <updated>2021-07-21T05:39:24.750Z</updated>
+    <updated>2021-09-10T06:40:31.227Z</updated>
     
     
       
