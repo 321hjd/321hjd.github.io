@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2021-09-15T15:43:41.328Z</updated>
+  <updated>2021-09-28T02:37:16.993Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>通信-保研复习</title>
+    <link href="https://321hjd.github.io/yyds/492c65b9.html"/>
+    <id>https://321hjd.github.io/yyds/492c65b9.html</id>
+    <published>2021-09-28T02:17:17.000Z</published>
+    <updated>2021-09-28T02:37:16.993Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;通信原理&quot;&gt;&lt;a href=&quot;#通信原理&quot; class=&quot;headerlink&quot; title=&quot;通信原理&quot;&gt;&lt;/a&gt;通信原理&lt;/h2&gt;&lt;h3 id=&quot;一、绪论&quot;&gt;&lt;a href=&quot;#一、绪论&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="通信" scheme="https://321hjd.github.io/categories/%E9%80%9A%E4%BF%A1/"/>
+    
+    
+    <category term="保研" scheme="https://321hjd.github.io/tags/%E4%BF%9D%E7%A0%94/"/>
+    
+  </entry>
   
   <entry>
     <title>迷茫</title>
@@ -541,33 +566,6 @@ npm install hexo</summary>
     
     
     <category term="error LNK2019" scheme="https://321hjd.github.io/tags/error-LNK2019/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OpenGL安装及配置</title>
-    <link href="https://321hjd.github.io/yyds/9f37452d.html"/>
-    <id>https://321hjd.github.io/yyds/9f37452d.html</id>
-    <published>2020-03-06T06:33:00.000Z</published>
-    <updated>2021-07-19T09:27:56.768Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;一、环境&quot;&gt;&lt;a href=&quot;#一、环境&quot; class=&quot;headerlink&quot; title=&quot;一、环境&quot;&gt;&lt;/a&gt;一、环境&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;Windows 10 64位家庭版&lt;/li&gt;
-&lt;li&gt;vs版本：Visual Studio</summary>
-        
-      
-    
-    
-    
-    <category term="配置" scheme="https://321hjd.github.io/categories/%E9%85%8D%E7%BD%AE/"/>
-    
-    
-    <category term="OpenGL" scheme="https://321hjd.github.io/tags/OpenGL/"/>
     
   </entry>
   
