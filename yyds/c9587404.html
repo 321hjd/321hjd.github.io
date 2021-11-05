@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="DFWS简介, hjd&#39;blog">
+    <meta name="keywords" content="使用Ubuntu搭建内网DNS服务, hjd&#39;blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>DFWS简介 | hjd&#39;blog</title>
+    <title>使用Ubuntu搭建内网DNS服务 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/awesome/css/all.css">
@@ -583,12 +583,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2021/09/09/cga9O47IR5BmLZs.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">DFWS简介</h1>
+                    <h1 class="description center-align post-title">使用Ubuntu搭建内网DNS服务</h1>
                 </div>
             </div>
         </div>
@@ -704,12 +704,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/DFWS/">
-                                <span class="chip bg-color">DFWS</span>
+                            <a href="/tags/DNS%E6%90%AD%E5%BB%BA/">
+                                <span class="chip bg-color">DNS搭建</span>
                             </a>
                         
-                            <a href="/tags/WiFi/">
-                                <span class="chip bg-color">WiFi</span>
+                            <a href="/tags/Ubuntu/">
+                                <span class="chip bg-color">Ubuntu</span>
                             </a>
                         
                     </div>
@@ -720,8 +720,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%80%9A%E4%BF%A1/" class="post-category">
-                                通信
+                            <a href="/categories/%E9%85%8D%E7%BD%AE/" class="post-category">
+                                配置
                             </a>
                         
                     </div>
@@ -733,28 +733,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-09
+                    2021-11-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-09
+                    2021-11-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -772,99 +772,212 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="一、DFWS-Device-free-Wireless-Sensing-简介"><a href="#一、DFWS-Device-free-Wireless-Sensing-简介" class="headerlink" title="一、DFWS(Device-free Wireless Sensing)简介"></a>一、DFWS(Device-free Wireless Sensing)简介</h4><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/research/DFWS/DFWS%E7%AE%80%E4%BB%8B.png" alt="DFWS简介"></p>
-<h4 id="二、DFWS系统结构"><a href="#二、DFWS系统结构" class="headerlink" title="二、DFWS系统结构"></a>二、DFWS系统结构</h4><ol>
-<li><strong>信号采集和预处理模块</strong><ul>
-<li>无线信号的固有参数<ul>
-<li>RSS：接收信号强度。容易获得，但易受干扰</li>
-<li>RSP：电磁波周期上某个时间点的位置</li>
-<li>ToA：信号到达时间。收发机间需要同步</li>
-<li>TDoA：信号到达（两个或多个）接收机的时间差，比ToA更灵活。收发机间无需同步，接收机间需同步</li>
-<li>AoA：信号到达角度。用于识别射频波入射传播方向</li>
-<li>PRR：数据包接收速率。可用于估计运动的方向和速度</li>
-<li><strong>CSI：信道状态信息。可捕获每根天线间的幅度、相位信息。前提是使用OFDM技术。普通商用WiFi设备即可提供</strong></li>
-</ul>
+                <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><blockquote>
+<p>由于课程局域网组网实验的要求，需要使用到DNS服务，而网上的教程又较为零散，尝试了一些之后磕磕绊绊也测试成功了，但由于后续还需要在实验室用设备测试，故记录在这里。</p>
+</blockquote>
+<h2 id="二、环境及IP说明"><a href="#二、环境及IP说明" class="headerlink" title="二、环境及IP说明"></a>二、环境及IP说明</h2><ul>
+<li><p>系统环境：Ubuntu-21.04-desktop</p>
 </li>
-<li>预处理技术（去噪）<ul>
-<li>信号滤波（如卡尔曼滤波、带通滤波器、平滑滤波器等）</li>
-<li>PCA（降维、去噪）</li>
-<li>域变换</li>
-<li>以上的混合</li>
-</ul>
+<li><p>所用服务器软件：BIND9（Berkeley Internet Name Domain v9）</p>
 </li>
+<li><p>IP说明</p>
+<blockquote>
+<p>此处都使用的同一台电脑。</p>
+<ul>
+<li>也可以使用多台电脑，但是都必须在同一局域网内。如DNS服务器为192.168.43.28，客户端为192.168.2.1，Web服务器为192.168.3.1。几台机器需要通过交换机或路由器相连，并配置相应的路由/VLAN/DNS server。</li>
+<li>也可以都在同一网段下，如使用手机热点让几台电脑处于同一局域网下。</li>
 </ul>
-</li>
-<li><strong>特征提取模块（多域变换）</strong><ul>
-<li>时域：均值、方差、峰峰值、高阶统计量、分布等</li>
-<li>频域：傅氏变换。能量、熵、峰值频率、频谱分布等</li>
-<li>小波域：小波变换。可将时域信号变换为多个不同时间分辨率的频带，然后从每个波段提取统计特征，形成多尺度时频域特征</li>
-<li>时频域</li>
-<li>原始数据：基于深度学习，部分情况下甚至不需要对数据进行预处理，也能得到和使用处理后的数据相差不大的效果</li>
-<li>……</li>
-</ul>
-</li>
-<li><strong>状态识别模块</strong><ul>
-<li>基于模型<ul>
-<li>优点：不需要耗时的训练过程；计算复杂度较低</li>
-<li>缺点：很难建立准确的模型来描述人对信号的影响。尤其对复杂的人类状态而言，略显乏力</li>
-<li>实例：<ul>
-<li>矩阵求逆问题——正则化方法</li>
-<li>空间相交问题——几何方法</li>
-<li>稀疏表示问题——压缩感知方法</li>
+</blockquote>
+<ul>
+<li>DNS服务器：192.168.43.28</li>
+<li>客户端（需要访问域名服务器，将域名解析为Web服务器对应IP地址）：192.168.43.28</li>
+<li>Web服务器：192.168.43.28</li>
 </ul>
 </li>
 </ul>
+<h2 id="三、配置内网DNS服务"><a href="#三、配置内网DNS服务" class="headerlink" title="三、配置内网DNS服务"></a>三、配置内网DNS服务</h2><h3 id="3-1-安装-BIND9"><a href="#3-1-安装-BIND9" class="headerlink" title="3.1 安装 BIND9"></a>3.1 安装 BIND9</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> bind9 bind9utils bind9-doc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="3-2-配置-BIND9-的IPv4-模式"><a href="#3-2-配置-BIND9-的IPv4-模式" class="headerlink" title="3.2 配置 BIND9 的IPv4 模式"></a>3.2 配置 BIND9 的IPv4 模式</h3><ol>
+<li><p>只需要修改 BIND9 的 systemd unit file即可（<code>/etc/systemd/system/bind9.service</code>）</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> systemctl edit --full bind9<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>或者直接用vim修改文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/systemd/system/bind9.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
-<li>基于深度学习（深度特征提取与分类）<ul>
-<li>优点：自动提取深度特征，识别性和代表性更强</li>
-<li>缺点：训练耗时，计算量大</li>
-<li>特征提取涉及到网络结构的选择，包括网络深度、每层的大小</li>
-<li>分类涉及到回归模型的选择。如soft-max回归模型</li>
-</ul>
+<li><p>在文件的<code>ExecStart</code>行最后加上<code>-4</code>即可</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>service<span class="token punctuation">]</span>
+<span class="token punctuation">..</span>.
+<span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/sbin/named -f <span class="token variable">$OPTIONS</span> -4
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-</ul>
+<li><p>重新启动 BIND9 以重新载入 systemd 的 unit file</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> systemctl daemon-reload
+<span class="token function">sudo</span> systemctl restart bind9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 </ol>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/research/DFWS/DFWS%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84.png" alt="DFWS系统结构"></p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/research/DFWS/%E5%9F%BA%E4%BA%8EDL%E7%9A%84DFWS%E7%BB%93%E6%9E%84.png" alt="基于深度学习的DFWS结构"></p>
-<h4 id="二、DFWS可能的方向及启发"><a href="#二、DFWS可能的方向及启发" class="headerlink" title="二、DFWS可能的方向及启发"></a>二、DFWS可能的方向及启发</h4><ol>
-<li>DL在人体检测领域的应用<ul>
-<li>利用无线信号间的相关性以捕获人体行为对信号传播的放大效果 </li>
-<li>考虑模型的训练效率。包括降低计算复杂度或增强迁移能力 </li>
-<li>考虑将雷达数据转换为图像数据，可以直接利用DL在CV领域的优秀成果</li>
+<h3 id="3-3-修改配置文件"><a href="#3-3-修改配置文件" class="headerlink" title="3.3 修改配置文件"></a>3.3 修改配置文件</h3><ol>
+<li><p><code>/etc/bind/named.conf.options</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">acl <span class="token string">"trusted"</span> <span class="token punctuation">&#123;</span>
+        <span class="token number">192.168</span>.43.0/24<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token punctuation">..</span>.
+options <span class="token punctuation">&#123;</span>
+        recursion <span class="token function">yes</span><span class="token punctuation">;</span>
+        allow-recursion <span class="token punctuation">&#123;</span> trusted<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        listen-on <span class="token punctuation">&#123;</span> <span class="token number">192.168</span>.43.28<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        allow-transfer <span class="token punctuation">&#123;</span> none<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">..</span>.
+        forwarders <span class="token punctuation">&#123;</span>
+                <span class="token number">114.114</span>.114.114<span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">..</span>.
+<span class="token punctuation">&#125;</span>
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>字段解析：</p>
+<ul>
+<li><code>acl</code>：用于控制哪些客户端可以连接到这个DNS服务器；此处表示允许该网段的所有主机</li>
+<li><code>recursion</code>：yes表示允许递归DNS查询</li>
+<li><code>allow-recursion</code>：允许递归查询的客户端范围，此处设置为在<code>acl</code>中声明的<code>trusted</code>部分</li>
+<li><code>listen-on</code>：表示DNS服务器监听此地址的53端口，此处为本地IP（即DNS服务器IP）</li>
+<li><code>allow-transfer</code>：none表示不允许其他DNS服务器从本DNS服务器中查询</li>
+<li><code>forwarders</code>：这是BIND9提供的DNS查询转发机制，当本地DNS查询不到时，查询会转发到<code>forwarders</code>上，并将查询结果缓存到本地DNS上</li>
 </ul>
 </li>
-<li>信号参数的选择、信号处理和模型构建思路<ul>
-<li>不同的场景和任务可能选用不同的信号参数。<strong>细粒度的CSI</strong>可能是解决所有问题最合适的参数</li>
-<li><strong>相位</strong>信息对人体运动更加敏感，也更容易受环境噪声以及设备的影响。需要先进的信号处理技术支持</li>
-<li>DFWS兼具粗粒度和细粒度的感知能力，需要将定位、检测和识别集成到一个模型，以实现无处不在的感知和应用</li>
+<li><p><code>/etc/bind/named.conf.local</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">// Do any <span class="token builtin class-name">local</span> configuration here
+// 正向解析
+zone <span class="token string">"test.com"</span> <span class="token punctuation">&#123;</span>
+        <span class="token builtin class-name">type</span> master<span class="token punctuation">;</span>
+        <span class="token function">file</span> <span class="token string">"/etc/bind/db.test.com"</span><span class="token punctuation">;</span>        //正向解析文件所在路径
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+//反向解析
+zone <span class="token string">"43.168.192.in-addr.arpa"</span> <span class="token punctuation">&#123;</span>
+        <span class="token builtin class-name">type</span> master<span class="token punctuation">;</span>
+        <span class="token function">file</span> <span class="token string">"/etc/bind/db.192.168.43"</span><span class="token punctuation">;</span>			//反向解析文件所在路径
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>新增域名解析文件：<code>/etc/bind/db.test.com</code></p>
+<ul>
+<li><p>可以直接将<code>db.local</code>的内容拷贝到<code>db.test.com</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">cp</span> /etc/bind/db.local /etc/bind/db.test.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>然后再修改文件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">;</span>
+<span class="token punctuation">;</span> BIND data <span class="token function">file</span> <span class="token keyword">for</span> test.com loopback interface
+<span class="token punctuation">;</span>
+<span class="token variable">$TTL</span>    <span class="token number">604800</span>
+@       IN      SOA     test.com. root.test.com. <span class="token punctuation">(</span>
+                              <span class="token number">1</span>         <span class="token punctuation">;</span> Serial
+                         <span class="token number">604800</span>         <span class="token punctuation">;</span> Refresh
+                          <span class="token number">86400</span>         <span class="token punctuation">;</span> Retry
+                        <span class="token number">2419200</span>         <span class="token punctuation">;</span> Expire
+                         <span class="token number">604800</span> <span class="token punctuation">)</span>       <span class="token punctuation">;</span> Negative Cache TTL
+<span class="token punctuation">;</span>
+@       IN      NS      test.com.
+@       IN      A       <span class="token number">192.168</span>.43.28
+*.test.com.     <span class="token number">14400</span>   IN      A       <span class="token number">192.168</span>.43.28<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>需要注意的是：<ul>
+<li>不要漏掉域名后的点</li>
+<li>*为通配符，表示任意字母.test.com都被解析到192.168.43.28这个IP</li>
 </ul>
 </li>
-<li>用于训练DL模型的数据采集——与OFDM多子载波技术一起，新的MIMO技术可为无线感知提供多方面、全覆盖和内在相关的数据</li>
-<li>商业设备信号的校准——例如采用相邻天线的相位差消除CFO和SFO的影响；信号滤波；域变换等（即去除噪声的影响）</li>
-<li>多模式人体检测——由于DL具备强大的数据融合能力，可整合多种传感器的数据及研究成果，如无线信号与CV，让神经网络学习它们之间的对应关系<ul>
-<li><a href="#3">[3]</a>中将骨骼的图像数据和无线信号数据输入进神经网络进行学习，之后可仅依靠人体对无线信号的反射预测人体姿势</li>
-<li>核心技术<ul>
-<li>数据融合：不同形态的信息组合。<a href="#4">[4]</a>提供了详细的多传感器数据融合策略</li>
-<li>协同学习：指迁移学习和域适应。通过转移相关领域的数据或知识结构，将在某个领域或任务中学习到的知识或模式应用于不同但相关的领域或问题，以完成或改进目标领域或任务的学习成果</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>同时实现用户验证和活动识别</li>
-<li>多用户人体检测——多人场景下分离信号：通过MIMO多天线、多链路和波束形成技术将每个用户的动态信息从多用户感知数据中分离出来，从而提高无线感知的时空分辨率<ul>
-<li><a href="#5">[5]</a>通过MIMO多天线、多链路和波束形成技术将每个用户的动态信息从多用户感知数据中分离出来，从而提高无线感知的时空分辨率</li>
-</ul>
+<li><p>新增IP地址反向解析文件<code>/etc/bind/db.43.168.192</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">;</span>
+<span class="token punctuation">;</span> BIND data <span class="token function">file</span> <span class="token keyword">for</span> dev domains 
+<span class="token punctuation">;</span>
+<span class="token variable">$TTL</span>    <span class="token number">604800</span>
+@       IN      SOA     dev. root.dev. <span class="token punctuation">(</span>
+                              <span class="token number">1</span>         <span class="token punctuation">;</span> Serial
+                         <span class="token number">604800</span>         <span class="token punctuation">;</span> Refresh
+                          <span class="token number">86400</span>         <span class="token punctuation">;</span> Retry
+                        <span class="token number">2419200</span>         <span class="token punctuation">;</span> Expire
+                         <span class="token number">604800</span> <span class="token punctuation">)</span>       <span class="token punctuation">;</span> Negative Cache TTL
+<span class="token punctuation">;</span> NS Records
+@       IN      NS      test.com.
+<span class="token punctuation">;</span> PTR Records
+<span class="token number">28</span>     IN      PTR     test.com.		<span class="token punctuation">;</span> <span class="token number">192.168</span>.43.28<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
-<li>人体动作拆分，分别建立信号与人体动作幅度、速度、持续时间之间的关系</li>
-<li>部署范围扩大，子区域划分</li>
 </ol>
-<h4 id="三、参考文献"><a href="#三、参考文献" class="headerlink" title="三、参考文献"></a>三、参考文献</h4><ul>
-<li><span id="1"><a target="_blank" rel="noopener" href="https://sci-hub.se/10.1109/MNET.2017.1700133">[1] J. Wang, Q. Gao, M. Pan and Y. Fang, “Device-Free Wireless Sensing: Challenges, Opportunities, and Applications,” in <em>IEEE Network</em>, vol. 32, no. 2, pp. 132-137, March-April 2018, doi: 10.1109/MNET.2017.1700133.</a></span></li>
-<li><span id="2"><a target="_blank" rel="noopener" href="https://sci-hub.se/10.1109/JIOT.2020.3024234">[2] R. Zhang, X. Jing, S. Wu, C. Jiang, J. Mu and F. R. Yu, “Device-Free Wireless Sensing for Human Detection: The Deep Learning Perspective,” in IEEE Internet of Things Journal, vol. 8, no. 4, pp. 2517-2539, 15 Feb.15, 2021, doi: 10.1109/JIOT.2020.3024234.</a></span></li>
-<li><span id="3"><a target="_blank" rel="noopener" href="https://sci-hub.se/10.1109/CVPR.2018.00768">[3] M. Zhao, T. Li, M. A. Alsheikh, Y. Tian, and D. Katabi, “Through-wall human pose estimation using radio signals,” in Computer Vision and Pattern Recognition (CVPR), 2018</a></span></li>
-<li><span id="4"><a target="_blank" rel="noopener" href="https://sci-hub.se/10.1016/j.inffus.2016.09.005">[4] R. Gravina, P. Alinia, H. Ghasemzadeh, and G. Fortino, “Multisensor fusion in body sensor networks: State-of-the-art and research challenges,” Information Fusion, vol. 35, pp. 68–80, 2017</a></span></li>
-<li><span id="5"><a target="_blank" rel="noopener" href="https://sci-hub.se/10.1145/3290605.3300766">[5] S. Tan, L. Zhang, Z. Wang, and J. Yang, “MultiTrack: Multi-user tracking and activity recognition using commodity WiFi,” in Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems, 2019, pp. 1–12.</a></span></li>
+<h3 id="3-4-检查语法并重启-BIND9-服务"><a href="#3-4-检查语法并重启-BIND9-服务" class="headerlink" title="3.4 检查语法并重启 BIND9 服务"></a>3.4 检查语法并重启 BIND9 服务</h3><ul>
+<li><p>检查<code>/etc/bind/name.conf.*</code>文件，没有任何输出代表没有错误，若有错误则根据提示修改</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> named-checkconf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>若提示没有检查工具，根据提示安装即可</p>
+</li>
+<li><p>检查域名解析文件<code>etc/bind/db.test.com</code>和<code>etc/bind/db.192.168.43</code></p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> named-checkzone test.com /etc/bind/db.test.com
+<span class="token function">sudo</span> named-checkzone <span class="token number">43.168</span>.192.in-addr.arpa /etc/bind/db.192.168.43<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>都提示如下则没问题</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">zone test.com/IN: loaded serial <span class="token number">1</span>
+OK
+zone <span class="token number">43.168</span>.192.in-addr.arpa/IN: loaded serial <span class="token number">1</span>
+OK<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>重启 BIND9 服务</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">service</span> bind9 restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>修改本机的 name server 配置（若客户端为windows系统，则只需要手动设置DNS服务器IP即可</p>
+<ul>
+<li><p>临时修改方法，直接修改<code>/etc/resolv.conf</code>，将其中的nameserver修改为上面配置好的DNS服务器IP</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">..</span>.
+nameserver <span class="token number">192.168</span>.43.28
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>永久修改方法</p>
+<ul>
+<li><p>修改<code>/etc/systemd/resolved.conf</code>文件，在<code>DNS=</code>后加上需要加入的DNS服务器IP地址即可</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">..</span>.
+<span class="token assign-left variable">DNS</span><span class="token operator">=</span><span class="token number">192.168</span>.43.28 <span class="token number">114.114</span>.114.114
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>再在终端执行以下命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> systemctl restart systemd-resolved
+<span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> systemd-resolved
+<span class="token function">sudo</span> <span class="token function">mv</span> /etc/resolv.conf /etc/resolv.conf.bak
+<span class="token function">sudo</span> <span class="token function">ln</span> -s /run/systemd/resolve/resolv.conf /etc/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>之后就可以在<code>etc/resolv.conf</code>看到刚刚添加的DNS nameserver信息了</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-5-测试"><a href="#3-5-测试" class="headerlink" title="3.5 测试"></a>3.5 测试</h3><ol>
+<li><p>通过nslookup指令测试</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 正向解析</span>
+$ <span class="token function">nslookup</span> test.com
+Server:		<span class="token number">192.168</span>.43.28
+Address:	<span class="token number">192.168</span>.43.28<span class="token comment">#53</span>
+
+Name:	test.com
+Address: <span class="token number">192.168</span>.43.28
+$ <span class="token function">nslookup</span> baidu.com
+Server:		<span class="token number">192.168</span>.43.28
+Address:	<span class="token number">192.168</span>.43.28<span class="token comment">#53</span>
+
+Non-authoritative answer:
+Name:	baidu.com
+Address: <span class="token number">220.181</span>.38.251
+Name:	baidu.com
+Address: <span class="token number">220.181</span>.38.148
+<span class="token comment"># 反向解析</span>
+$ <span class="token function">nslookup</span> <span class="token number">192.168</span>.43.28
+<span class="token number">28.43</span>.168.192.in-addr.arpa	name <span class="token operator">=</span> test.com.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>使用网页测试（基于Node.js和Hexo搭建的静态网页，开启在4000端口，若端口为80端口，则域名不需要加端口）</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/computerNetwork/%E7%BD%91%E9%A1%B5%E6%B5%8B%E8%AF%95.png" alt="网页测试"></p>
+</li>
+</ol>
+<h2 id="四、参考链接"><a href="#四、参考链接" class="headerlink" title="四、参考链接"></a>四、参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/409cd51619d0">如何在 Ubuntu 16.04 服务器上配置内网 DNS 服务</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/booklijian/article/details/116491288">Ubuntu20.04 系统中设置dns并生效</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-16-04">How To Configure BIND as a Private Network DNS Server on Ubuntu 16.04</a></li>
+<li><a target="_blank" rel="noopener" href="http://cloudnil.com/2014/07/14/ubuntu-dns/#4-%E4%BF%AE%E6%94%B9%E6%9C%AC%E6%9C%BA%E9%85%8D%E7%BD%AE">Ubuntu DNS服务器配置</a></li>
 </ul>
 
                 
@@ -892,7 +1005,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://321hjd.github.io/yyds/6e325585.html">https://321hjd.github.io/yyds/6e325585.html</a>
+                    <a href="https://321hjd.github.io/yyds/c9587404.html">https://321hjd.github.io/yyds/c9587404.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -930,12 +1043,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/DFWS/">
-                                    <span class="chip bg-color">DFWS</span>
+                                <a href="/tags/DNS%E6%90%AD%E5%BB%BA/">
+                                    <span class="chip bg-color">DNS搭建</span>
                                 </a>
                             
-                                <a href="/tags/WiFi/">
-                                    <span class="chip bg-color">WiFi</span>
+                                <a href="/tags/Ubuntu/">
+                                    <span class="chip bg-color">Ubuntu</span>
                                 </a>
                             
                         </div>
@@ -1444,45 +1557,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/yyds/2824fd95.html">
+                <a href="/yyds/c9587404.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://i.loli.net/2021/09/15/SXN6f7CTambQRw3.jpg" class="responsive-img" alt="迷茫">
                         
-                        <span class="card-title">迷茫</span>
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/4.jpg" class="responsive-img" alt="使用Ubuntu搭建内网DNS服务">
+                        
+                        <span class="card-title">使用Ubuntu搭建内网DNS服务</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            保研事了，思绪良多。什么时候才能目标明确地前行呢？
+                            由于课程实验所需，总结了使用Ubuntu搭建简易局域网DNS服务器的步骤
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-15
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-11-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category">
-                                    杂谈
+                            <a href="/categories/%E9%85%8D%E7%BD%AE/" class="post-category">
+                                    配置
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%85%B3%E4%BA%8E%E6%9C%AA%E6%9D%A5/">
-                        <span class="chip bg-color">关于未来</span>
+                    <a href="/tags/DNS%E6%90%AD%E5%BB%BA/">
+                        <span class="chip bg-color">DNS搭建</span>
+                    </a>
+                    
+                    <a href="/tags/Ubuntu/">
+                        <span class="chip bg-color">Ubuntu</span>
                     </a>
                     
                 </div>
@@ -1496,31 +1616,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yyds/81231d2a.html">
+                <a href="/yyds/492c65b9.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/15.jpg" class="responsive-img" alt="自省">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/16.jpg" class="responsive-img" alt="通信-保研复习">
                         
-                        <span class="card-title">自省</span>
+                        <span class="card-title">通信-保研复习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            观《我的青铜时代》- 罗翔x陈晓楠（腾讯视频）的一些感想
+                            通信-保研复习时整理的一些问题和学习笔记，整理的问题比较仓促，笔记较详细
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category">
-                                    杂谈
+                            <a href="/categories/%E9%80%9A%E4%BF%A1/" class="post-category">
+                                    通信
                                 </a>
                             
                             
@@ -1530,12 +1650,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E3%80%8A%E6%88%91%E7%9A%84%E9%9D%92%E9%93%9C%E6%97%B6%E4%BB%A3%E3%80%8B/">
-                        <span class="chip bg-color">《我的青铜时代》</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%87%AA%E7%9C%81/">
-                        <span class="chip bg-color">自省</span>
+                    <a href="/tags/%E4%BF%9D%E7%A0%94/">
+                        <span class="chip bg-color">保研</span>
                     </a>
                     
                 </div>
