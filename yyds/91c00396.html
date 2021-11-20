@@ -768,7 +768,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近发现使用const int 定义变量时若不设初始值，编译器会报错。然而使用const char<em> 时却不会，并且使用const char</em> 明明是const常量，却仍然可以修改其值。</p>
+                <p>最近发现使用const int 定义变量时若不设初始值，编译器会报错。然而使用const char* 时却不会，并且使用const char* 明明是const常量，却仍然可以修改其值。</p>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int main()
 &#123;
 　 const int b;    &#x2F;&#x2F;报错
@@ -776,6 +776,7 @@
     a &#x3D; &quot;hjd&quot;;
     a &#x3D; &quot;sdf&quot;;      &#x2F;&#x2F;不会报错
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>发现原来是概念有些混淆，const char* 是常量指针，可以修改地址，不可修改指针指向的值，所以并未违背常量不可修改值的规定。这里由“hjd”变为“sdf”实际上是修改了指针a指向的地址。</p>
 
                 
@@ -1676,7 +1677,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">34.8k</span>&nbsp;字
+                class="white-color">34.9k</span>&nbsp;字
             
 
 			
