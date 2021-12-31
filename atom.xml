@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2021-12-10T13:19:32.823Z</updated>
+  <updated>2021-12-23T14:27:56.857Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>校园网组网实验方案</title>
+    <link href="https://321hjd.github.io/yyds/a86e8493.html"/>
+    <id>https://321hjd.github.io/yyds/a86e8493.html</id>
+    <published>2021-12-10T13:35:00.000Z</published>
+    <updated>2021-12-23T14:27:56.857Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;center&gt;&lt;font size=&quot;5&quot;&gt;
+    &lt;b&gt;信息与通信工程学院&lt;/b&gt;
+    &lt;br&gt;
+    &lt;br&gt;
+    &lt;b&gt;通信工程专业综合实验报告&lt;/b&gt;
+    &lt;br&gt;
+    &lt;br&gt;
+    &lt;b&gt;2021年9月20日~12月20日&lt;/b&gt;
+   </summary>
+        
+      
+    
+    
+    
+    <category term="课程实验" scheme="https://321hjd.github.io/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/"/>
+    
+    
+    <category term="局域网组建" scheme="https://321hjd.github.io/tags/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%BB%84%E5%BB%BA/"/>
+    
+  </entry>
   
   <entry>
     <title>使用Ubuntu搭建内网DNS服务</title>
@@ -537,32 +570,6 @@ npm install hexo</summary>
     
     
     <category term="C++" scheme="https://321hjd.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>error LNK2019: 无法解析的外部符号 _stbi_load 使用stb_image.h库的错误</title>
-    <link href="https://321hjd.github.io/yyds/31791ebb.html"/>
-    <id>https://321hjd.github.io/yyds/31791ebb.html</id>
-    <published>2020-03-09T06:42:00.000Z</published>
-    <updated>2021-07-21T06:43:28.481Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;此错误在使用stb_image.h图片加载库时遇到&lt;/p&gt;
-&lt;pre class=&quot;line-numbers language-none&quot;&gt;&lt;code class=&quot;language-none&quot;&gt;1&amp;gt;------ 已启动生成: 项目: OpenGL, 配置:</summary>
-        
-      
-    
-    
-    
-    <category term="错误解决" scheme="https://321hjd.github.io/categories/%E9%94%99%E8%AF%AF%E8%A7%A3%E5%86%B3/"/>
-    
-    
-    <category term="error LNK2019" scheme="https://321hjd.github.io/tags/error-LNK2019/"/>
     
   </entry>
   
