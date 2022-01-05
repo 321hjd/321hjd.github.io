@@ -744,7 +744,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-07-19
+                    2022-01-05
                 </div>
                 
 
@@ -798,26 +798,26 @@
 </tbody></table>
 <h2 id="二、步骤"><a href="#二、步骤" class="headerlink" title="二、步骤"></a>二、步骤</h2><h3 id="新建虚拟机"><a href="#新建虚拟机" class="headerlink" title="新建虚拟机"></a>新建虚拟机</h3><ul>
 <li>选择典型（自定义应该也可以，感觉区别不大）<ul>
-<li><img src="/medias/loading.gif" data-original="https://i.bmp.ovh/imgs/2021/05/1575d8f7690c7c8a.png" alt="img"></li>
+<li><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/1575d8f7690c7c8a.png" alt="img"></li>
 </ul>
 </li>
 <li>选择稍后安装操作系统<ul>
-<li><img src="/medias/loading.gif" data-original="https://i.bmp.ovh/imgs/2021/05/78be4172ea7f691b.png" alt="img"></li>
+<li><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/78be4172ea7f691b.png" alt="img"></li>
 </ul>
 </li>
 <li>客户机操作系统选择Linux，版本选Ubuntu64位<ul>
-<li><img src="/medias/loading.gif" data-original="https://i.bmp.ovh/imgs/2021/05/96385572547c6fb9.png" alt="img"></li>
+<li><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/96385572547c6fb9.png" alt="img"></li>
 </ul>
 </li>
 <li>自定义虚拟机名称及存储位置，下一步</li>
 <li>指定磁盘容量，默认，下一步</li>
 <li>点击自定义硬件<ul>
 <li>选择新CD/DVD-&gt;选择使用ISO映像文件（准备好的ubuntu的iso文件）<ul>
-<li><img src="/medias/loading.gif" data-original="https://i.bmp.ovh/imgs/2021/05/f58995b28f224ddd.png" alt="img"></li>
+<li><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/f58995b28f224ddd.png" alt="img"></li>
 </ul>
 </li>
 <li>选择USB控制器-&gt;兼容性选择USB3.1（我的理解是选最大的那个，都是向下兼容的），其它全选上<ul>
-<li><img src="/medias/loading.gif" data-original="https://i.bmp.ovh/imgs/2021/05/a20b7ff98e2d6a0d.png" alt="img"></li>
+<li><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/a20b7ff98e2d6a0d.png" alt="img"></li>
 </ul>
 </li>
 <li>其它默认，关闭，完成</li>
@@ -830,13 +830,13 @@
 <li>选择合适的语言，点击试用Ubuntu</li>
 <li>点击桌面上的安装程序进行安装</li>
 <li>一路默认，为了节约时间，我选择了最小安装，其它选项不勾选<ul>
-<li><img src="/medias/loading.gif" data-original="https://i.bmp.ovh/imgs/2021/05/574f29b2a20032a1.png" alt="img"></li>
+<li><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/574f29b2a20032a1.png" alt="img"></li>
 </ul>
 </li>
 <li>安装类型选其它选项并开始分区（最重点）<ul>
 <li>U盘引导启动有两种方式，一种是以前的Legacy BIOS方式，一种是新的UEFI方式（这里我也没有了解得很清楚）<ul>
 <li>先查看自己的电脑的BIOS设置支持的是哪种方式：WIN+R，输入msinfo32<ul>
-<li><img src="/medias/loading.gif" data-original="https://i.bmp.ovh/imgs/2021/05/befd4c0e83a7db93.png" alt="img"></li>
+<li><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/befd4c0e83a7db93.png" alt="img"></li>
 </ul>
 </li>
 <li>如果是UEFI启动模式，磁盘分区时不需要分/boot区，而是使用EFI系统分区</li>
@@ -845,21 +845,21 @@
 </li>
 <li>我的电脑支持UEFI启动模式，因此我的分区如下：（关于分区可以多参考网上的教程，我弄得不是很清楚）<ul>
 <li>512MB的EFI系统分区（主分区+空间起始位置）（看网上有的教程说200MB就足够）<ul>
-<li><img src="/medias/loading.gif" data-original="https://pic.imgdb.cn/item/6099450cd1a9ae528f086fa3.jpg" alt="img"></li>
+<li><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/6099450cd1a9ae528f086fa3.jpg" alt="img"></li>
 <li>如果电脑只支持Legacy BIOS启动模式，则不需要此分区，改为新的XFS格式分区（大小同理，不过挂载在/boot下）</li>
 </ul>
 </li>
 <li>10G的XFS格式分区（主分区+空间起始位置，挂载在/下，似乎是相当于windows的C盘，关于文件格式也可以多在网上查资料了解，不一定非要用XFS）<ul>
-<li><img src="/medias/loading.gif" data-original="https://pic.imgdb.cn/item/60994675d1a9ae528f1c14f8.jpg" alt="img"></li>
+<li><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/60994675d1a9ae528f1c14f8.jpg" alt="img"></li>
 </ul>
 </li>
 <li>剩下的可以全用光（仍然是XFS格式分区，主分区+空间起始位置，挂载在/home下，是用户自己的目录）<ul>
-<li><img src="/medias/loading.gif" data-original="https://pic.imgdb.cn/item/60994766d1a9ae528f2ad238.jpg" alt="img"></li>
+<li><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/60994766d1a9ae528f2ad238.jpg" alt="img"></li>
 <li>这里不用光有个好处，就是可以利用剩下的空间当普通U盘用（需要通过磁盘管理-&gt;点击可用空间-&gt;新建简单卷-&gt;跟着引导曹操作）</li>
 </ul>
 </li>
 <li>注意很重要的一步！这里需要将安装启动引导器的设备选项改为刚刚的EFI分区（即这里的dev/sdb1），否则下一步会报错<ul>
-<li><img src="/medias/loading.gif" data-original="https://pic.imgdb.cn/item/60994908d1a9ae528f45575e.jpg" alt="img"></li>
+<li><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/60994908d1a9ae528f45575e.jpg" alt="img"></li>
 <li>注意：如果是Legacy BIOS启动模式，这里似乎不需要更改，默认即可（我没试过，但看网上其它教程没有提到需要修改）</li>
 </ul>
 </li>
@@ -1788,7 +1788,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">54.2k</span>&nbsp;字
+                class="white-color">53.3k</span>&nbsp;字
             
 
 			
