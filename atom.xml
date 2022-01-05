@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2021-12-23T14:27:56.857Z</updated>
+  <updated>2022-01-05T09:49:39.166Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>矩阵分解算法</title>
+    <link href="https://321hjd.github.io/yyds/83153ec8.html"/>
+    <id>https://321hjd.github.io/yyds/83153ec8.html</id>
+    <published>2022-01-05T09:34:08.000Z</published>
+    <updated>2022-01-05T09:49:39.166Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;接触到通信中的下行链路预编码，其中很多线性预编码方法涉及到矩阵求逆，而矩阵求逆的计算复杂度随着维度增加而剧增，因此出现了很多基于矩阵分解的简化求逆方法。在总结预编码方法时发现当时学线性代数好像只接触了LU分解和SVD分解，故在此对常见的一些矩阵分解</summary>
+        
+      
+    
+    
+    
+    <category term="矩阵" scheme="https://321hjd.github.io/categories/%E7%9F%A9%E9%98%B5/"/>
+    
+    
+    <category term="矩阵分解" scheme="https://321hjd.github.io/tags/%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/"/>
+    
+  </entry>
+  
+  <entry>
     <title>校园网组网实验方案</title>
     <link href="https://321hjd.github.io/yyds/a86e8493.html"/>
     <id>https://321hjd.github.io/yyds/a86e8493.html</id>
     <published>2021-12-10T13:35:00.000Z</published>
-    <updated>2021-12-23T14:27:56.857Z</updated>
+    <updated>2021-12-31T05:23:45.022Z</updated>
     
     
       
@@ -395,7 +421,11 @@ npm install hexo</summary>
       
         
         
-    <summary type="html">&lt;h2 id=&quot;一、准备&quot;&gt;&lt;a href=&quot;#一、准备&quot; class=&quot;headerlink&quot; title=&quot;一、准备&quot;&gt;&lt;/a&gt;一、准备&lt;/h2&gt;&lt;div</summary>
+    <summary type="html">&lt;h2 id=&quot;一、准备&quot;&gt;&lt;a href=&quot;#一、准备&quot; class=&quot;headerlink&quot; title=&quot;一、准备&quot;&gt;&lt;/a&gt;一、准备&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;本机系统&lt;/th&gt;
+&lt;th&gt;Windows</summary>
         
       
     
@@ -453,7 +483,7 @@ npm install hexo</summary>
         
         
     <summary type="html">&lt;ul&gt;
-&lt;li&gt;问题1：在一个数组中找到一个出现次数大于n/2的数（保证一定存在）&lt;a</summary>
+&lt;li&gt;&lt;p&gt;问题1：在一个数组中找到一个出现次数大于n/2的数（保证一定存在）&lt;a</summary>
         
       
     
@@ -478,8 +508,8 @@ npm install hexo</summary>
       
         
         
-    <summary type="html">&lt;p&gt;最近发现使用const int 定义变量时若不设初始值，编译器会报错。然而使用const char&lt;em&gt; 时却不会，并且使用const char&lt;/em&gt; 明明是const常量，却仍然可以修改其值。&lt;/p&gt;
-&lt;pre class=&quot;line-numbers</summary>
+    <summary type="html">&lt;p&gt;最近发现使用const int 定义变量时若不设初始值，编译器会报错。然而使用const char* 时却不会，并且使用const char* 明明是const常量，却仍然可以修改其值。&lt;/p&gt;
+&lt;pre class=&quot;line-numbers language-c++&quot;</summary>
         
       
     
@@ -544,32 +574,6 @@ npm install hexo</summary>
     
     
     <category term="error LNK2019" scheme="https://321hjd.github.io/tags/error-LNK2019/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>error：非常量引用只能绑定到左值</title>
-    <link href="https://321hjd.github.io/yyds/868c3c39.html"/>
-    <id>https://321hjd.github.io/yyds/868c3c39.html</id>
-    <published>2020-03-10T01:12:00.000Z</published>
-    <updated>2021-07-21T06:44:11.621Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h3&gt;&lt;p&gt;今天遇到一个关于C++引用的错误，说实话以前确实一直没注意到过引用还有这个规则&lt;/p&gt;
-&lt;pre</summary>
-        
-      
-    
-    
-    
-    <category term="语法" scheme="https://321hjd.github.io/categories/%E8%AF%AD%E6%B3%95/"/>
-    
-    
-    <category term="C++" scheme="https://321hjd.github.io/tags/C/"/>
     
   </entry>
   

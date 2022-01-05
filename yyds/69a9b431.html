@@ -777,7 +777,7 @@
 </blockquote>
 <h2 id="一、工具库介绍"><a href="#一、工具库介绍" class="headerlink" title="一、工具库介绍"></a>一、工具库介绍</h2><h3 id="1-urllib-包"><a href="#1-urllib-包" class="headerlink" title="1. urllib 包"></a>1. urllib 包</h3><ul>
 <li>介绍：Python urllib 库用于操作网页 URL，并对网页的内容进行抓取处理</li>
-<li><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/urllib.html">urllib—-URL处理模块</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/urllib.html">urllib—URL处理模块</a></li>
 <li>模块：<ul>
 <li><strong>urllib.request</strong> - 打开和读取 URL。</li>
 <li><strong>urllib.error</strong> - 包含 urllib.request 抛出的异常。</li>
@@ -823,8 +823,7 @@
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
 <span class="token keyword">import</span> requests
 <span class="token keyword">import</span> urllib
-<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>定义类并初始化</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">GetBaiduImage</span><span class="token punctuation">:</span>
     
@@ -834,8 +833,7 @@
         self<span class="token punctuation">.</span>keyword <span class="token operator">=</span> keyword
         self<span class="token punctuation">.</span>page <span class="token operator">=</span> page
         self<span class="token punctuation">.</span>pn <span class="token operator">=</span> <span class="token number">1</span>                  <span class="token comment"># pn代表从第几张图片开始获取，百度图片下滑时默认一次性显示30张</span>
-        <span class="token comment"># self.first = 1              # 代表从第几张图片开始获取，必应图片下滑时默认一次性显示30张</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+        <span class="token comment"># self.first = 1              # 代表从第几张图片开始获取，必应图片下滑时默认一次性显示30张</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>模拟浏览器拉取数据</p>
 <ul>
 <li>注意：这里的<code>param</code> 就是刚刚抓包得到链接的参数部分，<strong>一个都不能少</strong></li>
@@ -912,8 +910,7 @@
     <span class="token keyword">except</span><span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'网页获取失败：'</span><span class="token punctuation">,</span> html_res<span class="token punctuation">.</span>status_code<span class="token punctuation">)</span>
         <span class="token keyword">return</span> <span class="token boolean">None</span>
-    <span class="token keyword">return</span> html_text<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+    <span class="token keyword">return</span> html_text<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>分析拉取到的html文本（变量<code>html</code>）并获取图片的下载链接</p>
 <ul>
 <li>分析发现<code>thumbURL</code>对应的就是图片下载链接</li>
@@ -925,8 +922,7 @@
         f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>html<span class="token punctuation">)</span>
         <span class="token comment"># urls = re.findall('murl&amp;quot;:&amp;quot;(.*?)&amp;quot;', html, re.S)     # 必应图片</span>
         urls <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">'"thumbURL":"(.*?)"'</span><span class="token punctuation">,</span> html<span class="token punctuation">,</span> re<span class="token punctuation">.</span>S<span class="token punctuation">)</span>     <span class="token comment"># 百度图片</span>
-    <span class="token keyword">return</span> urls<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+    <span class="token keyword">return</span> urls<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>下载图片</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">Download</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
     name <span class="token operator">=</span> <span class="token number">1</span>
@@ -943,8 +939,7 @@
                 name <span class="token operator">+=</span> <span class="token number">1</span>
         <span class="token comment"># 下载下一页</span>
         self<span class="token punctuation">.</span>pn <span class="token operator">+=</span> <span class="token number">29</span>	   <span class="token comment"># 百度图片</span>
-        <span class="token comment"># self.first += 29	# 必应图片</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+        <span class="token comment"># self.first += 29	# 必应图片</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>main函数</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
     url <span class="token operator">=</span> <span class="token string">'https://image.baidu.com/search/acjson?'</span>
@@ -952,8 +947,7 @@
     keyword <span class="token operator">=</span> <span class="token string">'风景壁纸'</span>            <span class="token comment"># 想要搜索的图片</span>
     page <span class="token operator">=</span> <span class="token string">'2'</span>                     <span class="token comment"># 想要爬取几页</span>
     imgobj <span class="token operator">=</span> GetBaiduImage<span class="token punctuation">(</span>url<span class="token punctuation">,</span> path<span class="token punctuation">,</span> keyword<span class="token punctuation">,</span> page<span class="token punctuation">)</span>
-    imgobj<span class="token punctuation">.</span>Download<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+    imgobj<span class="token punctuation">.</span>Download<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h3 id="3-缺陷"><a href="#3-缺陷" class="headerlink" title="3. 缺陷"></a>3. 缺陷</h3><ul>
 <li>对于爬取必应图片，将上面的注释取消，并注释对应部分即可</li>
@@ -990,8 +984,7 @@
 <span class="token keyword">import</span> requests
 <span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
 <span class="token keyword">from</span> time <span class="token keyword">import</span> sleep
-<span class="token keyword">import</span> os<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<span class="token keyword">import</span> os<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>模拟浏览器拉取数据</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">GetHtmlText</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token comment"># 根据传入的url请求网站，并返回得到的数据</span>
@@ -1004,8 +997,7 @@
         <span class="token keyword">except</span><span class="token punctuation">:</span>
             <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'网页获取失败：'</span><span class="token punctuation">,</span> html_text<span class="token punctuation">.</span>status_code<span class="token punctuation">)</span>
             <span class="token keyword">return</span> <span class="token boolean">None</span>
-    <span class="token keyword">return</span> html_text<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+    <span class="token keyword">return</span> html_text<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>获取最大页数</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">GetMaxPageCount</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token comment"># 获取主页信息，并且获取网站的最大页数 </span>
@@ -1017,8 +1009,7 @@
             page_txt <span class="token operator">=</span> tag_child<span class="token punctuation">.</span>string
             match <span class="token operator">=</span> re<span class="token punctuation">.</span>search<span class="token punctuation">(</span><span class="token string">r'(?&lt;=1 / )\d*'</span><span class="token punctuation">,</span> page_txt<span class="token punctuation">)</span>
             max_page_count <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span>match<span class="token punctuation">.</span>group<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> max_page_count<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+    <span class="token keyword">return</span> max_page_count<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>存储图片</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">SavePictureInUrl</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> pic_url<span class="token punctuation">,</span> pic_name<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token comment"># 根据传入的url链接获取图片的二进制数据，并且根据传入的路径和文件名将文件写入到对应的路径中</span>
@@ -1031,8 +1022,7 @@
             f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>source<span class="token punctuation">.</span>content<span class="token punctuation">)</span>
             sleep<span class="token punctuation">(</span><span class="token number">0.005</span><span class="token punctuation">)</span>
             <span class="token keyword">except</span> OSError<span class="token punctuation">:</span>
-                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"此图片下载失败！"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+                <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"此图片下载失败！"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>下载一页的图片</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">GetOnePageJpg</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> page_count<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token comment"># 从返回的网页数据中获取每张图片的相关信息以及图片下载的url，然后调用相关函数下载图片</span>
@@ -1057,16 +1047,14 @@
         pic_url <span class="token operator">=</span> self<span class="token punctuation">.</span>url <span class="token operator">+</span> tag_download<span class="token punctuation">[</span><span class="token string">'href'</span><span class="token punctuation">]</span>
         <span class="token comment">#信息保存到图片中</span>
         self<span class="token punctuation">.</span>SavePictureInUrl<span class="token punctuation">(</span>pic_url<span class="token punctuation">,</span> text_pic_name<span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">,</span> flush<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>        <span class="token comment">#输出进度信息</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">,</span> end<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">,</span> flush<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>        <span class="token comment">#输出进度信息</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>下载所有页的图片</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">GetAllPageJpg</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token comment"># 爬取所有的图片，并保存在输入的路径参数下</span>
     max_page_count <span class="token operator">=</span> self<span class="token punctuation">.</span>GetMaxPageCount<span class="token punctuation">(</span><span class="token punctuation">)</span>
     <span class="token keyword">for</span> page_index <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> max_page_count<span class="token punctuation">)</span><span class="token punctuation">:</span>
         self<span class="token punctuation">.</span>GetOnePageJpg<span class="token punctuation">(</span>page_index<span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'\r'</span><span class="token punctuation">,</span> <span class="token string">'正在获取，已完成：&#123;:.2f&#125; %'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>page_index<span class="token operator">/</span>max_page_count<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">,</span> flush<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>      <span class="token comment">#输出进度信息</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'\r'</span><span class="token punctuation">,</span> <span class="token string">'正在获取，已完成：&#123;:.2f&#125; %'</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>page_index<span class="token operator">/</span>max_page_count<span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span> end <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">,</span> flush<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>      <span class="token comment">#输出进度信息</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>main函数</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     url <span class="token operator">=</span> <span class="token string">'https://bing.ioliu.cn/'</span>     
@@ -1075,8 +1063,7 @@
     getBingImg<span class="token punctuation">.</span>GetAllPageJpg<span class="token punctuation">(</span><span class="token punctuation">)</span>   
     
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    main<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h3 id="3-源代码"><a href="#3-源代码" class="headerlink" title="3. 源代码"></a>3. 源代码</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/code/GetBingImage.py">https://cdn.jsdelivr.net/gh/321hjd/ImageBed/code/GetBingImage.py</a></li>
@@ -1102,8 +1089,7 @@
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re
 <span class="token keyword">import</span> requests
 <span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
-<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<span class="token keyword">from</span> time <span class="token keyword">import</span> sleep<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>模拟浏览器拉取数据</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">GetHtmlText</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token comment"># 根据传入的url请求网站，并返回得到的数据</span>
@@ -1116,8 +1102,7 @@
     <span class="token keyword">except</span> Exception<span class="token punctuation">:</span>
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'网页获取失败：'</span><span class="token punctuation">,</span> html_text<span class="token punctuation">.</span>status_code<span class="token punctuation">)</span>
         <span class="token keyword">return</span> <span class="token boolean">None</span>
-    <span class="token keyword">return</span> html_text<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+    <span class="token keyword">return</span> html_text<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>获取完整评论链接和下一页链接</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">GetNextPageAndCompleUrls</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token comment"># 1.获取下一页评论的链接</span>
@@ -1132,8 +1117,7 @@
     <span class="token comment"># 获取该页所有评论的完整评论链接</span>
     tag_main <span class="token operator">=</span> soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token string">'class'</span><span class="token punctuation">:</span><span class="token string">'main-bd'</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
     comple_urls <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">'&lt;a href="(.*?)">'</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">(</span>tag_main<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> next_page<span class="token punctuation">,</span> comple_urls<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+    <span class="token keyword">return</span> next_page<span class="token punctuation">,</span> comple_urls<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>爬取所有评论并存储</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">SaveComments</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">:</span>
     <span class="token comment"># 爬取所有评论并储存</span>
@@ -1166,8 +1150,7 @@
                 f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">'\n\n'</span><span class="token punctuation">)</span>
                 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"写入第&#123;&#125;条评论"</span><span class="token punctuation">.</span><span class="token builtin">format</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">)</span>
                 count <span class="token operator">+=</span> <span class="token number">1</span>
-                sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+                sleep<span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>main函数</p>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
     url <span class="token operator">=</span> <span class="token string">'https://movie.douban.com/subject/30174085/reviews'</span>     
@@ -1177,8 +1160,7 @@
     getDoubanComments<span class="token punctuation">.</span>SaveComments<span class="token punctuation">(</span>url<span class="token punctuation">)</span>
 
 <span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    main<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h3 id="3-缺陷-1"><a href="#3-缺陷-1" class="headerlink" title="3. 缺陷"></a>3. 缺陷</h3><ul>
 <li>一些评论无法爬取，应该是网站的反爬机制导致的。最好是利用ip代理解决，可参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/python147/p/14499657.html">爬虫遇到反爬机制怎么办? 看看我是如何解决的！</a></li>
@@ -2102,7 +2084,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.1k</span>&nbsp;字
+                class="white-color">54.2k</span>&nbsp;字
             
 
 			
@@ -2378,12 +2360,12 @@ $(function () {
 		color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"> 
 	</script>
 
-<script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script><script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>

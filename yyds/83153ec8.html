@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="通信-保研复习, hjd&#39;blog">
+    <meta name="keywords" content="矩阵分解算法, hjd&#39;blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>通信-保研复习 | hjd&#39;blog</title>
+    <title>矩阵分解算法 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/awesome/css/all.css">
@@ -583,12 +583,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">通信-保研复习</h1>
+                    <h1 class="description center-align post-title">矩阵分解算法</h1>
                 </div>
             </div>
         </div>
@@ -704,8 +704,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E4%BF%9D%E7%A0%94/">
-                                <span class="chip bg-color">保研</span>
+                            <a href="/tags/%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/">
+                                <span class="chip bg-color">矩阵分解</span>
                             </a>
                         
                     </div>
@@ -716,8 +716,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%80%9A%E4%BF%A1/" class="post-category">
-                                通信
+                            <a href="/categories/%E7%9F%A9%E9%98%B5/" class="post-category">
+                                矩阵
                             </a>
                         
                     </div>
@@ -729,28 +729,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-09-28
+                    2022-01-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-09-28
+                    2022-01-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.4k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    14 分
                 </div>
                 
 
@@ -768,494 +768,84 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="通信原理"><a href="#通信原理" class="headerlink" title="通信原理"></a>通信原理</h2><h3 id="一、绪论"><a href="#一、绪论" class="headerlink" title="一、绪论"></a>一、绪论</h3><ol>
-<li><p>通信系统模型（香农模型）</p>
-<blockquote>
-<p>信源 -&gt; 编码 -&gt; 信道 -&gt; 解码 -&gt; 信宿 </p>
+                <blockquote>
+<p>接触到通信中的下行链路预编码，其中很多线性预编码方法涉及到矩阵求逆，而矩阵求逆的计算复杂度随着维度增加而剧增，因此出现了很多基于矩阵分解的简化求逆方法。在总结预编码方法时发现当时学线性代数好像只接触了LU分解和SVD分解，故在此对常见的一些矩阵分解算法做个记录以便查询。后续也许会系统学习矩阵计算相关并记录。也许。。。资料来源于网络上各大佬的博客以及潘建瑜老师的《矩阵计算》讲义。侵删~</p>
 </blockquote>
-</li>
-</ol>
-<ol start="2">
-<li><p>为什么要将低频信号调制到高频进行传输？</p>
+<h2 id="一、-LU-分解"><a href="#一、-LU-分解" class="headerlink" title="一、$LU$分解"></a>一、$LU$分解</h2><h3 id="1-1-LU-分解定理"><a href="#1-1-LU-分解定理" class="headerlink" title="1.1 $LU$分解定理"></a>1.1 $LU$分解定理</h3><p>&emsp;&emsp;$LU$分解实质就是将系数矩阵$A$分解为$L$和$U$两个矩阵的乘积。其中$L$是单位下三角矩阵，$U$为非奇异上三角矩阵。</p>
+<p>&emsp;&emsp;假定矩阵$A$存在$LU$分解，则原方程$Ax=b$就将转化为求解下面两个三角方程组，而三角方程组的求解非常容易求解。<br>$$<br>\left{ \begin{array}{l}<br>Ly = b,\<br>Ux = y.<br>\end{array} \right.<br>$$<br>&emsp;&emsp;此外，$LU$分解也可用于对矩阵求逆，分别对三角矩阵$L$和$U$求逆比直接对$A$求逆的计算复杂度低很多。假设$PA=LU$，则<br>$$<br>A^{-1}=U^{-1}L^{-1}P<br>$$<br>&emsp;&emsp;并不是每个非奇异矩阵都存在$LU$分解。</p>
 <blockquote>
-<p>（1）基带信号频率低，波长长，当天线的长度为无线电信号波长的 1/4 时，天线的发射和接收转换效率最高，如果不调制到高频，天线需要做得很长<br>（2）高频要比低频传送的成本低效率高（还是天线的原因）。利用高频的不同的载波，容易实现多路通信<br>（3）频率越高，可用带宽越宽，即高频频率资源更丰富（如信号频率为 2 MHz，则可用带宽不超过 ±2 MHz，而信号频率 2 GHz，则可用带宽不超过 ±2 GHz）</p>
+<p>定理（$LU$分解的存在性和唯一性）：矩阵$A \in \mathbb{R}^{n \times n}$存在$LU$分解（即存在单位下三角矩阵$L$和非奇异上三角矩阵$U$使得$A=LU$）的充要条件是$A$的所有顺序主子式都非奇异（行列式非零）。进一步地，若$A$存在 $LU$分解, 则分解是唯一的。                    </p>
 </blockquote>
-</li>
-</ol>
-<h3 id="二、确定信号分析"><a href="#二、确定信号分析" class="headerlink" title="二、确定信号分析"></a>二、确定信号分析</h3><ol>
-<li><p>什么是基带信号？什么是带通信号？</p>
-<blockquote>
-<p>基带信号指信号的能量或功率集中在零频附近。带通信号指信号的能量或功率主要集中在某个载波频率fc附近</p>
-</blockquote>
-</li>
-<li><p>绝对带宽、主脉带宽、3dB带宽，等效矩形带宽</p>
-</li>
-</ol>
-<blockquote>
-<p>绝对带宽：针对理想滤波器，指信号只存在于<code>[w1,w2]</code>之间</p>
-<p>主脉带宽：中心频率到第一个过零点的频带宽度，包含信号的绝大多数能量和功率</p>
-<p>3dB带宽：系统的功率谱密度从最大值衰减到一半时候的带宽，即频响特性从最大值衰减到原来的$\frac{1}{\sqrt{2}}$</p>
-<p>等效矩形带宽：频谱图面积除以频响特性峰值除以2，即$W=\frac{\int_{-\infty}^{+\infty}P_x(f)df}{2P_x(0)}$</p>
-</blockquote>
-<ol start="3">
-<li>复信号存在吗？</li>
-</ol>
-<blockquote>
-<p>（1）实信号的频率一定是正的，负频率实际是因为欧拉公式中有一正一负的频率与之对应，并不是实际频域上的频率<br>（2）复信号是不存在的，它是对带通信号的一种记法</p>
-</blockquote>
-<ol start="4">
-<li>波形无失真和复包络无失真</li>
-</ol>
-<blockquote>
-<p>波形无失真要求幅频特性为常数，相时延为常数。即要求通过系统的所有频率分量经过相同的时延。时域表现为波形无变化，只有幅度变化和时延。</p>
-<p>复包络无失真要求幅频特性为常数，群时延特性为常数</p>
-</blockquote>
-<ol start="5">
-<li>滤波器的可实现性取决于？</li>
-</ol>
-<blockquote>
-<p>一方面取决于时域拖尾衰减的快慢，拖尾衰减越快，实现越容易；另一方面取决于实际实现误差的大小，同一滤波器在不同情况下的可实现性不同</p>
-</blockquote>
-<h3 id="三、随机过程"><a href="#三、随机过程" class="headerlink" title="三、随机过程"></a>三、随机过程</h3><ol>
-<li><p>广义平稳随机过程的定义</p>
-<blockquote>
-<p>（1）数学期望、方差与时间无关<br>（2）自相关函数仅与时间差有关</p>
-</blockquote>
-</li>
-<li><p>各态历经性（遍历性）</p>
-<blockquote>
-<p>指所有样本具有相同的自相关函数和功率谱密度。任意一个样本函数的功率谱密度就是该随机过程的功率谱密度</p>
-</blockquote>
-</li>
-<li><p>高斯过程的性质</p>
-<blockquote>
-<p>如果广义平稳，则一定严平稳</p>
-<p>若高斯过程中两点不相关，则两点一定独立</p>
-</blockquote>
-</li>
-<li><p>几类噪声的定义</p>
-<blockquote>
+<h3 id="1-2-LU-分解的实现方式"><a href="#1-2-LU-分解的实现方式" class="headerlink" title="1.2 $LU$分解的实现方式"></a>1.2 $LU$分解的实现方式</h3><h4 id="1-2-1-Gauss消元法"><a href="#1-2-1-Gauss消元法" class="headerlink" title="1.2.1 Gauss消元法"></a>1.2.1 Gauss消元法</h4><p>&emsp;&emsp;Gauss消元法的本质是通过Gauss变换（矩阵初等变换的组合）来构造$A$的$LU$分解。给定一个矩阵<br>$$<br>A = \left[ {\begin{array}{}<br>{a_{11}}&amp;{a_{12}}&amp; \cdots &amp;{a_{1n}}\<br>{a_{21}}&amp;{a_{22}}&amp; \cdots &amp;{a_{2n}}\<br> \vdots &amp;{}&amp; \ddots &amp;{}\<br>{a_{n1}}&amp;{a_{n2}}&amp; \cdots &amp;{a_{nn}}<br>\end{array}} \right] \in \mathbb{R}{^{n \times n}}<br>$$</p>
 <ul>
-<li>白噪声：功率谱密度为常数的随机信号（与之对应的为有色噪声）</li>
-<li>高斯噪声：概率密度函数服从高斯分布</li>
-<li>高斯白噪声：功率谱密度服从均匀分布，幅度（概率密度）服从高斯分布（热噪声是白噪声，且热噪声是由大量自由电子的运动产生的，其统计特性服从高斯分布）</li>
-<li>加性噪声：一般指热噪声、散弹噪声等。它们与信号的关系是相加，不管有没有信号，噪声都存在。</li>
-<li>乘性噪声：一般由信道不理想引起的。它们与信号的关系是相乘，信号在，噪声在；信号不在，噪声也就消失。乘性随机性看成是系统的时变性或者非线性造成的。乘性噪声普遍存在于现实世界的图像应用当中。</li>
+<li><p>第一步，假定$a_{11}\ne 0$，构造矩阵<br>$$<br>{L_1} = \left[ {\begin{array}{<em>{20}{c}}<br>1&amp;0&amp;0&amp; \cdots &amp;0\<br>{l_{21}}&amp;1&amp;0&amp; \cdots &amp;0\<br>{l_{31}}&amp;0&amp;1&amp; \cdots &amp;0\<br> \vdots &amp; \vdots &amp;{}&amp; \ddots &amp;{}\<br>{l_{n1}}&amp;0&amp;0&amp; \cdots &amp;1<br>\end{array}} \right],其中~l_{i1} = \frac{a_{i1}}{a_{11}},i = 2,3, \ldots ,n.<br>$$<br>易知$L_1$的逆为<br>$$<br>{L_1^{-1}} = \left[ {\begin{array}{</em>{20}{c}}<br>1&amp;0&amp;0&amp; \cdots &amp;0\<br>{-l_{21}}&amp;1&amp;0&amp; \cdots &amp;0\<br>{-l_{31}}&amp;0&amp;1&amp; \cdots &amp;0\<br> \vdots &amp; \vdots &amp;{}&amp; \ddots &amp;{}\<br>{-l_{n1}}&amp;0&amp;0&amp; \cdots &amp;1<br>\end{array}} \right]<br>$$<br>用$L_1^{-1}$左乘$A$，并将所得矩阵记为$A^{(1)}$，则<br>$$<br>A^{(1)}=L_{1}^{-1} A\left[\begin{array}{cccc}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1 n} \<br>0 &amp; a_{22}^{(1)} &amp; \cdots &amp; a_{2 n}^{(1)} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \<br>0 &amp; a_{n 2}^{(1)} &amp; \cdots &amp; a_{n n}^{(1)}<br>\end{array}\right]<br>$$<br>即左乘$L_1^{-1}$后, $A$的第一列中除第一个元素外其它都变为0。</p>
+</li>
+<li><p>第二步，类似地，将上面的操作作用在$A^{(1)}$的子矩阵$A^{(1)}(2:n,2:n)$上，将其第一列除第一个元素外都变为0。也就是说，假定$a_{22}^{(1)}\ne 0$，构造矩阵<br>$$<br>{L_1} = \left[ {\begin{array}{*{20}{c}}<br>1&amp;0&amp;0&amp; \cdots &amp;0\<br>0&amp;1&amp;0&amp; \cdots &amp;0\<br>0&amp;{l_{32}}&amp;1&amp; \cdots &amp;0\<br> \vdots &amp; \vdots &amp;{}&amp; \ddots &amp;{}\<br>0&amp;{l_{n2}}&amp;0&amp; \cdots &amp;1<br>\end{array}} \right],其中{l_{i2}} = \frac{a_{i2}^{(1)}}{a_{22}^{(1)}},i = 3,4, \ldots ,n.<br>$$<br>用$L_2^{-1}$左乘$A^{(1)}$，所得矩阵记为$A^{(2)}$，则<br>$$<br>A^{(2)}=L_{2}^{-1} A^{(1)}=L_{2}^{-1} L_{1}^{-1} A=\left[\begin{array}{ccccc}<br>a_{11} &amp; a_{12} &amp; a_{13} &amp; \cdots &amp; a_{1 n} \<br>0 &amp; a_{22}^{(1)} &amp; a_{23}^{(1)} &amp; \cdots &amp; a_{2 n}^{(1)} \<br>0 &amp; 0 &amp; a_{33}^{(2)} &amp; \cdots &amp; a_{3 n}^{(2)} \<br>\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \<br>0 &amp; 0 &amp; a_{n 3}^{(2)} &amp; \cdots &amp; a_{n n}^{(2)}<br>\end{array}\right].<br>$$</p>
+</li>
+<li><p>依此类推，假定$a_{kk}^{(k-1)}\ne 0(k=3,4,\dots,n-1)$，则可以构造一系列矩阵$L3,L4,\dots,L_{n-1}$，使得<br>$$<br>L_{n-1}^{-1} \cdots L_{2}^{-1} L_{1}^{-1} A=\left[\begin{array}{ccccc}<br>a_{11} &amp; a_{12} &amp; a_{13} &amp; \cdots &amp; a_{1 n} \<br>0 &amp; a_{22}^{(1)} &amp; a_{23}^{(1)} &amp; \cdots &amp; a_{2 n}^{(1)} \<br>0 &amp; 0 &amp; a_{33}^{(2)} &amp; \cdots &amp; a_{3 n}^{(2)} \<br>\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \<br>0 &amp; 0 &amp; 0 &amp; \cdots &amp; a_{n n}^{(n-1)}<br>\end{array}\right]<br>$$<br>为一个上三角矩阵，即所需要分解得到的非奇异上三角矩阵$U$，并记<br>$$<br>L = {L_1}{L_2} \ldots {L_{n - 1}} = \left[ {\begin{array}{*{20}{c}}<br>1&amp;0&amp;0&amp; \cdots &amp;0\<br>{l_{21}}&amp;1&amp;0&amp; \cdots &amp;0\<br>{l_{31}}&amp;{l_{32}}&amp;1&amp; \cdots &amp;0\<br> \vdots &amp; \vdots &amp;{}&amp; \ddots &amp;{}\<br>{l_{n1}}&amp;{l_{n2}}&amp;{l_{n3}}&amp; \cdots &amp;1<br>\end{array}} \right]<br>$$<br>最终得到矩阵$A$的$LU$分解，即<br>$$<br>A=LU<br>$$</p>
+</li>
 </ul>
-</blockquote>
-</li>
-<li><p>匹配滤波器的目的</p>
-<blockquote>
-<p>获取最大信噪比</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="四、模拟通信系统"><a href="#四、模拟通信系统" class="headerlink" title="四、模拟通信系统"></a>四、模拟通信系统</h3><ol>
-<li>什么是调制？调制的目的是什么？</li>
-</ol>
-<blockquote>
-<p>调制：按照调制信号的变化规律去控制载波的幅度、频率或相位</p>
-<p>调制的目的：</p>
-<ul>
-<li>频谱搬移——使发送的频带信号具有匹配频带信道的带通特性</li>
-<li>高频资源丰富，便于复用，同时传送多路信息</li>
-</ul>
-</blockquote>
-<ol start="2">
-<li>正弦载波调制的种类</li>
-</ol>
-<blockquote>
-<p>幅度调制</p>
-<ul>
-<li>双边带抑制载波调幅（DSB-SC AM）<ul>
-<li>载波提取——添加导频分量/平方环/科斯塔斯环；</li>
-<li>只能使用相干解调——因为信号包络有正有负（包络检波会取绝对值））</li>
-</ul>
-</li>
-<li>包络调制（标准调幅，AM）：DSB-SC信号叠加一个大载波</li>
-<li>单边带调幅（SSB）</li>
-<li>残留边带调制</li>
-</ul>
-<p>角度调制——牺牲带宽换取高的抗噪能力</p>
-<ul>
-<li>调频FM<ul>
-<li>FM理想鉴频：先通过线性网络（微分器）把等幅调频波变换成振幅与调频波瞬时频率成正比的调幅调频波，然后用振幅检波器（包络检波）进行振幅检波</li>
-</ul>
-</li>
-<li>调相PM</li>
-</ul>
-</blockquote>
-<h3 id="五、数字信号的基带传输"><a href="#五、数字信号的基带传输" class="headerlink" title="五、数字信号的基带传输"></a>五、数字信号的基带传输</h3><ol>
-<li><p>模拟通信系统和数字通信系统有何不同？</p>
-<blockquote>
-<ul>
-<li>调制方式不同，波形不同：模拟系统是正弦波，数字系统是矩形波</li>
-<li>信号流不同：一个是数字信号，一个是正弦信号。数字信号误码率低、可以经过无损压缩。模拟信号要求有效的识别，更容易受到外界噪声干扰</li>
-<li>系统传输所需操作和设备不同：数字系统需要将模拟信号经过采样量化编码转化为数字信号，即模数转换</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<ol start="2">
-<li><p>数字通信系统的组成</p>
-<blockquote>
-<p>信源-&gt;信源编码-&gt;信道差错控制编码-&gt;数字调制器-&gt;信道-&gt;数字解调器-&gt;信道译码器-&gt;信源译码器-&gt;信宿</p>
-</blockquote>
-</li>
-<li><p>什么是码间干扰?</p>
-<blockquote>
-<p>在一个抽样时刻，由于邻近码元的波形在该点的幅度值不为0，导致对当前码元抽样的干扰。也就是说，在抽样点得到的抽样值，不仅包含了当前码元的幅度值，还包含了临近码元的幅度值</p>
-</blockquote>
-</li>
-<li><p>什么是奈奎斯特准则？（无码间干扰条件）</p>
-<blockquote>
-<p>指信道与成形滤波器、匹配滤波器级联之后的时域特性满足在除了每个nTs处即采样点之外的地方为0。一般采用的升余弦滤波器满足条件。</p>
-</blockquote>
-</li>
-<li><p>最佳基带传输系统设计要求</p>
-<blockquote>
-<ul>
-<li>采样点无码间干扰——总体传输函数X(f)满足Nyquist准则</li>
-<li>误码率尽量小——接收滤波器GR(f)与GT(f)C(f)匹配</li>
-<li>发送信号带宽不超过信道带宽，为W</li>
-</ul>
-</blockquote>
-</li>
-<li><p>什么是眼图？</p>
-<blockquote>
-<p>利用视觉暂留效应，通过设置示波器的余辉参数，显示出采样点处的每一个码元的波形。通过眼图可以观察到实际采样点是否在最佳采样时刻，以及波形对定时的灵敏度等。</p>
-</blockquote>
-</li>
-<li><p>信道均衡的目的？</p>
-<blockquote>
-<p>减小码间干扰。因为信道的未知性，系统特性通常不符合Nyquist准则，导致接收端采样时刻存在码间干扰。</p>
-<p>因此可以在接收端采样后、判决前加均衡器，用于补偿信道特性的不完善</p>
-</blockquote>
-</li>
-<li><p>部分响应系统的作用？</p>
-<blockquote>
-<p>由于升余弦滤波器截止频率超过了Nyquist带宽，导致频带利用率降低，因此部分响应系统通过“相关编码”，在前后符号注入相关性，改变信号波形的频谱特性，使得传输的信号波形的“频谱变窄”。以提高频谱利用率。</p>
-<p>组成：相关编码器、理想低通滤波器、采样判决器</p>
-<p>特点：利用相关编码引入受控 ISI（即在接收端可消除）的基带传输系统</p>
-<ul>
-<li>其带宽为W(Hz)（=1/(2 Ts），是奈氏带宽）</li>
-<li>传输速率为2 W(Baud)（奈氏速率）</li>
-<li>达到理论最大频带利用率——2 Baud/Hz</li>
-<li>且能用物理可实现滤波器近似实现其频率特性</li>
-</ul>
-</blockquote>
-</li>
-<li><p>什么是符号同步？</p>
-<blockquote>
-<p>为了从接收信号中准确地提取出时钟信号，接收机的恢复时钟必须“实时”地调整其时钟频率及定时相位来补偿频率漂移，以确保 “对解调输出信号采样瞬时的最佳化”。</p>
-<p>方法有发射时加入导频，或者利用线谱法，即通过对信号平方，然后再用窄带滤波器或者锁相环提取。</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="六、数字信号的频带传输"><a href="#六、数字信号的频带传输" class="headerlink" title="六、数字信号的频带传输"></a>六、数字信号的频带传输</h3><ol>
-<li><p>2PSK 信号可以非相干解调吗？</p>
-<blockquote>
-<p>不能，因为2PSK信号通过调制信号的相位变化规律控制载波变化，而包络检波会丢掉相位。</p>
-</blockquote>
-</li>
-<li><p>什么是相位模糊问题？</p>
-<blockquote>
-<p>对PSK信号进行载波提取时，得到的载波有两种可能的相位（0、π），对接收信号解调将可能产生与基带信号同相/反相的信号。DPSK解决问题的关键在于利用当前bit的载波相位与前一bit的载波相位之差传递绝对码。</p>
-</blockquote>
-</li>
-<li><p>如何解决QPSK（Quadrature Phase Shift Keying）的非线性影响？</p>
-<blockquote>
-<p>OQPSK（Offset QPSK）。令 I 路和 Q 路信号的零点错开（时间上错开 T = Ts/2）。Q路调制时延迟T，采样时同样延迟T，这样可以降低包络起伏，非线性的影响就会减小。</p>
-</blockquote>
-</li>
-<li><p>为什么要采用高阶调制？</p>
-<blockquote>
-<p>频带利用率$\eta=\frac{R_b}{B}$，同时$R_b=R_s\log_2M$。高阶调制可以在带宽不变（即码元速率不变）的情况下，提高频带利用率</p>
-</blockquote>
-</li>
-<li><p>为什么MQAM的性能比MPSK的性能更好？</p>
-<blockquote>
-<ul>
-<li>MQAM 充分利用了二维信号空间的平面，在不减小相邻信号矢量之间的最小欧式距离的条件下，增加矢量点的数目，以增加信道的频带利用率</li>
-<li>矢量间的最小欧式距离越大，越不容易判错</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<h3 id="七、信源和信源编码"><a href="#七、信源和信源编码" class="headerlink" title="七、信源和信源编码"></a>七、信源和信源编码</h3><ol>
-<li><p>信息、信号和消息的概念</p>
-<blockquote>
-<p>（1）信号：可描述、可测量、可显示的物理量<br>（2）信息：以信号参量形式载荷在信号上（幅度、频率、相位等），是我们最终所需要的东西<br>（3）消息（符号）：消息所描述和度量的对象是信息（数学层次），数学层次上对信息的描述</p>
-</blockquote>
-</li>
-<li><p>信息度量</p>
-<blockquote>
-<p>自信息量、互信息量：相对量</p>
-<ul>
-<li>自信息量：信源不确定度的减少量</li>
-<li>互信息量：信息经过信道传输后，真正被信宿获得的信源的信息量（信源X的不确定度的减少量）</li>
-</ul>
-<p>信息熵：信源输出的一个符号所含的平均信息量。是对信息不确定度的度量，是绝对量。</p>
-</blockquote>
-</li>
-<li><p>信道有效性的衡量标准是频带利用率，为信息速率R与带宽B的比值。信源编码要求Rs尽可能小，这与提高有效性是否矛盾？</p>
-<blockquote>
-<p>不矛盾。</p>
-<p>（1）信源编码后一个码字携带了更多的比特（码元速率降低），即占用更少的带宽（码元速率对应带宽），从信息传输角度看，有效性是提高了。<br>（2）高阶调制的思想类似<br>（3）有效性一般关注的是bps/Hz</p>
-</blockquote>
-</li>
-<li><p>离散、无记忆、限失真信源编码定理（无失真信源编码定理同理，即传输速率大于信息熵时，只要信源序列L足够成，则……）</p>
-<blockquote>
-<p>若有一个离散、无记忆、平稳信源，其信息率失真函数为R(D)，则当通信系统中实际传送信息率为R &gt; R(D)，只要信源序列 L 足够长，则一定存在一种编码方式C‘令译码后的失真小于或等于D +ε，且ε为任意小的正整数。反之若R &lt; R(D)，则无论什么编码方式其译码失真必大于D。</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="八、信道"><a href="#八、信道" class="headerlink" title="八、信道"></a>八、信道</h3><ol>
-<li><p>信道中的三种典型作用</p>
-<blockquote>
-<p>衰落、干扰、噪声</p>
-</blockquote>
-</li>
-<li><p>信道编码定理？</p>
-</li>
-</ol>
-<blockquote>
-<p>对任意给定的信道，设其容量为C，则一定存在一种信道编码，当前传输速率低于C时，收端译码后的差错率可以做到无穷小；</p>
-<ul>
-<li>反之，若传输速率大于C，任何编码都不可能做到差错率很小</li>
-</ul>
-</blockquote>
-<ol start="3">
-<li>根据香农公式，信道的容量极限是？</li>
-</ol>
-<blockquote>
-<p>$\mathop{lim}\limits_{B\to{\infty}}C=\frac{S}{N_0\ln{2}}~~bit/s$</p>
-</blockquote>
-<ol start="4">
-<li>分集的思想？</li>
-</ol>
-<blockquote>
-<p>原理：利用两个以上信号传送同一信息，并且这些不同信号的衰落相互独立<br>目的：抗衰落</p>
-</blockquote>
-<h3 id="九、信道编码"><a href="#九、信道编码" class="headerlink" title="九、信道编码"></a>九、信道编码</h3><ol>
-<li><p>线性分组码的性质</p>
-<blockquote>
+<h4 id="1-2-2-待定系数法"><a href="#1-2-2-待定系数法" class="headerlink" title="1.2.2 待定系数法"></a>1.2.2 待定系数法</h4><p>&emsp;&emsp;假定$A$存在$LU$分解，即$A=LU$，或<br>$$<br>\left[\begin{array}{ccccc}<br>a_{11} &amp; a_{12} &amp; a_{13} &amp; \cdots &amp; a_{1 n} \<br>a_{21} &amp; a_{22} &amp; a_{23} &amp; \cdots &amp; a_{2 n} \<br>a_{31} &amp; a_{32} &amp; a_{33} &amp; \cdots &amp; a_{3 n} \<br>\vdots &amp; &amp; &amp; \ddots &amp; \vdots \<br>a_{n 1} &amp; a_{n 2} &amp; a_{n 3} &amp; \cdots &amp; a_{n n}<br>\end{array}\right]=\left[\begin{array}{ccccccccc}<br>1 &amp; &amp; &amp; &amp; \<br>l_{21} &amp; 1 &amp; &amp; &amp; \<br>l_{31} &amp; l_{32} &amp; 1 &amp; &amp; \<br>\vdots &amp; &amp; &amp; \ddots &amp; \<br>l_{n 1} &amp; l_{n 2} &amp; \cdots &amp; l_{n, n-1} &amp; 1<br>\end{array}\right]\left[\begin{array}{ccccc}<br>u_{11} &amp; u_{12} &amp; u_{13} &amp; \cdots &amp; u_{1 n} \<br>&amp; u_{22} &amp; u_{23} &amp; \cdots &amp; u_{2 n} \<br>&amp; &amp; u_{33} &amp; \cdots &amp; u_{2 n} \<br>&amp; &amp; &amp; \ddots &amp; \vdots \<br>&amp; &amp; &amp; &amp; &amp; u_{n n}<br>\end{array}\right]<br>$$<br>可以通过比较等式两边的元素来计算$L$和$U$中各元素的值。具体计算过程如下：</p>
 <ol>
-<li>线性分组码的码字的集合C对加法封闭</li>
-<li>全零序列是线性分组码中的一个码字</li>
-<li>线性分组码中任意两个不同码字间汉明距离的最小值称为码组的最小距离</li>
-<li>除全零码外，码字的最小重量称为码组的最小重量</li>
-<li>线性分组码每个码字间的最小距离等于某非零码字的最小汉明重量</li>
-</ol>
-</blockquote>
+<li><p>比较等式两边的<strong>第一行</strong>，可得<br>$$<br>u_{1j}=a_{1j},\quad j=1,2,\dots,n<br>$$<br>再比较等式两边的<strong>第一列</strong>，可得<br>$$<br>a_{i1}=l_{i1}u_{11}\Rightarrow l_{i1}=a_{i1}/u_{11},\quad i=2,3,\dots,n<br>$$</p>
 </li>
-<li><p>循环码生成多项式的性质</p>
-<blockquote>
-<ol>
-<li>g(x)的0次项为1</li>
-<li>g(x)是唯一的</li>
-<li>循环码的每一个码多项式都是g(x)的倍式，且每一个小于等于(n-1)次的g(x)倍式一定是码多项式</li>
-<li>g(x)的次数是(n-k)</li>
-</ol>
-</blockquote>
+<li><p>比较等式两边的<strong>第二行</strong>，可得<br>$$<br>a_{2 j}=l_{21} u_{1 j}+u_{2 j} \Rightarrow u_{2 j}=a_{2 j}-l_{21} u_{1 j}, \quad j=2,3, \ldots, n<br>$$<br>再比较等式两边的<strong>第二列</strong>，可得<br>$$<br>a_{i2}=l_{i1} u_{12}+l_{i2}u_{22} \Rightarrow l_{i2}=(a_{i2}-l_{i1}u_{12})/u_{22}, \quad j=3,4, \ldots, n<br>$$</p>
+</li>
+<li><p>以此类推吗，第$k$步时，比较等式两边的<strong>第$k$行</strong>，可得<br>$$<br>u_{k j}=a_{k j}-\left(l_{k 1} u_{1 j}+\cdots+l_{k, k-1} u_{k-1, j}\right), \quad j=k, k+1, \ldots, n<br>$$<br>比较等式两边的<strong>第$k$列</strong>，可得<br>$$<br>l_{i k}=\left(a_{i k}-l_{i 1} u_{1 k}-\cdots-l_{i, k-1} u_{k-1, k}\right) / u_{k k}, \quad i=k+1, k+2, \ldots, n<br>$$</p>
 </li>
 </ol>
-<h3 id="十、扩频通信"><a href="#十、扩频通信" class="headerlink" title="十、扩频通信"></a>十、扩频通信</h3><ol>
-<li><p>模拟信号可以使用扩频技术吗？</p>
+<h3 id="1-3-条件更弱的LU分解定理（选主元-LU-分解）"><a href="#1-3-条件更弱的LU分解定理（选主元-LU-分解）" class="headerlink" title="1.3  条件更弱的LU分解定理（选主元$LU$分解）"></a>1.3  条件更弱的LU分解定理（选主元$LU$分解）</h3><p>&emsp;&emsp;在$LU$分解算法中，称$a_{kk}^{(k-1)}$为主元，若$a_{kk}^{(k-1)}=0$，算法无法进行下去；若$|a_{kk}^{(k-1)}|$值非常小，则因为舍入误差导致结果误差非常大。可通过选主元来解决此问题。</p>
+<p>&emsp;&emsp;选主元需要引入置换矩阵，其基本性质如下：</p>
 <blockquote>
-<p>可以，FM信号就是通过扩频来获取更强的抗干扰能力。</p>
+<p>设$P\subset{\mathbb{R}^{n\times n}}$为置换矩阵，$X\subset{\mathbb{R}^{n\times n}}$为任意矩阵，则</p>
+<p>（1）$PX$相当于将$X$的行进行置换；$XP$相当于对$X$的列进行置换；</p>
+<p>（2）$P^{-1}=P^T$，即$P$是正交矩阵；</p>
+<p>（3）$\det(P)=\pm1$;</p>
+<p>（4）置换矩阵的乘积仍然是置换矩阵。</p>
 </blockquote>
-</li>
-<li><p>伪随机码的特性</p>
+<p>&emsp;&emsp;另外选主元$LU$分解也不是一定存在的，其条件如下：</p>
 <blockquote>
+<p>定理（选主元$LU$分解的存在性）：设$A\subset{\mathbb{R}^{n\times n}}$非奇异，则存在置换矩阵$P_L,P_R$，以及单位下三角矩阵$L$和非奇异上三角矩阵$U$，使得<br>$$<br>P_LAP_R=LU<br>$$</p>
+</blockquote>
+<p>&emsp;&emsp;注意置换矩阵有两种选择方式：</p>
 <ul>
-<li>序列中 0 和 1 出现的概率各为1/2</li>
-<li>序列中连0或连1称为游程，游程长度为k的游程数占总游程数的1/(2^k)</li>
-<li>将给定随机序列位移任何个元素，则所得序列和原序列对应的元素由一半相同，一半不同</li>
+<li><p>“全主元Gauss消元法”（GECP）：使主元为剩下矩阵中绝对值最大。</p>
+</li>
+<li><p>“部分选主元Gauss消元法”（GEPP）：使主元为第$k$列第$k$到第$n$个元素中绝对值最大，此时$P_R^{(k)}=I$，因此也成为列主元Gauss消元法</p>
+<blockquote>
+<p>（1）GECP 比 GEPP 更稳定, 但工作量太大, 在实际应用中通常使用 GEPP 算法. </p>
+<p>（2）GEPP 算法能保证 L 所有的元素的绝对值都不超过 1.</p>
+</blockquote>
+</li>
 </ul>
-</blockquote>
-</li>
-</ol>
-<h3 id="十一、正交频分复用多载波调制技术"><a href="#十一、正交频分复用多载波调制技术" class="headerlink" title="十一、正交频分复用多载波调制技术"></a>十一、正交频分复用多载波调制技术</h3><ol>
-<li><p>移动无线信道的两个基本特征</p>
+<h2 id="二、-QR-分解"><a href="#二、-QR-分解" class="headerlink" title="二、$QR$分解"></a>二、$QR$分解</h2><p>&emsp;&emsp;$QR$分解是将一个矩阵分解为一个正交矩阵（酉矩阵）和一个上三角矩阵的乘积。$QR$分解被广泛应用于线性最小二乘问题的求解和矩阵特征值的计算。</p>
 <blockquote>
-<p>（1）多径传输：发射信号经过多条具有不同时延的路径到达接收机，接收信号是多径传输信号之和<br>（2）多径信道具有时变性：发射机、接收机及传播环境中的其它物体运动引起移动通信的时变模型一般是时变多径信道模型</p>
+<p>定理（$QR$分解）：设$A\in{\mathbb{C}^{m\times n}(m\ge n)}$，则存在一个单位列正交矩阵$Q\in \mathbb{C}^{m\times n}(即Q^*Q=I_{n\times n})$和一个上三角矩阵$R\in \mathbb{C}^{n\times n}$，使得<br>$$<br>A=QR<br>$$<br>若$A$列满秩，则存在一个具有对角线元素的上三角矩阵$R$使得$A=QR$成立，且此时$QR$分解唯一，即$Q$和$R$都唯一。</p>
+<p>推论：设$A\in{\mathbb{C}^{m\times n}(m\ge n)}$，且秩为$l(0\le l\le n)$，则存在一个置换矩阵$P$，使得<br>$$<br>AP=Q\left[\begin{align}&amp;R_{11}~~R_{12}\&amp;~0~~~~~~~0\end{align}\right]<em>{n\times n},<br>$$<br>其中$Q\in \mathbb{C}^{m\times n}$单位列正交，$R</em>{11}\in \mathbb{C}^{l\times l}$是非奇异上三角矩阵。</p>
 </blockquote>
-</li>
-<li><p>什么是信号衰落？</p>
+<h2 id="三、-SVD"><a href="#三、-SVD" class="headerlink" title="三、$SVD$"></a>三、$SVD$</h2><p>&emsp;&emsp;设 $A ∈ \mathbb C^{m×n} (m ≥ n)$，则$ A^∗A ∈\mathbb C^{n×n} $和$AA^∗ ∈ \mathbb C^{m×m}$都是 Hermite 半正定矩阵，且它们具有相同的非零特征值 (都是正实数)。</p>
 <blockquote>
-<p>若发射信号是频率为 fc 的未调制正弦载波，经过无线信道的时变多径传输会带来 “接收信号幅度的起伏变化” （瑞利分布或莱斯分布），称为信号衰落</p>
+<p>定理（$SVD$）：设任意矩阵 $A ∈ \mathbb C^{m×n} (m ≥ n)$，则存在酉矩阵$U\in \mathbb C^{m\times m}$和$V\in \mathbb C^{n\times n}$，使得<br>$$<br>U^{<em>} A V=\left[\begin{array}{l}\Sigma \ 0\end{array}\right] \quad 或 \quad A=U\left[\begin{array}{l}\Sigma \ 0\end{array}\right] V^{</em>}<br>$$<br>其中$\sum=\mathrm{diag}(\sigma_1,\sigma_2,\ldots,\sigma_n)\in \mathbb R^{n\times n}$，且$\sigma_1\ge\sigma_2\ge\ldots\ge\sigma_n\ge0$。该分解称为$A$的奇异值分解（$SVD$）,而 $\sigma_1,\sigma_2,\ldots,\sigma_n$ 称为$A$的奇异值（特征值）。</p>
 </blockquote>
-</li>
-<li><p>正交频分复用（OFDM）多载波调制技术</p>
+<h2 id="四、-Cholesky-分解"><a href="#四、-Cholesky-分解" class="headerlink" title="四、$Cholesky$分解"></a>四、$Cholesky$分解</h2><p>&emsp;&emsp;对称正定矩阵的基本性质：</p>
 <blockquote>
-<p>单路宽带高速传输 ⇨ 多路窄带低速传输（低速：符号间隔Ts大，带宽窄（小于相关带宽Bc），平坦衰落，无码间干扰）</p>
-</blockquote>
-</li>
-<li><p>OFDM系统收发过程</p>
-<blockquote>
-<p><img src="/medias/loading.gif" data-original="https://i.loli.net/2021/09/28/dDE7gVReKPZrfaW.png" alt="image-20210926202741927"></p>
-<p>注意：<br>（1）交织是将突发差错打乱为随机差错，应该是在信道差错编码之后<br>（2）星座映射以我的理解应该就是调制过程。即串并变换 → 调制到对应子载波 → 合并<br>（3）插入导频是在 “已调信号” 中插入时钟信号，是调制之后的步骤<br>（4）注意以上步骤都是在频域上操作。IFFT后，将每个周期最后的若干样值复制放在前面作为CP</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="移动通信"><a href="#移动通信" class="headerlink" title="移动通信"></a>移动通信</h2><h3 id="一、移动通信电波传播与传播预测模型"><a href="#一、移动通信电波传播与传播预测模型" class="headerlink" title="一、移动通信电波传播与传播预测模型"></a>一、移动通信电波传播与传播预测模型</h3><ol>
-<li><p>电波传播的基本特性</p>
-<blockquote>
-<p>衰落。表现为传播损耗和弥散。传播损耗包括路径损耗和阴影衰落；弥散包括多径衰落和多普勒扩展。</p>
-</blockquote>
-</li>
-<li><p>三种基本电波传播机制</p>
-<blockquote>
+<p>设$A\in\mathbb R^{n\times n}$.</p>
 <ul>
-<li>反射。发生于地球、建筑物表面，电磁波遇到比其波长大的时候发生。是产生<strong>多径衰落</strong>的主要原因</li>
-<li>绕射。收发机间的无线路径被尖锐物阻挡</li>
-<li>散射。发生于粗糙物体表面</li>
+<li>$A$ 对称正定当且仅当 $A$ 对称且所有特征值都是正的；</li>
+<li>$A$ 对称正定当且仅当$X^TAX$ 对称正定，其中 $X\in R_{n×n} $是一个任意的非奇异矩阵；</li>
+<li>若 $A$ 对称正定，则 $A$ 的任意主子矩阵都对称正定；</li>
+<li>若 $A$ 对称正定，则 $A$ 的所有对角线元素都是正的，且 $\max_\limits{i\ne j} {|a_{ij}|} &lt; \max_\limits{i} {|a_{ii}|}$， 即绝对值最大的元素出现在对角线上。</li>
 </ul>
 </blockquote>
-</li>
-<li><p>多径衰落的基本特性</p>
+<p>&emsp;&emsp;基于对称正定的$Cholesky$分解：</p>
 <blockquote>
-<p>信号幅度衰落、时延扩展</p>
+<p>定理（$Cholesky$分解）：设$A\in\mathbb R^{n\times n}$对称正定，则存在唯一的对角线元素为正的下三角矩阵$L$，使得<br>$$<br>A=LL^T<br>$$<br>该分解称为$Cholesky$分解。</p>
 </blockquote>
-</li>
-<li><p>多径信道的统计分析</p>
-<blockquote>
-<ul>
-<li>瑞利分布<ul>
-<li><strong>发射机与接收机间无直射波路径</strong></li>
-<li>大量反射波存在，且方向角随机（0~2π均匀分布）</li>
-<li>各反射波幅度和相位统计独立</li>
-</ul>
-</li>
-<li>莱斯分布<ul>
-<li><strong>有视距传播的直达波信号，且为主接收信号分量</strong></li>
-<li>同时有不同角度随机到达的多径分量叠加</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-</li>
-<li><p>多径信道的分类</p>
-<blockquote>
-<p><img src="/medias/loading.gif" data-original="https://i.loli.net/2021/09/28/Hm6ixZPsfyhjB3t.png" alt="image-20210926204712370"></p>
-</blockquote>
-</li>
-<li><p>什么是MIMO技术</p>
-<blockquote>
-<p>多入多出（基站和用户端都为多副天线）</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="二、信源编码与调制解调技术"><a href="#二、信源编码与调制解调技术" class="headerlink" title="二、信源编码与调制解调技术"></a>二、信源编码与调制解调技术</h3><h3 id="三、抗衰落与链路性能增强技术"><a href="#三、抗衰落与链路性能增强技术" class="headerlink" title="三、抗衰落与链路性能增强技术"></a>三、抗衰落与链路性能增强技术</h3><ol>
-<li><p>抗衰落和链路性能增强技术有哪些？</p>
-<blockquote>
-<ul>
-<li>分集技术——SC、EGC、MRC<ul>
-<li>思想：利用接收到的多个衰落独立的信号进行合并，提高信噪比</li>
-<li>特点：<ul>
-<li>改善信噪比，<strong>关键在于减小信噪比低于正常工作门限信噪比的时间</strong></li>
-<li>无需增加发射功率即可改善信号质量</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>信道编码与交织技术——EFC、ARQ、HARQ<ul>
-<li>方法：引入可控冗余比特，使信息与添加比特间存在相关性</li>
-<li>目的：减小噪声和干扰影响，提高<strong>可靠性</strong></li>
-</ul>
-</li>
-<li>均衡技术——线性/非线性均衡<ul>
-<li>目的：<strong>提高可靠性</strong>，<strong>克服码间干扰</strong>（ISI）（补偿信道引起的失真）</li>
-<li>峰值畸变/均方畸变准则定义：抽样时刻上得到的码间干扰最大可能值与有用信号y0（的平方）的比值</li>
-</ul>
-</li>
-<li>扩频技术——直接序列扩频、跳频<ul>
-<li>DSSS：将信号与一码片序列相乘，将基带信号带宽扩展至原来的N倍，功率谱密度下降为原来的1/N。若存在多址干扰，则因为PN码的尖锐自相关和低值互相关特性，可抑制其它用户频率的干扰</li>
-<li>FHSS：使窄带数字已调信号的载波频率在一个很宽的频率范围内随时间跳变，然后接收机同步跳变调谐来接收。这样即使有部分频点被干扰，仍能在其他未被干扰的频点上进行正常的通信</li>
-</ul>
-</li>
-<li>链路自适应技术——如AMC技术<ul>
-<li>物理层：自适应调制编码（AMC）—— 信道条件好则多发，条件不好则少发<ul>
-<li>接收端：信道估计→对接收信号进行解调和解码 </li>
-<li>接收端：把估计信道信息通过反馈信道发给发端 </li>
-<li>发送端：根据反馈信息对信道质量进行判断，选择适当调制编码方式（MCS，Modulation Coding Scheme）匹配信道，来提高平均吞吐量</li>
-</ul>
-</li>
-<li>链路层：混合请求自动重传（HARQ）<ul>
-<li>三种重传机制：停止等待型、回退N步型、选择重传型</li>
-<li>根据重传数据帧构成分为三种机制：追加合并、完全增量冗余、部分增量冗余</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<h3 id="四、蜂窝组网技术"><a href="#四、蜂窝组网技术" class="headerlink" title="四、蜂窝组网技术"></a>四、蜂窝组网技术</h3><ol>
-<li><p>移动通信网的组成</p>
-<blockquote>
-<ul>
-<li>空中网络（主要部分）<ul>
-<li>多址接入</li>
-<li>频率复用和蜂窝小区</li>
-<li>切换和位置更新</li>
-</ul>
-</li>
-<li>地面网络<ul>
-<li>服务区内各基站互联</li>
-<li>基站与固定网络互联</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-</li>
-<li><p>多址接入技术（各自的特点和缺陷）</p>
-<blockquote>
-<ul>
-<li>FDMA（1G）</li>
-<li>TDMA（2G）</li>
-<li>CMDA（3G）</li>
-<li>OFDMA（4G）</li>
-<li>非正交多址（5G）</li>
-<li>随机多址：随机接入技术——ALOHA、时隙ALOHA、载波监听多址（CSMA）</li>
-</ul>
-</blockquote>
-</li>
-<li><p>什么是越区切换？</p>
-<blockquote>
-<p>为了保证数据传输的连续性，当正在进行传输的移动台进入相邻无线小区时，移动通信系统必须具备将业务信道自动切换到相邻小区基站的越区切换功能。</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="五、GSM和CDMA系统"><a href="#五、GSM和CDMA系统" class="headerlink" title="五、GSM和CDMA系统"></a>五、GSM和CDMA系统</h3><ol>
-<li><p>GSM系统的结构</p>
-<blockquote>
-<p><img src="/medias/loading.gif" data-original="https://i.loli.net/2021/09/28/PI3g5bATY4ms1uc.png" alt="image-20210926212541655"></p>
-<p>组成：移动台（MS）、基站子系统（BSS）、移动交换子系统（SSS）</p>
-</blockquote>
-</li>
-<li><p>位置更新过程</p>
-<blockquote>
-<p><img src="/medias/loading.gif" data-original="https://i.loli.net/2021/09/28/oELyZsFl8rvjI5M.png" alt="image-20210926212807770"></p>
-<p>判断是否需要进行位置更新：移动台将从网络端收到的ID与原来存储的ID进行比较，若不同，则位置改变</p>
-</blockquote>
-</li>
-<li><p>固话用户呼叫移动用户的过程</p>
-<blockquote>
-<p>（1）PSTN用户拨打移动用户的电话号码（MSISDN）<br>（2）PSTN交换机分析MSISDN号码。需要接入移动网，故转接至GMSC<br>（3）GMSC分析MSISDN号码。得到用户的HLR地址并向HLR查询路由<br>（4）HLR分析由GMSC发来的消息。包含：MSISDN、IMSI（国际移动用户识别码，全球唯一）、VLR地址、用户数据<br>（5）HLR查询被呼用户的MSC/VLR<br>（6）HLR从服务于被呼用户的MSC/VLR获得路由信息（MSRN，移动用户漫游号码）并不做处理直接转发给GMSC<br>（7）GMSC接收MSRN并分析，向服务于被呼用户的MSC/VLR发起呼叫建立请求<br>（8）MSC/VLR收到请求并检查VLR识别被呼号码，找到被呼用户，建立连接</p>
-<p><img src="/medias/loading.gif" data-original="https://i.loli.net/2021/09/28/ASLwKGDfFdIUO5j.png" alt="image-20210926203509971"></p>
-</blockquote>
-</li>
-</ol>
-<h2 id="学习笔记"><a href="#学习笔记" class="headerlink" title="学习笔记"></a>学习笔记</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/studymaterials/%E9%80%9A%E4%BF%A1%E5%8E%9F%E7%90%86.xmind">通信原理</a></li>
-<li><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/studymaterials/%E7%A7%BB%E5%8A%A8%E9%80%9A%E4%BF%A1.xmind">移动通信</a></li>
-<li><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/studymaterials/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F.xmind">信号与系统</a></li>
-<li><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/studymaterials/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90.xmind">数学分析</a></li>
-<li><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/studymaterials/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0.xmind">线性代数</a></li>
-<li><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/studymaterials/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1.xmind">概率论与数理统计</a></li>
+<h2 id="五、-Jordan-分解（-Jordan-标准型）"><a href="#五、-Jordan-分解（-Jordan-标准型）" class="headerlink" title="五、$Jordan$分解（$Jordan$标准型）"></a>五、$Jordan$分解（$Jordan$标准型）</h2><p>&emsp;&emsp;设$A\in\mathbb C^{n\times n}$，有$p$个不同特征值，则存在非奇异矩阵$X\in \mathbb C^{n\times n}$，使得<br>$$<br>X^{-1} A X=\left[\begin{array}{cccc}J_{1} &amp; &amp; &amp; \ &amp; J_{2} &amp; &amp; \ &amp; &amp; \ddots &amp; \ &amp; &amp; &amp; J_{q}\end{array}\right] \triangleq J<br>$$<br>&emsp;&emsp;其中$J_i$的维数等于$\lambda_i$的代数重数，且具有下面的结构：<br>$$<br>J_{i}=\left[\begin{array}{llll}J_{i 1} &amp; &amp; &amp; \ &amp; J_{i 2} &amp; &amp; \ &amp; &amp; \ddots &amp; \ &amp; &amp; &amp; J_{i \nu_{i}}\end{array}\right], \quad J_{i k}=\left[\begin{array}{cccc}\lambda_{i} &amp; 1 &amp; &amp; \ &amp; \ddots &amp; \ddots &amp; \ &amp; &amp; \lambda_{i} &amp; 1 \ &amp; &amp; &amp; \lambda_{i}\end{array}\right]<br>$$<br>&emsp;&emsp;这里的$v_i$为$\lambda_i$的几何重数，$J_{ik}$为（对应于$\lambda_i$的）$Jordan$块。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/mucai1/article/details/85242098">几种矩阵分解算法： LU分解，Cholesky分解，QR分解，SVD分解，Jordan分解</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/363948873">矩阵的LU分解</a></li>
+<li><a target="_blank" rel="noopener" href="http://math.ecnu.edu.cn/~jypan/Teaching/MatrixComp/index.html">矩阵计算(潘建瑜)</a></li>
 </ul>
 
                 
@@ -1283,7 +873,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://321hjd.github.io/yyds/492c65b9.html">https://321hjd.github.io/yyds/492c65b9.html</a>
+                    <a href="https://321hjd.github.io/yyds/83153ec8.html">https://321hjd.github.io/yyds/83153ec8.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1321,8 +911,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E4%BF%9D%E7%A0%94/">
-                                    <span class="chip bg-color">保研</span>
+                                <a href="/tags/%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/">
+                                    <span class="chip bg-color">矩阵分解</span>
                                 </a>
                             
                         </div>
@@ -1831,50 +1421,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/yyds/c9587404.html">
+                <a href="/yyds/83153ec8.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/4.jpg" class="responsive-img" alt="使用Ubuntu搭建内网DNS服务">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/15.jpg" class="responsive-img" alt="矩阵分解算法">
                         
-                        <span class="card-title">使用Ubuntu搭建内网DNS服务</span>
+                        <span class="card-title">矩阵分解算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            由于课程实验所需，总结了使用Ubuntu搭建简易局域网DNS服务器的步骤
+                            几种矩阵分解算法的总结和推导
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-11-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%85%8D%E7%BD%AE/" class="post-category">
-                                    配置
+                            <a href="/categories/%E7%9F%A9%E9%98%B5/" class="post-category">
+                                    矩阵
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/DNS%E6%90%AD%E5%BB%BA/">
-                        <span class="chip bg-color">DNS搭建</span>
-                    </a>
-                    
-                    <a href="/tags/Ubuntu/">
-                        <span class="chip bg-color">Ubuntu</span>
+                    <a href="/tags/%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/">
+                        <span class="chip bg-color">矩阵分解</span>
                     </a>
                     
                 </div>
@@ -1888,30 +1476,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yyds/2824fd95.html">
+                <a href="/yyds/a86e8493.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://i.loli.net/2021/09/15/SXN6f7CTambQRw3.jpg" class="responsive-img" alt="迷茫">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/network.jpg" class="responsive-img" alt="校园网组网实验方案">
                         
-                        <span class="card-title">迷茫</span>
+                        <span class="card-title">校园网组网实验方案</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            保研事了，思绪良多。什么时候才能目标明确地前行呢？
+                            大四上-通信工程综合实验。基于3台交换机、2台路由器、一台防火墙和4台电脑搭建的局域网。实验对真实网络组建进行了模拟。记录一下留个纪念😂
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9D%82%E8%B0%88/" class="post-category">
-                                    杂谈
+                            <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" class="post-category">
+                                    课程实验
                                 </a>
                             
                             
@@ -1921,8 +1509,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%85%B3%E4%BA%8E%E6%9C%AA%E6%9D%A5/">
-                        <span class="chip bg-color">关于未来</span>
+                    <a href="/tags/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%BB%84%E5%BB%BA/">
+                        <span class="chip bg-color">局域网组建</span>
                     </a>
                     
                 </div>
