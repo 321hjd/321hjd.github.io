@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2022-02-08T11:42:48.544Z</updated>
+  <updated>2022-02-25T01:31:17.126Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ZF预编码相关矩阵知识</title>
+    <link href="https://321hjd.github.io/yyds/aabaae8c.html"/>
+    <id>https://321hjd.github.io/yyds/aabaae8c.html</id>
+    <published>2022-02-25T01:27:14.358Z</published>
+    <updated>2022-02-25T01:31:17.126Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;一、矩阵转置、厄米特转置、求逆&quot;&gt;&lt;a href=&quot;#一、矩阵转置、厄米特转置、求逆&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="通信" scheme="https://321hjd.github.io/categories/%E9%80%9A%E4%BF%A1/"/>
+    
+    
+    <category term="预编码" scheme="https://321hjd.github.io/tags/%E9%A2%84%E7%BC%96%E7%A0%81/"/>
+    
+  </entry>
   
   <entry>
     <title>12-应用实例-照片OCR</title>
@@ -550,32 +575,6 @@
     <category term="《我的青铜时代》" scheme="https://321hjd.github.io/tags/%E3%80%8A%E6%88%91%E7%9A%84%E9%9D%92%E9%93%9C%E6%97%B6%E4%BB%A3%E3%80%8B/"/>
     
     <category term="自省" scheme="https://321hjd.github.io/tags/%E8%87%AA%E7%9C%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LaTeX常见错误信息</title>
-    <link href="https://321hjd.github.io/yyds/be1c3aa6.html"/>
-    <id>https://321hjd.github.io/yyds/be1c3aa6.html</id>
-    <published>2021-08-26T02:19:42.000Z</published>
-    <updated>2021-08-26T02:50:21.360Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;Reference：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="工具" scheme="https://321hjd.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="LaTeX" scheme="https://321hjd.github.io/tags/LaTeX/"/>
     
   </entry>
   
