@@ -796,23 +796,22 @@
 </li>
 </ul>
 <h2 id="三、配置内网DNS服务"><a href="#三、配置内网DNS服务" class="headerlink" title="三、配置内网DNS服务"></a>三、配置内网DNS服务</h2><h3 id="3-1-安装-BIND9"><a href="#3-1-安装-BIND9" class="headerlink" title="3.1 安装 BIND9"></a>3.1 安装 BIND9</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> bind9 bind9utils bind9-doc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="3-2-配置-BIND9-的IPv4-模式"><a href="#3-2-配置-BIND9-的IPv4-模式" class="headerlink" title="3.2 配置 BIND9 的IPv4 模式"></a>3.2 配置 BIND9 的IPv4 模式</h3><ol>
 <li><p>只需要修改 BIND9 的 systemd unit file即可（<code>/etc/systemd/system/bind9.service</code>）</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> systemctl edit --full bind9<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>或者直接用vim修改文件</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/systemd/system/bind9.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">vim</span> /etc/systemd/system/bind9.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>在文件的<code>ExecStart</code>行最后加上<code>-4</code>即可</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">..</span>.
 <span class="token punctuation">[</span>service<span class="token punctuation">]</span>
 <span class="token punctuation">..</span>.
 <span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/sbin/named -f <span class="token variable">$OPTIONS</span> -4
-<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>重新启动 BIND9 以重新载入 systemd 的 unit file</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> systemctl daemon-reload
-<span class="token function">sudo</span> systemctl restart bind9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
+<span class="token function">sudo</span> systemctl restart bind9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ol>
 <h3 id="3-3-修改配置文件"><a href="#3-3-修改配置文件" class="headerlink" title="3.3 修改配置文件"></a>3.3 修改配置文件</h3><ol>
 <li><p><code>/etc/bind/named.conf.options</code></p>
@@ -832,6 +831,7 @@ options <span class="token punctuation">&#123;</span>
         <span class="token punctuation">..</span>.
 <span class="token punctuation">&#125;</span>
 <span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>字段解析：</p>
 <ul>
 <li><code>acl</code>：用于控制哪些客户端可以连接到这个DNS服务器；此处表示允许该网段的所有主机</li>
@@ -854,13 +854,11 @@ zone <span class="token string">"test.com"</span> <span class="token punctuation
 zone <span class="token string">"43.168.192.in-addr.arpa"</span> <span class="token punctuation">&#123;</span>
         <span class="token builtin class-name">type</span> master<span class="token punctuation">;</span>
         <span class="token function">file</span> <span class="token string">"/etc/bind/db.192.168.43"</span><span class="token punctuation">;</span>			//反向解析文件所在路径
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>新增域名解析文件：<code>/etc/bind/db.test.com</code></p>
 <ul>
 <li><p>可以直接将<code>db.local</code>的内容拷贝到<code>db.test.com</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">cp</span> /etc/bind/db.local /etc/bind/db.test.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> <span class="token function">cp</span> /etc/bind/db.local /etc/bind/db.test.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>然后再修改文件</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">;</span>
 <span class="token punctuation">;</span> BIND data <span class="token function">file</span> <span class="token keyword">for</span> test.com loopback interface
@@ -876,6 +874,7 @@ zone <span class="token string">"43.168.192.in-addr.arpa"</span> <span class="to
 @       IN      NS      test.com.
 @       IN      A       <span class="token number">192.168</span>.43.28
 *.test.com.     <span class="token number">14400</span>   IN      A       <span class="token number">192.168</span>.43.28<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
 <li>需要注意的是：<ul>
 <li>不要漏掉域名后的点</li>
@@ -900,46 +899,42 @@ zone <span class="token string">"43.168.192.in-addr.arpa"</span> <span class="to
 <span class="token punctuation">;</span> NS Records
 @       IN      NS      test.com.
 <span class="token punctuation">;</span> PTR Records
-<span class="token number">28</span>     IN      PTR     test.com.		<span class="token punctuation">;</span> <span class="token number">192.168</span>.43.28<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<span class="token number">28</span>     IN      PTR     test.com.		<span class="token punctuation">;</span> <span class="token number">192.168</span>.43.28<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ol>
 <h3 id="3-4-检查语法并重启-BIND9-服务"><a href="#3-4-检查语法并重启-BIND9-服务" class="headerlink" title="3.4 检查语法并重启 BIND9 服务"></a>3.4 检查语法并重启 BIND9 服务</h3><ul>
 <li><p>检查<code>/etc/bind/name.conf.*</code>文件，没有任何输出代表没有错误，若有错误则根据提示修改</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> named-checkconf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <p>若提示没有检查工具，根据提示安装即可</p>
 </li>
 <li><p>检查域名解析文件<code>etc/bind/db.test.com</code>和<code>etc/bind/db.192.168.43</code></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> named-checkzone test.com /etc/bind/db.test.com
 <span class="token function">sudo</span> named-checkzone <span class="token number">43.168</span>.192.in-addr.arpa /etc/bind/db.192.168.43<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>都提示如下则没问题</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">zone test.com/IN: loaded serial <span class="token number">1</span>
 OK
 zone <span class="token number">43.168</span>.192.in-addr.arpa/IN: loaded serial <span class="token number">1</span>
-OK<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+OK<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>重启 BIND9 服务</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">service</span> bind9 restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">service</span> bind9 restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>修改本机的 name server 配置（若客户端为windows系统，则只需要手动设置DNS服务器IP即可</p>
 <ul>
 <li><p>临时修改方法，直接修改<code>/etc/resolv.conf</code>，将其中的nameserver修改为上面配置好的DNS服务器IP</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">..</span>.
 nameserver <span class="token number">192.168</span>.43.28
-<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p>永久修改方法</p>
 <ul>
-<li><p>修改<code>/etc/systemd/resolved.conf</code>文件，在<code>DNS=</code>后加上需要加入的DNS服务器IP地址即可</p>
+<li><p>修改<code>/etc/systemd/resolved.conf </code>文件，在<code>DNS=</code>后加上需要加入的DNS服务器IP地址即可</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token punctuation">..</span>.
 <span class="token assign-left variable">DNS</span><span class="token operator">=</span><span class="token number">192.168</span>.43.28 <span class="token number">114.114</span>.114.114
-<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li><p>再在终端执行以下命令</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> systemctl restart systemd-resolved
 <span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> systemd-resolved
 <span class="token function">sudo</span> <span class="token function">mv</span> /etc/resolv.conf /etc/resolv.conf.bak
-<span class="token function">sudo</span> <span class="token function">ln</span> -s /run/systemd/resolve/resolv.conf /etc/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<span class="token function">sudo</span> <span class="token function">ln</span> -s /run/systemd/resolve/resolv.conf /etc/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>之后就可以在<code>etc/resolv.conf</code>看到刚刚添加的DNS nameserver信息了</p>
 </li>
 </ul>
@@ -967,8 +962,7 @@ Name:	baidu.com
 Address: <span class="token number">220.181</span>.38.148
 <span class="token comment"># 反向解析</span>
 $ <span class="token function">nslookup</span> <span class="token number">192.168</span>.43.28
-<span class="token number">28.43</span>.168.192.in-addr.arpa	name <span class="token operator">=</span> test.com.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+<span class="token number">28.43</span>.168.192.in-addr.arpa	name <span class="token operator">=</span> test.com.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>使用网页测试（基于Node.js和Hexo搭建的静态网页，开启在4000端口，若端口为80端口，则域名不需要加端口）</p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/computerNetwork/%E7%BD%91%E9%A1%B5%E6%B5%8B%E8%AF%95.png" alt="网页测试"></p>
 </li>
@@ -1883,7 +1877,7 @@ $ <span class="token function">nslookup</span> <span class="token number">192.16
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">67.4k</span>&nbsp;字
+                class="white-color">67.7k</span>&nbsp;字
             
 
 			
@@ -2159,12 +2153,12 @@ $(function () {
 		color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"> 
 	</script>
 
-<script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script><script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>

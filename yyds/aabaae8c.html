@@ -770,10 +770,10 @@
             <div id="articleContent">
                 <h4 id="一、矩阵转置、厄米特转置、求逆"><a href="#一、矩阵转置、厄米特转置、求逆" class="headerlink" title="一、矩阵转置、厄米特转置、求逆"></a>一、矩阵转置、厄米特转置、求逆</h4><ol>
 <li>矩阵转置：$A^T$</li>
-<li>厄米特转置（共轭转置）：$(A^T)^<em>=(A^</em>)^T$</li>
+<li>厄米特转置（共轭转置）：$(A^T)^*=(A^*)^T$</li>
 <li>矩阵的逆：$A^{-1}$（前提：A是方阵）</li>
 <li>一些基本运算：<ul>
-<li>$(A^{-1})^{-1}=A;(A^T)^T=A;(A^H)^H=A;(A^<em>)^</em>=A$</li>
+<li>$(A^{-1})^{-1}=A;(A^T)^T=A;(A^H)^H=A;(A^*)^*=A$</li>
 <li>$(A^T)^{-1}=(A^{-1})^T;(A^H)^{-1}=(A^{-1})^H$</li>
 <li>$(AB)^{-1}=B^{-1}A^{-1};(AB)^T=B^TA^T;(AB)^H=B^HA^H$</li>
 </ul>
@@ -793,7 +793,7 @@
 <li><p>当$n=m$时，矩阵$A_{m,n}$的秩为$r\le m=n$</p>
 <p>对A进行<strong>奇异值分解</strong>：$A=UDV^T$</p>
 <p>A的广义逆矩阵为：$A^{\dagger}=VD^{\dagger}U^T$</p>
-<p>其中$D=\left(\begin{array}{ll}\Sigma &amp; 0 \\ 0 &amp; 0\end{array}\right)$，$D^{\dagger}=\left(\begin{array}{ll}\Sigma^{-1} &amp; 0 \\ 0 &amp; 0\end{array}\right)$。</p>
+<p>其中$D=\left(\begin{array}{ll}\Sigma &amp; 0 \ 0 &amp; 0\end{array}\right)$，$D^{\dagger}=\left(\begin{array}{ll}\Sigma^{-1} &amp; 0 \ 0 &amp; 0\end{array}\right)$。</p>
 <p><strong>广义逆是唯一的</strong>，满足：$ABA=A,BAB=B,(AB)^T=AB,(BA)^T=BA$（B为A的广义逆）</p>
 </li>
 </ul>
@@ -814,9 +814,7 @@
 <h4 id="三、ZF预编码"><a href="#三、ZF预编码" class="headerlink" title="三、ZF预编码"></a>三、ZF预编码</h4><blockquote>
 <p>预编码技术是在下行链路的发送端利用信道状态信息（CSI）对发送信号进行预处理，将不同用户及天线之间的干扰最小化，并将信号能量集中到目标用户附近，使接收端获得较好的信噪比（SNR），提高系统信道容量。（其中采用基于统计信道信息的预编码，统计信道状态相较于即时信道状态变化慢，可采用简单的长期反馈方式或信道互易性得到）</p>
 </blockquote>
-<p>&emsp;&emsp;信道矩阵$H_{M,K}$（K个用户，M根天线，每行为一个用户信道信息）；ZF预编码矩阵$W_{M,K}$（每列为一个用户的预编码向量）。（此处为左逆矩阵）</p>
-<script type="math/tex; mode=display">
-\mathbf{W}=\mathbf{H}^{\dagger}=\mathbf{H}\left(\mathbf{H}^\mathbf{H}\mathbf{H}\right)^{-\mathbf{1}}=\left[w_{1}, w_{2}, \ldots, w_{k}\right]</script><p>&emsp;&emsp;ZF预编码致力于消除不同用户间的干扰，不考虑噪声的影响。ZF预编码矩阵与信道矩阵相乘以后，得到一个近似的对角矩阵（除对角线元素为1以外的其它元素趋于0）</p>
+<p>&emsp;&emsp;信道矩阵$H_{M,K}$（K个用户，M根天线，每行为一个用户信道信息）；ZF预编码矩阵$W_{M,K}$（每列为一个用户的预编码向量）。（此处为左逆矩阵）<br>$$<br>\mathbf{W}=\mathbf{H}^{\dagger}=\mathbf{H}\left(\mathbf{H}^\mathbf{H}\mathbf{H}\right)^{-\mathbf{1}}=\left[w_{1}, w_{2}, \ldots, w_{k}\right]<br>$$<br>&emsp;&emsp;ZF预编码致力于消除不同用户间的干扰，不考虑噪声的影响。ZF预编码矩阵与信道矩阵相乘以后，得到一个近似的对角矩阵（除对角线元素为1以外的其它元素趋于0）</p>
 <p>例：</p>
 <p><img src="/medias/loading.gif" data-original="https://i.loli.net/2021/12/01/WwGhtxIsRqDnrY9.png" alt="ZF预编码"></p>
 <h4 id="四、参考"><a href="#四、参考" class="headerlink" title="四、参考"></a>四、参考</h4><ul>
@@ -1738,7 +1736,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">67.4k</span>&nbsp;字
+                class="white-color">67.7k</span>&nbsp;字
             
 
 			
@@ -2014,12 +2012,12 @@ $(function () {
 		color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"> 
 	</script>
 
-<script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script><script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>

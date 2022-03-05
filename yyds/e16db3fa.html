@@ -776,7 +776,7 @@
 <p>SVM 也被称作大间距分类器。对<strong>非线性分类</strong>有较好的处理。SVM处理的问题都是凸优化问题，因此找到的几乎都是全局最优值。而神经网络存在局部最优的问题。</p>
 </blockquote>
 <h3 id="一、优化目标"><a href="#一、优化目标" class="headerlink" title="一、优化目标"></a>一、优化目标</h3><p>Support vector machine Hypothesis（SVM的数学定义）</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/SVM/formulation-0.jpg" alt></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/SVM/formulation-0.jpg"></p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/SVM/SVM-hypothesis.png" alt="SVM hypothesis"></p>
 <h3 id="二、SVM的直观解释"><a href="#二、SVM的直观解释" class="headerlink" title="二、SVM的直观解释"></a>二、SVM的直观解释</h3><p>假设中的 $C$ 作用等效于之前逻辑回归中的 $\frac{1}{\lambda}$ 。若 $C$ 很大，则假设会对异常点非常敏感（拟合很好甚至过拟合），表现为图中黑色的分界线会变为紫色的分界线；若 $C$ 很小，则可能会忽略异常点，得到黑线。（$C$ 的作用类似正则化因子）</p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/SVM/decision-boundary.png" alt="decision boundary"></p>
@@ -788,15 +788,15 @@
 </li>
 <li><p>SVM 决策边界</p>
 <p>SVM假设为（即 $C$ 很大，可以不考虑第一项）</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/SVM/formulation-1.jpg" alt></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/SVM/formulation-1.jpg"></p>
 <p>根据向量内积，可将假设转换为</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/SVM/formulation-2.jpg" alt></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/SVM/formulation-2.jpg"></p>
 <p>其中 $p^{(i)}$ 是 $x^{(i)}$ 在向量 $\theta$ 上的投影。假设 $\theta_0=0$，即向量 $\theta$ 过原点（该值是否为0对分类效果影响不大）。则分类情况会出现下面几种情况：</p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/SVM/interpretation-for-SVM-large-margin.png" alt="interpretation for SVM&#39;large margin.png"></p>
 <p>由图可见，通过选择右边的决策边界（绿线），可以让两类样本的间隔更远（即投影值 $p^{(i)}$），从而使得代价函数值更小。（当 $p^{(i)}&gt;0$ 且较大时，$||\theta||$ 很小就能满足约束条件 $p^{(i)}\cdot|\theta|\ge 1$）。即<strong>分类器试图最大化训练样本到决策边界的距离</strong>——投影值 $p$。</p>
 </li>
 </ol>
-<h3 id="四、核函数（Kernel-Function）"><a href="#四、核函数（Kernel-Function）" class="headerlink" title="四、核函数（Kernel Function）"></a>四、核函数（Kernel Function）</h3><p>利用<strong>相似度函数（核函数）</strong>和<strong>标记点</strong>来定义<strong>新的特征变量 </strong>$f$：</p>
+<h3 id="四、核函数（Kernel-Function）"><a href="#四、核函数（Kernel-Function）" class="headerlink" title="四、核函数（Kernel Function）"></a>四、核函数（Kernel Function）</h3><p>利用<strong>相似度函数（核函数）</strong>和<strong>标记点</strong>来定义**新的特征变量 **$f$：</p>
 <blockquote>
 <p>$f_i=\text{similarity}(x,l^{(i)})=\exp(-\frac{||x-l^{(i)}||^2}{2\sigma^2})$</p>
 <p>若 $x\approx l^{(i)}$：则 $f_i\approx 1$</p>
@@ -825,7 +825,7 @@
 </blockquote>
 </li>
 <li><p>最终的假设就变为</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/SVM/formulation-3.jpg" alt></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/SVM/formulation-3.jpg"></p>
 </li>
 </ol>
 <p>SVM参数：</p>
@@ -1785,7 +1785,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">67.4k</span>&nbsp;字
+                class="white-color">67.7k</span>&nbsp;字
             
 
 			
@@ -2061,12 +2061,12 @@ $(function () {
 		color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"> 
 	</script>
 
-<script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script><script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
