@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2022-02-25T01:31:29.990Z</updated>
+  <updated>2022-03-18T13:36:35.682Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>通信工程专业实习总结</title>
+    <link href="https://321hjd.github.io/yyds/1df36502.html"/>
+    <id>https://321hjd.github.io/yyds/1df36502.html</id>
+    <published>2022-03-18T12:14:52.000Z</published>
+    <updated>2022-03-18T13:36:35.682Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;些许感慨，四年本科生涯就只剩下3个多月了。今天结束专业实习的答辩出门骑车闲逛，看到友实门口公交站还有初中生在赶作业&lt;span class=&quot;github-emoji&quot; alias=&quot;joy&quot; style</summary>
+        
+      
+    
+    
+    
+    <category term="通信" scheme="https://321hjd.github.io/categories/%E9%80%9A%E4%BF%A1/"/>
+    
+    
+    <category term="基站" scheme="https://321hjd.github.io/tags/%E5%9F%BA%E7%AB%99/"/>
+    
+    <category term="专业实习" scheme="https://321hjd.github.io/tags/%E4%B8%93%E4%B8%9A%E5%AE%9E%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>ZF预编码相关矩阵知识</title>
@@ -309,7 +337,7 @@
       
         
         
-    <summary type="html">&lt;h3 id=&quot;一、分类问题介绍&quot;&gt;&lt;a href=&quot;#一、分类问题介绍&quot; class=&quot;headerlink&quot; title=&quot;一、分类问题介绍&quot;&gt;&lt;/a&gt;一、分类问题介绍&lt;/h3&gt;&lt;p&gt;$y\in{0,1}$&lt;/p&gt;
+    <summary type="html">&lt;h3 id=&quot;一、分类问题介绍&quot;&gt;&lt;a href=&quot;#一、分类问题介绍&quot; class=&quot;headerlink&quot; title=&quot;一、分类问题介绍&quot;&gt;&lt;/a&gt;一、分类问题介绍&lt;/h3&gt;&lt;p&gt;$y\in\{0,1\}$&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;0:</summary>
@@ -370,7 +398,7 @@
         
         
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;声明：本系列十二篇文章均为[&lt;a</summary>
+&lt;p&gt;声明：本系列十二篇文章均为&lt;a</summary>
         
       
     
@@ -545,36 +573,6 @@
     <category term="DFWS" scheme="https://321hjd.github.io/tags/DFWS/"/>
     
     <category term="WiFi" scheme="https://321hjd.github.io/tags/WiFi/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自省</title>
-    <link href="https://321hjd.github.io/yyds/81231d2a.html"/>
-    <id>https://321hjd.github.io/yyds/81231d2a.html</id>
-    <published>2021-08-29T15:37:44.000Z</published>
-    <updated>2021-08-30T03:17:21.831Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;看完《我的青铜时代》有关罗翔老师的一集，记录一些自我思考的想法又重新出现在我的脑海中，那么干脆就开始做吧。仅仅作为一点反省自身、剖析自我的工具罢了。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;其中有不少触动我的地方，自我剖析</summary>
-        
-      
-    
-    
-    
-    <category term="杂谈" scheme="https://321hjd.github.io/categories/%E6%9D%82%E8%B0%88/"/>
-    
-    
-    <category term="《我的青铜时代》" scheme="https://321hjd.github.io/tags/%E3%80%8A%E6%88%91%E7%9A%84%E9%9D%92%E9%93%9C%E6%97%B6%E4%BB%A3%E3%80%8B/"/>
-    
-    <category term="自省" scheme="https://321hjd.github.io/tags/%E8%87%AA%E7%9C%81/"/>
     
   </entry>
   

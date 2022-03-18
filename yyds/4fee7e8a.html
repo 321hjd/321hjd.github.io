@@ -758,7 +758,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    68 分
+                    67 分
                 </div>
                 
 
@@ -850,19 +850,20 @@
 <li><p>找个地方右键<code>Git Bash Here</code>，后面的指令操作都是使用<code>Git Bash</code></p>
 </li>
 <li><p>配置<code>npm</code>的国内镜像源：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g cnpm --registry<span class="token operator">=</span>https://registry.npm.taobao.or<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g cnpm --registry<span class="token operator">=</span>https://registry.npm.taobao.or<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li><p>配置完成后，输入<code>npm info hexo</code>，如果配置成功，<code>dist</code>会显示</p>
 <p><code>.tarball: https://registry.nlark.com/hexo/download/hexo-5.4.0.tgz</code></p>
 </li>
 <li><p>通过<code>npm</code>安装<code>Hexo</code>（<code>-g</code>是指定全局安装，之后可以在任意位置使用<code>hexo</code>指令）</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g hexo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> -g hexo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li><p>然后输入<code>hexo -v</code>查看是否安装成功。若出现版本号，则至此已安装完成</p>
 </li>
 <li><p>接下来初始化我们的静态网站，进入到存放博客文件的目录下</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo init MyBlog	<span class="token comment"># 初始化创建，将在当前目录下新建MyBlog文件夹 </span>
 <span class="token builtin class-name">cd</span> MyBlog			<span class="token comment"># 进入这个文件夹，这个文件夹下面将存放所有相关文件</span>
 <span class="token function">npm</span> <span class="token function">install</span>			<span class="token comment"># 进一步安装hexo所需文件</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li><p>大概效果如下：</p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/GSlouvgFC4XZc2D.png" alt="指令执行结果"></p>
@@ -882,7 +883,6 @@
 <li><p>打开本地服务器查看博客</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo generate		<span class="token comment"># 生成静态网页</span>
 hexo server			<span class="token comment"># 打开本地服务器(默认是4000端口)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <p>正常情况下应该会出现下图：</p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/daXQtvF1IqcnkOf.png" alt="Hexo-blog"></p>
 <p>这时博客根目录下会生成<code>public</code>目录，这就是我们部署到<code>GitHub</code>上所需要上传的文件夹。</p>
@@ -906,12 +906,14 @@ hexo server			<span class="token comment"># 打开本地服务器(默认是4000�
 <h3 id="5-生成本地SSH并添加至GitHub"><a href="#5-生成本地SSH并添加至GitHub" class="headerlink" title="5. 生成本地SSH并添加至GitHub"></a>5. 生成本地SSH并添加至GitHub</h3><ul>
 <li><p>生成<code>SSH</code>并添加至<code>GitHub</code>，使得<code>GitHub</code>可以识别本地（<code>name</code>和<code>email</code>可以和注册<code>Github</code>时的不同）</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> config --global user.name <span class="token string">"yourname"</span>	<span class="token comment"># name按自己喜好取</span>
-<span class="token function">git</span> config --global user.email <span class="token string">"youremail"</span>	<span class="token comment"># global代表本机上任一地方的Git用户都是此处设置的</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<span class="token function">git</span> config --global user.email <span class="token string">"youremail"</span>	<span class="token comment"># global代表本机上任一地方的Git用户都是此处设置的</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 <li><p>创建<code>SSH</code></p>
 <blockquote>
 <p><code>ssh</code>，简单来讲，就是一个秘钥，其中，<code>id_rsa</code>是你这台电脑的私人秘钥，不能给别人看的，<code>id_rsa.pub</code>是公共秘钥，可以随便给别人看。把这个公钥放在<code>GitHub</code>上，这样当你链接<code>GitHub</code>自己的账户时，它就会根据公钥匹配你的私钥，当能够相互匹配时，才能够顺利的通过<code>git</code>上传你的文件到<code>GitHub</code>上。</p>
 </blockquote>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"youremail"</span>	<span class="token comment"># 刚刚设置的email</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ssh-keygen -t rsa -C <span class="token string">"youremail"</span>	<span class="token comment"># 刚刚设置的email</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li><p>这时它会告诉你已经生成了<code>.ssh</code>文件夹，应该是在系统盘的用户目录下，如：<code>C:\Users\username\.ssh</code>。找到该文件夹并复制<code>id_rsa.pub</code>中的所有内容</p>
 </li>
 <li><p>打开<code>GitHub</code>，在头像下面点击<code>Settings</code>，再点击<code>SSH and GPG keys</code>，新建一个<code>SSH</code>，随便取一个名字，然后将刚刚复制的内容全部粘贴进去，如图：</p>
@@ -927,27 +929,29 @@ hexo server			<span class="token comment"># 打开本地服务器(默认是4000�
 <li><p>这一步，会将<code>Hexo</code>生成的文章部署到<code>GitHub</code>上。</p>
 </li>
 <li><p>首先我们需要安装一个插件<code>deployer-git</code>，这样我们才能用命令部署至<code>GitHub</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-deployer-git --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li><p>然后打开博客根目录的<code>_config.yml</code>文件，</p>
 <ul>
 <li><p>修改<code>url</code>部分并新增<code>root</code>，写为</p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">url: https:&#x2F;&#x2F;&#123;username&#125;.github.io&#x2F;	# Pages地址
-root: &#x2F;							    # 网站根目录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+root: &#x2F;							    # 网站根目录<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 <li><p>修改最后一行的配置</p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">deploy:
   type: git
   repository: https:&#x2F;&#x2F;github.com&#x2F;&#123;username&#125;&#x2F;&#123;yourrepo&#125;
   # 示例：https:&#x2F;&#x2F;github.com&#x2F;321hjd&#x2F;321hjd.github.io
-  branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+  branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 </li>
 <li><p>最后执行以下命令，部署成功，此时可以访问<code>GitHub</code>分配的<code>Pages</code>如我的<code>https://321hjd.github.io</code>看到博客主页</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo clean		<span class="token comment"># 清除缓存（网页正常情况下可以忽略此条命令,执行该指令后,会删掉站点根目录下的public文件夹）</span>
 hexo generate	<span class="token comment"># 生成静态页面至public目录</span>
 hexo deploy		<span class="token comment"># 自动生成网站静态文件并部署到设定仓库</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
 <blockquote>
-<p>注意：若这一步完成后访问不了<code>Pages</code>，可以参考本节的<a href="#Q&A-1">Q&amp;A</a>，若还是无法解决，请仔细查看上述步骤是否正常完成，或根据本节的参考链接跳转至其他大佬处查询。</p>
+<p>注意：若这一步完成后访问不了<code>Pages</code>，可以参考本节的<a href="#Q&amp;A-1">Q&amp;A</a>，若还是无法解决，请仔细查看上述步骤是否正常完成，或根据本节的参考链接跳转至其他大佬处查询。</p>
 </blockquote>
 </li>
 </ul>
@@ -957,20 +961,19 @@ hexo deploy		<span class="token comment"># 自动生成网站静态文件并部�
 <ul>
 <li><p>新建test文档。在博客根目录下右键打开<code>git bash</code>，执行指令</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new post <span class="token string">"test"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ul>
 <li>此时打开<code>xxx/source/_posts</code>可以发现多了一个<code>test.md</code></li>
 <li>编辑该文件并执行<code>hexo g</code>、<code>hexo s</code>可以本地预览，也可以继续执行<code>hexo d</code>部署至<code>GitHub</code>，这时候就可以在你的<code>Pages</code>上看到发布的文章了</li>
 </ul>
 </li>
 </ul>
-<h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a><span id="Q&A-1">Q&amp;A</span></h3><blockquote>
+<h3 id="Q-A"><a href="#Q-A" class="headerlink" title="Q&A"></a><span id="Q&amp;A-1">Q&A</span></h3><blockquote>
 <p><strong>Q</strong>：使用GitHub的pages服务，部署到<code>GitHub</code>后访问<code>username.github.io</code>总是无法连接（手机热点/WiFi都不行，不知道为啥）<br><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/ZB2ltXmbpSvs3FV.png" alt="github.io无法连接"><br><strong>A</strong>：在<a target="_blank" rel="noopener" href="http://tool.chinaz.com/dns">站长之家</a>查看博客（<code>https://&#123;username&#125;.github.io</code>)的<code>IP</code>地址，修改<code>C:\Windows\System32\drivers\etc\HOSTS</code>文件（需要管理员权限)，将<code>IP地址 &#123;username&#125;.github.io</code>添加到文件最后即可（如<code>185.199.111.153 321hjd.github.io</code>)。（枯了，还是有缺陷，电脑连手机热点的时候没法访问，只能用<code>WiFi</code>，但是手机热点上<code>GItHub</code>感觉又要容易一些<span class="github-emoji" alias="cry" style fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8">&#x1f622;</span>，<code>Gitee</code>的<code>Pages</code>服务快点恢复吧😭​)</p>
 </blockquote>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://sunhwee.com/posts/6e8839eb.html">Hexo+Github博客搭建完全教程</a></li>
 <li><a target="_blank" rel="noopener" href="https://kaiter-plus.gitee.io/2020/03/07/How_To_Freely_Build_Blog/">使用hexo和gitee搭建免费个人博客详细教程</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45836474/article/details/107875540?utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-3.control&dist_request_id=&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~default-3.control">*.github.io的个人博客网站无法连接的问题</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45836474/article/details/107875540?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-3.control&amp;dist_request_id=&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-3.control">*.github.io的个人博客网站无法连接的问题</a></li>
 </ul>
 <h2 id="二、主题基本配置"><a href="#二、主题基本配置" class="headerlink" title="二、主题基本配置"></a>二、主题基本配置</h2><h3 id="1-Hexo相关目录文件介绍"><a href="#1-Hexo相关目录文件介绍" class="headerlink" title="1. Hexo相关目录文件介绍"></a>1. Hexo相关目录文件介绍</h3><p>具体都可以参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/setup">官方文档</a></p>
 <h4 id="1-1-博客目录结构"><a href="#1-1-博客目录结构" class="headerlink" title="1.1 博客目录结构"></a>1.1 博客目录结构</h4><pre class="line-numbers language-none"><code class="language-none">- node_modules		# node.js库目录
@@ -985,7 +988,6 @@ hexo deploy		<span class="token comment"># 自动生成网站静态文件并部�
     - friends		# “友情链接”页面
     - tags			# “标签”页面
 - themes			# 存放主题<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <h4 id="1-2-Hexo基本配置"><a href="#1-2-Hexo基本配置" class="headerlink" title="1.2 Hexo基本配置"></a>1.2 Hexo基本配置</h4><ul>
 <li><p>网站信息</p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">title: Hexo				# 网站标题
@@ -994,14 +996,14 @@ description: &#39;&#39;			# 网站描述，主要用于SEO，告诉搜索引擎�
 keywords:				# 网站关键词
 author: John Doe		# 作者
 language: en			# 语言，简体中文比如zh-CN(可以后面换了主题后再改)
-timezone: &#39;&#39;			# 时区，比如UTC&#x2F;America&#x2F;Japan，可以不填<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+timezone: &#39;&#39;			# 时区，比如UTC&#x2F;America&#x2F;Japan，可以不填<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>网址</p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">url:								# 网址
 root:								# 网站根目录
 permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;	# 文章的永久链接格式	
 permalink_defaults:					# 永久链接中各部分的默认值
 ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li><p>使用默认的<code>permalink</code>的话，生成文章<code>test.md</code>的链接就是</p>
 <p><code>https://&#123;username&#125;.github.io/2021/7/22/test</code></p>
@@ -1035,7 +1037,8 @@ tags:					# 标签，注意多级标签这样写
   - tag1
   - tag2
   - ...
-categories:				# 分类<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+categories:				# 分类<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p><code>layout</code></p>
 <ul>
 <li><p>三种默认布局：<code>post、page、draft</code>，即<code>scaffolds</code>目录下的三个模板</p>
@@ -1065,7 +1068,8 @@ categories:				# 分类<span aria-hidden="true" class="line-numbers-rows"><span>
 </blockquote>
 <h4 id="2-1-下载主题并更换"><a href="#2-1-下载主题并更换" class="headerlink" title="2.1 下载主题并更换"></a>2.1 下载主题并更换</h4><ul>
 <li><p>在<code>themes/</code>目录下执行该指令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/blinkfox/hexo-theme-matery.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/blinkfox/hexo-theme-matery.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li><p>然后将博客根目录下<code>_config.yml</code>中的<code>theme</code>属性值改为<code>hexo-theme-matery</code></p>
 </li>
 </ul>
@@ -1075,7 +1079,8 @@ categories:				# 分类<span aria-hidden="true" class="line-numbers-rows"><span>
 date: 2021-07-14 00:00:00 
 type: &quot;404&quot; 
 layout: &quot;404&quot; 
-description: &quot;经典404 Not Found →_→&quot; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+description: &quot;经典404 Not Found →_→&quot; <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>然后在<code>/themes/hexo-theme-matery/layout</code>目录下新建一个<code>404.ejs</code>文件</p>
 <pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
     <span class="token comment">/* don't remove. */</span>
@@ -1111,11 +1116,13 @@ description: &quot;经典404 Not Found →_→&quot; <span aria-hidden="true" cl
         <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.bg-cover'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">css</span><span class="token punctuation">(</span><span class="token string">'background-image'</span><span class="token punctuation">,</span> <span class="token string">'url(<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> theme<span class="token punctuation">.</span>jsDelivr<span class="token punctuation">.</span>url </span><span class="token delimiter punctuation">%></span></span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">url_for</span><span class="token punctuation">(</span><span class="token string">'/medias/banner/0.jpg'</span><span class="token punctuation">)</span> </span><span class="token delimiter punctuation">%></span></span>)'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
 <span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token punctuation">&#125;</span> </span><span class="token delimiter punctuation">%></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h4 id="2-3-代码高亮"><a href="#2-3-代码高亮" class="headerlink" title="2.3 代码高亮"></a>2.3 代码高亮</h4><ul>
 <li><p>根据<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery">hexo-theme-matery</a>的配置建议，直接使用<code>prismjs</code></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> uninstall hexo-prism-plugin		<span class="token comment"># 若node_modules中有hexo-prism-plugin插件，先写在</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> uninstall hexo-prism-plugin		<span class="token comment"># 若node_modules中有hexo-prism-plugin插件，先写在</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li><p>然后修改博客根目录下的<code>_config.yml</code>配置文件</p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">highlight:
   enable: false				# 改为false
@@ -1128,10 +1135,13 @@ prismjs:
   enable: true				# 改为true
   preprocess: true
   line_number: true
-  tab_replace: &#39;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>默认的<code>prismjs</code>主题是<code>Tomorrow Night</code>，若需要更换，到<a target="_blank" rel="noopener" href="https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript">prismjs download page</a>下载喜欢的<code>css</code>文件，然后替换<code>themes/hexo-theme-matery/source/libs/prism/prism.css</code>即可</p>
+  tab_replace: &#39;&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>默认的<code>prismjs</code>主题是<code>Tomorrow Night</code>，若需要更换，到<a target="_blank" rel="noopener" href="https://prismjs.com/download.html#themes=prism&amp;languages=markup+css+clike+javascript">prismjs download page</a>下载喜欢的<code>css</code>文件，然后替换<code>themes/hexo-theme-matery/source/libs/prism/prism.css</code>即可</p>
 <blockquote>
-<p>这里发现了一些问题，如c++、yml等无法高亮，暂时还没找到解决方案⊙﹏⊙∥。<br><font color="red">另外注意代码块前面不能有列表符号，否则不能正常渲染。</font></p>
+<p>这里发现了一些问题，如c++、yml等无法高亮，暂时还没找到解决方案⊙﹏⊙∥。</p>
+<font color="red">另外注意代码块前面不能有列表符号，否则不能正常渲染。</font>
+
 </blockquote>
 </li>
 </ul>
@@ -1142,31 +1152,34 @@ prismjs:
 <ul>
 <li><p>更换<code>Hexo</code>的渲染引擎</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> uninstall hexo-renderer-marked --save	<span class="token comment"># 卸载原来的引擎</span>
-<span class="token function">npm</span> <span class="token function">install</span> hexo-renderer-kramed --save		<span class="token comment"># kramed是与marked相近的轻量级渲染引擎，只是在后者的基础上修复了一些bug</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<span class="token function">npm</span> <span class="token function">install</span> hexo-renderer-kramed --save		<span class="token comment"># kramed是与marked相近的轻量级渲染引擎，只是在后者的基础上修复了一些bug</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 <li><p>然后修复一些行内渲染的<code>bug</code>。</p>
 <ul>
 <li>打开博客根目录的<code>node_modules/kramed/lib/rules/inline.js</code>文件，将第11行的<code>escape</code>变量做相应修改（这一步是在原基础上取消了对<code>\,&#123;,&#125;</code>的转义）</li>
 </ul>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//  escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_>])/,</span>
 escape<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\\([`*\[\]()#$+\-.!_>])</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>		<span class="token comment">//注意需要逗号</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
 <ul>
 <li>同时将第20行的<code>em</code>变量做相应修改</li>
 </ul>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">//  em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span>
-em<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\*((?:\*\*|[\s\S])+?)\*(?!\*)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+em<span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\*((?:\*\*|[\s\S])+?)\*(?!\*)</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 <li><p>接下来在主题中开启<code>mathjax</code>开关。打开<strong>主题目录</strong>下的配置文件<code>_config.yml</code>，将<code>mathjax</code>默认的<code>false</code>修改为<code>true</code></p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">mathjax:
   enable: true
   per_page: true
-  cdn: https:&#x2F;&#x2F;cdn.bootcss.com&#x2F;mathjax&#x2F;2.7.5&#x2F;MathJax.js?config&#x3D;TeX-AMS-MML_HTMLorMML<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+  cdn: https:&#x2F;&#x2F;cdn.bootcss.com&#x2F;mathjax&#x2F;2.7.5&#x2F;MathJax.js?config&#x3D;TeX-AMS-MML_HTMLorMML<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>最后在文章的<code>Front-matter</code>中开启<code>mathjax</code>（不需要数学公式的文章建议关闭，因为<code>mathjax</code>的渲染较为耗时）</p>
 <pre class="line-numbers language-none"><code class="language-none">---
 title: test
 author: hjd
 mathjax: true
 tags: 
----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <blockquote>
 <p>最后还是存在一点问题，比如连续的花括号渲染时会失败。不过在中间加上空格就好了。ps：这是参考教程说的，但可能后面作者已经修复了这个bug，我测试的时候并没有发现有问题<span class="github-emoji" alias="joy" style fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png?v8">&#x1f602;</span></p>
@@ -1181,7 +1194,6 @@ tags:
 <li>首先安装插件<code>hexo-asset-image</code>：</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> https://github.com/7ym0n/hexo-asset-image --save <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ul>
 <li><p>然后打开博客根目录的<code>_config.yml</code>，将<code>post_asset_folder</code>的值修改为<code>true</code>（这时再生成文章时会在<code>_posts</code>目录下生成与文章同名的文件夹）</p>
 <blockquote>
@@ -1206,14 +1218,16 @@ tags:
 </li>
 <li><p>最开始是根据网上很多的教程包括<code>matery</code>的官方<code>README</code>文件的描述，安装<code>hexo-filter-github-emojis</code>，但奈何安装时总是报错，最后使用了<code>next-theme</code>主题的<code>emoji</code>插件：<code>hexo-filer-emoji</code></p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># npm install hexo-filter-github-emojis --save	# 大家可以先试试这个</span>
-<span class="token function">npm</span> <span class="token function">install</span> hexo-filter-emoji --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<span class="token function">npm</span> <span class="token function">install</span> hexo-filter-emoji --save<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+</li>
 <li><p>然后配置博客根目录配置文件<code>_config.yml</code>的<code>emoji</code>属性即可</p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># 添加GitHub的emoji支持 
 emoji:   
 	enable: true   
 	className: github-emoji   
 	styles:   
-	customEmojis:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+	customEmojis:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h4 id="2-7-添加建站时间"><a href="#2-7-添加建站时间" class="headerlink" title="2.7 添加建站时间"></a>2.7 添加建站时间</h4><ul>
 <li><p>修改<code>/themes/hexo-theme-matery/layout/_partial</code>中的<code>footer.ejs</code>，在最后加上：（原来的文件中似乎有这部分代码，看情况修改吧）</p>
@@ -1251,11 +1265,13 @@ emoji:
         document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"sitetime"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> <span class="token string">"本站已运行 "</span> <span class="token operator">+</span>diffYears<span class="token operator">+</span><span class="token string">" 年 "</span><span class="token operator">+</span>diffDays <span class="token operator">+</span> <span class="token string">" 天 "</span> <span class="token operator">+</span> diffHours <span class="token operator">+</span> <span class="token string">" 小时 "</span> <span class="token operator">+</span> diffMinutes <span class="token operator">+</span> <span class="token string">" 分钟 "</span> <span class="token operator">+</span> diffSeconds <span class="token operator">+</span> <span class="token string">" 秒"</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token comment">/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/</span>
     <span class="token function">siteTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>然后在前面如<code>copyright</code>声明后加上以下代码即可</p>
 <pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span>             
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>sitetime<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>my-face<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>(ง •_•)ง<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span> 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>br</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h4 id="2-8-不蒜子初始化计数"><a href="#2-8-不蒜子初始化计数" class="headerlink" title="2.8 不蒜子初始化计数"></a>2.8 不蒜子初始化计数</h4><ul>
 <li><p>修改<code>/themes/hexo-theme-matery/layout/_partial</code>中的<code>footer.ejs</code>，在最后加上：</p>
@@ -1274,7 +1290,8 @@ emoji:
 			<span class="token punctuation">&#125;</span> 
 		<span class="token punctuation">&#125;</span> 
 	<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>然后把上面关于不蒜子的一段代码增加两个<code>style=&#39;display:none&#39;</code></p>
 <pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token keyword">if</span> <span class="token punctuation">(</span>theme<span class="token punctuation">.</span>busuanziStatistics <span class="token operator">&amp;&amp;</span> theme<span class="token punctuation">.</span>busuanziStatistics<span class="token punctuation">.</span>enable<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> </span><span class="token delimiter punctuation">%></span></span>
 	<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token keyword">if</span> <span class="token punctuation">(</span>theme<span class="token punctuation">.</span>busuanziStatistics <span class="token operator">&amp;&amp;</span> theme<span class="token punctuation">.</span>busuanziStatistics<span class="token punctuation">.</span>totalTraffic<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> </span><span class="token delimiter punctuation">%></span></span>         
@@ -1287,7 +1304,8 @@ emoji:
 			<span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span>|<span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>fas fa-users<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span><span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">__</span><span class="token punctuation">(</span><span class="token string">'siteTotalVisitors'</span><span class="token punctuation">)</span> </span><span class="token delimiter punctuation">%></span></span>:<span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span>       
 			<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>busuanzi_value_site_uv<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>white-color<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>       
 	<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token punctuation">&#125;</span> </span><span class="token delimiter punctuation">%></span></span>
-<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token punctuation">&#125;</span> </span><span class="token delimiter punctuation">%></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token punctuation">&#125;</span> </span><span class="token delimiter punctuation">%></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <blockquote>
 <p>注意这里除了增加了两个<code>style=&#39;display:none&#39;</code>，还修改了两个<code>&lt;span&gt;</code>的位置，顺带也解决了后面不蒜子计数与<code>live2d</code>模型的冲突。如果要看每一步的操作，请移步洪卫大佬的教程：<a target="_blank" rel="noopener" href="https://sunhwee.com/posts/6e8839eb.html">Hexo+Github博客搭建完全教程</a></p>
@@ -1298,7 +1316,6 @@ emoji:
 <li>下载<code>hexo-wordcount</code>插件</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> i --save hexo-wordcount<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ul>
 <li>修改主题配置文件<code>_config.yml</code>，激活配置即可</li>
 </ul>
@@ -1309,14 +1326,14 @@ emoji:
   totalCount: true  # 站点总文章字数
   min2read: true    # 文章阅读时长
   readCount: false  # 文章阅读次数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>注意此时还不能看到站点文章总字数的统计，还需修改<code>/themes/hexo-theme-matery/layout/_partial</code>中的<code>footer.ejs</code>，添加如下代码</li>
 </ul>
 <pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token keyword">if</span> <span class="token punctuation">(</span>theme<span class="token punctuation">.</span>postInfo<span class="token punctuation">.</span>totalCount<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> </span><span class="token delimiter punctuation">%></span></span>
 	<span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>fas fa-chart-area<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span><span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span>站点总字数:<span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span>
      <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>white-color<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%=</span><span class="token language-javascript"> <span class="token function">totalcount</span><span class="token punctuation">(</span>site<span class="token punctuation">)</span> </span><span class="token delimiter punctuation">%></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span class="token entity named-entity" title="&nbsp;">&amp;nbsp;</span>字
-<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token punctuation">&#125;</span> </span><span class="token delimiter punctuation">%></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%</span><span class="token language-javascript"> <span class="token punctuation">&#125;</span> </span><span class="token delimiter punctuation">%></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>开启首页轮播功能</p>
 <ul>
 <li>配置<code>source/_data/cover.json</code>或直接将文章<code>Front-Matter</code>中的<code>cover</code>属性置为true即可</li>
@@ -1330,7 +1347,8 @@ emoji:
 <li><p>然后在根目录下的<code>_config.yml</code>中配置</p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">search:
   path: search.xml
-  field: post<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+  field: post<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 </li>
 <li><p>修改<code>scaffolds</code>下模板的<code>Font-matter</code>，放出我的：</p>
@@ -1348,12 +1366,14 @@ mathjax: false
 password:
 summary:
 tags:
-categories:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+categories:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p><code>page</code></p>
 <pre class="line-numbers language-none"><code class="language-none">title: &#123;&#123; title &#125;&#125;
 date: &#123;&#123; date &#125;&#125;
 type: 
-layout: <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+layout: <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 </li>
 <li><p>其它：如友情链接、关于等页面可参考<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/setup">hexo-theme-matery官方文档</a></p>
@@ -1375,7 +1395,8 @@ layout: <span aria-hidden="true" class="line-numbers-rows"><span></span><span></
             document<span class="token punctuation">.</span>title <span class="token operator">=</span> OriginTitile             
         <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">3e3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>    
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span> 
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h3 id="2-修改壁纸、添加live2d模型"><a href="#2-修改壁纸、添加live2d模型" class="headerlink" title="2. 修改壁纸、添加live2d模型"></a>2. 修改壁纸、添加<code>live2d</code>模型</h3><ul>
 <li><p>修改壁纸：在<code>themes\Matery\source\css\matery.css</code>文件中找到<code>body</code>，修改如下</p>
@@ -1387,7 +1408,8 @@ layout: <span aria-hidden="true" class="line-numbers-rows"><span></span><span></
     <span class="token property">color</span><span class="token punctuation">:</span> #34495e<span class="token punctuation">;</span>
     <span class="token property">overflow-x</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
     <span class="token property">overflow-y</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>添加<code>live2d</code>模型</p>
 <ul>
 <li><p>安装依赖：<code>npm install --save hexo-helper-live2d</code></p>
@@ -1413,7 +1435,8 @@ live2d:
   mobile: # 手机显示开关
       show: true 
   react: 
-      opacity: 0.7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+      opacity: 0.7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>然后执行指令即可：<code>npm install live2d-widget-model-wanko</code></p>
 </li>
 </ul>
@@ -1428,7 +1451,8 @@ live2d:
 <span class="token comment">/*.bg-cover:after &#123;
     -webkit-animation: rainbow 60s infinite;
     animation: rainbow 60s infinite;
-&#125;*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+&#125;*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>滚动条美化：在<code>themes\Matery\source\css\matery.css</code>样式添加如下：</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/* 滚动条 */</span>
 <span class="token selector">::-webkit-scrollbar-thumb</span> <span class="token punctuation">&#123;</span>    
@@ -1445,7 +1469,8 @@ live2d:
 <span class="token selector">::-webkit-scrollbar</span> <span class="token punctuation">&#123;</span>     
 	<span class="token property">width</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>     
 	<span class="token property">height</span><span class="token punctuation">:</span> 15px<span class="token punctuation">;</span> 
-<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>直达评论按钮（这一条可以等添加完<code>Valine</code>评论模块再做）</p>
 <ul>
 <li><p>新建文件<code>themes\Matery\layout\_partial\back-comment.ejs</code>,粘贴如下代码（我这里评论是<code>valine</code>，直接填写的<code>valine</code>的id——<code>href=&quot;#vcomments&quot;</code>,如果是其他评论，对应修改即可。）</p>
@@ -1455,9 +1480,11 @@ live2d:
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>i</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>fas fa-comments<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>i</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>在<code>themes\Matery\layout\_partial\valine.ejs</code>文末添加一条，引用第一步的内容</p>
-<pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">partial</span><span class="token punctuation">(</span><span class="token string">'_partial/back-comment.ejs'</span><span class="token punctuation">)</span> </span><span class="token delimiter punctuation">%></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">partial</span><span class="token punctuation">(</span><span class="token string">'_partial/back-comment.ejs'</span><span class="token punctuation">)</span> </span><span class="token delimiter punctuation">%></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li><p>增加样式。在<code>themes\Matery\source\css\matery.css</code>添加内容如下：</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/*直达评论按钮样式*/</span>
 <span class="token selector">.comment-scroll</span> <span class="token punctuation">&#123;</span>    
@@ -1478,7 +1505,8 @@ live2d:
 <span class="token selector">.comment-scroll .btn-floating i</span> <span class="token punctuation">&#123;</span>  
 	<span class="token property">line-height</span><span class="token punctuation">:</span> 48px<span class="token punctuation">;</span>    
 	<span class="token property">font-size</span><span class="token punctuation">:</span> 1.8rem<span class="token punctuation">;</span> 
-<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">&#125;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -1542,9 +1570,8 @@ live2d:
   Tools:
     url: &#x2F;tools
     icon: fas fa-toolbox<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
-<li>其中的<code>icon</code>图标可以到<a target="_blank" rel="noopener" href="https://fontawesome.com/v5.15/icons?d=gallery&p=2">Font Awesome</a>中选择自己喜欢的</li>
+<li>其中的<code>icon</code>图标可以到<a target="_blank" rel="noopener" href="https://fontawesome.com/v5.15/icons?d=gallery&amp;p=2">Font Awesome</a>中选择自己喜欢的</li>
 </ul>
 </li>
 <li><p>然后需要新建对应的<code>page</code>（方法同建立关于、友链等页面）</p>
@@ -1555,7 +1582,6 @@ hexo new page films
 hexo new page resources
 hexo new page artitalk
 hexo new page tools<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li><strong>记得将对应生成的<code>index.md</code>中的<code>type</code>和<code>layout</code>都改为对应的标题</strong></li>
 </ul>
@@ -1571,7 +1597,8 @@ menuMap.set("Artitalk", "说说");
 menuMap.set("Contact", "留言板");
 menuMap.set("Friends", "友情链接");
 menuMap.set("List", "清单"); 
-menuMap.set("Tools", "工具箱");<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+menuMap.set("Tools", "工具箱");<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -1664,7 +1691,8 @@ menuMap.set("Tools", "工具箱");<span aria-hidden="true" class="line-numbers-r
     <span class="token property">column-count</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
     <span class="token property">column-gap</span><span class="token punctuation">:</span> 1em<span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>在<code>themes/hexo-theme-matery/layout/</code>目录下新建<code>galleries.ejs</code>和<code>gallery.ejs</code>文件</p>
 <blockquote>
 <p>注意：此处<code>galleries.ejs</code>是整个相册页面的配置，<code>gallery.ejs</code>是单独某一个相册的配置。</p>
@@ -1701,7 +1729,6 @@ menuMap.set("Tools", "工具箱");<span aria-hidden="true" class="line-numbers-r
         &lt;% &#125; %&gt;
     &lt;&#x2F;div&gt;
 &lt;&#x2F;main&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>这是<code>gallery.ejs</code>文件，同样<code>url</code>需要修改为自己的图床地址</li>
 </ul>
@@ -1789,14 +1816,16 @@ menuMap.set("Tools", "工具箱");<span aria-hidden="true" class="line-numbers-r
 <span class="token comment">//  不加密写法</span>
 <span class="token comment">// $("#mygallery").justifiedGallery(&#123;margins: 5, rowHeight: 150&#125;);</span>
 <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">"#encrypt-blog"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">justifiedGallery</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>margins<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> rowHeight<span class="token operator">:</span> <span class="token number">150</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>在<code>source/galleries/</code>下创建相册（比如“壁纸”，用于下面测试）文件夹，并在其下创建<code>index.md</code>，并设置<code>Front-mattery</code>（注意这里的<code>type</code>和<code>layout</code>都是<code>gallery</code>而非<code>galleries</code>，这与前面的<code>gallery.ejs、galleries.ejs</code>相关）</p>
 <pre class="line-numbers language-none"><code class="language-none">---
 title: 壁纸
 date: 2021-07-19 20:27:35
 type: gallery
 layout: gallery
----<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+---<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>在根目录下新建<code>/source/_data/galleries.json</code>，添加如下内容</p>
 <blockquote>
 <p>这里的<code>name</code>必须和上一步的<code>title</code>一致。另外我的图床图片地址是<code>/galleries/星空/01.jpg</code>，所以前面<code>ejs</code>文件中的<code>url</code>是那样。</p>
@@ -1825,7 +1854,8 @@ layout: gallery
       <span class="token string">"星空/16.jpg"</span>
     <span class="token punctuation">]</span>
   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>现在编译一下应该可以显示了，但是布局很难看且不能放大。因为还需要两个插件<code>fancybox</code>和<code>justifiedGallery</code>。（<code>gallery.ejs</code>文件里引用了，但我们没下载这俩插件）</p>
 <ul>
 <li><p>打开主题目录下的配置文件<code>_config.yml</code>，找到存放前端库链接的地方（可搜索libs），将两插件对应的<code>css</code>和<code>js</code>链接写在那儿（不同的版本可以到官网上去找）。</p>
@@ -1836,7 +1866,8 @@ layout: gallery
   js:
    # 新增插件-用于调整相册布局
    fancybox: https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;fancybox&#x2F;3.5.7&#x2F;jquery.fancybox.min.js     
-   justifiedGallery: https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;justifiedGallery&#x2F;3.7.0&#x2F;js&#x2F;jquery.justifiedGallery.min.js<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+   justifiedGallery: https:&#x2F;&#x2F;cdn.staticfile.org&#x2F;justifiedGallery&#x2F;3.7.0&#x2F;js&#x2F;jquery.justifiedGallery.min.js<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>现在编译就可以看到比较舒适的相册页面了。</p>
 </li>
 </ul>
@@ -1856,7 +1887,8 @@ hexo<span class="token punctuation">.</span>extend<span class="token punctuation
   content <span class="token operator">=</span> CryptoJS<span class="token punctuation">.</span><span class="token constant">AES</span><span class="token punctuation">.</span><span class="token function">encrypt</span><span class="token punctuation">(</span>content<span class="token punctuation">,</span> <span class="token function">String</span><span class="token punctuation">(</span>password<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token keyword">return</span> content<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>然后修改<code>gallery.ejs</code>文件（这一步不需要做，因为前面那段代码其实已经写好了，就是“加密写法”那里）</p>
 </li>
 <li><p>修改<code>/themes/hexo-theme/matery/source/css/my.css</code>，美化解密按钮</p>
@@ -1873,9 +1905,11 @@ hexo<span class="token punctuation">.</span>extend<span class="token punctuation
   <span class="token property">-webkit-border-radius</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
   <span class="token property">-moz-border-radius</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
   <span class="token property">border-radius</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>手动安装<code>crypto-js</code>插件，到<code>node_modules/crypto-js/</code>下找到<code>crypto-js.js</code>文件，并复制到主题目录下的<code>source/js/</code>下（注意<code>gallery.ejs</code>中的引用目录可能需要修改<code>&lt;script src=&quot;/js/crypto-js.js&quot;&gt;&lt;/script&gt;</code>）</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> crypto-js<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> crypto-js<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li><p>然后在主题目录的<code>source/js/</code>下新建<code>gallery-encrypt.js</code>，将我的代码粘进去就好（主要是不知道原来是从哪儿找来的了<span class="github-emoji" alias="cry" style fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8">&#x1f622;</span>）</p>
 <p><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@CDN-for-Hexo-0.0.3/source/js/gallery-encrypt.js">https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@CDN-for-Hexo-0.0.3/source/js/gallery-encrypt.js</a></p>
 </li>
@@ -1908,7 +1942,8 @@ music:
   volume: 0.7       # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
   listFolded: true  # 列表默认折叠
   hideLrc: true     # 隐藏歌词
-# 提示： server可选netease（网易云音乐），tencent（QQ音乐），kugou（酷狗音乐），xiami（虾米音乐），baidu（百度音乐）。 type可选song（歌曲），playlist（歌单），album（专辑），search（搜索关键字），artist（歌手） id获取示例: 浏览器打开网易云音乐，点击我喜欢的音乐歌单，地址栏有一串数字，playlist的id即为这串数字。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+# 提示： server可选netease（网易云音乐），tencent（QQ音乐），kugou（酷狗音乐），xiami（虾米音乐），baidu（百度音乐）。 type可选song（歌曲），playlist（歌单），album（专辑），search（搜索关键字），artist（歌手） id获取示例: 浏览器打开网易云音乐，点击我喜欢的音乐歌单，地址栏有一串数字，playlist的id即为这串数字。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>单独音乐页面</p>
 <ul>
 <li><p>同样配置主题目录下的<code>_config.yml</code></p>
@@ -1930,7 +1965,8 @@ musics:
   preload: &#39;auto&#39;   # 预加载，可选值: &#39;none&#39;, &#39;metadata&#39;, &#39;auto&#39;
   volume: 0.7       # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
   listFolded: false  # 列表默认折叠
-  listMaxHeight: &quot;525px&quot; #列表最大高度<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+  listMaxHeight: &quot;525px&quot; #列表最大高度<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>将<code>themes/hexo-theme-matery/layout/_widget/</code>下的<code>music.ejs</code>复制一份命名为<code>musics.ejs</code></p>
 </li>
 <li><p>然后再在<code>themes/hexo-theme-matery/layout/</code>下新建<code>musics.ejs</code>文件，粘贴代码：</p>
@@ -2005,7 +2041,8 @@ musics:
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 </li>
 </ul>
@@ -2016,13 +2053,15 @@ musics:
 <li><p>绕过渲染。因为hexo 编译会对主题模板进行渲染之后生成静态页面，但是这个导航的网站本身就是 <code>html</code>文件，因此不需要渲染，那么跳过渲染就需要配置根目录<code>_config.yml</code>中的 <code>skip_render</code> 项</p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># 指定目录跳过hexo渲染
 skip_render:
-  - &#39;tools&#x2F;**&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+  - &#39;tools&#x2F;**&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>工具箱页面在4.1节已经新建完成。</p>
 </li>
 <li><p>添加<a target="_blank" rel="noopener" href="https://github.com/WebStackPage/WebStackPage.github.io">WebStackPage导航网站</a>（这是一位名叫 Viggo 的UI设计师的公益项目，开源的静态网站，源码本身就是成品，下载代码之后就可以直接使用。）</p>
 <ul>
 <li><p>从官方项目地址克隆到本地</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/WebStackPage/WebStackPage.github.io <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/WebStackPage/WebStackPage.github.io <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li><p>将里面的文件放在博客根目录的<code>source/tools/</code>下即可</p>
 </li>
 <li><p>这时候编译进入&lt;工具箱&gt;页面应该能看到如下效果</p>
@@ -2053,7 +2092,8 @@ skip_render:
   visitor: true
   avatar: &#39;mm&#39; # Gravatar style : mm&#x2F;identicon&#x2F;monsterid&#x2F;wavatar&#x2F;retro&#x2F;hide
   pageSize: 10
-  placeholder: &#39;just go go&#39; # Comment Box placeholder<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+  placeholder: &#39;just go go&#39; # Comment Box placeholder<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>为添加博主、访客、小伙伴等tag，以及直接通过邮箱或QQ拉取头像，直接使用大佬魔改后的<code>Valine.min.js</code>文件，并覆盖<code>themes/hexo-theme-matery/source/libs/valine/Valine.min.js</code></p>
 </li>
 <li><p>然后配置<code>themes/hexo-theme-matery/layout/_partia/valine.ejs</code>文件</p>
@@ -2134,7 +2174,8 @@ skip_render:
 		<span class="token punctuation">&#125;</span> 
 	<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h4 id="5-2-增强评论系统"><a href="#5-2-增强评论系统" class="headerlink" title="5.2 增强评论系统"></a>5.2 增强评论系统</h4><ul>
 <li><p>功能：</p>
@@ -2152,83 +2193,20 @@ skip_render:
 </li>
 <li><p>配置环境变量：云引擎-&gt;设置-&gt;自定义环境变量</p>
 <blockquote>
-<p>我只设置了邮件和微信提醒，没用QQ的。设置完成后再次部署生效。</p>
-<table>
-<thead>
-<tr>
-<th align="center">变量</th>
-<th align="center">示例</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">SITE_NAME</td>
-<td align="center">hjd’blog</td>
-<td align="center">[必填]博客名称</td>
-</tr>
-<tr>
-<td align="center">SITE_URL</td>
-<td align="center"><a href="https://321hjd.github.io/">https://321hjd.github.io/</a></td>
-<td align="center">[必填]首页地址</td>
-</tr>
-<tr>
-<td align="center">SMTP_SERVICE</td>
-<td align="center">QQ</td>
-<td align="center">邮件服务提供商，支持 QQ、163、126、Gmail以及更多</td>
-</tr>
-<tr>
-<td align="center">SMTP_USER</td>
-<td align="center"><a href="mailto:&#50;&#x38;&#53;&#55;&#49;&#50;&#x36;&#48;&#48;&#x32;&#x40;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;">&#50;&#x38;&#53;&#55;&#49;&#50;&#x36;&#48;&#48;&#x32;&#x40;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;</a></td>
-<td align="center">[必填]SMTP登录用户</td>
-</tr>
-<tr>
-<td align="center">SMTP_PASS</td>
-<td align="center">xxx</td>
-<td align="center">[必填]SMTP登录密码（QQ邮箱可通过设置-账户-SMTP服务-生成授权码获取）</td>
-</tr>
-<tr>
-<td align="center">SENDER_NAME</td>
-<td align="center">hjd’blog</td>
-<td align="center">[必填]发件人</td>
-</tr>
-<tr>
-<td align="center">SENDER_EMAIL</td>
-<td align="center"><a href="mailto:&#50;&#56;&#x35;&#x37;&#x31;&#50;&#54;&#x30;&#x30;&#50;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;">&#50;&#56;&#x35;&#x37;&#x31;&#50;&#54;&#x30;&#x30;&#50;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;</a></td>
-<td align="center">[必填]发件邮箱</td>
-</tr>
-<tr>
-<td align="center">BLOGGER_EMAIL</td>
-<td align="center"><a href="mailto:&#x32;&#56;&#53;&#x37;&#49;&#x32;&#x36;&#x30;&#48;&#x32;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;">&#x32;&#56;&#53;&#x37;&#49;&#x32;&#x36;&#x30;&#48;&#x32;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></td>
-<td align="center">[可选]博主通知收件地址，默认使用SENDER_EMAIL</td>
-</tr>
-<tr>
-<td align="center">SCKEY</td>
-<td align="center">xxx</td>
-<td align="center"><a target="_blank" rel="noopener" href="http://sc.ftqq.com/">Server酱</a> SCKEY 用于微信通知</td>
-</tr>
-<tr>
-<td align="center">DISABLE_EMAIL</td>
-<td align="center">false</td>
-<td align="center">如果为true，关闭邮件通知</td>
-</tr>
-<tr>
-<td align="center">TEMPLATE_NAME</td>
-<td align="center">custom2</td>
-<td align="center">设置回复邮件的主题样式</td>
-</tr>
-</tbody></table>
+<p>我只设置了邮件和微信提醒，没用QQ的。设置完成后再次部署生效。<br>|     变量      |           示例            |                             说明                             |<br>| :—————-: | :———————————-: | :—————————————————————————————: |<br>|   SITE_NAME   |         hjd’blog          |                        [必填]博客名称                        |<br>|   SITE_URL    | <a href="https://321hjd.github.io/">https://321hjd.github.io/</a> |                        [必填]首页地址                        |<br>| SMTP_SERVICE  |            QQ             |       邮件服务提供商，支持 QQ、163、126、Gmail以及更多       |<br>|   SMTP_USER   |     2857126002@qq.com     |                      [必填]SMTP登录用户                      |<br>|   SMTP_PASS   |            xxx            | [必填]SMTP登录密码（QQ邮箱可通过设置-账户-SMTP服务-生成授权码获取） |<br>|  SENDER_NAME  |         hjd’blog          |                         [必填]发件人                         |<br>| SENDER_EMAIL  |     2857126002@qq.com     |                        [必填]发件邮箱                        |<br>| BLOGGER_EMAIL |     2857126002@qq.com     |         [可选]博主通知收件地址，默认使用SENDER_EMAIL         |<br>|     SCKEY     |            xxx            |      <a target="_blank" rel="noopener" href="http://sc.ftqq.com/">Server酱</a> SCKEY 用于微信通知      |<br>| DISABLE_EMAIL |           false           |                   如果为true，关闭邮件通知                   |<br>| TEMPLATE_NAME |          custom2          |                    设置回复邮件的主题样式                    |</p>
 </blockquote>
 </li>
 <li><p>微信提醒还需要按照<a target="_blank" rel="noopener" href="http://sc.ftqq.com/">Server酱-消息通道</a> 的指示注册企业微信并创建应用才行</p>
 </li>
 <li><p>博主回复别人后的邮件提醒效果：</p>
-<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/4qiNyprDSh9bwmQ.jpg" alt="邮件提醒" style="zoom:25%;"></li>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/4qiNyprDSh9bwmQ.jpg" alt="邮件提醒" style="zoom:25%;"></p>
+</li>
 <li><p>有人评论时的微信提醒效果</p>
-<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/Hf8qQY5BkpaZ4On.jpg" alt="微信提醒" style="zoom:25%;"></li>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/Blog/Hf8qQY5BkpaZ4On.jpg" alt="微信提醒" style="zoom:25%;"></p>
+</li>
 <li><p>后台管理。增删改评论在<code>leancloud</code>的数据存储-&gt;结构化数据-&gt;Comment处操作即可</p>
 </li>
-<li><p>防止休眠（如果不设置，每过一段时间重新部署，才能收到评论提醒）。需要购买域名，具体请参考：<a target="_blank" rel="noopener" href="https://lovelijunyi.gitee.io/posts/e52c.html">Valine评论系统详解</a></p>
-</li>
+<li>防止休眠（如果不设置，每过一段时间重新部署，才能收到评论提醒）。需要购买域名，具体请参考：<a target="_blank" rel="noopener" href="https://lovelijunyi.gitee.io/posts/e52c.html">Valine评论系统详解</a></li>
 </ul>
 <h3 id="6-说说模块Artitalk"><a href="#6-说说模块Artitalk" class="headerlink" title="6. 说说模块Artitalk"></a>6. 说说模块Artitalk</h3><ul>
 <li><p>在<a target="_blank" rel="noopener" href="https://leancloud.app/">leancloud官网</a>（建议使用国际版，否则需要配置<code>serverurl</code>）注册并绑定手机号和邮箱。然后创建应用（与<code>Valine</code>不是同一个）</p>
@@ -2246,7 +2224,6 @@ skip_render:
 </li>
 <li><p>下载<code>Artitalk</code>并放入组件</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone --depth <span class="token number">2</span> git@github.com:ArtitalkJS/Artitalk.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
 <ul>
 <li>在<code>themes/hexo-theme-matery/source/libs/</code>下新建<code>artitalk</code>文件夹。将下载所得<code>Artitalk</code>中<code>dist</code>下的组件代码（两个文件：<code>artitalk.min.js</code>和<code>artitalk.min.css</code>）全部放入<code>artitalk/</code>下</li>
 </ul>
@@ -2256,9 +2233,11 @@ skip_render:
   css:
     artitalk: &#x2F;libs&#x2F;artitalk&#x2F;artitalk.min.css
    js:
-    artitalk: &#x2F;libs&#x2F;artitalk&#x2F;artitalk.min.js <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+    artitalk: &#x2F;libs&#x2F;artitalk&#x2F;artitalk.min.js <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>引入<code>css</code>。在<code>themes/hexo-theme-matery/layout/_partial/head.ejs</code>的尾部对应位置引入<code>css</code>（参照其它代码即可）</p>
-<pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> theme<span class="token punctuation">.</span>jsDelivr<span class="token punctuation">.</span>url </span><span class="token delimiter punctuation">%></span></span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">url_for</span><span class="token punctuation">(</span>theme<span class="token punctuation">.</span>libs<span class="token punctuation">.</span>css<span class="token punctuation">.</span>artitalk<span class="token punctuation">)</span> </span><span class="token delimiter punctuation">%></span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> theme<span class="token punctuation">.</span>jsDelivr<span class="token punctuation">.</span>url </span><span class="token delimiter punctuation">%></span></span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">url_for</span><span class="token punctuation">(</span>theme<span class="token punctuation">.</span>libs<span class="token punctuation">.</span>css<span class="token punctuation">.</span>artitalk<span class="token punctuation">)</span> </span><span class="token delimiter punctuation">%></span></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li><p>模块准备。在主题目录下 <code>/layout/</code> 目录新建一个 <code>artitalk.ejs 文件</code></p>
 <pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> <span class="token function">partial</span><span class="token punctuation">(</span><span class="token string">'_partial/bg-cover'</span><span class="token punctuation">)</span> </span><span class="token delimiter punctuation">%></span></span>
 
@@ -2384,7 +2363,8 @@ skip_render:
            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
 </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>在主题配置文件中添加<code>artitalk</code>配置</p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">artitalk:
   enable: true
@@ -2398,7 +2378,8 @@ skip_render:
   # bgImg: #说说输入框背景图片url  
   color1: linear-gradient(45deg, rgb(109, 208, 242) 15%, rgb(245, 200, 190) 85%)  #说说背景颜色1&amp;按钮颜色1  
   color2: linear-gradient(45deg, rgb(109, 208, 242) 15%, rgb(245, 200, 190) 85%)  #说说背景颜色2&amp;按钮颜色2  
-  color3: black #说说字体颜色<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+  color3: black #说说字体颜色<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>创建说说页面并添加链接。在第三部分的4.1节已经创建完成。</p>
 </li>
 <li><p>现在编译再进入说说页面应该就可以了。</p>
@@ -2421,17 +2402,20 @@ skip_render:
 </ul>
 <h2 id="四、性能优化"><a href="#四、性能优化" class="headerlink" title="四、性能优化"></a>四、性能优化</h2><h3 id="1-图片懒加载"><a href="#1-图片懒加载" class="headerlink" title="1. 图片懒加载"></a>1. 图片懒加载</h3><ul>
 <li><p>安装图片懒加载插件：<a target="_blank" rel="noopener" href="https://github.com/Troy-Yang/hexo-lazyload-image">hexo-lazyload-image</a></p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-lazyload-image --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-lazyload-image --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li><p>在博客根目录下的配置文件末尾添加</p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml"># 懒加载配置
 lazyload:
   enable: true
   onlypost: false   # 是否只对文章的图片做懒加载
-  loadingImg: &#x2F;medias&#x2F;loading.gif # 即放一个表示加载中的图片（这个图片得自己去找一个放在themes&#x2F;hexo-theme-matery&#x2F;source&#x2F;medias&#x2F;目录下）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+  loadingImg: &#x2F;medias&#x2F;loading.gif # 即放一个表示加载中的图片（这个图片得自己去找一个放在themes&#x2F;hexo-theme-matery&#x2F;source&#x2F;medias&#x2F;目录下）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>一般情况下懒加载会和gallery插件会发生冲突，结果可能就是点开图片，左翻右翻都是loading image。matery主题的解决方案是：修改 <code>/themes/matery/source/js</code> 中的 <code>matery.js</code>文件，在第108行加上</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">$</span><span class="token punctuation">(</span>document<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token string">'img[data-original]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
     <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">parent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">"href"</span><span class="token punctuation">,</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token string">"data-original"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>可能还有个小问题，首页的logo点击会直接打开logo图，而不是跳到首页。解决方案：打开 <code>/themes/matery/layout/_partial/header.ejs</code>文件，</p>
 <p>在<code>img</code>和<code>span</code>的两个头加个<code>div</code>：</p>
 <pre class="line-numbers language-ejs" data-language="ejs"><code class="language-ejs"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>brand-logo<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
@@ -2443,7 +2427,8 @@ lazyload:
             <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>logo-span<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token ejs language-ejs"><span class="token delimiter punctuation">&lt;%-</span><span class="token language-javascript"> config<span class="token punctuation">.</span>title </span><span class="token delimiter punctuation">%></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>懒加载优化（即提前加载图片，其实也可以不做）。具体请参考：<a target="_blank" rel="noopener" href="https://blog.sky03.cn/posts/42790.html">Hexo进阶之各种优化</a></p>
 </li>
 </ul>
@@ -2604,7 +2589,8 @@ hexo<span class="token punctuation">.</span>extend<span class="token punctuation
          htmlContent <span class="token operator">=</span> htmlContent<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">+</span> injectBody <span class="token operator">+</span> htmlContent<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>index<span class="token punctuation">,</span> htmlContent<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
      <span class="token punctuation">&#125;</span>
      <span class="token keyword">return</span> htmlContent<span class="token punctuation">;</span>
- <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+ <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 <h3 id="3-新建文章时自动打开本地md编辑器"><a href="#3-新建文章时自动打开本地md编辑器" class="headerlink" title="3. 新建文章时自动打开本地md编辑器"></a>3. 新建文章时自动打开本地md编辑器</h3><ul>
 <li><p>在博客根目录下的<code>scripts/</code>下新建<code>auto_open.js</code>，添加代码：</p>
@@ -2619,7 +2605,6 @@ hexo<span class="token punctuation">.</span>extend<span class="token punctuation
 hexo<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'new'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
   <span class="token function">spawn</span><span class="token punctuation">(</span><span class="token string">'start  "D:\Program Files\Typora\Typora.exe" '</span> <span class="token operator">+</span> data<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>注意：<code>Typora.exe</code>的路径根据实际情况修改。</li>
 </ul>
@@ -2640,7 +2625,8 @@ hexo<span class="token punctuation">.</span><span class="token function">on</spa
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>		<span class="token comment"># 添加所有文件到暂存区</span>
 <span class="token function">git</span> status		<span class="token comment"># 查看状态</span>
 <span class="token function">git</span> commit -m <span class="token string">"CDN加速，第一次提交"</span>		<span class="token comment"># 将文件提交到仓库</span>
-<span class="token function">git</span> push		<span class="token comment"># 推送至远程仓库</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token function">git</span> push		<span class="token comment"># 推送至远程仓库</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>点击右边的<code>release</code>发布版本。如<code>CDN-for-Hexo-1.0</code></p>
 </li>
 </ul>
@@ -2650,7 +2636,6 @@ hexo<span class="token punctuation">.</span><span class="token function">on</spa
   css:
     matery: https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;321hjd&#x2F;CDN-for-Hexo@b4706a7&#x2F;source&#x2F;css&#x2F;matery.css
     mycss: https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;321hjd&#x2F;CDN-for-Hexo@b4706a7&#x2F;source&#x2F;css&#x2F;my.css<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
 <ul>
 <li>引用方式为：<code>https://cdn.jsdelivr.net/gh/你的用户名/你的仓库名@发布的版本号/文件路径</code></li>
 </ul>
@@ -2666,12 +2651,14 @@ hexo<span class="token punctuation">.</span><span class="token function">on</spa
 <li><p>为什么要生成唯一永久文章链接：确保在我们修改了<code>Front-matter</code> 内的博客标题<code>title</code>或创建日期<code>date</code>字段之后而不会改变链接地址。</p>
 </li>
 <li><p>安装插件：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-abbrlink --save<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
 <li><p>配置。修改博客根目录配置文件的<code>permalink</code>属性</p>
 <pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">permalink: posts&#x2F;:abbrlink.html  # 此处可以自己设置，也可以直接使用 :&#x2F;abbrlink
 abbrlink:
     alg: crc32   #算法： crc16(default) and crc32
-    rep: hex     #进制： dec(default) and hex<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+    rep: hex     #进制： dec(default) and hex<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>生成完后，原<code>md</code>文件的Front-matter 内会增加<code>abbrlink</code> 字段，值为生成的ID 。至此我们的文章链接将变为：</p>
 <p><code>https://&#123;username&#125;.github.io/posts/&#123;abbrlink_id&#125;.html</code></p>
 </li>
@@ -2682,7 +2669,8 @@ abbrlink:
 	- MDfilename.html
 	- MDfilename_folder
   		- xxx.jpg
-  		- ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+  		- ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 <li><p>解决方案：修改<code>/node_modules/hexo-asset-image/index.js</code>中的两行（即自己把<code>abbrlink</code>加入到<code>image</code>的生成路径中）</p>
 <ul>
 <li>在源码的12行附近<code>var link = data.permalink;</code>这一行的下面，<strong>添加</strong> 一行<code>var abbrlink = data.abbrlink</code>（即自己定义一个变量<code>abbrlink</code>获取生成的<code>abbrlink</code>）</li>
@@ -3611,7 +3599,7 @@ abbrlink:
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">67.7k</span>&nbsp;字
+                class="white-color">72.3k</span>&nbsp;字
             
 
 			
@@ -3887,12 +3875,12 @@ $(function () {
 		color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"> 
 	</script>
 
-<script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script><script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>

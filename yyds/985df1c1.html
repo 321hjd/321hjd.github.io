@@ -778,15 +778,15 @@
 <p>Given $x^{(i)}$ ，to learn  $\theta$ </p>
 <ul>
 <li><p>针对单个用户的参数估计：$\theta^{(j)}\in\mathbb{R}^{n+1}$ ，n是电影特征数量，1是偏置项。 </p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/1.jpg"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/1.jpg" alt></p>
 <p>其中 $r(i,j)=1$ 指的是用户评价过的电影（未评价的值为0）。注意与线性回归不同，这里计算的是 平方误差和 而非 均方误差和，其实就是去掉 了 $\frac{1}{2m}$ 项，只是为了后面的公式更为简化，对参数训练没有影响。</p>
 </li>
 <li><p>针对所有用户的参数估计：$\theta^{(1)},\ldots,\theta^{(n_u)}$ </p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/2.png"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/2.png" alt></p>
 </li>
 </ul>
 <p>然后可用利用<strong>梯度下降</strong>求解。 </p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/3.jpg"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/3.jpg" alt></p>
 <h3 id="2-协同过滤算法（Collaborative-filtering-algorithm）"><a href="#2-协同过滤算法（Collaborative-filtering-algorithm）" class="headerlink" title="2. 协同过滤算法（Collaborative filtering algorithm）"></a>2. 协同过滤算法（Collaborative filtering algorithm）</h3><blockquote>
 <p>基于内容的推荐系统存在一定缺陷，因为对于大多数电影或者需要销售的商品来说，很难用完整并且量化的特征量去概括或者描述，于是有了协同过滤算法推荐系统，该系统能自动学习所要使用的特征，并同时利用特征和用户的喜好参数以及评分进行协同过滤。</p>
 </blockquote>
@@ -798,8 +798,12 @@
 <p>示例：电影推荐系统</p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/movie-Collaborative-filtering-based.jpg" alt="movie-Collaborative-filtering-based"></p>
 <ul>
-<li>学习单个特征。Given $\theta^{(1)},\ldots,\theta^{(n_u)}$ ，to learn $x^{(i)}$ ：<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/4.jpg"></li>
-<li>学习多个特征。Given $\theta^{(1)},\ldots,\theta^{(n_u)}$ ，to learn $x^{(1)},\ldots,x^{(n_m)}$ ：<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/5.jpg"></li>
+<li><p>学习单个特征。Given $\theta^{(1)},\ldots,\theta^{(n_u)}$ ，to learn $x^{(i)}$ ：</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/4.jpg" alt></p>
+</li>
+<li><p>学习多个特征。Given $\theta^{(1)},\ldots,\theta^{(n_u)}$ ，to learn $x^{(1)},\ldots,x^{(n_m)}$ ：</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/5.jpg" alt></p>
+</li>
 </ul>
 <p><strong>协同过滤算法</strong> </p>
 <blockquote>
@@ -808,16 +812,16 @@
 <p>改进算法：同时计算 $x$ 和 $\theta$ </p>
 <ul>
 <li><p>代价函数：</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/6.jpg"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/6.jpg" alt></p>
 </li>
-<li><p>优化目标：$\min_\limits{\substack{x^{(1)},\ldots,x^{(n_m)}\\theta^{(1)},\ldots,\theta^{(n_u)}}}J\left(x^{(1)}, \ldots, x^{\left(n_{m}\right)}, \theta^{(1)}, \ldots, \theta^{\left(n_{u}\right)}\right)$ </p>
+<li><p>优化目标：$\min_\limits{\substack{x^{(1)},\ldots,x^{(n_m)}\\\theta^{(1)},\ldots,\theta^{(n_u)}}}J\left(x^{(1)}, \ldots, x^{\left(n_{m}\right)}, \theta^{(1)}, \ldots, \theta^{\left(n_{u}\right)}\right)$ </p>
 </li>
 <li><p>协同过滤算法</p>
 <ol>
 <li><p>随机初始化 $x^{(1)}, \ldots, x^{\left(n_{m}\right)}, \theta^{(1)}, \ldots, \theta^{\left(n_{u}\right)}$ 为较小值。（类似神经网络的初始化）</p>
 </li>
 <li><p>使用梯度下降或高级优化算法最小化代价函数 $J$ 。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/7.jpg"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/7.jpg" alt></p>
 <p>其中由于同时进行 $x,\theta$ 的计算，第二项实际是代价函数分别对 $x,\theta$ 的偏微分。此外，这里没有像之前的算法一样的偏置项 $x_0=1$ ，也不存在需要做特殊处理的 $\theta_0$ 。</p>
 </li>
 <li><p>对拥有偏好参数 $\theta$ 的用户以及具有特征参数 $x$ 的电影进行评分预测。</p>
@@ -1758,7 +1762,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">67.7k</span>&nbsp;字
+                class="white-color">72.3k</span>&nbsp;字
             
 
 			
@@ -2034,12 +2038,12 @@ $(function () {
 		color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"> 
 	</script>
 
-<script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script><script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
