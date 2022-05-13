@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2-线性回归（Linear-Regression）, hjd&#39;blog">
+    <meta name="keywords" content="最速下降法、牛顿法、共轭梯度法原理及对比, hjd&#39;blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2-线性回归（Linear-Regression） | hjd&#39;blog</title>
+    <title>最速下降法、牛顿法、共轭梯度法原理及对比 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/awesome/css/all.css">
@@ -583,12 +583,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/机器学习.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2-线性回归（Linear-Regression）</h1>
+                    <h1 class="description center-align post-title">最速下降法、牛顿法、共轭梯度法原理及对比</h1>
                 </div>
             </div>
         </div>
@@ -704,12 +704,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">机器学习</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">吴恩达-机器学习</span>
+                            <a href="/tags/%E5%9F%BA%E4%BA%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">
+                                <span class="chip bg-color">基于导数的优化方法</span>
                             </a>
                         
                     </div>
@@ -720,8 +716,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                学习笔记
+                            <a href="/categories/%E6%95%B0%E5%80%BC%E4%BC%98%E5%8C%96/" class="post-category">
+                                数值优化
                             </a>
                         
                     </div>
@@ -733,28 +729,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-02-08
+                    2022-05-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-08
+                    2022-05-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    10 分
                 </div>
                 
 
@@ -772,191 +768,176 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、模型描述"><a href="#一、模型描述" class="headerlink" title="一、模型描述"></a>一、模型描述</h3><ol>
-<li><p>建立y关于x的线性函数</p>
-<ul>
-<li><p>Hypothesis Function:$H_\theta(x)=\theta_0+\theta_1 x$</p>
-<blockquote>
-<p>用$H_\theta(x)$来拟合y与x的关系</p>
+                <blockquote>
+<p>三者都是基于导数的迭代优化方法，用于求解无约束优化问题。</p>
+<p>代码：<a target="_blank" rel="noopener" href="https://github.com/321hjd/ImageBed/tree/main/code/NumericalOptimization/derivative-basedOptimization">https://github.com/321hjd/ImageBed/tree/main/code/NumericalOptimization/derivative-basedOptimization</a></p>
 </blockquote>
-</li>
-<li><p>Parameters:$\theta_0,\theta_1$</p>
-<blockquote>
-<p>需要估计的参数</p>
-</blockquote>
-</li>
-<li><p>Cost Function:$J(\theta_0,\theta_1)=\frac{1}{2m}\sum_\limits{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2$</p>
-<blockquote>
-<p>此处为<strong>平方误差代价函数</strong>。即通过令$H_\theta(x)$与y差异最小使得假设函数最接近真实值。<br>其中m是训练样本集的容量，$\frac{1}{2m}$表示求平均误差最小。</p>
-</blockquote>
-</li>
-<li><p>Goal Funtion: $\min_\limits{\theta_0\theta_1}J(\theta_0,\theta_1)$ </p>
-</li>
-</ul>
-</li>
-<li><p>Cost Function</p>
-<ul>
-<li><p>代价函数-3维图像</p>
-<blockquote>
-<p>每个点到底部的距离为一次拟合的代价函数的值</p>
-</blockquote>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/Linear-Regression/CostFunction-3DFigure.jpg" alt="代价函数-3维图像"></p>
-</li>
-<li><p>代价函数-等高线图</p>
-<blockquote>
-<p>每条等高线代表拥有相同代价函数值的参数配置<br>绿点为此次拟合直线的代价值，中心为最小代价值</p>
-</blockquote>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/Linear-Regression/CostFunction-ContourFigure.jpg" alt="代价函数-等高线图"></p>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="二、梯度下降算法"><a href="#二、梯度下降算法" class="headerlink" title="二、梯度下降算法"></a>二、梯度下降算法</h3><blockquote>
-<p>用于最小化代价函数（不仅仅是最小化线性回归的代价函数）<br>特点：</p>
-<ul>
-<li>只能得到局部最小值</li>
-<li>相比正规方程组法（直接计算最小值），Gradient Descent更适合大数据集<br>此处的梯度下降算法被称为”Batch” Gradient Descent，因为每一次迭代遍历整个样本集</li>
-</ul>
-</blockquote>
+<h2 id="一、最速下降法"><a href="#一、最速下降法" class="headerlink" title="一、最速下降法"></a>一、最速下降法</h2><h3 id="1-1-原理"><a href="#1-1-原理" class="headerlink" title="1.1 原理"></a>1.1 原理</h3><p><strong>基本思想</strong></p>
 <ol>
-<li>思想<ul>
-<li>从任意参数值$\theta_0,\theta_1$开始，如 $\theta_0=0,\theta_1=0$ </li>
-<li>不断改变 $\theta_0,\theta_1$（朝梯度方向）,以减小 $J(\theta_0,\theta_1)$ </li>
-<li>直到我们找到 J 的最小值或者局部最小值</li>
-</ul>
+<li><p>最速下降法是梯度下降法和一维搜索的结合</p>
 </li>
-<li>图像解释</li>
-</ol>
-<blockquote>
-<p>将图像想象成一座山，沿着下山最快的方向下降（即梯度方向），直到到达山谷</p>
-</blockquote>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/Linear-Regression/GradientDescent.jpg" alt="梯度下降"></p>
-<ol start="3">
-<li><p>迭代公式<br>循环直至收敛 {</p>
-<p>$\theta_j=\theta_j-\alpha\frac{\partial}{\partial\theta_j}J(\theta_0,\theta_1)$           </p>
-<p>（for j = 0 and j = 1）<br>}</p>
-<ul>
-<li><p>其中$\alpha$是学习速率，决定以多大幅度更新参数</p>
+<li><p>梯度下降法采用<strong>一阶泰勒展开式</strong>对函数近似，然后将变量沿着负梯度方向（下降最快的方向）移动一定的步长，目标函数就会一直减小，直至接近极小值<br>$$<br>&amp;f(x) \approx f\left(x_{0}\right)+\nabla f(x)\left(x-x_{0}\right)\<br>&amp;d^{(k)}=-\nabla f(x)\<br>&amp;x^{(k)+1}=x^{(k)}+\lambda d^{(k)}<br>$$</p>
 </li>
-<li><p>更新过程（注意$\theta$和temp0赋值的执行顺序不能交换，因为需要同步更新$\theta_0\theta_1$）</p>
-<blockquote>
-<p>$temp0=\theta_0-\alpha\frac{\partial}{\partial\theta_0}J(\theta_0,\theta_1)$<br>$temp1=\theta_1-\alpha\frac{\partial}{\partial\theta_1}J(\theta_0,\theta_1)$<br>$theta_0=temp0$<br>$theta_1=temp1$</p>
-</blockquote>
+<li><p>步长的确定。让变量在负梯度方向走一段能让函数值最小的距离。可通过求解下式得到（一般通过令其对 $\lambda$ 求导为0直接求解或通过一维搜索算法如试探法、函数逼近法迭代求解）。<br>$$<br>\lambda_k=\arg\min _\limits{\lambda \geq 0} f\left(x^{(k)}+\lambda d^{(k)}\right)<br>$$</p>
 </li>
-</ul>
-</li>
-<li><p>收敛</p>
-<ul>
-<li><p>学习速率$\alpha$</p>
-<blockquote>
-<p>如果$\alpha$过小，收敛速度会非常慢<br>如果$\alpha$过大，梯度下降可能会越过最小值，收敛速度慢甚至发散</p>
-</blockquote>
-</li>
-<li><p>由于最低点导数值为0，因此随着梯度下降算法的执行，它会自动采取较小的幅度（因为导数值越来越小），因此没必要逐渐减小$\alpha$</p>
-</li>
-</ul>
+<li><p>一阶收敛条件。梯度的范数满足<strong>趋近于0</strong>的精度要求</p>
 </li>
 </ol>
-<h3 id="三、矩阵乘法的特性"><a href="#三、矩阵乘法的特性" class="headerlink" title="三、矩阵乘法的特性"></a>三、矩阵乘法的特性</h3><ol>
-<li>不符合交换律: $A\times B\ne B\times A$</li>
-<li>符合结合律: $(A\times B)\times C=A\times (B\times C)$</li>
-<li>单位矩阵$I_{n\times n}$，$I\times A=A\times I=A$</li>
+<p><strong>算法步骤</strong></p>
+<ol>
+<li><p>步骤1：选取初始点 $x^0$ ，给定终止精度要求 $\varepsilon&gt;0$ ，令迭代编号 $k=0$ </p>
+</li>
+<li><p>步骤2：计算梯度 $\nabla f(x^k)$ ，若满足 $||\nabla f(x^k)||&lt;\varepsilon$ ，则停止算法，输出极值点 $x^k$，否则进入步骤3</p>
+</li>
+<li><p>步骤3：取负梯度 $d^{(k)}=-\nabla f(x^k)$ 作为下降方向</p>
+</li>
+<li><p>步骤4：一维搜索求最佳步长 $\lambda_k$ ，使得其满足沿该方向移动步长 $\lambda_k$ 后，函数值最小<br>$$<br>\lambda_k=\arg\min _\limits{\lambda \geq 0} f\left(x^{(k)}+\lambda d^{(k)}\right)<br>$$</p>
+</li>
+<li><p>步骤5：变量迭代 $x^{(k+1)}=x^{(k)}+\lambda_k d^{(k)}$ ，回到步骤2继续迭代</p>
+</li>
 </ol>
-<h3 id="四、特殊运算"><a href="#四、特殊运算" class="headerlink" title="四、特殊运算"></a>四、特殊运算</h3><ol>
-<li>矩阵的逆: $AA^{-1}=A^{-1}A=I$（其中A是一个方阵）</li>
-<li>矩阵的转置 $A^T$，$A_{ij}=A^T_{ji}$ </li>
+<p><strong>算法特点</strong></p>
+<ol>
+<li><p>最速下降法的搜索过程是<strong>锯齿形</strong>的，每一步所得方向（负梯度）都与上一步<strong>正交</strong>，在远离极值点时收敛速度快，但接近极值点时收敛非常慢（可以和其它在极值点附近收敛速度快的算法结合）</p>
+<blockquote>
+<p>正交的原因：</p>
+<p>一维搜索时无论是利用求导直接求解还是一维搜索方法，最终目的都是令其梯度趋近于零。即<br>$$<br>\frac{\partial f(x^{(k)}-\lambda\nabla f(x^{(k)}))}{\partial \lambda}=-\nabla f(x^{(k)}-\lambda\nabla f(x^{(k)}))\nabla f(x^{(k)})=-\nabla f(x^{(k+1)})\nabla f(x^{(k)})=0<br>$$<br>内积为0，因此相邻步的方向是正交的。</p>
+</blockquote>
+</li>
+<li><p>最速下降法所得解是局部最优解，而非全局最优解，<strong>仅当目标函数为凸函数</strong>时，为全局最优。可形象地解释为：<strong>在点x1处向梯度方向到达x2，x2再向梯度方向到达x3，但这不一定是x1到x3最快的路径。</strong> </p>
+</li>
 </ol>
-<h3 id="五、多元梯度下降法"><a href="#五、多元梯度下降法" class="headerlink" title="五、多元梯度下降法"></a>五、多元梯度下降法</h3><ol>
-<li><p>Hypothesis Function: $H_\theta(x)=\theta_0+\theta_1 x_1+\theta_2 x_2+…+\theta_n x_n$ </p>
-<ul>
-<li>为了方便，一般假设 $x_0=1$ </li>
-<li>可用矩阵形式表示: $H_\theta(x)=\theta^T\mathrm{x}$ </li>
-</ul>
+<h3 id="1-2-实例"><a href="#1-2-实例" class="headerlink" title="1.2 实例"></a>1.2 实例</h3><p>目标函数：$f(x_1,x_2)=x_1^2+x_1x_2+3x_2^2$ </p>
+<p>初始点：$(1,1)$ </p>
+<p>终止精度：$\mathrm{eps}=10^{-5}$ </p>
+<p>等高线及迭代点搜索过程图</p>
+<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/1652438509456steepestDescent.jpg" alt="steepestDescent" style="zoom:50%;">
+
+<p>经过9次迭代，算法终止。可以看到在接近极小值点时，最速下降法收敛速度非常慢。</p>
+<h2 id="二、牛顿法"><a href="#二、牛顿法" class="headerlink" title="二、牛顿法"></a>二、牛顿法</h2><h3 id="2-1-原理"><a href="#2-1-原理" class="headerlink" title="2.1 原理"></a>2.1 原理</h3><p><strong>算法思想</strong></p>
+<ol>
+<li><p>二阶函数近似。利用<strong>二阶泰勒展开式</strong>对目标函数进行近似，因此会用到一阶导数（梯度）和二阶导数（海森矩阵）</p>
 </li>
-<li><p>Parameters: $\theta_0,\theta_1,…,\theta_n$，n+1维向量</p>
+<li><p>近似极小值点。将近似得到二阶函数的极小值点作为原函数极小值点的近似，并不断重复这一近似的过程，直至得到满足精度要求的极小值点</p>
 </li>
-<li><p>Cost Function: $J(\theta_0,\theta_1,\dots,\theta_n)=\frac{1}{2m}\sum_\limits{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2$ </p>
+<li><p>终止条件仍然是满足梯度趋近于0<br>$$<br>&amp;f(x) \approx f\left(x^{(k)}\right)+\nabla f(x)\left(x-x^{(k)}\right)+\frac{1}{2}\nabla^2 f(x)\left(x-x^{(k)}\right)^2\<br>&amp;f’(x^{(k)})=\nabla f(x^{(k)})+\nabla^2 f(x^{(k)})\left(x-x^{(k)}\right)=0\<br>&amp;x^{(k+1)}=x^{(k)}-\frac{\nabla f(x^{(k)})}{\nabla^2 f(x^{(k)})}<br>$$</p>
 </li>
-<li><p>Multiple Gradient Descent:<br>Repeat{<br>$\theta_j=\theta_j-\alpha\frac{1}{m}\sum_\limits{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}_j$<br>更新 $\theta_j,j=0,1,\dots,n$<br>}<br>例如有2个特征的梯度下降算法:<br>$\theta_0=\theta_0-\alpha\frac{1}{m}\sum_\limits{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}_0$<br>$\theta_1=\theta_1-\alpha\frac{1}{m}\sum_\limits{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}_1$<br>$\theta_2=\theta_2-\alpha\frac{1}{m}\sum_\limits{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}_2$</p>
+</ol>
+<p><strong>算法步骤</strong></p>
+<ol>
+<li>步骤1：选取初始点 $x^0$ ，给定终止精度要求 $\varepsilon&gt;0$ ，令迭代编号 $k=0$ </li>
+<li>步骤2：计算梯度 $\nabla f(x^k)$ ，若满足 $||\nabla f(x^k)||&lt;\varepsilon$ ，则停止算法，输出极值点 $x^k$，否则进入步骤3</li>
+<li>步骤3：计算海森矩阵 $\nabla^2 f(x^k)$ </li>
+<li>步骤4：变量迭代 $x^{(k+1)}=x^{(k)}-\frac{\nabla f(x^{(k)})}{\nabla^2 f(x^{(k)})}$ ，并回到步骤2继续迭代</li>
+</ol>
+<p><strong>算法特点</strong></p>
+<ol>
+<li><p>相比最速下降法，省去了一维搜索的步骤，但需要计算海森矩阵及其逆</p>
 </li>
-<li><p>梯度下降运算的技巧</p>
-<ul>
-<li><p><strong>特征缩放（Feature Scaling）</strong> </p>
+<li><p>收敛速度快，具有局部二阶收敛性。形象解释：最速下降法只考虑当前位置下降最快的方向，而不考虑下降后的坡度如何；而牛顿法同时考虑当前下降方向（一阶导）和下降之后坡度的变化（二阶导）</p>
+</li>
+<li><p>对于二次函数（正定二次型），牛顿法具有一步收敛性</p>
 <blockquote>
-<p>使几个特征的大小在相似的规模，使变量间具有可比性，这样会使得梯度下降收敛得更快<br>如让每一个特征的取值都在与 $-1\le x_i\le 1$ 相近的范围内<br>例如可以接受 $0\le x_1\le 3,-2\le x_2\le 0.5$ ，不能接受 $-100\le x_3\le 100,-0.0001\le x_4\le 0.0001$<br>方法有：</p>
-<ul>
-<li>Z-Score标准化: $x^*=\frac{x-\mu}{\sigma}$ </li>
-<li>min-max归一化（将结果映射到0-1之间）: $x^*=\frac{x-min}{max-min}$ </li>
-<li>…</li>
-</ul>
-</blockquote>
-</li>
-<li><p><strong>调试（Debugging）</strong> </p>
-<ul>
-<li><p>确定梯度下降是否正确运行</p>
-<blockquote>
-<p>代价函数的值应该随迭代减小。在迭代到达一定程度时，代价函数值变化不会太大，可以通过画出代价函数值随着迭代次数的变化曲线，判断应该选择的迭代次数</p>
-</blockquote>
-</li>
-<li><p>选择合适的学习速率</p>
-<blockquote>
-<p>可以通过每隔一段步长选择 $\alpha$ 值，画出代价函数值的变化曲线来选取合适的 $\alpha$ 值。如0.001,0.003,0.01,0.03,0.1,0.3,…,1,…</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>特征和多项式回归</p>
-<blockquote>
-<p>通过<strong>观察数据分布</strong>选择多项式如二次模型、三次模型等<br>$h_\theta(x)=\theta_0+\theta_1 x_1+\theta_2 x_2^2$<br>$h_\theta(x)=\theta_0+\theta_1 x_1+\theta_2 x_2^2+\sqrt{\theta_3 x_3}$<br>$h_\theta(x)=\theta_0+\theta_1 x_1+\theta_2 x_2^2+\theta_3 x_3^3$</p>
+<p>假设目标函数为二次型 $f(x)=\frac{1}{2}x^TQx-x^Tb$ </p>
+<p>梯度为：$\nabla f(x^{(0)})=Qx^{(0)}-b$ </p>
+<p>海森矩阵为： $\nabla^2 f(x^{(0)})=Q$</p>
+<p>经过牛顿法一次迭代后，近似极值点为：$x^{(1)}=\frac{b}{Q}$ </p>
+<p>重新计算梯度： $\nabla f(x^{(1)})=Qx^{(1)}-b=0$ ，算法终止 </p>
 </blockquote>
 </li>
 </ol>
-<h3 id="六、正规方程解法（区别于迭代法的直接解法）"><a href="#六、正规方程解法（区别于迭代法的直接解法）" class="headerlink" title="六、正规方程解法（区别于迭代法的直接解法）"></a>六、正规方程解法（区别于迭代法的直接解法）</h3><ol>
-<li><p>方法</p>
+<h3 id="2-2-实例"><a href="#2-2-实例" class="headerlink" title="2.2 实例"></a>2.2 实例</h3><p>目标函数：$f(x_1,x_2)=x_1^2+x_1x_2+3x_2^2$ </p>
+<p>初始点：$(1,1)$ </p>
+<p>终止精度：$\mathrm{eps}=10^{-5}$ </p>
+<p>等高线及迭代点搜索过程图</p>
+<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/1652438602550Newton.jpg" alt="Newton" style="zoom:50%;">
+
+<p>由于牛顿法对于二次函数的一步收敛性，可见仅经过1次迭代，算法终止。</p>
+<h2 id="三、共轭梯度法"><a href="#三、共轭梯度法" class="headerlink" title="三、共轭梯度法"></a>三、共轭梯度法</h2><h3 id="3-1-原理"><a href="#3-1-原理" class="headerlink" title="3.1 原理"></a>3.1 原理</h3><p><strong>术语</strong></p>
 <ul>
-<li>如让目标函数对每一个未知变量求偏导，并将其置零，得到每一个变量值</li>
-<li>令 $\theta=(X^TX)^{-1}X^TY$ ，会得到代价函数的最小值 $\min_\limits{\theta}J(\theta)$ </li>
-</ul>
-</li>
-<li><p>和梯度下降法的对比(m个训练样本，n个特征值)</p>
-<ul>
-<li><p>梯度下降法（Gradient Descent）</p>
+<li><p>残差</p>
 <blockquote>
-<ul>
-<li>需要选择学习速率 $\alpha$ </li>
-<li>需要多次迭代</li>
-<li>在特征量很多时效果比较好</li>
-</ul>
+<p>假设目标函数为二次型 $f(x)=\frac{1}{2}x^TQx-x^Tb$ ，其中 $b,x\in\mathbb{R}^n,Q\in\mathbb{R}^{n\times n}$ 且矩阵 $Q$ 是对称正定的。$n$ 代表解空间是 $n$ 维的，即 $n$ 元二次函数。</p>
+<p>其最小值可以通过令一阶导为零得到：$\nabla f(x^*)=Qx^*-b=0$ </p>
+<p>假设通过迭代法求解，迭代法通常无法令该一阶导等于零，因此可将 $\nabla f(x^{(k)})-\nabla f(x^*)$  称作系统残差（也是梯度），具体表示为：<br>$$<br>r^{(k)}=Qx^{(k)}-b<br>$$</p>
 </blockquote>
 </li>
-<li><p>正规方程法（Normal Equation）</p>
+<li><p>共轭向量</p>
 <blockquote>
-<ul>
-<li>不需要选择 $\alpha$ </li>
-<li>不需要迭代</li>
-<li>需要计算 $(X^TX)^{-1}$ （是一个 $n\times n$ 的矩阵，计算逆矩阵的时间复杂度是 $O(n^3)$ ）</li>
-<li>特征量多时运行很慢</li>
-<li>矩阵可逆才能使用</li>
-</ul>
+<p>当一组向量 ${p_0,p_1,\cdots,p_{n-1}}$ 满足如下条件时，称其关于对称正定矩阵 $Q$ 共轭。<br>$$<br>p_i^TQp_j=0\quad\forall i\ne j<br>$$<br>这样一组向量是线性独立的，可以张成整个空间 $\mathbb{R}^n$ ，因而可以用来表示其它向量。</p>
 </blockquote>
 </li>
 </ul>
-</li>
-<li><p>正规方程法在矩阵不可逆的情况下的解决方法</p>
+<p><strong>算法思想</strong></p>
+<ol>
+<li><p>与最速下降法类似，需要找到下降方向（二者的区别也就在于确定的下降方向不同），然后通过一维搜索找到变量 $x_k$ 迭代的最优步长 $\lambda_k$ </p>
 <blockquote>
-<p>不可逆的原因：</p>
-<ul>
-<li>由于某些原因，学习问题包含了多余的特征</li>
-<li>学习算法有很多特征，导致m小于n，即样本数少于特征数<br>解决：<ul>
-<li>可以通过观察特征之间的关系，也许是线性相关的，可以删掉多余特征</li>
-<li>可以用MATLAB的求逆函数求出伪逆</li>
-</ul>
-</li>
-</ul>
+<p>对于寻找最优步长 $\lambda_k$ ，需要将<br>$$<br>x_{k+1}=x_{k}+\lambda p_k<br>$$<br>代入目标函数 $f(x)$ 并对 $\lambda$ 求导。因此可以得到：<br>$$<br>\lambda_k=-\frac{r_k^Tp_k}{p_k^TQp_k}<br>$$</p>
 </blockquote>
 </li>
+<li><p>利用共轭梯度法确定下降方向 $p_k$。将最优解点和初始点的差用一组线性无关的共轭向量（向量个数与解空间维度相同）的线性组合近似。然后逐个寻找共轭向量及其系数（步长），构建每一个方向（维度）上的最优解，即<strong>沿着解空间的维度逐步构建最优解</strong>。具体可解释如下：</p>
+<blockquote>
+<p>将最优解和初始值的差表示为共轭向量的线性组合：<br>$$<br>x^{<em>}-x_{0}=\beta_{0} p_{0}+\beta_1 p_1+\ldots+\beta_{n-1} p_{n-1}<br>$$<br>其中 $\beta_k$ 就是沿着每个共轭向量$p_k$（方向）走的步长。对于第 $k$ 步，$x_k$ 将 $x^</em>$ 投影到由 $k$ 个线性独立的共轭向量张成的解空间中。</p>
+<p>共轭向量 $p_{k+1}$ 的寻找依赖于<strong>负残差</strong>和上一个<strong>共轭向量</strong>。负残差其实就是负梯度，因此称为共轭梯度法。每次迭代找到的新方向（共轭向量）是负残差和上一个搜索方向的线性组合：<br>$$<br>p_{k}=-r_{k}+\beta_kp_{k-1}<br>$$<br>其中，步长 $\beta_k$ 可以根据共轭条件（$p_{k-1}^TQp_{k}=0$）得到：<br>$$<br>\beta_{k}=\frac{r_{k}^T Q p_{k-1}}{p_{k-1}^{T} Q p_{k-1}}<br>$$</p>
+</blockquote>
+</li>
+<li><p>$\lambda_k$ 和 $\beta_k$ 计算的简化</p>
+<blockquote>
+<p>$$<br>\lambda_k=-\frac{r_k^Tp_k}{p_k^TQp_k}=\frac{r_k^Tr_k}{p_k^TQp_k}\<br>\beta_{k}=\frac{r_{k}^T Q p_{k-1}}{p_{k-1}^{T} Q p_{k-1}}=\frac{r_{k}^{T}r_{k} }{r_{k-1}^{T} r_{k-1}}<br>$$</p>
+<ol>
+<li><p>对于 $\lambda_k=\frac{r_k^Tr_k}{p_k^TQp_k}$ </p>
+<blockquote>
+<p>由于 $p_{k}=-r_{k}+\beta_kp_{k-1}$ ，且 $r_k^Tp_{k-1}=0,r_{k+1}r_k=0$ </p>
+<p>同时 $r_{k}=Qx_k-b$ </p>
+<p>所以 $r_{k+1}-r_k=Q(x_{k+1}-x_k)=Q\lambda_kp_k$ </p>
+<p>进一步 $\lambda_k=\frac{r_{k+1}-r_k}{Qp_k}$ </p>
+<p>分子分母左乘 $p_k^T$ 代入即可证明。</p>
+</blockquote>
+</li>
+<li><p>对于 $\beta_k=\frac{r_{k}^{T}r_{k} }{r_{k-1}^{T} r_{k-1}}$ </p>
+<blockquote>
+<p>由1中证明，$Qp_k=\frac{r_{k+1}-r_k}{\lambda_k},r_{k+1}r_k=0$ </p>
+<p>代入可得到分子 $r_{k}^{T}r_{k}$ </p>
+<p>由 $p_{k-1}^Tr_{k}=0$ ，所以 $p_{k-1}^Tr_{k-1}=r_{k-1}^Tr_{k-1}$ </p>
+<p>进一步可得到分母 $r_{k-1}^{T}r_{k-1}$ </p>
+</blockquote>
+</li>
+</ol>
+</blockquote>
+</li>
+</ol>
+<p><strong>算法步骤</strong></p>
+<ol>
+<li><p>步骤1：计算初始残差（梯度）$r_0=Qx_0-b$ ，初始下降方向（负梯度） $p_0=-r_0$  </p>
+</li>
+<li><p>步骤2：按下列公式迭代 $k=0,1,\cdots,n$ 直到收敛（n维搜索n步）（收敛条件仍然是残差（梯度）满足精度要求）<br>$$<br>\lambda_k=\frac{r_k^Tr_k}{p_k^TQp_k}\<br>x_{k+1}=x_{k}+\lambda p_k\<br>r_{k+1}=r_k+\lambda_kQp_k\<br>\beta_k=\frac{r_{k}^{T}r_{k} }{r_{k-1}^{T} r_{k-1}}\<br>p_{k+1}=-r_{k+1}+\beta_kp_k<br>$$</p>
+</li>
+</ol>
+<p><strong>算法特点</strong></p>
+<ol>
+<li>仅需计算一阶导数，但收敛速度比最速下降法快；不需要像牛顿法一样存储和计算海森矩阵并求逆</li>
+<li>具有“步收敛性”，即在每个方向都走到极致，不会走曾经走过的方向，<strong>n维空间只需要走n步即可找到极值点</strong>。</li>
+</ol>
+<h3 id="3-2-实例"><a href="#3-2-实例" class="headerlink" title="3.2 实例"></a>3.2 实例</h3><p>目标函数：$f(x_1,x_2)=x_1^2+x_1x_2+3x_2^2$ </p>
+<p>初始点：$(1,1)$ </p>
+<p>终止精度：$\mathrm{eps}=10^{-5}$ </p>
+<p>等高线及迭代点搜索过程图</p>
+<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/1652438620549conjugateGradient.jpg" alt="conjugateGradient" style="zoom:50%;">
+
+<p>因为是二元函数，可见仅经过2次迭代，算法终止。</p>
+<p><strong>三种方法的搜索过程对比</strong></p>
+<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/1652438637549%E5%9B%BE%E5%BD%A2%E5%AF%B9%E6%AF%94.jpg" alt="对比" style="zoom:50%;">
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
+<li>《数学建模算法与应用第二版》</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/392994929">比较数学建模中的优化方法 | 最速下降法 牛顿法 共轭梯度法 启发式算法</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/32709034">最速下降法</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41996745/article/details/115432490">证明最速下降法搜索方向正交</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46498899/article/details/110887748">最速下降法matlab实现</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1390228">优化算法——牛顿法</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/293951317">牛顿法及其收敛性分析</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/178461470">共轭梯度法简介</a></li>
+<li><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1858463">数值优化（4）——非线性共轭梯度法，信赖域法</a></li>
 </ol>
 
                 
@@ -984,7 +965,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://321hjd.github.io/yyds/ce525ac0.html">https://321hjd.github.io/yyds/ce525ac0.html</a>
+                    <a href="https://321hjd.github.io/yyds/e7f02e65.html">https://321hjd.github.io/yyds/e7f02e65.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1022,12 +1003,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">机器学习</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">吴恩达-机器学习</span>
+                                <a href="/tags/%E5%9F%BA%E4%BA%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">
+                                    <span class="chip bg-color">基于导数的优化方法</span>
                                 </a>
                             
                         </div>
@@ -1536,49 +1513,47 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/yyds/9feb0fb4.html">
+                <a href="/yyds/e7f02e65.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/机器学习.jpg" class="responsive-img" alt="3-逻辑回归（Logistic-Regression）">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg" class="responsive-img" alt="最速下降法、牛顿法、共轭梯度法原理及对比">
                         
-                        <span class="card-title">3-逻辑回归（Logistic-Regression）</span>
+                        <span class="card-title">最速下降法、牛顿法、共轭梯度法原理及对比</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学习《吴恩达-机器学习》视频时做的笔记。本篇为逻辑回归。
+                            最速下降法、牛顿法、共轭梯度法原理，各自的代码实现，以及三者的搜索过程对比
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-13
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/%E6%95%B0%E5%80%BC%E4%BC%98%E5%8C%96/" class="post-category">
+                                    数值优化
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">吴恩达-机器学习</span>
+                    <a href="/tags/%E5%9F%BA%E4%BA%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">
+                        <span class="chip bg-color">基于导数的优化方法</span>
                     </a>
                     
                 </div>
@@ -1592,30 +1567,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yyds/e943bc7e.html">
+                <a href="/yyds/1df36502.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/机器学习.jpg" class="responsive-img" alt="1-概述及分类">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/ProfessionalPractice/1647606537650BaseStation.jpg" class="responsive-img" alt="通信工程专业实习总结">
                         
-                        <span class="card-title">1-概述及分类</span>
+                        <span class="card-title">通信工程专业实习总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学习《吴恩达-机器学习》视频时做的笔记。
+                            本科生涯的最后一次小组合作项目。也是除毕设以外的最后一次课程。主要记录下小组合作的复杂项目，即模拟对北京景山公园的TD-LTE基站搭建。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/%E9%80%9A%E4%BF%A1/" class="post-category">
+                                    通信
                                 </a>
                             
                             
@@ -1625,12 +1600,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
+                    <a href="/tags/%E5%9F%BA%E7%AB%99/">
+                        <span class="chip bg-color">基站</span>
                     </a>
                     
-                    <a href="/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">吴恩达-机器学习</span>
+                    <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AE%9E%E4%B9%A0/">
+                        <span class="chip bg-color">专业实习</span>
                     </a>
                     
                 </div>

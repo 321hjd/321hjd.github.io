@@ -801,129 +801,129 @@
 <h2 id="第一章-综述"><a href="#第一章-综述" class="headerlink" title="第一章 综述"></a>第一章 综述</h2><p>&emsp;&emsp;校园网作为数字化校园和智慧校园的重要载体，在师生的工作和生活中占据着举足轻重的地位。我们的服务目标是大学校园，最终目的是实现覆盖整个校园区域的互联、统一、高效、可扩展、安全的局域网络。网络结构上，规划合理且便于管理和故障排查；网络布线上，布局统一简洁，便于升级改造；网络功能上，能够保证新用户的便捷接入，提供资源共享能力，以及丰富多彩的网络服务^[1-4]^。基于众多网络资源以及实验室提供的资料^[5-23]^和设备，我们对整个网络进行了分析、设计和实验。</p>
 <h2 id="第二章-需求分析"><a href="#第二章-需求分析" class="headerlink" title="第二章 需求分析"></a>第二章 需求分析</h2><p>&emsp;&emsp;由于大学校园组成复杂，各个部门、各个区域、师生和临时人员对上网的需求存在一定的差异性，对每个网络于系统复杂程度、应用范围及规模上都存在较大的不同。同时考虑到平时的使用习惯和使用经验，我们从网络性能、网络管理、网络安全、网络服务以及网络扩展五大方面进行了需求分析。</p>
 <h3 id="2-1-网络性能需求"><a href="#2-1-网络性能需求" class="headerlink" title="2.1 网络性能需求"></a>2.1 网络性能需求</h3><ol>
-<li><p>带宽合理，保证传输速率。</p>
+<li><p> 带宽合理，保证传输速率。</p>
 </li>
-<li><p>节点分布合理，保证不同区域接入需求。</p>
+<li><p> 节点分布合理，保证不同区域接入需求。</p>
 </li>
-<li><p>设备选用合理，不同层次不同区域设备选用具有合适吞吐量的设备。</p>
+<li><p> 设备选用合理，不同层次不同区域设备选用具有合适吞吐量的设备。</p>
 </li>
 </ol>
 <h3 id="2-2-网络管理需求"><a href="#2-2-网络管理需求" class="headerlink" title="2.2 网络管理需求"></a>2.2 网络管理需求</h3><ol>
-<li><p>合理的拓扑结构。树型拓扑结构便于管理和问题排查。</p>
+<li><p> 合理的拓扑结构。树型拓扑结构便于管理和问题排查。</p>
 </li>
-<li><p>合理的组网模型。三层组网模型及其扁平化处理使得整体网络结构清晰，层次分明。</p>
+<li><p> 合理的组网模型。三层组网模型及其扁平化处理使得整体网络结构清晰，层次分明。</p>
 </li>
 </ol>
 <h3 id="2-3-网络安全需求"><a href="#2-3-网络安全需求" class="headerlink" title="2.3 网络安全需求"></a>2.3 网络安全需求</h3><ol>
-<li><p>内部网络划分VLAN 网段，隔离广播域，防止网络窃听和非授权的跨网段访问。</p>
+<li><p> 内部网络划分VLAN 网段，隔离广播域，防止网络窃听和非授权的跨网段访问。</p>
 </li>
-<li><p>使用硬件防火墙，通过ACL限定用户的访问权限，尤其是内外部网络的隔离。</p>
+<li><p> 使用硬件防火墙，通过ACL限定用户的访问权限，尤其是内外部网络的隔离。</p>
 </li>
-<li><p>在内网出口上配置NAT转换，不让内网主机直接暴露在因特网上，保证内网主机的安全。</p>
+<li><p> 在内网出口上配置NAT转换，不让内网主机直接暴露在因特网上，保证内网主机的安全。</p>
 </li>
 </ol>
 <h3 id="2-4-网络服务需求"><a href="#2-4-网络服务需求" class="headerlink" title="2.4 网络服务需求"></a>2.4 网络服务需求</h3><ol>
-<li><p>搭建Web服务器以提供网页访问服务。</p>
+<li><p> 搭建Web服务器以提供网页访问服务。</p>
 </li>
-<li><p>搭建FTP服务器以提供文件资源共享服务。</p>
+<li><p> 搭建FTP服务器以提供文件资源共享服务。</p>
 </li>
-<li><p>搭建E-mail服务器以提供邮件转发服务。</p>
+<li><p> 搭建E-mail服务器以提供邮件转发服务。</p>
 </li>
-<li><p>搭建DNS服务器实现域名解析服务。</p>
+<li><p> 搭建DNS服务器实现域名解析服务。</p>
 </li>
-<li><p>搭建DHCP服务器以便于主机自动获取IP地址。</p>
+<li><p> 搭建DHCP服务器以便于主机自动获取IP地址。</p>
 </li>
 </ol>
 <h3 id="2-5-网络扩展需求"><a href="#2-5-网络扩展需求" class="headerlink" title="2.5 网络扩展需求"></a>2.5 网络扩展需求</h3><ol>
-<li><p>接入扩展。通过二层、三层交换机的部署，使得新用户、新校区能简单地接入现有网络。</p>
+<li><p> 接入扩展。通过二层、三层交换机的部署，使得新用户、新校区能简单地接入现有网络。</p>
 </li>
-<li><p>平滑升级。通过网络结构的设计，使得更新换代时能够保证便捷性、非破坏性。升级改造时只需简单地更换高速率的集线设备，就能完成升级。</p>
+<li><p> 平滑升级。通过网络结构的设计，使得更新换代时能够保证便捷性、非破坏性。升级改造时只需简单地更换高速率的集线设备，就能完成升级。</p>
 </li>
 </ol>
 <h2 id="第三章-布线方案"><a href="#第三章-布线方案" class="headerlink" title="第三章 布线方案"></a>第三章 布线方案</h2><p>&emsp;&emsp;为了便于以后校园规划的便捷性，提高网络的可管理性和可扩展性，我们采用的是结构化布线方案。该方案具有实用性、灵活性、模块化、可扩展和可靠性高等五大特点。该布线系统对内适应不同的网络设备、主机、终端、PC及外部设备，可构成灵活的拓扑结构，有足够的系统扩展能力，对外通过与国家公网与外部信息源相连，组成全方位多通道的信息访问系统。既能适应当前信息处理的需要，又充分考虑到信息系统未来的发展趋势。[5]</p>
 <h3 id="3-1-结构化布线特点"><a href="#3-1-结构化布线特点" class="headerlink" title="3.1 结构化布线特点"></a>3.1 结构化布线特点</h3><ol>
-<li><p>实用性：实施后的楼宇自动化系统及其所有的子系统的通讯线路和接口都满足国际标准。具有良好的用户使用界面，并且网络管理功能完善、使用方便。</p>
+<li><p> 实用性：实施后的楼宇自动化系统及其所有的子系统的通讯线路和接口都满足国际标准。具有良好的用户使用界面，并且网络管理功能完善、使用方便。</p>
 </li>
-<li><p>灵活性：系统中任一部分的连接都是灵活的，即从物理接线到数据通讯、语音通讯、智能控制设备之间的连接都不受或极少受物理位置和这些设备类型的限制。</p>
+<li><p> 灵活性：系统中任一部分的连接都是灵活的，即从物理接线到数据通讯、语音通讯、智能控制设备之间的连接都不受或极少受物理位置和这些设备类型的限制。</p>
 </li>
-<li><p>模块化：所有用于连接设备的适配件都是积木式的标准件，不需要掌握很多有关这些领域的专门知识，就能够连接这些设备。</p>
+<li><p> 模块化：所有用于连接设备的适配件都是积木式的标准件，不需要掌握很多有关这些领域的专门知识，就能够连接这些设备。</p>
 </li>
-<li><p>扩展性：由于系统的所有基础设施(材料、部件、通讯设备）都采用国际标准，因此，无论计算机设备、通讯设备、智能控制设备随技术的发展，将来都可能很方便地将其连接到楼宇自动化系统中去。</p>
+<li><p> 扩展性：由于系统的所有基础设施(材料、部件、通讯设备）都采用国际标准，因此，无论计算机设备、通讯设备、智能控制设备随技术的发展，将来都可能很方便地将其连接到楼宇自动化系统中去。</p>
 </li>
-<li><p>可靠性：系统中的各个部分都采用高质量的材料、组部件设备实现，并谨慎施工和测试，以保证系统的各个环节都是可靠的。</p>
+<li><p> 可靠性：系统中的各个部分都采用高质量的材料、组部件设备实现，并谨慎施工和测试，以保证系统的各个环节都是可靠的。</p>
 </li>
 </ol>
-<h3 id="3-2-结构化布线图"><a href="#3-2-结构化布线图" class="headerlink" title="3.2 结构化布线图"></a>3.2 结构化布线图</h3><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/校园整体网络布线结构示意图.png" alt="图3-1 校园整体网络布线结构示意图"></p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图3-2宿舍楼整体网络布线示意图.png" alt="图3-2 宿舍楼整体网络布线示意图"></p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图3-3宿舍楼内部布线结构平面图.png" alt="图3-3 宿舍楼内部布线结构平面图"></p>
+<h3 id="3-2-结构化布线图"><a href="#3-2-结构化布线图" class="headerlink" title="3.2 结构化布线图"></a>3.2 结构化布线图</h3><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E6%A0%A1%E5%9B%AD%E6%95%B4%E4%BD%93%E7%BD%91%E7%BB%9C%E5%B8%83%E7%BA%BF%E7%BB%93%E6%9E%84%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="图3-1 校园整体网络布线结构示意图"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE3-2%E5%AE%BF%E8%88%8D%E6%A5%BC%E6%95%B4%E4%BD%93%E7%BD%91%E7%BB%9C%E5%B8%83%E7%BA%BF%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="图3-2 宿舍楼整体网络布线示意图"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE3-3%E5%AE%BF%E8%88%8D%E6%A5%BC%E5%86%85%E9%83%A8%E5%B8%83%E7%BA%BF%E7%BB%93%E6%9E%84%E5%B9%B3%E9%9D%A2%E5%9B%BE.png" alt="图3-3 宿舍楼内部布线结构平面图"></p>
 <h2 id="第四章-网络规划"><a href="#第四章-网络规划" class="headerlink" title="第四章 网络规划"></a>第四章 网络规划</h2><p>&emsp;&emsp;我们组建的网络采用三层组网模型[5]。该模型自底向上为接入层、汇聚层及核心层，每层设备各司其职，具备良好的可管理性和可扩展性。基于三层组网模型，我们首先设计了整体的校园网络结构，其次由于实验室设备有限，并且经过分析，很多区域的通信过程相同，因此将原有网络结构进行简化，生成验证方案网络结构。最后在简化校园网络的基础上，我们为其进行了明确的IP地址分配和设备端口规划。</p>
 <h3 id="4-1-三层组网模型设计原则-5"><a href="#4-1-三层组网模型设计原则-5" class="headerlink" title="4.1 三层组网模型设计原则^[5]^"></a>4.1 三层组网模型设计原则^[5]^</h3><ol>
-<li><p>选择最合适需求的分级模型。边界（汇聚层节点）作为广播的隔离点，同时还是网络控制功能的焦点。</p>
+<li><p> 选择最合适需求的分级模型。边界（汇聚层节点）作为广播的隔离点，同时还是网络控制功能的焦点。</p>
 </li>
-<li><p>不要使网络的各层总是完全网状的，即接入层交换机不能直接相连，而需要通过汇聚层节点连接。但核心层通常是网状的，目的是考虑到电路冗余和网络收敛速度的原因。</p>
+<li><p> 不要使网络的各层总是完全网状的，即接入层交换机不能直接相连，而需要通过汇聚层节点连接。但核心层通常是网状的，目的是考虑到电路冗余和网络收敛速度的原因。</p>
 </li>
-<li><p>不要把终端工作站安装在主干网上。可提高主干网可靠性，便于通信量管理和增大带宽设计的实现，加快收敛速度。</p>
+<li><p> 不要把终端工作站安装在主干网上。可提高主干网可靠性，便于通信量管理和增大带宽设计的实现，加快收敛速度。</p>
 </li>
-<li><p>通过把80%的通信量控制在本地工作组内部，使工作组LAN运行良好。即尽量使联系较多的人员分配在同一子网或同一VLAN中，从而高程度实现通信隔离，既缓解了网络压力，又能保证安全性。</p>
+<li><p> 通过把80%的通信量控制在本地工作组内部，使工作组LAN运行良好。即尽量使联系较多的人员分配在同一子网或同一VLAN中，从而高程度实现通信隔离，既缓解了网络压力，又能保证安全性。</p>
 </li>
-<li><p>对于网络规模小的，也可以省去汇聚层。</p>
+<li><p> 对于网络规模小的，也可以省去汇聚层。</p>
 </li>
 </ol>
-<h3 id="4-2-组网模型说明"><a href="#4-2-组网模型说明" class="headerlink" title="4.2 组网模型说明"></a>4.2 组网模型说明</h3><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图4-1整体校园网络结构设计图.png" alt="图4-1 整体校园网络结构设计图"></p>
+<h3 id="4-2-组网模型说明"><a href="#4-2-组网模型说明" class="headerlink" title="4.2 组网模型说明"></a>4.2 组网模型说明</h3><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE4-1%E6%95%B4%E4%BD%93%E6%A0%A1%E5%9B%AD%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%9B%BE.png" alt="图4-1 整体校园网络结构设计图"></p>
 <p>&emsp;&emsp;网络结构自底向上分别为接入层、汇聚层、核心层。接入层直接连接学校用户的计算机。以宿舍为例，每层楼设置一个或多个接入层节点（交换机），为每个宿舍留出一个接口。然后该接口通过<br>AP进行无线局域网覆盖，同时再通过一个交换机（交换机堆叠）接入到宿舍4/6/8人的计算机。其次，整栋楼设置一个汇聚层节点，负责汇总连接接入层节点。各个建筑的汇聚层节点通过光缆连接至核心层节点，核心层连接服务器或者经过路由器接至外部网络。图4-1为整体校园网络结构设计图。</p>
 <h4 id="4-2-1核心层"><a href="#4-2-1核心层" class="headerlink" title="4.2.1核心层"></a>4.2.1核心层</h4><p>&emsp;&emsp;核心层是局域网的主干部分，主要目的是尽可能快地交换数据。不应涉及费力的数据包操作或减慢数据交换的处理。应避免在核心层使用访问控制列表（ACL）和数据包过滤之类的操作（防火墙的功能）。此外，核心层被认为是所有流量的最终承受者和汇聚者，因此核心层交换机应该采用拥有更高带宽、更高可靠性、更高性能和吞吐量的千兆甚至万兆以上的交换机。一般采用高端三层交换机。</p>
 <p>核心层的主要工作为：</p>
 <ol>
-<li><p>提供交换区块间的连接。</p>
+<li><p> 提供交换区块间的连接。</p>
 </li>
-<li><p>提供到其它区块的访问。</p>
+<li><p> 提供到其它区块的访问。</p>
 </li>
-<li><p>尽可能快地交换数据帧或包。</p>
+<li><p> 尽可能快地交换数据帧或包。</p>
 </li>
 </ol>
 <h4 id="4-2-2汇聚层"><a href="#4-2-2汇聚层" class="headerlink" title="4.2.2汇聚层"></a>4.2.2汇聚层</h4><p>&emsp;&emsp;汇聚层是接入层和核心层之间的分界点。负责提供边界定义（如VLAN划分）并对潜在的费力的数据包操作进行处理。汇聚层为接入层提供基于策略的连接，如地址合并、协议过滤、路由服务、认证管理等。通过VLAN划分屏蔽接入层对核心层的影响。提供接入层VLAN之间的互连，控制和限制接入层对核心层的访问，保证核心层的安全和稳定。一般也采用三层交换机。</p>
 <p>汇聚层的主要工作为：</p>
 <ol>
-<li><p>VLAN聚合。</p>
+<li><p> VLAN聚合。</p>
 </li>
-<li><p>VLAN间路由。</p>
+<li><p> VLAN间路由。</p>
 </li>
-<li><p>部门级和工作组接入。</p>
+<li><p> 部门级和工作组接入。</p>
 </li>
-<li><p>广播域或组播域的定义。</p>
+<li><p> 广播域或组播域的定义。</p>
 </li>
-<li><p>介质转换。</p>
+<li><p> 介质转换。</p>
 </li>
-<li><p>安全。</p>
+<li><p> 安全。</p>
 </li>
 </ol>
 <h4 id="4-2-3接入层"><a href="#4-2-3接入层" class="headerlink" title="4.2.3接入层"></a>4.2.3接入层</h4><p>&emsp;&emsp;接入层利用光纤、双绞线、同轴电缆、无线接入技术等传输介质，实现与用户（工作站、AP等）连接，并进行业务和带宽的分配。接入层常用包过滤策略提供基本的安全性，以保护局域网免受网络内外的攻击。接入层的主要准则是通过低成本和高端口密度的设备提供安全接入功能，采用“低端”交换机（二层交换机），被称作工作组交换机或接入层交换机。</p>
 <p>接入层的主要工作为：</p>
 <ol>
-<li><p>将流量导入网络。</p>
+<li><p> 将流量导入网络。</p>
 </li>
-<li><p>提供二层服务：基于广播或MAC地址的VLAN成员资格和数据流过滤。</p>
+<li><p> 提供二层服务：基于广播或MAC地址的VLAN成员资格和数据流过滤。</p>
 </li>
-<li><p>访问控制。</p>
+<li><p> 访问控制。</p>
 </li>
 </ol>
 <h4 id="4-2-4各部分区域说明"><a href="#4-2-4各部分区域说明" class="headerlink" title="4.2.4各部分区域说明"></a>4.2.4各部分区域说明</h4><ol>
-<li><p>核心区。设定信息中心为核心区域，仅可在内网中通信，不能访问外网。</p>
+<li><p> 核心区。设定信息中心为核心区域，仅可在内网中通信，不能访问外网。</p>
 </li>
-<li><p>无线覆盖区域。此处的无线覆盖区域并非单指某一区域，而是代指每个区域区分于有线网络的无线覆盖。如在每个宿舍的接入层交换机连接多个AP，以保证每间宿舍的无线网覆盖。</p>
+<li><p> 无线覆盖区域。此处的无线覆盖区域并非单指某一区域，而是代指每个区域区分于有线网络的无线覆盖。如在每个宿舍的接入层交换机连接多个AP，以保证每间宿舍的无线网覆盖。</p>
 </li>
-<li><p>涉密机器区域。该区域的机器仅能够在自身VLAN内部通信。</p>
+<li><p> 涉密机器区域。该区域的机器仅能够在自身VLAN内部通信。</p>
 </li>
-<li><p>校区B。设置校区B以模拟验证方案的可扩展性，未来随着校园规划增加校区，可继续通过接入核心层交换机接入整体网络。或者如果校区规模非常大，还可以独立于校区A，具备完整的三层结构并通过自己的出口路由器连接外部网络（即与校区A类似）。与校区A的互访仍通过核心层交换机进行。</p>
+<li><p> 校区B。设置校区B以模拟验证方案的可扩展性，未来随着校园规划增加校区，可继续通过接入核心层交换机接入整体网络。或者如果校区规模非常大，还可以独立于校区A，具备完整的三层结构并通过自己的出口路由器连接外部网络（即与校区A类似）。与校区A的互访仍通过核心层交换机进行。</p>
 </li>
-<li><p>对内服务器区域。用于部署校内所需要的各种网络服务器。</p>
+<li><p> 对内服务器区域。用于部署校内所需要的各种网络服务器。</p>
 </li>
-<li><p>Internet及学校2。由于校园内不允许私自通过路由器接入外网网线，因此我们设立学校2来模拟外部网络用户与内网用户的通信过程。</p>
+<li><p> Internet及学校2。由于校园内不允许私自通过路由器接入外网网线，因此我们设立学校2来模拟外部网络用户与内网用户的通信过程。</p>
 </li>
-<li><p>出口路由器与防火墙。用于隔离内外部网络以及实现接入广域网。设计冗余链路实现负载均衡和热备份，以防止某一个机器宕机之后网络瘫痪。</p>
+<li><p> 出口路由器与防火墙。用于隔离内外部网络以及实现接入广域网。设计冗余链路实现负载均衡和热备份，以防止某一个机器宕机之后网络瘫痪。</p>
 </li>
 </ol>
-<h3 id="4-3-网络结构简化"><a href="#4-3-网络结构简化" class="headerlink" title="4.3 网络结构简化"></a>4.3 网络结构简化</h3><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图4-2验证方案网络结构设计图.png" alt="图4-2 验证方案网络结构设计图"></p>
+<h3 id="4-3-网络结构简化"><a href="#4-3-网络结构简化" class="headerlink" title="4.3 网络结构简化"></a>4.3 网络结构简化</h3><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE4-2%E9%AA%8C%E8%AF%81%E6%96%B9%E6%A1%88%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E5%9B%BE.png" alt="图4-2 验证方案网络结构设计图"></p>
 <p>&emsp;&emsp;由于设备和时间有限，考虑到实验的可操作性，我们尽可能简化了网络设计并以此方案进行组网实验。一是对学校建筑选择的简化，二是对VLAN划分的简化，三是网络拓扑结构的简化。图4-2为简化后的验证方案网络拓扑图。图中对各部分VLAN、IP地址以及部分接口做了说明。</p>
 <ol>
 <li><p>建筑选择。只对所设计学校中的部分代表性区域进行网络设计及验证，未在网络拓扑图中出现的部门/区域认为其网络需求与其它区域相同或类似，同时在网络涉设计中会留有便于扩展的接口。经过分析，从所有学校建筑中挑选出五个部分：宿舍楼、科研楼、行政及信息中心。</p>
@@ -933,13 +933,13 @@
 <li><p>VLAN划分。出于便捷性和实用性考虑，同一VLAN内工作站不会分布在不同的交换机上。另外因为不同VLAN间通信均需要通过三层设备（三层交换机或路由器），因此无论是同一交换机上的VLAN，还是不同交换机上的VLAN，其通信过程相同。故在网络设计图中会将不同交换机上的VLAN接入到同一接入层交换机。</p>
 <p>VLAN具体设计：</p>
 <ol>
-<li><p>VLAN2、3、4、6、7间互通</p>
+<li><p> VLAN2、3、4、6、7间互通</p>
 </li>
-<li><p>VLAN4只能在内网通信，不能访问外部网络</p>
+<li><p> VLAN4只能在内网通信，不能访问外部网络</p>
 </li>
-<li><p>VLAN5只能在VLAN内部通信</p>
+<li><p> VLAN5只能在VLAN内部通信</p>
 </li>
-<li><p>VLAN7属于内部服务器区域，为内网用户提供服务，不能访问外网，也不能被外网访问</p>
+<li><p> VLAN7属于内部服务器区域，为内网用户提供服务，不能访问外网，也不能被外网访问</p>
 </li>
 </ol>
 </li>
@@ -947,23 +947,251 @@
 <h3 id="4-4-IP地址及设备端口规划"><a href="#4-4-IP地址及设备端口规划" class="headerlink" title="4.4 IP地址及设备端口规划"></a>4.4 IP地址及设备端口规划</h3><ul>
 <li><p>接入层交换机：S2A（H3C S3100）</p>
 <p>因为前期实验时没注意到H3C S3100是三层交换机，已经配置了许多，故直接用其代替二层交换机使用。</p>
-<p>表4-1 S2A端口分配表<br>|   <strong>端口</strong>   | <strong>模式</strong> |   <strong>VLAN</strong>   |  <strong>网段</strong>   |   <strong>默认网关</strong>   |<br>| :—————: | :———: | :—————: | :————-: | :———————: |<br>|  e0/1~e0/4  |  access  |    VLAN2     | 192.168.2.0 | 192.168.2.254/24 |<br>|  e0/5~e0/8  |  access  |    VLAN3     | 192.168.3.0 | 192.168.3.254/24 |<br>| e0/9~e0/12  |  access  |    VLAN4     | 192.168.4.0 | 192.168.4.254/24 |<br>| e0/13~e0/16 |  access  |    VLAN5     | 192.168.5.0 | 192.168.5.254/24 |<br>|    e0/20     |  trunk   | VLAN2-4、6-7 |             |                  |</p>
+<p>表4-1 S2A端口分配表</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>端口</strong></th>
+<th align="center"><strong>模式</strong></th>
+<th align="center"><strong>VLAN</strong></th>
+<th align="center"><strong>网段</strong></th>
+<th align="center"><strong>默认网关</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">e0/1~e0/4</td>
+<td align="center">access</td>
+<td align="center">VLAN2</td>
+<td align="center">192.168.2.0</td>
+<td align="center">192.168.2.254/24</td>
+</tr>
+<tr>
+<td align="center">e0/5~e0/8</td>
+<td align="center">access</td>
+<td align="center">VLAN3</td>
+<td align="center">192.168.3.0</td>
+<td align="center">192.168.3.254/24</td>
+</tr>
+<tr>
+<td align="center">e0/9~e0/12</td>
+<td align="center">access</td>
+<td align="center">VLAN4</td>
+<td align="center">192.168.4.0</td>
+<td align="center">192.168.4.254/24</td>
+</tr>
+<tr>
+<td align="center">e0/13~e0/16</td>
+<td align="center">access</td>
+<td align="center">VLAN5</td>
+<td align="center">192.168.5.0</td>
+<td align="center">192.168.5.254/24</td>
+</tr>
+<tr>
+<td align="center">e0/20</td>
+<td align="center">trunk</td>
+<td align="center">VLAN2-4、6-7</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
 </li>
 <li><p>接入层交换机S2B（Quidway E050）</p>
-<p>表4-2 S2B端口分配表<br>|   <strong>端口</strong>   | <strong>模式</strong> |   <strong>VLAN</strong>   |  <strong>网段</strong>   |   <strong>默认网关</strong>   |<br>| :—————: | :———: | :—————: | :————-: | :———————: |<br>| e0/45~e0/48 |  access  |    VLAN6     | 192.168.6.0 | 192.168.6.254/24 |<br>|    e0/10     |  trunk   | VLAN2-4、6-7 |             |                  |</p>
+<p>表4-2 S2B端口分配表</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>端口</strong></th>
+<th align="center"><strong>模式</strong></th>
+<th align="center"><strong>VLAN</strong></th>
+<th align="center"><strong>网段</strong></th>
+<th align="center"><strong>默认网关</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">e0/45~e0/48</td>
+<td align="center">access</td>
+<td align="center">VLAN6</td>
+<td align="center">192.168.6.0</td>
+<td align="center">192.168.6.254/24</td>
+</tr>
+<tr>
+<td align="center">e0/10</td>
+<td align="center">trunk</td>
+<td align="center">VLAN2-4、6-7</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
 </li>
 <li><p>核心层交换机S3（H3C 3610）</p>
 <ul>
-<li>下行端口<br>表4-3-1 S3下行端口分配表<br>|    <strong>端口</strong>     | <strong>模式</strong> | <strong>VLAN</strong> | <strong>网段/IP地址</strong> |   <strong>默认网关</strong>   |<br>| :——————-: | :———: | :———: | :——————-: | :———————: |<br>| e1/0/9~e1/0/12 |  access  |  VLAN7   |   192.168.7.0   | 192.168.7.254/24 |<br>| <strong>端口</strong> | <strong>模式</strong> | <strong>接入设备</strong> | <strong>allow-pass</strong> |<br>|  e1/0/1  |  trunk   |     S2A      |  VLAN2-4、6-7  |<br>|  e1/0/2  |  trunk   |     S2B      |  VLAN2-4、6-7  |<br>| <strong>interface-vlan</strong> | <strong>IP地址</strong>    |<br>| ————————— | ——————- |<br>| interface-vlan2    | 192.168.2.254 |<br>| interface-vlan3    | 192.168.3.254 |<br>| interface-vlan4    | 192.168.4.254 |<br>| interface-vlan6    | 192.168.6.254 |<br>| interface-vlan7    | 192.168.7.254 |</li>
+<li>下行端口<br>表4-3-1 S3下行端口分配表<table>
+<thead>
+<tr>
+<th align="center"><strong>端口</strong></th>
+<th align="center"><strong>模式</strong></th>
+<th align="center"><strong>VLAN</strong></th>
+<th align="center"><strong>网段/IP地址</strong></th>
+<th align="center"><strong>默认网关</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">e1/0/9~e1/0/12</td>
+<td align="center">access</td>
+<td align="center">VLAN7</td>
+<td align="center">192.168.7.0</td>
+<td align="center">192.168.7.254/24</td>
+</tr>
+<tr>
+<td align="center"><strong>端口</strong></td>
+<td align="center"><strong>模式</strong></td>
+<td align="center"><strong>接入设备</strong></td>
+<td align="center"><strong>allow-pass</strong></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">e1/0/1</td>
+<td align="center">trunk</td>
+<td align="center">S2A</td>
+<td align="center">VLAN2-4、6-7</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">e1/0/2</td>
+<td align="center">trunk</td>
+<td align="center">S2B</td>
+<td align="center">VLAN2-4、6-7</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><strong>interface-vlan</strong></td>
+<td align="center"><strong>IP地址</strong></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">——————</td>
+<td align="center">————-</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">interface-vlan2</td>
+<td align="center">192.168.2.254</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">interface-vlan3</td>
+<td align="center">192.168.3.254</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">interface-vlan4</td>
+<td align="center">192.168.4.254</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">interface-vlan6</td>
+<td align="center">192.168.6.254</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">interface-vlan7</td>
+<td align="center">192.168.7.254</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+</li>
 </ul>
 </li>
-<li><p>上行端口<br>表4-3-2 S3上行端口分配表<br>| <strong>端口</strong> | <strong>接入设备</strong> | <strong>模式</strong> | <strong>IP地址</strong>   | <strong>网关</strong>     |<br>| ———— | —————— | ———— | —————— | —————— |<br>| e1/0/20  | firewall     | access   | 192.168.10.1 | 192.168.10.2 |</p>
+<li><p>上行端口<br>表4-3-2 S3上行端口分配表</p>
+<table>
+<thead>
+<tr>
+<th><strong>端口</strong></th>
+<th><strong>接入设备</strong></th>
+<th><strong>模式</strong></th>
+<th><strong>IP地址</strong></th>
+<th><strong>网关</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>e1/0/20</td>
+<td>firewall</td>
+<td>access</td>
+<td>192.168.10.1</td>
+<td>192.168.10.2</td>
+</tr>
+</tbody></table>
 </li>
-<li><p>防火墙firewall（H3C SecPath F100-A）<br>表4-4 防火墙端口分配表<br>| <strong>端口</strong> | <strong>作用</strong>              | <strong>IP地址</strong>      |<br>| ———— | ——————————- | ———————- |<br>| E0/0     | 内网端口LAN0，trust   | 192.168.10.2/24 |<br>| E1/0     | 外网端口WAN0，untrust | 202.99.160.2/28 |</p>
+<li><p>防火墙firewall（H3C SecPath F100-A）<br>表4-4 防火墙端口分配表</p>
+<table>
+<thead>
+<tr>
+<th><strong>端口</strong></th>
+<th><strong>作用</strong></th>
+<th><strong>IP地址</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E0/0</td>
+<td>内网端口LAN0，trust</td>
+<td>192.168.10.2/24</td>
+</tr>
+<tr>
+<td>E1/0</td>
+<td>外网端口WAN0，untrust</td>
+<td>202.99.160.2/28</td>
+</tr>
+</tbody></table>
 </li>
-<li><p>路由器R1（H3C R2501E）<br>表4-5 R1端口分配表<br>| <strong>端口</strong> | <strong>IP地址</strong>      |<br>| ———— | ———————- |<br>| E0       | 202.99.160.1/28 |<br>| S0       | 10.1.1.2/24     |</p>
+<li><p>路由器R1（H3C R2501E）<br>表4-5 R1端口分配表</p>
+<table>
+<thead>
+<tr>
+<th><strong>端口</strong></th>
+<th><strong>IP地址</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E0</td>
+<td>202.99.160.1/28</td>
+</tr>
+<tr>
+<td>S0</td>
+<td>10.1.1.2/24</td>
+</tr>
+</tbody></table>
 </li>
-<li><p>路由器R2（H3C R2501E）<br>表4-6 R2端口分配表<br>| <strong>端口</strong> | <strong>IP地址</strong>    |<br>| ———— | ——————- |<br>| E0       | 192.168.9.254 |<br>| S0       | 10.1.1.1/24   |</p>
+<li><p>路由器R2（H3C R2501E）<br>表4-6 R2端口分配表</p>
+<table>
+<thead>
+<tr>
+<th><strong>端口</strong></th>
+<th><strong>IP地址</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>E0</td>
+<td>192.168.9.254</td>
+</tr>
+<tr>
+<td>S0</td>
+<td>10.1.1.1/24</td>
+</tr>
+</tbody></table>
 </li>
 <li><p>接入层交换机S2C（Quidway E050）</p>
 <p>e0/1~e0/16为VLAN9，直接将e0/4接入路由器R2</p>
@@ -972,29 +1200,29 @@
 <h2 id="第五章-设备配置"><a href="#第五章-设备配置" class="headerlink" title="第五章 设备配置"></a>第五章 设备配置</h2><h3 id="5-1设备说明"><a href="#5-1设备说明" class="headerlink" title="5.1设备说明"></a>5.1设备说明</h3><ol>
 <li><p>以太网交换机^[6]^</p>
 <ol>
-<li><p>定义：交换机是用于电信号转发的网络设备。以太网交换机是基于以太网传输数据的交换机。其每个端口直接与主机相连，并一般工作在全双工方式。实质上就是一个多端口的网桥，能连通多个端口并使每一对相互通信的主机都像独占通信媒体一样，无冲突传输数据（分隔冲突域）。</p>
+<li><p> 定义：交换机是用于电信号转发的网络设备。以太网交换机是基于以太网传输数据的交换机。其每个端口直接与主机相连，并一般工作在全双工方式。实质上就是一个多端口的网桥，能连通多个端口并使每一对相互通信的主机都像独占通信媒体一样，无冲突传输数据（分隔冲突域）。</p>
 </li>
-<li><p>传输模式：全双工、半双工、全双工/半双工自适应。</p>
+<li><p> 传输模式：全双工、半双工、全双工/半双工自适应。</p>
 </li>
-<li><p>原理：工作在数据链路层，使用MAC地址（48位，6字节）。当接受到一个广播帧时，他会向除接受端口之外的所有端口转发；当接受到一个单播帧时，检查其目的地址并对应自己的MAC地址表，如果存在目的地址，则转发，如果不存在则泛洪(广播)，广播后如果没有主机的MAC地址与帧的目的MAC地址相同，则丢弃，若有主机相同，则会将主机的MAC自动添加到其MAC地址表中（学习）。</p>
+<li><p> 原理：工作在数据链路层，使用MAC地址（48位，6字节）。当接受到一个广播帧时，他会向除接受端口之外的所有端口转发；当接受到一个单播帧时，检查其目的地址并对应自己的MAC地址表，如果存在目的地址，则转发，如果不存在则泛洪(广播)，广播后如果没有主机的MAC地址与帧的目的MAC地址相同，则丢弃，若有主机相同，则会将主机的MAC自动添加到其MAC地址表中（学习）。</p>
 </li>
-<li><p>主要功能：物理编址、网络拓扑结构、错误校验、帧序列以及流控。</p>
+<li><p> 主要功能：物理编址、网络拓扑结构、错误校验、帧序列以及流控。</p>
 </li>
-<li><p>特点：转发速度非常快。</p>
+<li><p> 特点：转发速度非常快。</p>
 </li>
 </ol>
 </li>
 <li><p>二层交换机^[7]^</p>
 <ol>
-<li><p>定义：指只支持OSI第二层(数据链路层)交换技术的交换机。</p>
+<li><p> 定义：指只支持OSI第二层(数据链路层)交换技术的交换机。</p>
 </li>
 <li><p>特点</p>
 <ol>
-<li><p>多端口数据同时交换，故要求具有很高的交换总线带宽。</p>
+<li><p> 多端口数据同时交换，故要求具有很高的交换总线带宽。</p>
 </li>
-<li><p>学习端口连接机器的MAC地址，地址表大小影响交换机的接入容量。</p>
+<li><p> 学习端口连接机器的MAC地址，地址表大小影响交换机的接入容量。</p>
 </li>
-<li><p>含有专用于处理数据包转发的ASIC（Application Specific Integrated<br>Circuit）芯片，转发速度非常快。</p>
+<li><p>含有专用于处理数据包转发的ASIC（Application Specific Integrated<br> Circuit）芯片，转发速度非常快。</p>
 </li>
 </ol>
 </li>
@@ -1002,39 +1230,39 @@
 </li>
 <li><p>三层交换机^[8]^</p>
 <ol>
-<li><p>定义：具有部分路由器功能的交换机。工作在网络层。基于IP设计。三层交换技术<br>= 二层交换技术 + 三层转发技术</p>
+<li><p>定义：具有部分路由器功能的交换机。工作在网络层。基于IP设计。三层交换技术<br> = 二层交换技术 + 三层转发技术</p>
 </li>
-<li><p>目的：加快大型局域网“内部”的数据交换，所具有的路由功能也是为这目的服务的，能够做到一次路由，多次转发。</p>
+<li><p> 目的：加快大型局域网“内部”的数据交换，所具有的路由功能也是为这目的服务的，能够做到一次路由，多次转发。</p>
 </li>
-<li><p>应用环境：大型局域网按功能/地域（逻辑）划分为多个小局域网（VLAN），不同VLAN间通过三层交换机通信，因为它具有二层交换的速度，同时能完成部分传统路由器的功能。</p>
+<li><p> 应用环境：大型局域网按功能/地域（逻辑）划分为多个小局域网（VLAN），不同VLAN间通过三层交换机通信，因为它具有二层交换的速度，同时能完成部分传统路由器的功能。</p>
 </li>
 </ol>
 </li>
 <li><p>路由器^[9]^</p>
 <ol>
-<li><p>定义：工作在网络层，用于在不同的网络间存储转发分组。可在异种网络间（如不同局域网、局域网与广域网、广域网与广域网）传输数据并进行路径选择。多协议的路由器可以连接到使用完全不同的网络层、数据链路层和物理层协议的网络。</p>
+<li><p> 定义：工作在网络层，用于在不同的网络间存储转发分组。可在异种网络间（如不同局域网、局域网与广域网、广域网与广域网）传输数据并进行路径选择。多协议的路由器可以连接到使用完全不同的网络层、数据链路层和物理层协议的网络。</p>
 </li>
 <li><p>原理：</p>
 <ol>
-<li><p>IP地址：通信节点的唯一标识。根据数据包的IP将其从正确接口转发出去。</p>
+<li><p> IP地址：通信节点的唯一标识。根据数据包的IP将其从正确接口转发出去。</p>
 </li>
-<li><p>控制部分与数据转发部分：在控制部分，路由器通过路由协议交换网络的拓扑结构信息，依照拓扑结构动态生成路由表。在数据转发部分，转发引擎从输入线路接受IP分组之后，分析并修改分组头，使用转发表查找下一跳，把数据交换到输出线路上，向相应方向转发。转发表是根据路由表生成的，其表项和路由表项有直接对应关系，更适合实现快速查找。转发的主要流程包括线路输入、分组头分析、数据存储、分组头修改和线路输出</p>
+<li><p> 控制部分与数据转发部分：在控制部分，路由器通过路由协议交换网络的拓扑结构信息，依照拓扑结构动态生成路由表。在数据转发部分，转发引擎从输入线路接受IP分组之后，分析并修改分组头，使用转发表查找下一跳，把数据交换到输出线路上，向相应方向转发。转发表是根据路由表生成的，其表项和路由表项有直接对应关系，更适合实现快速查找。转发的主要流程包括线路输入、分组头分析、数据存储、分组头修改和线路输出</p>
 </li>
-<li><p>输入和输出端口：输入端口是物理链路的连接点，也是数据的接收点。它完成的功能主要包括数据链路层帧的封装和解封装。输出端口主要完成数据的排队、缓冲管理以及调度输出，同时也要执行数据的封装和支持物理层、链路层协议。</p>
+<li><p> 输入和输出端口：输入端口是物理链路的连接点，也是数据的接收点。它完成的功能主要包括数据链路层帧的封装和解封装。输出端口主要完成数据的排队、缓冲管理以及调度输出，同时也要执行数据的封装和支持物理层、链路层协议。</p>
 </li>
-<li><p>选路策略与选路机制：选路策略——静态/动态路由表确定最佳传输路径。选路机制——查找路由表并根据结果转发。</p>
+<li><p> 选路策略与选路机制：选路策略——静态/动态路由表确定最佳传输路径。选路机制——查找路由表并根据结果转发。</p>
 </li>
 </ol>
 </li>
 <li><p>功能：</p>
 <ol>
-<li><p>组网。连接不同网络，提供分组转发；通过分段改进局域网性能，划分网段并阻隔广播包以避免“广播风暴”；多协议路由器实现不同协议间的转换</p>
+<li><p> 组网。连接不同网络，提供分组转发；通过分段改进局域网性能，划分网段并阻隔广播包以避免“广播风暴”；多协议路由器实现不同协议间的转换</p>
 </li>
-<li><p>安全防护。防止外部网络对内部网络的信息窃取和攻击；阻止内部网络某些用户对外部网络的访问</p>
+<li><p> 安全防护。防止外部网络对内部网络的信息窃取和攻击；阻止内部网络某些用户对外部网络的访问</p>
 </li>
-<li><p>网络管理。流量控制。</p>
+<li><p> 网络管理。流量控制。</p>
 </li>
-<li><p>IP地址共享。内部用户使用外部公开IP地址访问互联网。</p>
+<li><p> IP地址共享。内部用户使用外部公开IP地址访问互联网。</p>
 </li>
 </ol>
 </li>
@@ -1042,65 +1270,65 @@
 </li>
 <li><p>防火墙^[10]^</p>
 <ol>
-<li><p>定义：防火墙技术是通过有机结合各类用于安全管理与筛选的软件和硬件设备，帮助计算机网络于其内、外网之间构建一道相对隔绝的保护屏障，以保护用户资料与信息安全性的一种技术。</p>
+<li><p> 定义：防火墙技术是通过有机结合各类用于安全管理与筛选的软件和硬件设备，帮助计算机网络于其内、外网之间构建一道相对隔绝的保护屏障，以保护用户资料与信息安全性的一种技术。</p>
 </li>
 <li><p>功能：</p>
 <ol>
-<li><p>网络安全屏障：过滤不安全的网络服务</p>
+<li><p> 网络安全屏障：过滤不安全的网络服务</p>
 </li>
-<li><p>强化网络安全策略：通过以firewall为中心的安全方案配置，将安全软件配置在防火墙上，集中安全管理。</p>
+<li><p> 强化网络安全策略：通过以firewall为中心的安全方案配置，将安全软件配置在防火墙上，集中安全管理。</p>
 </li>
-<li><p>监控审计：记录经过firewall的访问并作日志记录。可疑时报警并提供详细信息。</p>
+<li><p> 监控审计：记录经过firewall的访问并作日志记录。可疑时报警并提供详细信息。</p>
 </li>
-<li><p>防止内部信息外泄：划分内部网络，实现内网重点网段的隔离，从而限制局部重点或敏感网络安全问题对全局网络造成的影响。</p>
+<li><p> 防止内部信息外泄：划分内部网络，实现内网重点网段的隔离，从而限制局部重点或敏感网络安全问题对全局网络造成的影响。</p>
 </li>
-<li><p>日志记录与事件通知。</p>
+<li><p> 日志记录与事件通知。</p>
 </li>
 </ol>
 </li>
 <li><p>特征：</p>
 <ol>
-<li><p>数据必经之地：内部网络和外部网络之间的所有网络数据流都必须经过防火墙。</p>
+<li><p> 数据必经之地：内部网络和外部网络之间的所有网络数据流都必须经过防火墙。</p>
 </li>
-<li><p>典型的防火墙体系网络结构一端连接企事业单位内部的局域网，而另一端则连接着互联网。所有的内、外部网络之间的通信都要经过防火墙，只有符合安全策略的数据流才能通过防火墙。</p>
+<li><p> 典型的防火墙体系网络结构一端连接企事业单位内部的局域网，而另一端则连接着互联网。所有的内、外部网络之间的通信都要经过防火墙，只有符合安全策略的数据流才能通过防火墙。</p>
 </li>
-<li><p>确保网络流量的合法性</p>
+<li><p> 确保网络流量的合法性</p>
 </li>
-<li><p>抗攻击免疫力</p>
+<li><p> 抗攻击免疫力</p>
 </li>
 </ol>
 </li>
 <li><p>主要类型：</p>
 <ol>
-<li><p>过滤型（网络层与传输层）</p>
+<li><p> 过滤型（网络层与传输层）</p>
 </li>
-<li><p>应用代理型（OSI最高层，应用层之上）</p>
+<li><p> 应用代理型（OSI最高层，应用层之上）</p>
 </li>
-<li><p>复合型（应用最广泛）</p>
+<li><p> 复合型（应用最广泛）</p>
 </li>
 </ol>
 </li>
 <li><p>关键技术</p>
 <ol>
-<li><p>包过滤技术（网络层）</p>
+<li><p> 包过滤技术（网络层）</p>
 </li>
-<li><p>加密技术</p>
+<li><p> 加密技术</p>
 </li>
-<li><p>防病毒技术</p>
+<li><p> 防病毒技术</p>
 </li>
-<li><p>代理服务器（实现信息数据IP的虚拟化）</p>
+<li><p> 代理服务器（实现信息数据IP的虚拟化）</p>
 </li>
 </ol>
 </li>
 <li><p>部署方式</p>
 <ol>
-<li><p>桥模式（透明模式）：内外网在同一网段。此模式下firewall无IP地址。</p>
+<li><p> 桥模式（透明模式）：内外网在同一网段。此模式下firewall无IP地址。</p>
 </li>
-<li><p>网关模式：内外网不在同一网段，firewall设置网关地址实现路由器的功能。比桥模式更安全。</p>
+<li><p> 网关模式：内外网不在同一网段，firewall设置网关地址实现路由器的功能。比桥模式更安全。</p>
 </li>
-<li><p>NAT模式(Network Address<br>Translation)：防火墙对内部网络的IP地址进行地址翻译，使用防火墙的IP地址替换内部网络的源地址向外部网络发送数据；当外部网络的响应数据流量返回到防火墙后，防火墙再将目的地址替换为内部网络的源地址。</p>
+<li><p>NAT模式(Network Address<br> Translation)：防火墙对内部网络的IP地址进行地址翻译，使用防火墙的IP地址替换内部网络的源地址向外部网络发送数据；当外部网络的响应数据流量返回到防火墙后，防火墙再将目的地址替换为内部网络的源地址。</p>
 </li>
-<li><p>高可靠设计：冗余技术。如虚拟路由冗余协议（VRRP）</p>
+<li><p> 高可靠设计：冗余技术。如虚拟路由冗余协议（VRRP）</p>
 </li>
 </ol>
 </li>
@@ -1111,13 +1339,13 @@
 <p>引入VLAN的概念，主要有以下好处，总结如下：</p>
 <ol>
 <li><p>更安全：数据包仅在本VLAN内传递。</p>
-<p>&emsp;&emsp;由于配置了VLAN后，一个VLAN的数据包不会发送到另一个VLAN，这样，其他VLAN的用户的网络上是收不到任何该VLAN的数据包，这样就确保了该VLAN的信息不会被其他VLAN的人窃听，从而实现了信息的保密。</p>
+<p> &emsp;&emsp;由于配置了VLAN后，一个VLAN的数据包不会发送到另一个VLAN，这样，其他VLAN的用户的网络上是收不到任何该VLAN的数据包，这样就确保了该VLAN的信息不会被其他VLAN的人窃听，从而实现了信息的保密。</p>
 </li>
 <li><p>更高效：泛洪转发仅在本VLAN内复制。</p>
-<p>&emsp;&emsp;按照802.1D透明网桥的算法，如果一个数据包找不到MAC表，那么交换机就会将该数据包向除接收端口以外的其他所有端口发送，这就是桥的泛洪转发。（典型的广播方式包括组播报文，广播报文，以及未知单播报文都会进行泛洪转发）。这样的结果，毫无疑问极大的浪费了带宽，如果配置了VLAN，那么，当一个数据包需要泛洪转发时，交换机只会将此数据包发送到所有属于该VLAN的其他端口，而不是所有的交换机的端口，这样，就将数据包限制到了一个VLAN内。在一定程度上可以节省带宽。</p>
+<p> &emsp;&emsp;按照802.1D透明网桥的算法，如果一个数据包找不到MAC表，那么交换机就会将该数据包向除接收端口以外的其他所有端口发送，这就是桥的泛洪转发。（典型的广播方式包括组播报文，广播报文，以及未知单播报文都会进行泛洪转发）。这样的结果，毫无疑问极大的浪费了带宽，如果配置了VLAN，那么，当一个数据包需要泛洪转发时，交换机只会将此数据包发送到所有属于该VLAN的其他端口，而不是所有的交换机的端口，这样，就将数据包限制到了一个VLAN内。在一定程度上可以节省带宽。</p>
 </li>
 <li><p>更方便：不改变物理组网的情况下，灵活进行逻辑网络的变更。</p>
-<p>&emsp;&emsp;使用VLAN的最终目标就是建立虚拟工作组模型，例如，在企业网中，同一个部门的就好象在同一个LAN上一样，很容易的互相访问，交流信息，同时，所有的广播包也都限制在该虚拟LAN上，而不影响其他VLAN的人。一个人如果从一个办公地点换到另外一个地点，而他仍然在该部门，那么，该用户的配置无须改变；同时，如果一个人虽然办公地点没有变，但他更换了部门，那么，只需网络管理员更改一下该用户的配置即可。这个功能的目标就是建立一个动态的组织环境，当然，这只是一个理想的目标，要实现它，还需要一些其他方面的支持。</p>
+<p> &emsp;&emsp;使用VLAN的最终目标就是建立虚拟工作组模型，例如，在企业网中，同一个部门的就好象在同一个LAN上一样，很容易的互相访问，交流信息，同时，所有的广播包也都限制在该虚拟LAN上，而不影响其他VLAN的人。一个人如果从一个办公地点换到另外一个地点，而他仍然在该部门，那么，该用户的配置无须改变；同时，如果一个人虽然办公地点没有变，但他更换了部门，那么，只需网络管理员更改一下该用户的配置即可。这个功能的目标就是建立一个动态的组织环境，当然，这只是一个理想的目标，要实现它，还需要一些其他方面的支持。</p>
 </li>
 </ol>
 <p>VLAN交换机的端口一般可以分为几大类：</p>
@@ -1134,9 +1362,9 @@
 </ol>
 <p>&emsp;&emsp;本次实验配置主要用到了Access端口和Trunk端口。</p>
 <p>&emsp;&emsp;图是处于VLAN10下的PC1向VLAN20下的PC2发送数据包的流程图：</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-1不同VLAN下的数据转发图.jpg" alt="图5-1 不同VLAN下的数据转发图"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-1%E4%B8%8D%E5%90%8CVLAN%E4%B8%8B%E7%9A%84%E6%95%B0%E6%8D%AE%E8%BD%AC%E5%8F%91%E5%9B%BE.jpg" alt="图5-1 不同VLAN下的数据转发图"></p>
 <h4 id="5-2-2-DHCP原理"><a href="#5-2-2-DHCP原理" class="headerlink" title="5.2.2 DHCP原理"></a>5.2.2 DHCP原理</h4><p>&emsp;&emsp;DHCP^[12]^服务事件的序列如下：</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-2DHCP服务时间序列图.png" alt="图5-2 DHCP服务时间序列图"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-2DHCP%E6%9C%8D%E5%8A%A1%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%9B%BE.png" alt="图5-2 DHCP服务时间序列图"></p>
 <p>&emsp;&emsp;客户机通过将搜索消息广播到本地子网上的有限广播地址 (255.255.255.255) 来搜索 DHCP 服务器。如果存在路由器并已将其配置为充当 BOOTP 中继代理的角色，请求便会传送到不同子网上的其他 DHCP 服务器。客户机的广播包括其唯一的 ID，在 Oracle Solaris 中的 DHCP 实现中，此 ID 由客户机的介质访问控制 (Media Access Control, MAC) 地址派生而来。在以太网上，MAC 地址与以太网地址相同。</p>
 <p>&emsp;&emsp;在 DHCP 服务器确定客户机的网络之后，便会选择相应的 IP 地址并确认该地址尚未使用。然后，DHCP服务器通过广播一条提供消息来响应客户机。该提供消息中包含选定的 IP 地址以及有关可为客户机配置的服务的信息。每台服务器都会暂时保留所提供的 IP 地址，直到客户机确定是否使用该 IP 地址为止。</p>
 <p>&emsp;&emsp;客户机会根据所提供的服务的数量和类型来选择最佳内容。客户机会广播一条请求来指定提供最佳内容的服务器的 IP 地址。该广播确保所有发出响应的 DHCP 服务器都知道客户机已经选择了一台服务器。未被选中的服务器会取消对之前提供的 IP 地址的保留。</p>
@@ -1147,40 +1375,40 @@
 <h4 id="5-2-3-OSPF原理"><a href="#5-2-3-OSPF原理" class="headerlink" title="5.2.3 OSPF原理"></a>5.2.3 OSPF原理</h4><p>&emsp;&emsp;OSPF[13]路由协议是一种典型的链路状态（Link-state）的路由协议，一般用于同一个路由域内。在这里，路由域是指一个自治系统（Autonomous System），即AS，它是指一组通过统一的路由政策或路由协议互相交换路由信息的网络。在这个AS中，所有的OSPF路由器都维护一个相同的描述这个AS结构的数据库，该数据库中存放的是路由域中相应链路的状态信息，OSPF路由器正是通过这个数据库计算出其OSPF路由表的。</p>
 <p>&emsp;&emsp;当路由器开启OSPF后，路由器之间就会相互发送HELLO报文，HELLO报文中包含一些路由器和链路的相关信息，发送HELLO报文的目的是为了形成邻居表，然后，路由器之间就会发送LSA（LINK STATE ADVERTISEMENT，链路状态通告），LSA告诉自己的邻居路由器和自己相连的链路的状态，最后，形成网络的拓扑表，其实这个过程是很复杂的，他们经过发LSA，记录LSA，装发LSA，最后形成LSDB（链路状态数据库，即拓扑表），形成拓扑表之后，在经过SPF算法，通过计算LSDB，最后形成路由表。形成路由表后，路由器就可以根据路由表来转发数据包，但是，这只是理想情况，如果之后，网络拓扑发生了变化，或是网络链路出现了问题，OSPF协议还是会经过这三张表来重新计算新的路由，只不过不会这么复杂了，路由器在默认情况下，10S就会发送一次HELLO报文，以检测链路状态，保证链路始终是正常的。</p>
 <h4 id="5-2-4-NAT原理"><a href="#5-2-4-NAT原理" class="headerlink" title="5.2.4 NAT原理"></a>5.2.4 NAT原理</h4><p>&emsp;&emsp;NAT[14]英文全称是“Network Address Translation”，中文意思是“网络地址转换”，它是一个IETF(Internet Engineering Task Force, Internet工程任务组)标准，允许一个整体机构以一个公用IP（Internet Protocol）地址出现在Internet上。顾名思义，它是一种把内部私有网络地址（IP地址）翻译成合法网络IP地址的技术，如下图所示。因此我们可以认为，NAT在一定程度上，能够有效的解决公网地址不足的问题。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-3NAT转换原理图.jpg" alt="图5-3 NAT转换原理图"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-3NAT%E8%BD%AC%E6%8D%A2%E5%8E%9F%E7%90%86%E5%9B%BE.jpg" alt="图5-3 NAT转换原理图"></p>
 <p>&emsp;&emsp;简单地说，NAT就是在局域网内部网络中使用内部地址，而当内部节点要与外部网络进行通讯时，就在网关（可以理解为出口，打个比方就像院子的门一样）处，将内部地址替换成公用地址，从而在外部公网（internet）上正常使用，NAT可以使多台计算机共享Internet连接，这一功能很好地解决了公共<br>IP地址紧缺的问题。通过这种方法，可以只申请一个合法IP地址，就把整个局域网中的计算机接入Internet中。这时，NAT屏蔽了内部网络，所有内部网计算机对于公共网络来说是不可见的，而内部网计算机用户通常不会意识到NAT的存在。如下图所示。这里提到的内部地址，是指在内部网络中分配给节点的私有IP地址，这个地址只能在内部网络中使用，不能被路由转发。</p>
 <p>图5-4 NAT转换演示图</p>
 <h4 id="5-2-5-DNS原理"><a href="#5-2-5-DNS原理" class="headerlink" title="5.2.5 DNS原理"></a>5.2.5 DNS原理</h4><p>&emsp;&emsp;DNS^[15]^( Domain Name System)是“域名系统”的英文缩写，是一种组织成域层次结构的计算机和网络服务命名系统，它用于TCP/IP网络，它所提供的服务是用来将主机名和域名转换为IP地址的工作。DNS就是这样的一位“翻译官”，它的基本工作原理可用下图来表示。</p>
 <p>图5-5 DNS转换原理图</p>
 <p>&emsp;&emsp;网络通讯大部分是基于TCP/IP的，而TCP/IP是基于IP地址的，所以计算机在网络上进行通讯时只能识别如“202.96.134.133”之类的IP地址，而不能认识域名。我们无法记住10个以上IP地址的网站，所以我们访问网站时，更多的是在浏览器地址栏中输入域名，就能看到所需要的页面，这是因为有一个叫“DNS服务器”的计算机自动把我们的域名“翻译”成了相应的IP地址，然后调出IP地址所对应的网页。</p>
 <p>&emsp;&emsp;DNS采用分布式层次式数据库。包含根域名服务器、顶级域名服务器、权威域名服务器、本地域名解析服务器等。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-6DNS结构.png" alt="图5-6 DNS结构"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-6DNS%E7%BB%93%E6%9E%84.png" alt="图5-6 DNS结构"></p>
 <p>DNS查询过程：</p>
 <ol>
 <li><p>迭代查询</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-7DNS迭代查询.png" alt="图5-7 DNS迭代查询"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-7DNS%E8%BF%AD%E4%BB%A3%E6%9F%A5%E8%AF%A2.png" alt="图5-7 DNS迭代查询"></p>
 </li>
 <li><p>递归查询</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-8DNS递归查询.png" alt="图5-8 DNS递归查询"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-8DNS%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2.png" alt="图5-8 DNS递归查询"></p>
 </li>
 </ol>
 <h4 id="5-2-6-ACL原理"><a href="#5-2-6-ACL原理" class="headerlink" title="5.2.6 ACL原理"></a>5.2.6 ACL原理</h4><p>&emsp;&emsp;访问控制列表ACL^[16]^（Access Control List）是由一条或多条规则组成的集合。所谓规则，是指描述报文匹配条件的判断语句，这些条件可以是报文的源地址、目的地址、端口号等。</p>
 <p>&emsp;&emsp;ACL本质上是一种报文过滤器，规则是过滤器的滤芯。设备基于这些规则进行报文匹配，可以过滤出特定的报文，并根据应用ACL的业务模块的处理策略来允许或阻止该报文通过。通过ACL可以实现对网络中报文流的精确识别和控制，达到控制网络访问行为、防止网络攻击和提高网络带宽利用率的目的，从而切实保障网络环境的安全性和网络服务质量的可靠性。</p>
 <p>&emsp;&emsp;ACL由一系列规则组成，通过将报文与ACL规则进行匹配，设备可以过滤出特定的报文，组成如下：</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-9ACL结构图.png" alt="图5-9 ACL结构图"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-9ACL%E7%BB%93%E6%9E%84%E5%9B%BE.png" alt="图5-9 ACL结构图"></p>
 <ul>
 <li><p>ACL编号：用于标识ACL，表明该ACL是数字型ACL。根据ACL规则功能的不同，ACL被划分为基本ACL、高级ACL、二层ACL和用户ACL这几种类型，每类ACL编号的取值范围不同。</p>
 </li>
 <li><p>规则：即描述报文匹配条件的判断语句。</p>
 </li>
-<li><p>规则编号：用于标识ACL规则。可以自行配置规则编号，也可以由系统自动分配。ACL<br>规则的编号范围是0～4294967294，所有规则均按照规则编号从小到大进行排序。所以，图1中的rule5排在首位，而规则编号最大的rule4294967294排在末位。系统按照规则编号从小到大的顺序，将规则依次与报文匹配，一旦匹配上一条规则即停止匹配。</p>
+<li><p>规则编号：用于标识ACL规则。可以自行配置规则编号，也可以由系统自动分配。ACL<br>  规则的编号范围是0～4294967294，所有规则均按照规则编号从小到大进行排序。所以，图1中的rule5排在首位，而规则编号最大的rule4294967294排在末位。系统按照规则编号从小到大的顺序，将规则依次与报文匹配，一旦匹配上一条规则即停止匹配。</p>
 </li>
 <li><p>动作：包括permit/deny两种动作，表示允许/拒绝。</p>
 </li>
 <li><p>匹配项：ACL定义了极其丰富的匹配项。除了图中的源地址和生效时间段，ACL还支持很多其他规则匹配项。例如，二层以太网帧头信息（如源MAC、目的MAC、以太帧协议类型）、三层报文信息（如目的地址、协议类型）以及四层报文信息（如TCP/UDP端口号）等。</p>
 </li>
 <li><p>ACL的匹配机制</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-10ACL匹配机制图.png" alt="图5-10 ACL匹配机制图"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-10ACL%E5%8C%B9%E9%85%8D%E6%9C%BA%E5%88%B6%E5%9B%BE.png" alt="图5-10 ACL匹配机制图"></p>
 <ol>
 <li>首先系统会查找设备上是否配置了ACL。</li>
 <li>如果ACL不存在，则返回ACL匹配结果为：不匹配。</li>
@@ -1217,10 +1445,9 @@
 [S2A-e0&#x2F;20] port link-type trunk  #设置端口模式为trunk
 [S2A-e0&#x2F;20] port trunk permit vlan 2 3 4 6 7 8  #该端口可以通过vlan 2 3 4 6 7 8的数据
 * 检查配置情况
-[S2A] display interface e0&#x2F;20		# 注意看allow-pass是否包含2&amp;3&amp;4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+[S2A] display interface e0&#x2F;20		# 注意看allow-pass是否包含2&amp;3&amp;4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>配置结果</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-11S2A配置结果.png" alt="图5-11 S2A配置结果"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-11S2A%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%9C.png" alt="图5-11 S2A配置结果"></p>
 </li>
 </ul>
 <h4 id="5-3-2接入层交换机S2B"><a href="#5-3-2接入层交换机S2B" class="headerlink" title="5.3.2接入层交换机S2B"></a>5.3.2接入层交换机S2B</h4><ul>
@@ -1235,10 +1462,9 @@
 [S2B-e0&#x2F;10] port link-type trunk  #设置端口模式为trunk
 [S2B-e0&#x2F;10] port trunk permit vlan 2 3 4 6 7  #该端口可以通过vlan 2 3 4 6 7的数据
 * 检查配置情况
-[S2B] display interface e&#x2F;10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+[S2B] display interface e&#x2F;10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>配置结果</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-12S2B配置结果.png" alt="图5-12 S2B配置结果"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-12S2B%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%9C.png" alt="图5-12 S2B配置结果"></p>
 </li>
 </ul>
 <h4 id="5-3-3接入层交换机S2C"><a href="#5-3-3接入层交换机S2C" class="headerlink" title="5.3.3接入层交换机S2C"></a>5.3.3接入层交换机S2C</h4><ul>
@@ -1247,10 +1473,9 @@
 [S2C] vlan 9
 [S2C-vlan9] port e0&#x2F;1 to e0&#x2F;16  #把e0&#x2F;1到e0&#x2F;16加入到vlan 9
 * 检查配置情况
-[S2C] display vlan 9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+[S2C] display vlan 9<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>配置结果</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-13S2C配置结果.png" alt="图5-13 S2C配置结果"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-13S2C%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%9C.png" alt="图5-13 S2C配置结果"></p>
 </li>
 </ul>
 <h4 id="5-3-4核心层交换机S3"><a href="#5-3-4核心层交换机S3" class="headerlink" title="5.3.4核心层交换机S3"></a>5.3.4核心层交换机S3</h4><ol>
@@ -1280,10 +1505,9 @@
 [S3-e1&#x2F;0&#x2F;1] port trunk permit vlan 2 3 4 6 7 #该端口可以通过vlan 2 3 4 6 7的数据
 [S3] interface e1&#x2F;0&#x2F;2				 # 该端口连接S2B
 [S3-e1&#x2F;0&#x2F;2] port link-type trunk      #设置端口模式为trunk
-[S3-e1&#x2F;0&#x2F;2] port trunk permit vlan 2 3 4 6 7 #该端口可以通过vlan 2 3 4 6 7的数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+[S3-e1&#x2F;0&#x2F;2] port trunk permit vlan 2 3 4 6 7 #该端口可以通过vlan 2 3 4 6 7的数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>配置结果</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-14S3VLAN及Interface-vlan配置结果.png" alt="图5-14 S3 VLAN及Interface-vlan配置结果"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-14S3VLAN%E5%8F%8AInterface-vlan%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%9C.png" alt="图5-14 S3 VLAN及Interface-vlan配置结果"></p>
 </li>
 </ul>
 </li>
@@ -1310,12 +1534,11 @@
 [S3] dhcp server ip-pool 6  #开辟地址池6
 [S3-ip-pool-6] network 192.168.6.0 24  #分配地址池中可分发的地址段
 [S3-ip-pool-6] gateway-list 192.168.6.254  #配置网关
-[S3-ip-pool-6] dns-list 192.168.7.2 #配置dns服务器ip<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+[S3-ip-pool-6] dns-list 192.168.7.2 #配置dns服务器ip<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <ul>
 <li><p>配置结果</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-15S3DHCP协议配置结果.png" alt="图5-15 S3 DHCP协议配置结果"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-15S3DHCP%E5%8D%8F%E8%AE%AE%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%9C.png" alt="图5-15 S3 DHCP协议配置结果"></p>
 </li>
 </ul>
 </li>
@@ -1332,8 +1555,7 @@
 [S3-ospf-1-area0.0.0.0] network 192.168.6.0 0.0.0.255
 [S3-ospf-1-area0.0.0.0] network 192.168.7.0 0.0.0.255
 [S3-ospf-1-area0.0.0.0] network 192.168.8.0 0.0.0.255
-[S3-ospf-1-area0.0.0.0] network 192.168.10.0 0.0.0.255<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+[S3-ospf-1-area0.0.0.0] network 192.168.10.0 0.0.0.255<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>配置结果</p>
 <pre class="line-numbers language-none"><code class="language-none">ospf 1
 area 0.0.0.0
@@ -1343,8 +1565,7 @@ network 192.168.4.0 0.0.0.255
 network 192.168.6.0 0.0.0.255
 network 192.168.7.0 0.0.0.255
 network 192.168.8.0 0.0.0.255
-network 192.168.10.0 0.0.0.255<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+network 192.168.10.0 0.0.0.255<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 </li>
 </ol>
@@ -1381,8 +1602,7 @@ network 192.168.10.0 0.0.0.255<span aria-hidden="true" class="line-numbers-rows"
 #0.0.0.255是反掩码，代表192.168.10.0网段的255台主机都包含在内
 [firewall-area-0.0.0.0] network 192.168.10.0 0.0.0.255	
 [firewall-area-0.0.0.0] network 202.99.160.0 0.0.0.15
-[firewall] firewall packet-filter default permit		#使能默认允许包通过<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+[firewall] firewall packet-filter default permit		#使能默认允许包通过<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>配置结果</p>
 <pre class="line-numbers language-none"><code class="language-none">[H3C]dis cu
 #
@@ -1504,8 +1724,7 @@ user-interface con 0
 user-interface aux 0
 user-interface vty 0 4
 # 
-return<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+return<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h4 id="5-3-6路由器R1"><a href="#5-3-6路由器R1" class="headerlink" title="5.3.6路由器R1"></a>5.3.6路由器R1</h4><ul>
 <li><p>配置指令</p>
@@ -1521,11 +1740,10 @@ return<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 [R1-serial0] ospf network-type broadcast
 报错：找不到配置选项（再执行一遍就行）
 [R1-serial0] ospf network-type broadcast
-[R1] display ospf routing	# 查看OSPF配置信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+[R1] display ospf routing	# 查看OSPF配置信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>配置结果</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-16-1R1OSPF协议配置结果.png" alt="图5-16-1 R1 OSPF协议配置结果"></p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-16-2R1配置文件截图.png" alt="图5-16-2 R1配置文件截图"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-16-1R1OSPF%E5%8D%8F%E8%AE%AE%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%9C.png" alt="图5-16-1 R1 OSPF协议配置结果"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-16-2R1%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%88%AA%E5%9B%BE.png" alt="图5-16-2 R1配置文件截图"></p>
 </li>
 </ul>
 <h4 id="5-3-7路由器R2"><a href="#5-3-7路由器R2" class="headerlink" title="5.3.7路由器R2"></a>5.3.7路由器R2</h4><ul>
@@ -1538,11 +1756,10 @@ return<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 [R2-interface0] ospf network-type broadcast
 报错：找不到配置选项（再执行一遍就行）
 [R2-interface0] ospf network-type broadcast
-[R2] display ospf routing	# 查看OSPF配置信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
+[R2] display ospf routing	# 查看OSPF配置信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>配置结果</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-17-1R2OSPF配置结果.png" alt="图5-17-1 R2 OSPF配置结果"></p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图5-17-2R2配置文件截图.png" alt="图5-17-2 R2 配置文件截图"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-17-1R2OSPF%E9%85%8D%E7%BD%AE%E7%BB%93%E6%9E%9C.png" alt="图5-17-1 R2 OSPF配置结果"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE5-17-2R2%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%88%AA%E5%9B%BE.png" alt="图5-17-2 R2 配置文件截图"></p>
 </li>
 </ul>
 <h2 id="第六章-网络服务"><a href="#第六章-网络服务" class="headerlink" title="第六章 网络服务"></a>第六章 网络服务</h2><h3 id="6-1-FTP服务器"><a href="#6-1-FTP服务器" class="headerlink" title="6.1 FTP服务器"></a>6.1 FTP服务器</h3><h4 id="6-1-1-简介"><a href="#6-1-1-简介" class="headerlink" title="6.1.1 简介"></a>6.1.1 简介</h4><p>&emsp;&emsp;FTP服务器^[17]^（File Transfer Protocol Server）是在互联网上提供文件存储和访问服务的计算机，它们依照FTP协议提供服务，FTP是File Transfer Protocol(文件传输协议)，顾名思义，就是专门用来传输文件的协议，简单地说，支持FTP协议的服务器就是FTP服务器。</p>
@@ -1550,60 +1767,56 @@ return<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <p>&emsp;&emsp;FTP（File Transfer Protocol）即文件传输协议，是一种基于TCP的协议，采用客户/服务器模式，通过FTP协议，用户可以在FTP服务器中进行文件的上传或下载等操作，虽然现在通过HTTP协议下载的站点有很多，但是由于FTP协议可以很好地控制用户数量和宽带的分配，快速方便地上传、下载文件，因此FTP已成为网络中文件上传和下载的首选服务器，同时，它也是一个应用程序，用户可以通过它把自己的计算机与世界各地所有运行FTP协议的服务器相连，访问服务器上的大量程序和信息。</p>
 <p>FTP服务的功能是实现完整文件的异地传输，特点如下：</p>
 <ol>
-<li><p>FTP使用两个平行连接：控制连接和数据连接。控制连接在两主机间传送控制命令，如用户身份、口令、改变目录命令等。数据连接只用于传送数据。</p>
+<li><p> FTP使用两个平行连接：控制连接和数据连接。控制连接在两主机间传送控制命令，如用户身份、口令、改变目录命令等。数据连接只用于传送数据。</p>
 </li>
-<li><p>在一个会话期间，FTP服务器必须维持用户状态，也就是说，和某一个用户的控制连接不能断开。另外，当用户在目录树中活动时，服务器必须追踪用户的当前目录，这样，FTP就限制了并发用户数量。</p>
+<li><p> 在一个会话期间，FTP服务器必须维持用户状态，也就是说，和某一个用户的控制连接不能断开。另外，当用户在目录树中活动时，服务器必须追踪用户的当前目录，这样，FTP就限制了并发用户数量。</p>
 </li>
-<li><p>FTP支持文件沿任意方向传输。当用户与一远程计算机建立连接后，用户可以获得一个远程文件也可以将一本地文件传输至远程机器。</p>
+<li><p> FTP支持文件沿任意方向传输。当用户与一远程计算机建立连接后，用户可以获得一个远程文件也可以将一本地文件传输至远程机器。</p>
 </li>
 </ol>
 <h4 id="6-1-2-配置方法"><a href="#6-1-2-配置方法" class="headerlink" title="6.1.2 配置方法"></a>6.1.2 配置方法</h4><ol>
 <li><p>安装IIS(Internet Information Services)</p>
 <ol>
-<li><p>计算机—-控制面板—-程序—-打开或关闭Windows功能</p>
+<li><p>计算机—控制面板—程序—打开或关闭Windows功能</p>
 </li>
 <li><p>将Internet信息服务下的FTP服务器与Web管理工具(IIS)全部勾选，等它自动安装完成</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图6-1安装IIS.png" alt="图6-1 安装IIS"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE6-1%E5%AE%89%E8%A3%85IIS.png" alt="图6-1 安装IIS"></p>
 </li>
 </ol>
 </li>
 <li><p>网站搭建</p>
 <ol>
-<li><p>点击计算机右键—-管理—-服务和应用程序，点击Internet信息服务（IIS）管理</p>
+<li><p>点击计算机右键—管理—服务和应用程序，点击Internet信息服务（IIS）管理</p>
 </li>
-<li><p>网站右键—-添加FTP站点，输入名称并添加一条物理路径（新建一个文件夹即可）</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图6-2-1网站搭建.png" alt="图6-2-1 网站搭建"></p>
+<li><p>网站右键—添加FTP站点，输入名称并添加一条物理路径（新建一个文件夹即可）</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE6-2-1%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA.png" alt="图6-2-1 网站搭建"></p>
 </li>
 <li><p>下一步，默认端口位21，IP地址填写本机地址如192.168.7.1，勾选无SSL。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图6-2-2网站搭建.png" alt="图6-2-2 网站搭建"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE6-2-2%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA.png" alt="图6-2-2 网站搭建"></p>
 </li>
 <li><p>下一步，身份验证选择匿名和基本，选择所有用户可访问，权限勾选读取和写入。创建完成。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图6-2-3网站搭建.png" alt="图6-2-3 网站搭建"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE6-2-3%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA.png" alt="图6-2-3 网站搭建"></p>
 </li>
 </ol>
 </li>
 <li><p>服务测试</p>
-<p>打开文件资源管理器，输入ftp://192.168.7.1，可以进入为FTP设置的文件夹。</p>
+<p>打开文件资源管理器，输入<a href="ftp://192.168.7.1,可以进入为ftp设置的文件夹./">ftp://192.168.7.1，可以进入为FTP设置的文件夹。</a></p>
 </li>
 </ol>
 <h3 id="6-2-E-mail服务器"><a href="#6-2-E-mail服务器" class="headerlink" title="6.2 E-mail服务器"></a>6.2 E-mail服务器</h3><h4 id="6-2-1-简介"><a href="#6-2-1-简介" class="headerlink" title="6.2.1 简介"></a>6.2.1 简介</h4><p>&emsp;&emsp;邮件服务器^[18]^是一种用来负责电子邮件收发管理的设备。邮件服务器构成了电子邮件系统的核心。每个收信人都有一个位于某个邮件服务器上的邮箱(mailbox)。Bob的邮箱用于管理和维护已经发送给他的邮件消息。一个邮件消息的典型旅程是从发信人的用户代理开始，邮件发信人的邮件服务器，中转到收信人的邮件服务器，然后投递到收信人的邮箱中。当Bob想查看自己的邮箱中的邮件消息时，存放该邮箱的邮件服务器将以他提供的用户名和口令认证他。Alice的邮件服务器还得处理Bob的邮件服务器出故障的情况。如果Alice的邮件服务器无法把邮件消息立即递送到Bob的邮件服务器，Alice的服务器就把它们存放在消息队列(message queue)中，以后再尝试递送。这种尝试通常每30分钟左右执行一次：要是过了若干天仍未尝试成功，该服务器就把这个消息从消息队列中去除掉，同时以另一个邮件消息通知发信人(即Alice)。</p>
 <p>&emsp;&emsp;简单邮件传送协议(SMTP)是因特网电子邮件系统首要的应用层协议。它使用由TCP提供的可靠的数据传输服务把邮件消息从发信人的邮件服务器传送到收信人的邮件服务器。跟大多数应用层协议一样，SMTP也存在两个端：在发信人的邮件服务器上执行的客户端和在收信人的邮件服务器上执行的服务器端。SMTP的客户端和服务器端同时运行在每个邮件服务器上。当一个邮件服务器在向其他邮件服务器发送邮件消息时，它是作为SMTP客户在运行。当一个邮件服务器从其他邮件服务器接收邮件消息时，它是作为SMTP服务器在运行。</p>
 <h4 id="6-2-2-配置方法"><a href="#6-2-2-配置方法" class="headerlink" title="6.2.2 配置方法"></a>6.2.2 配置方法</h4><p>我们采用Winmail 邮件服务器+ Foxmail客户端来搭建局域网邮件服务器。</p>
 <ol>
-<li><p>准备两台电脑通过交换机相连，在其中一台电脑上安装Winmail服务器，并在两台电脑上均安装好Foxmail客户端。</p>
+<li><p> 准备两台电脑通过交换机相连，在其中一台电脑上安装Winmail服务器，并在两台电脑上均安装好Foxmail客户端。</p>
 </li>
-<li><p>运行Winmail<br>server，然后打开Winmail管理客户端，管理用户的用户名和密码随意设置。</p>
+<li><p>运行Winmail<br> server，然后打开Winmail管理客户端，管理用户的用户名和密码随意设置。</p>
 <ul>
-<li><p>创建域名</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图6-3-1邮件服务器配置-创建域名.png" alt="图6-3-1 邮件服务器配置-创建域名"></p>
-</li>
-<li><p>创建用户名和密码。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图6-3-2邮件服务器配置-创建用户.png" alt="图6-3-2 邮件服务器配置-创建用户"></p>
-</li>
+<li>创建域名<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE6-3-1%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE-%E5%88%9B%E5%BB%BA%E5%9F%9F%E5%90%8D.png" alt="图6-3-1 邮件服务器配置-创建域名"></li>
+<li>创建用户名和密码。<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE6-3-2%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE-%E5%88%9B%E5%BB%BA%E7%94%A8%E6%88%B7.png" alt="图6-3-2 邮件服务器配置-创建用户"></li>
 </ul>
 </li>
 <li><p>在两台电脑的Foxmail上分别创建上一步定义好的用户。打开Foxmail，选择其它邮箱。按下图配置。此时需要保证该电脑已经与邮件服务器所在电脑处于同一局域网下。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图6-4Foxmail客户端配置.png" alt="图6-4 Foxmail客户端配置"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE6-4Foxmail%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%85%8D%E7%BD%AE.png" alt="图6-4 Foxmail客户端配置"></p>
 </li>
 <li><p>发邮件测试。</p>
 </li>
@@ -1611,7 +1824,7 @@ return<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <h3 id="6-3-Web服务器"><a href="#6-3-Web服务器" class="headerlink" title="6.3 Web服务器"></a>6.3 Web服务器</h3><h4 id="6-3-1-简介"><a href="#6-3-1-简介" class="headerlink" title="6.3.1 简介"></a>6.3.1 简介</h4><p>&emsp;&emsp;WEB服务器^[19]^也称为WWW(WORLD WIDE WEB)服务器，主要功能是提供网上信息浏览服务。WWW 是 Internet 的多媒体信息查询工具，是 Internet 上近年才发展起来的服务，也是发展最快和目前用的最广泛的服务。正是因为有了WWW工具，才使得近年来 Internet 迅速发展，且用户数量飞速增长。</p>
 <p>&emsp;Web服务器是指驻留于因特网上某种类型计算机的程序。当Web浏览器（客户端）连到服务器上并请求文件时，服务器将处理该请求并将文件反馈到该浏览器上，附带的信息会告诉浏览器如何查看该文件（即文件类型）。服务器使用HTTP（超文本传输协议）与客户机浏览器进行信息交流，这就是人们常把它们称为HTTP服务器的原因。</p>
 <p>&emsp;Web服务器不仅能够存储信息，还能在用户通过Web浏览器提供的信息的基础上运行脚本和程序。</p>
-<p>&emsp;Web服务器的工作原理并不复杂，一般可分成如下4个步骤：连接过程、请求过程、应答过程以及关闭连接。下面对这4个步骤作一简单的介绍。连接过程就是Web服务器和其浏览器之间所建立起来的一种连接。查看连接过程是否实现，用户可以找到和打开socket这个虚拟文件，这个文件的建立意味着连接过程这一步骤已经成功建立。请求过程就是Web的浏览器运用socket这个文件向其服务器而提出各种请求。应答过程就是运用HTTP协议把在请求过程中所提出来的请求传输到Web的服务器，进而实施任务处理，然后运用HTTP协议把任务处理的结果传输到Web的浏览器，同时在Web的浏览器上面展示上述所请求之界面。关闭连接就是当上一个步骤—应答过程完成以后，Web服务器和其浏览器之间断开连接之过程。Web服务器上述4个步骤环环相扣、紧密相联，逻辑性比较强，可以支持多个进程、多个线程以及多个进程与多个线程相混合的技术。</p>
+<p>&emsp;Web服务器的工作原理并不复杂，一般可分成如下4个步骤：连接过程、请求过程、应答过程以及关闭连接。下面对这4个步骤作一简单的介绍。连接过程就是Web服务器和其浏览器之间所建立起来的一种连接。查看连接过程是否实现，用户可以找到和打开socket这个虚拟文件，这个文件的建立意味着连接过程这一步骤已经成功建立。请求过程就是Web的浏览器运用socket这个文件向其服务器而提出各种请求。应答过程就是运用HTTP协议把在请求过程中所提出来的请求传输到Web的服务器，进而实施任务处理，然后运用HTTP协议把任务处理的结果传输到Web的浏览器，同时在Web的浏览器上面展示上述所请求之界面。关闭连接就是当上一个步骤–应答过程完成以后，Web服务器和其浏览器之间断开连接之过程。Web服务器上述4个步骤环环相扣、紧密相联，逻辑性比较强，可以支持多个进程、多个线程以及多个进程与多个线程相混合的技术。</p>
 <h4 id="6-3-2-配置方法"><a href="#6-3-2-配置方法" class="headerlink" title="6.3.2 配置方法"></a>6.3.2 配置方法</h4><p>我们采用NodeJs + Git + Hexo搭建了一个简单的静态网页。</p>
 <ol>
 <li><p>安装NodeJs和Git</p>
@@ -1621,7 +1834,7 @@ return<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <li><p>找个地方右键`Git Bash Here`，后面的指令操作都是使用`Git Bash`</p>
 </li>
 <li><p>配置npm的国内镜像源：</p>
-<p>npm install -g cnpm —registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.or">https://registry.npm.taobao.or</a></p>
+<p>npm install -g cnpm –registry=<a target="_blank" rel="noopener" href="https://registry.npm.taobao.or/">https://registry.npm.taobao.or</a></p>
 </li>
 <li><p>配置完成后，输入npm info hexo，如果配置成功，dist会显示</p>
 <p>.tarball: <a target="_blank" rel="noopener" href="https://registry.nlark.com/hexo/download/hexo-5.4.0.tgz">https://registry.nlark.com/hexo/download/hexo-5.4.0.tgz</a></p>
@@ -1637,7 +1850,7 @@ return<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <p>npm install # 进一步安装hexo所需文件</p>
 <ol>
 <li><p>大概效果如下：</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图6-5Hexo安装.png" alt="图6-5 Hexo安装"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE6-5Hexo%E5%AE%89%E8%A3%85.png" alt="图6-5 Hexo安装"></p>
 </li>
 <li><p>指令执行完成后，指定文件夹MyBlog目录下有：</p>
 <p>* node_modules/：Hexo的依赖包</p>
@@ -1653,7 +1866,7 @@ return<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <p>hexo generate # 生成静态网页</p>
 <p>hexo server # 打开本地服务器(默认是4000端口)</p>
 <p>正常情况下应该会出现下图：</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图6-6安装成功.png" alt="图6-6 安装成功"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE6-6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F.png" alt="图6-6 安装成功"></p>
 </li>
 </ol>
 </li>
@@ -1661,32 +1874,32 @@ return<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 <h3 id="6-4-DNS服务器"><a href="#6-4-DNS服务器" class="headerlink" title="6.4 DNS服务器"></a>6.4 DNS服务器</h3><p>&emsp;由于我们发现Windows自带的IIS(Internet Information Services)无法配置DNS服务器，且在因为安装Windows Server<br>2016 需要更换实验室电脑系统，故采用Ubuntu-21.04-desktop和DNS服务器软件BIND9（Berkeley Internet Name Domain v9）进行DNS的服务搭建。由于搭建步骤较为繁琐，故没有写在报告里，所有步骤均已整理至博客中^[20]^。</p>
 <h2 id="第七章-验证方案"><a href="#第七章-验证方案" class="headerlink" title="第七章 验证方案"></a>第七章 验证方案</h2><ol>
 <li><p>DHCP协议配置测试（VLAN2-4）</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图7-1DHCP协议配置测试结果图.png" alt="图7-1 DHCP协议配置测试结果图"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE7-1DHCP%E5%8D%8F%E8%AE%AE%E9%85%8D%E7%BD%AE%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C%E5%9B%BE.png" alt="图7-1 DHCP协议配置测试结果图"></p>
 </li>
 <li><p>内网VLAN内通信测试（以VLAN2为例）</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图7-2VLAN内通信测试.png" alt="图7-2 VLAN内通信测试"></p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图7-3-1VLAN间通信测试（VLAN2toVLAN3）.png" alt="图7-3-1 VLAN间通信测试（VLAN2 to VLAN3）"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE7-2VLAN%E5%86%85%E9%80%9A%E4%BF%A1%E6%B5%8B%E8%AF%95.png" alt="图7-2 VLAN内通信测试"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE7-3-1VLAN%E9%97%B4%E9%80%9A%E4%BF%A1%E6%B5%8B%E8%AF%95%EF%BC%88VLAN2toVLAN3%EF%BC%89.png" alt="图7-3-1 VLAN间通信测试（VLAN2 to VLAN3）"></p>
 </li>
 <li><p>内网VLAN间通信测试</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图7-3-2VLAN间通信测试（VLAN2toVLAN6）.png" alt="图7-3-2 VLAN间通信测试（VLAN2 to VLAN6）"></p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图7-3-3VLAN间通信测试（与VLAN5隔离）.png" alt="图7-3-3 VLAN间通信测试（与VLAN5隔离）"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE7-3-2VLAN%E9%97%B4%E9%80%9A%E4%BF%A1%E6%B5%8B%E8%AF%95%EF%BC%88VLAN2toVLAN6%EF%BC%89.png" alt="图7-3-2 VLAN间通信测试（VLAN2 to VLAN6）"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE7-3-3VLAN%E9%97%B4%E9%80%9A%E4%BF%A1%E6%B5%8B%E8%AF%95%EF%BC%88%E4%B8%8EVLAN5%E9%9A%94%E7%A6%BB%EF%BC%89.png" alt="图7-3-3 VLAN间通信测试（与VLAN5隔离）"></p>
 </li>
 <li><p>内外部网络通信测试</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图7-4-1内外部网络通信（VLAN2toVLAN9）.png" alt="图7-4-1 内外部网络通信（VLAN2 to VLAN9）"></p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图7-4-2内外部网络通信（VLAN9toVLAN2）.png" alt="图7-4-2 内外部网络通信（VLAN9 to VLAN2）"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE7-4-1%E5%86%85%E5%A4%96%E9%83%A8%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%EF%BC%88VLAN2toVLAN9%EF%BC%89.png" alt="图7-4-1 内外部网络通信（VLAN2 to VLAN9）"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE7-4-2%E5%86%85%E5%A4%96%E9%83%A8%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%EF%BC%88VLAN9toVLAN2%EF%BC%89.png" alt="图7-4-2 内外部网络通信（VLAN9 to VLAN2）"></p>
 </li>
 <li><p>网络服务测试</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图7-5FTP服务测试.png" alt="图7-5 FTP服务测试"></p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图7-6E-mail服务测试（收发邮件）.png" alt="图7-6 E-mail服务测试（收发邮件）"></p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图7-7-1DNS解析测试.png" alt="图7-7-1 DNS解析测试"></p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图7-7-2DNS+Web服务测试.png" alt="图7-7-2 DNS + Web服务测试"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE7-5FTP%E6%9C%8D%E5%8A%A1%E6%B5%8B%E8%AF%95.png" alt="图7-5 FTP服务测试"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE7-6E-mail%E6%9C%8D%E5%8A%A1%E6%B5%8B%E8%AF%95%EF%BC%88%E6%94%B6%E5%8F%91%E9%82%AE%E4%BB%B6%EF%BC%89.png" alt="图7-6 E-mail服务测试（收发邮件）"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE7-7-1DNS%E8%A7%A3%E6%9E%90%E6%B5%8B%E8%AF%95.png" alt="图7-7-1 DNS解析测试"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE7-7-2DNS+Web%E6%9C%8D%E5%8A%A1%E6%B5%8B%E8%AF%95.png" alt="图7-7-2 DNS + Web服务测试"></p>
 </li>
 <li><p>NAT转换测试</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图7-8NAT转换抓包测试.png" alt="图7-8 NAT转换抓包测试"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE7-8NAT%E8%BD%AC%E6%8D%A2%E6%8A%93%E5%8C%85%E6%B5%8B%E8%AF%95.png" alt="图7-8 NAT转换抓包测试"></p>
 </li>
 </ol>
 <h2 id="第八章-改进"><a href="#第八章-改进" class="headerlink" title="第八章 改进"></a>第八章 改进</h2><p>&emsp;出于模拟真实网络拓扑结构的考虑，我们针对原有结构和功能做了些许改动。由于时间有限，我们简单地将内网中的FTP服务器开放给外部网络^[23]^，并利用IIS(Internet Information Services)在外部网络搭建FTP、Web服务器以供内网访问测试。测试网络拓扑如图8-1所示。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图8-1改进网络结构部分.png" alt="图8-1 改进网络结构部分"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE8-1%E6%94%B9%E8%BF%9B%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E9%83%A8%E5%88%86.png" alt="图8-1 改进网络结构部分"></p>
 <p>本次改进涉及设备有：防火墙、外部网络服务器。</p>
 <p>具体配置包括：</p>
 <ol>
@@ -1700,6 +1913,7 @@ return<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 [firewall] int e1&#x2F;0				#进入WAN0口（外网接口）
 [firewall-e1&#x2F;0] nat server protocol tcp global 202.99.160.12 ftp inside 192.168.7.1 ftp
 [firewall-e1&#x2F;0] nat outbound 2003 address-group 1				#应用NAT转换的ACL<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>防火墙相关配置结果：（仅包含相关内容）</p>
 <pre class="line-numbers language-none"><code class="language-none">#
 sysname H3C
@@ -1730,16 +1944,17 @@ interface Ethernet1&#x2F;0
  #内网FTP服务器的NAT端口映射
  nat server protocol tcp global 202.99.160.12 ftp inside 192.168.7.1 ftp
 #<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>配置结果测试：</p>
 <ul>
 <li><p>外部网络用户202.99.160.4通过公网IP地址202.99.160.12访问内网FTP服务器</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图8-2外网用户访问内网FTP服务器.png" alt="图8-2 外网用户访问内网FTP服务器"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE8-2%E5%A4%96%E7%BD%91%E7%94%A8%E6%88%B7%E8%AE%BF%E9%97%AE%E5%86%85%E7%BD%91FTP%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt="图8-2 外网用户访问内网FTP服务器"></p>
 </li>
 <li><p>内网用户访问外网FTP服务器</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图8-3内网用户访问外网FTP服务器.png" alt="图8-3 内网用户访问外网FTP服务器"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE8-3%E5%86%85%E7%BD%91%E7%94%A8%E6%88%B7%E8%AE%BF%E9%97%AE%E5%A4%96%E7%BD%91FTP%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt="图8-3 内网用户访问外网FTP服务器"></p>
 </li>
 <li><p>内网用户访问外网Web服务器</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/图8-4内网用户访问外网Web服务器.png" alt="图8-4 内网用户访问外网Web服务器"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/study/LocalNetworkBuilding/%E5%9B%BE8-4%E5%86%85%E7%BD%91%E7%94%A8%E6%88%B7%E8%AE%BF%E9%97%AE%E5%A4%96%E7%BD%91Web%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt="图8-4 内网用户访问外网Web服务器"></p>
 </li>
 </ul>
 </li>
@@ -2650,7 +2865,7 @@ interface Ethernet1&#x2F;0
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">72.3k</span>&nbsp;字
+                class="white-color">75.2k</span>&nbsp;字
             
 
 			
@@ -2926,12 +3141,12 @@ $(function () {
 		color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"> 
 	</script>
 
-<script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script><script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>

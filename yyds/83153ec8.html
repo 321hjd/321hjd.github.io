@@ -743,14 +743,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    14 分
                 </div>
                 
 
@@ -774,13 +774,11 @@
 <h2 id="一、-LU-分解"><a href="#一、-LU-分解" class="headerlink" title="一、$LU$分解"></a>一、$LU$分解</h2><h3 id="1-1-LU-分解定理"><a href="#1-1-LU-分解定理" class="headerlink" title="1.1 $LU$分解定理"></a>1.1 $LU$分解定理</h3><p>&emsp;&emsp;$LU$分解实质就是将系数矩阵$A$分解为$L$和$U$两个矩阵的乘积。其中$L$是单位下三角矩阵，$U$为非奇异上三角矩阵。</p>
 <p>&emsp;&emsp;假定矩阵$A$存在$LU$分解，则原方程$Ax=b$就将转化为求解下面两个三角方程组，而三角方程组的求解非常容易求解。</p>
 <ul>
-<li><script type="math/tex; mode=display">
-\left\{\begin{align}&Ly=b,\\&Ux=y.\end{align}\right.</script></li>
+<li>$$<br>\left{\begin{align}&amp;Ly=b,\&amp;Ux=y.\end{align}\right.<br>$$</li>
 </ul>
 <p>&emsp;&emsp;此外，$LU$分解也可用于对矩阵求逆，分别对三角矩阵$L$和$U$求逆比直接对$A$求逆的计算复杂度低很多。假设$PA=LU$，则</p>
 <ul>
-<li><script type="math/tex; mode=display">
-A^{-1}=U^{-1}L^{-1}P</script></li>
+<li>$$<br>A^{-1}=U^{-1}L^{-1}P<br>$$</li>
 </ul>
 <p>&emsp;&emsp;并不是每个非奇异矩阵都存在$LU$分解。</p>
 <blockquote>
@@ -788,141 +786,59 @@ A^{-1}=U^{-1}L^{-1}P</script></li>
 </blockquote>
 <h3 id="1-2-LU-分解的实现方式"><a href="#1-2-LU-分解的实现方式" class="headerlink" title="1.2 $LU$分解的实现方式"></a>1.2 $LU$分解的实现方式</h3><h4 id="1-2-1-Gauss消元法"><a href="#1-2-1-Gauss消元法" class="headerlink" title="1.2.1 Gauss消元法"></a>1.2.1 Gauss消元法</h4><p>&emsp;&emsp;Gauss消元法的本质是通过Gauss变换（矩阵初等变换的组合）来构造$A$的$LU$分解。给定一个矩阵</p>
 <ul>
-<li><script type="math/tex; mode=display">
-A = \left[ {\begin{array}{*{20}{c}}
-a_{11}&a_{12}& \cdots &a_{1n}\\
-a_{21}&a_{22}& \cdots &a_{2n}\\
- \vdots &{}& \ddots &{}\\
-a_{n1}&a_{n2}& \cdots &a_{nn}
-\end{array}} \right] \in \mathbb{R}{^{n \times n}}</script></li>
-</ul>
-<ul>
+<li><p>$$<br>A = \left[ {\begin{array}{*{20}{c}}<br>a_{11}&amp;a_{12}&amp; \cdots &amp;a_{1n}\<br>a_{21}&amp;a_{22}&amp; \cdots &amp;a_{2n}\<br> \vdots &amp;{}&amp; \ddots &amp;{}\<br>a_{n1}&amp;a_{n2}&amp; \cdots &amp;a_{nn}<br>\end{array}} \right] \in \mathbb{R}{^{n \times n}}<br>$$</p>
+</li>
 <li><p>第一步，假定$a_{11}\ne 0$，构造矩阵</p>
 <ul>
-<li><script type="math/tex; mode=display">
-{L_1} = \left[ {\begin{array}{*{20}{c}}
-1&0&0& \cdots &0\\
-l_{21}&1&0& \cdots &0\\
-l_{31}&0&1& \cdots &0\\
- \vdots & \vdots &{}& \ddots &{}\\
-l_{n1}&0&0& \cdots &1
-\end{array}} \right],其中~l_{i1} = \frac{a_{i1}}{a_{11}},i = 2,3, \ldots ,n.</script></li>
+<li><p>$$<br>{L_1} = \left[ {\begin{array}{*{20}{c}}<br>1&amp;0&amp;0&amp; \cdots &amp;0\<br>l_{21}&amp;1&amp;0&amp; \cdots &amp;0\<br>l_{31}&amp;0&amp;1&amp; \cdots &amp;0\<br> \vdots &amp; \vdots &amp;{}&amp; \ddots &amp;{}\<br>l_{n1}&amp;0&amp;0&amp; \cdots &amp;1<br>\end{array}} \right],其中~l_{i1} = \frac{a_{i1}}{a_{11}},i = 2,3, \ldots ,n.<br>$$</p>
+</li>
 <li><p>易知$L_1$的逆为</p>
 </li>
-<li><script type="math/tex; mode=display">
-{L_1^{-1}} = \left[ {\begin{array}{*{20}{c}}
-1&0&0& \cdots &0\\
--l_{21}&1&0& \cdots &0\\
--l_{31}&0&1& \cdots &0\\
- \vdots & \vdots &{}& \ddots &{}\\
--l_{n1}&0&0& \cdots &1
-\end{array}} \right]</script></li>
+<li><p>$$<br>{L_1^{-1}} = \left[ {\begin{array}{*{20}{c}}<br>1&amp;0&amp;0&amp; \cdots &amp;0\<br>-l_{21}&amp;1&amp;0&amp; \cdots &amp;0\<br>-l_{31}&amp;0&amp;1&amp; \cdots &amp;0\<br> \vdots &amp; \vdots &amp;{}&amp; \ddots &amp;{}\<br>-l_{n1}&amp;0&amp;0&amp; \cdots &amp;1<br>\end{array}} \right]<br>$$</p>
+</li>
 <li><p>用$L_1^{-1}$左乘$A$，并将所得矩阵记为$A^{(1)}$，则</p>
 </li>
-<li><script type="math/tex; mode=display">
-A^{(1)}=L_{1}^{-1} A\left[\begin{array}{cccc}
-a_{11} & a_{12} & \cdots & a_{1 n} \\
-0 & a_{22}^{(1)} & \cdots & a_{2 n}^{(1)} \\
-\vdots & \vdots & \ddots & \\
-0 & a_{n 2}^{(1)} & \cdots & a_{n n}^{(1)}
-\end{array}\right]</script></li>
+<li><p>$$<br>A^{(1)}=L_{1}^{-1} A\left[\begin{array}{cccc}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1 n} \<br>0 &amp; a_{22}^{(1)} &amp; \cdots &amp; a_{2 n}^{(1)} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \<br>0 &amp; a_{n 2}^{(1)} &amp; \cdots &amp; a_{n n}^{(1)}<br>\end{array}\right]<br>$$</p>
+</li>
 <li><p>即左乘$L_1^{-1}$后, $A$的第一列中除第一个元素外其它都变为0。</p>
 </li>
 </ul>
 </li>
 <li><p>第二步，类似地，将上面的操作作用在$A^{(1)}$的子矩阵$A^{(1)}(2:n,2:n)$上，将其第一列除第一个元素外都变为0。也就是说，假定$a_{22}^{(1)}\ne 0$，构造矩阵</p>
 <ul>
-<li><script type="math/tex; mode=display">
-{L_1} = \left[ {\begin{array}{*{20}{c}}
-1&0&0& \cdots &0\\
-0&1&0& \cdots &0\\
-0&l_{32}&1& \cdots &0\\
- \vdots & \vdots &{}& \ddots &{}\\
-0&l_{n2}&0& \cdots &1
-\end{array}} \right],其中{l_{i2}} = \frac{a_{i2}^{(1)}}{a_{22}^{(1)}},i = 3,4, \ldots ,n.</script></li>
+<li><p>$$<br>{L_1} = \left[ {\begin{array}{*{20}{c}}<br>1&amp;0&amp;0&amp; \cdots &amp;0\<br>0&amp;1&amp;0&amp; \cdots &amp;0\<br>0&amp;l_{32}&amp;1&amp; \cdots &amp;0\<br> \vdots &amp; \vdots &amp;{}&amp; \ddots &amp;{}\<br>0&amp;l_{n2}&amp;0&amp; \cdots &amp;1<br>\end{array}} \right],其中{l_{i2}} = \frac{a_{i2}^{(1)}}{a_{22}^{(1)}},i = 3,4, \ldots ,n.<br>$$</p>
+</li>
 <li><p>用$L_2^{-1}$左乘$A^{(1)}$，所得矩阵记为$A^{(2)}$，则</p>
 </li>
-<li><script type="math/tex; mode=display">
-A^{(2)}=L_{2}^{-1} A^{(1)}=L_{2}^{-1} L_{1}^{-1} A=\left[\begin{array}{ccccc}
-a_{11} & a_{12} & a_{13} & \cdots & a_{1 n} \\
-0 & a_{22}^{(1)} & a_{23}^{(1)} & \cdots & a_{2 n}^{(1)} \\
-0 & 0 & a_{33}^{(2)} & \cdots & a_{3 n}^{(2)} \\
-\vdots & \vdots & \vdots & \ddots & \\
-0 & 0 & a_{n 3}^{(2)} & \cdots & a_{n n}^{(2)}
-\end{array}\right].</script></li>
-</ul>
+<li><p>$$<br>A^{(2)}=L_{2}^{-1} A^{(1)}=L_{2}^{-1} L_{1}^{-1} A=\left[\begin{array}{ccccc}<br>a_{11} &amp; a_{12} &amp; a_{13} &amp; \cdots &amp; a_{1 n} \<br>0 &amp; a_{22}^{(1)} &amp; a_{23}^{(1)} &amp; \cdots &amp; a_{2 n}^{(1)} \<br>0 &amp; 0 &amp; a_{33}^{(2)} &amp; \cdots &amp; a_{3 n}^{(2)} \<br>\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \<br>0 &amp; 0 &amp; a_{n 3}^{(2)} &amp; \cdots &amp; a_{n n}^{(2)}<br>\end{array}\right].<br>$$</p>
 </li>
-</ul>
-<ul>
 <li><p>依此类推，假定$a_{kk}^{(k-1)}\ne 0(k=3,4,\dots,n-1)$，则可以构造一系列矩阵$L3,L4,\dots,L_{n-1}$，使得</p>
 </li>
-<li><script type="math/tex; mode=display">
-L_{n-1}^{-1} \cdots L_{2}^{-1} L_{1}^{-1} A=\left[\begin{array}{ccccc}
-a_{11} & a_{12} & a_{13} & \cdots & a_{1 n} \\
-0 & a_{22}^{(1)} & a_{23}^{(1)} & \cdots & a_{2 n}^{(1)} \\
-0 & 0 & a_{33}^{(2)} & \cdots & a_{3 n}^{(2)} \\
-\vdots & \vdots & \vdots & \ddots & \\
-0 & 0 & 0 & \cdots & a_{n n}^{(n-1)}
-\end{array}\right]</script></li>
-</ul>
-<ul>
+<li><p>$$<br>L_{n-1}^{-1} \cdots L_{2}^{-1} L_{1}^{-1} A=\left[\begin{array}{ccccc}<br>a_{11} &amp; a_{12} &amp; a_{13} &amp; \cdots &amp; a_{1 n} \<br>0 &amp; a_{22}^{(1)} &amp; a_{23}^{(1)} &amp; \cdots &amp; a_{2 n}^{(1)} \<br>0 &amp; 0 &amp; a_{33}^{(2)} &amp; \cdots &amp; a_{3 n}^{(2)} \<br>\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \<br>0 &amp; 0 &amp; 0 &amp; \cdots &amp; a_{n n}^{(n-1)}<br>\end{array}\right]<br>$$</p>
+</li>
 <li><p>为一个上三角矩阵，即所需要分解得到的非奇异上三角矩阵$U$，并记</p>
 </li>
-<li><script type="math/tex; mode=display">
-L = {L_1}{L_2} \ldots {L_{n - 1}} = \left[ {\begin{array}{*{20}{c}}
-1&0&0& \cdots &0\\
-l_{21}&1&0& \cdots &0\\
-l_{31}&l_{32}&1& \cdots &0\\
- \vdots & \vdots &{}& \ddots &{}\\
-l_{n1}&l_{n2}&l_{n3}& \cdots &1
-\end{array}} \right]</script></li>
-</ul>
-<ul>
+<li><p>$$<br>L = {L_1}{L_2} \ldots {L_{n - 1}} = \left[ {\begin{array}{*{20}{c}}<br>1&amp;0&amp;0&amp; \cdots &amp;0\<br>l_{21}&amp;1&amp;0&amp; \cdots &amp;0\<br>l_{31}&amp;l_{32}&amp;1&amp; \cdots &amp;0\<br> \vdots &amp; \vdots &amp;{}&amp; \ddots &amp;{}\<br>l_{n1}&amp;l_{n2}&amp;l_{n3}&amp; \cdots &amp;1<br>\end{array}} \right]<br>$$</p>
+</li>
 <li><p>最终得到矩阵$A$的$LU$分解，即</p>
 </li>
-<li><script type="math/tex; mode=display">
-A=LU</script></li>
+<li><p>$$<br>A=LU<br>$$</p>
+</li>
+</ul>
+</li>
 </ul>
 <h4 id="1-2-2-待定系数法"><a href="#1-2-2-待定系数法" class="headerlink" title="1.2.2 待定系数法"></a>1.2.2 待定系数法</h4><p>&emsp;&emsp;假定$A$存在$LU$分解，即$A=LU$，或</p>
 <ul>
-<li><script type="math/tex; mode=display">
-\left[\begin{array}{ccccc}
-a_{11} & a_{12} & a_{13} & \cdots & a_{1 n} \\
-a_{21} & a_{22} & a_{23} & \cdots & a_{2 n} \\
-a_{31} & a_{32} & a_{33} & \cdots & a_{3 n} \\
-\vdots & & & \ddots & \vdots \\
-a_{n 1} & a_{n 2} & a_{n 3} & \cdots & a_{n n}
-\end{array}\right]=\left[\begin{array}{ccccccccc}
-1 & & & & \\
-l_{21} & 1 & & & \\
-l_{31} & l_{32} & 1 & & \\
-\vdots & & & \ddots & \\
-l_{n 1} & l_{n 2} & \cdots & l_{n, n-1} & 1
-\end{array}\right]\left[\begin{array}{ccccc}
-u_{11} & u_{12} & u_{13} & \cdots & u_{1 n} \\
-& u_{22} & u_{23} & \cdots & u_{2 n} \\
-& & u_{33} & \cdots & u_{2 n} \\
-& & & \ddots & \vdots \\
-& & & & & u_{n n}
-\end{array}\right]</script></li>
+<li>$$<br>\left[\begin{array}{ccccc}<br>a_{11} &amp; a_{12} &amp; a_{13} &amp; \cdots &amp; a_{1 n} \<br>a_{21} &amp; a_{22} &amp; a_{23} &amp; \cdots &amp; a_{2 n} \<br>a_{31} &amp; a_{32} &amp; a_{33} &amp; \cdots &amp; a_{3 n} \<br>\vdots &amp; &amp; &amp; \ddots &amp; \vdots \<br>a_{n 1} &amp; a_{n 2} &amp; a_{n 3} &amp; \cdots &amp; a_{n n}<br>\end{array}\right]=\left[\begin{array}{ccccccccc}<br>1 &amp; &amp; &amp; &amp; \<br>l_{21} &amp; 1 &amp; &amp; &amp; \<br>l_{31} &amp; l_{32} &amp; 1 &amp; &amp; \<br>\vdots &amp; &amp; &amp; \ddots &amp; \<br>l_{n 1} &amp; l_{n 2} &amp; \cdots &amp; l_{n, n-1} &amp; 1<br>\end{array}\right]\left[\begin{array}{ccccc}<br>u_{11} &amp; u_{12} &amp; u_{13} &amp; \cdots &amp; u_{1 n} \<br>&amp; u_{22} &amp; u_{23} &amp; \cdots &amp; u_{2 n} \<br>&amp; &amp; u_{33} &amp; \cdots &amp; u_{2 n} \<br>&amp; &amp; &amp; \ddots &amp; \vdots \<br>&amp; &amp; &amp; &amp; &amp; u_{n n}<br>\end{array}\right]<br>$$</li>
 </ul>
 <p>可以通过比较等式两边的元素来计算$L$和$U$中各元素的值。具体计算过程如下：</p>
 <ol>
-<li><p>比较等式两边的<strong>第一行</strong>，可得</p>
-<script type="math/tex; mode=display">
-u_{1j}=a_{1j},\quad j=1,2,\dots,n</script><p>再比较等式两边的<strong>第一列</strong>，可得</p>
-<script type="math/tex; mode=display">
-a_{i1}=l_{i1}u_{11}\Rightarrow l_{i1}=a_{i1}/u_{11},\quad i=2,3,\dots,n</script></li>
-<li><p>比较等式两边的<strong>第二行</strong>，可得</p>
-<script type="math/tex; mode=display">
-a_{2 j}=l_{21} u_{1 j}+u_{2 j} \Rightarrow u_{2 j}=a_{2 j}-l_{21} u_{1 j}, \quad j=2,3, \ldots, n</script><p>再比较等式两边的<strong>第二列</strong>，可得</p>
-<script type="math/tex; mode=display">
-a_{i2}=l_{i1} u_{12}+l_{i2}u_{22} \Rightarrow l_{i2}=(a_{i2}-l_{i1}u_{12})/u_{22}, \quad j=3,4, \ldots, n</script></li>
-<li><p>以此类推吗，第$k$步时，比较等式两边的<strong>第$k$行</strong>，可得</p>
-<script type="math/tex; mode=display">
-u_{k j}=a_{k j}-\left(l_{k 1} u_{1 j}+\cdots+l_{k, k-1} u_{k-1, j}\right), \quad j=k, k+1, \ldots, n</script><p>比较等式两边的<strong>第$k$列</strong>，可得</p>
-<script type="math/tex; mode=display">
-l_{i k}=\left(a_{i k}-l_{i 1} u_{1 k}-\cdots-l_{i, k-1} u_{k-1, k}\right) / u_{k k}, \quad i=k+1, k+2, \ldots, n</script></li>
+<li><p>比较等式两边的<strong>第一行</strong>，可得<br>$$<br>u_{1j}=a_{1j},\quad j=1,2,\dots,n<br>$$<br>再比较等式两边的<strong>第一列</strong>，可得<br>$$<br>a_{i1}=l_{i1}u_{11}\Rightarrow l_{i1}=a_{i1}/u_{11},\quad i=2,3,\dots,n<br>$$</p>
+</li>
+<li><p>比较等式两边的<strong>第二行</strong>，可得<br>$$<br>a_{2 j}=l_{21} u_{1 j}+u_{2 j} \Rightarrow u_{2 j}=a_{2 j}-l_{21} u_{1 j}, \quad j=2,3, \ldots, n<br>$$<br>再比较等式两边的<strong>第二列</strong>，可得<br>$$<br>a_{i2}=l_{i1} u_{12}+l_{i2}u_{22} \Rightarrow l_{i2}=(a_{i2}-l_{i1}u_{12})/u_{22}, \quad j=3,4, \ldots, n<br>$$</p>
+</li>
+<li><p>以此类推吗，第$k$步时，比较等式两边的<strong>第$k$行</strong>，可得<br>$$<br>u_{k j}=a_{k j}-\left(l_{k 1} u_{1 j}+\cdots+l_{k, k-1} u_{k-1, j}\right), \quad j=k, k+1, \ldots, n<br>$$<br>比较等式两边的<strong>第$k$列</strong>，可得<br>$$<br>l_{i k}=\left(a_{i k}-l_{i 1} u_{1 k}-\cdots-l_{i, k-1} u_{k-1, k}\right) / u_{k k}, \quad i=k+1, k+2, \ldots, n<br>$$</p>
+</li>
 </ol>
 <h3 id="1-3-条件更弱的LU分解定理（选主元-LU-分解）"><a href="#1-3-条件更弱的LU分解定理（选主元-LU-分解）" class="headerlink" title="1.3  条件更弱的LU分解定理（选主元$LU$分解）"></a>1.3  条件更弱的LU分解定理（选主元$LU$分解）</h3><p>&emsp;&emsp;在$LU$分解算法中，称$a_{kk}^{(k-1)}$为主元，若$a_{kk}^{(k-1)}=0$，算法无法进行下去；若$|a_{kk}^{(k-1)}|$值非常小，则因为舍入误差导致结果误差非常大。可通过选主元来解决此问题。</p>
 <p>&emsp;&emsp;选主元需要引入置换矩阵，其基本性质如下：</p>
@@ -935,9 +851,8 @@ l_{i k}=\left(a_{i k}-l_{i 1} u_{1 k}-\cdots-l_{i, k-1} u_{k-1, k}\right) / u_{k
 </blockquote>
 <p>&emsp;&emsp;另外选主元$LU$分解也不是一定存在的，其条件如下：</p>
 <blockquote>
-<p>定理（选主元$LU$分解的存在性）：设$A\subset{\mathbb{R}^{n\times n}}$非奇异，则存在置换矩阵$P_L,P_R$，以及单位下三角矩阵$L$和非奇异上三角矩阵$U$，使得</p>
-<script type="math/tex; mode=display">
-P_LAP_R=LU</script></blockquote>
+<p>定理（选主元$LU$分解的存在性）：设$A\subset{\mathbb{R}^{n\times n}}$非奇异，则存在置换矩阵$P_L,P_R$，以及单位下三角矩阵$L$和非奇异上三角矩阵$U$，使得<br>$$<br>P_LAP_R=LU<br>$$</p>
+</blockquote>
 <p>&emsp;&emsp;注意置换矩阵有两种选择方式：</p>
 <ul>
 <li><p>“全主元Gauss消元法”（GECP）：使主元为剩下矩阵中绝对值最大。</p>
@@ -953,14 +868,12 @@ P_LAP_R=LU</script></blockquote>
 <blockquote>
 <p>定理（$QR$分解）：设$A\in{\mathbb{C}^{m\times n}(m\ge n)}$，则存在一个单位列正交矩阵$Q\in \mathbb{C}^{m\times n}(即Q^*Q=I_{n\times n})$和一个上三角矩阵$R\in \mathbb{C}^{n\times n}$，使得</p>
 <ul>
-<li><script type="math/tex; mode=display">
-A=QR</script></li>
+<li>$$<br>A=QR<br>$$</li>
 </ul>
 <p>若$A$列满秩，则存在一个具有对角线元素的上三角矩阵$R$使得$A=QR$成立，且此时$QR$分解唯一，即$Q$和$R$都唯一。</p>
 <p>推论：设$A\in{\mathbb{C}^{m\times n}(m\ge n)}$，且秩为$l(0\le l\le n)$，则存在一个置换矩阵$P$，使得</p>
 <ul>
-<li><script type="math/tex; mode=display">
-AP=Q\left[\begin{align}&R_{11}~~R_{12}\\&~0~~~~~~~0\end{align}\right]_{n\times n},</script></li>
+<li>$$<br>AP=Q\left[\begin{align}&amp;R_{11}~~R_{12}\&amp;~0~~~~~~~0\end{align}\right]_{n\times n},<br>$$</li>
 </ul>
 <p>其中$Q\in \mathbb{C}^{m\times n}$单位列正交，$R_{11}\in \mathbb{C}^{l\times l}$是非奇异上三角矩阵。</p>
 </blockquote>
@@ -968,8 +881,7 @@ AP=Q\left[\begin{align}&R_{11}~~R_{12}\\&~0~~~~~~~0\end{align}\right]_{n\times n
 <blockquote>
 <p>定理（$SVD$）：设任意矩阵 $A ∈ \mathbb C^{m×n} (m ≥ n)$，则存在酉矩阵$U\in \mathbb C^{m\times m}$和$V\in \mathbb C^{n\times n}$，使得</p>
 <ul>
-<li><script type="math/tex; mode=display">
-U^{*} A V=\left[\begin{array}{l}\Sigma_r&0\\ 0&0\end{array}\right] \quad 或 \quad A=U\left[\begin{array}{l}\Sigma_r&0\\ 0&0\end{array}\right]  V^{*}</script></li>
+<li>$$<br>U^{<em>} A V=\left[\begin{array}{l}\Sigma_r&amp;0\ 0&amp;0\end{array}\right] \quad 或 \quad A=U\left[\begin{array}{l}\Sigma_r&amp;0\ 0&amp;0\end{array}\right]  V^{</em>}<br>$$</li>
 </ul>
 <p>其中$\sum=\mathrm{diag}(\sigma_1,\sigma_2,\ldots,\sigma_r)\in \mathbb R^{r\times r}$，且$\sigma_1\ge\sigma_2\ge\ldots\ge\sigma_r\ge0$。该分解称为$A$的奇异值分解（$SVD$）,而 $\sigma_1,\sigma_2,\ldots,\sigma_r$ 称为$A$的奇异值（特征值），$r$ 是矩阵 $A$ 的秩。</p>
 </blockquote>
@@ -985,19 +897,15 @@ U^{*} A V=\left[\begin{array}{l}\Sigma_r&0\\ 0&0\end{array}\right] \quad 或 \qu
 </blockquote>
 <p>&emsp;&emsp;基于对称正定的$Cholesky$分解：</p>
 <blockquote>
-<p>定理（$Cholesky$分解）：设$A\in\mathbb R^{n\times n}$对称正定，则存在唯一的对角线元素为正的下三角矩阵$L$，使得</p>
-<script type="math/tex; mode=display">
-A=LL^T</script><p>该分解称为$Cholesky$分解。</p>
+<p>定理（$Cholesky$分解）：设$A\in\mathbb R^{n\times n}$对称正定，则存在唯一的对角线元素为正的下三角矩阵$L$，使得<br>$$<br>A=LL^T<br>$$<br>该分解称为$Cholesky$分解。</p>
 </blockquote>
 <h2 id="五、-Jordan-分解（-Jordan-标准型）"><a href="#五、-Jordan-分解（-Jordan-标准型）" class="headerlink" title="五、$Jordan$分解（$Jordan$标准型）"></a>五、$Jordan$分解（$Jordan$标准型）</h2><p>&emsp;&emsp;设$A\in\mathbb C^{n\times n}$，有$p$个不同特征值，则存在非奇异矩阵$X\in \mathbb C^{n\times n}$，使得</p>
 <ul>
-<li><script type="math/tex; mode=display">
-X^{-1} A X=\left[\begin{array}{cccc}J_{1} & & & \\ & J_{2} & & \\ & & \ddots & \\ & & & J_{q}\end{array}\right] \triangleq J</script></li>
+<li>$$<br>X^{-1} A X=\left[\begin{array}{cccc}J_{1} &amp; &amp; &amp; \ &amp; J_{2} &amp; &amp; \ &amp; &amp; \ddots &amp; \ &amp; &amp; &amp; J_{q}\end{array}\right] \triangleq J<br>$$</li>
 </ul>
 <p>&emsp;&emsp;其中$J_i$的维数等于$\lambda_i$的代数重数，且具有下面的结构：</p>
 <ul>
-<li><script type="math/tex; mode=display">
-J_{i}=\left[\begin{array}{llll}J_{i 1} & & & \\ & J_{i 2} & & \\ & & \ddots & \\ & & & J_{i \nu_{i}}\end{array}\right], \quad J_{i k}=\left[\begin{array}{cccc}\lambda_{i} & 1 & & \\ & \ddots & \ddots & \\ & & \lambda_{i} & 1 \\ & & & \lambda_{i}\end{array}\right]</script></li>
+<li>$$<br>J_{i}=\left[\begin{array}{llll}J_{i 1} &amp; &amp; &amp; \ &amp; J_{i 2} &amp; &amp; \ &amp; &amp; \ddots &amp; \ &amp; &amp; &amp; J_{i \nu_{i}}\end{array}\right], \quad J_{i k}=\left[\begin{array}{cccc}\lambda_{i} &amp; 1 &amp; &amp; \ &amp; \ddots &amp; \ddots &amp; \ &amp; &amp; \lambda_{i} &amp; 1 \ &amp; &amp; &amp; \lambda_{i}\end{array}\right]<br>$$</li>
 </ul>
 <p>&emsp;&emsp;这里的$v_i$为$\lambda_i$的几何重数，$J_{ik}$为（对应于$\lambda_i$的）$Jordan$块。</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
@@ -1915,7 +1823,7 @@ J_{i}=\left[\begin{array}{llll}J_{i 1} & & & \\ & J_{i 2} & & \\ & & \ddots & \\
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">72.3k</span>&nbsp;字
+                class="white-color">75.2k</span>&nbsp;字
             
 
 			
@@ -2191,12 +2099,12 @@ $(function () {
 		color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"> 
 	</script>
 
-<script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script><script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
 
 </html>
