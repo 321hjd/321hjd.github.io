@@ -776,7 +776,7 @@
 <ol>
 <li><p>最速下降法是梯度下降法和一维搜索的结合</p>
 </li>
-<li><p>梯度下降法采用<strong>一阶泰勒展开式</strong>对函数近似，然后将变量沿着负梯度方向（下降最快的方向）移动一定的步长，目标函数就会一直减小，直至接近极小值<br>$$<br>&amp;f(x) \approx f\left(x_{0}\right)+\nabla f(x)\left(x-x_{0}\right)\<br>&amp;d^{(k)}=-\nabla f(x)\<br>&amp;x^{(k)+1}=x^{(k)}+\lambda d^{(k)}<br>$$</p>
+<li><p>梯度下降法采用<strong>一阶泰勒展开式</strong>对函数近似，然后将变量沿着负梯度方向（下降最快的方向）移动一定的步长，目标函数就会一直减小，直至接近极小值<br>$$<br>f(x) \approx f\left(x_{0}\right)+\nabla f(x)\left(x-x_{0}\right)\<br>d^{(k)}=-\nabla f(x)\<br>x^{(k)+1}=x^{(k)}+\lambda d^{(k)}<br>$$</p>
 </li>
 <li><p>步长的确定。让变量在负梯度方向走一段能让函数值最小的距离。可通过求解下式得到（一般通过令其对 $\lambda$ 求导为0直接求解或通过一维搜索算法如试探法、函数逼近法迭代求解）。<br>$$<br>\lambda_k=\arg\min _\limits{\lambda \geq 0} f\left(x^{(k)}+\lambda d^{(k)}\right)<br>$$</p>
 </li>
@@ -820,7 +820,7 @@
 </li>
 <li><p>近似极小值点。将近似得到二阶函数的极小值点作为原函数极小值点的近似，并不断重复这一近似的过程，直至得到满足精度要求的极小值点</p>
 </li>
-<li><p>终止条件仍然是满足梯度趋近于0<br>$$<br>&amp;f(x) \approx f\left(x^{(k)}\right)+\nabla f(x)\left(x-x^{(k)}\right)+\frac{1}{2}\nabla^2 f(x)\left(x-x^{(k)}\right)^2\<br>&amp;f’(x^{(k)})=\nabla f(x^{(k)})+\nabla^2 f(x^{(k)})\left(x-x^{(k)}\right)=0\<br>&amp;x^{(k+1)}=x^{(k)}-\frac{\nabla f(x^{(k)})}{\nabla^2 f(x^{(k)})}<br>$$</p>
+<li><p>终止条件仍然是满足梯度趋近于0<br>$$<br>f(x) \approx f\left(x^{(k)}\right)+\nabla f(x)\left(x-x^{(k)}\right)+\frac{1}{2}\nabla^2 f(x)\left(x-x^{(k)}\right)^2\<br>f’(x^{(k)})=\nabla f(x^{(k)})+\nabla^2 f(x^{(k)})\left(x-x^{(k)}\right)=0\<br>x^{(k+1)}=x^{(k)}-\frac{\nabla f(x^{(k)})}{\nabla^2 f(x^{(k)})}<br>$$</p>
 </li>
 </ol>
 <p><strong>算法步骤</strong></p>
