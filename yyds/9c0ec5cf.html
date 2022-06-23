@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="矩阵分解算法, hjd&#39;blog">
+    <meta name="keywords" content="拟牛顿法, hjd&#39;blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>矩阵分解算法 | hjd&#39;blog</title>
+    <title>拟牛顿法 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/awesome/css/all.css">
@@ -583,12 +583,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">矩阵分解算法</h1>
+                    <h1 class="description center-align post-title">拟牛顿法</h1>
                 </div>
             </div>
         </div>
@@ -704,8 +704,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/">
-                                <span class="chip bg-color">矩阵分解</span>
+                            <a href="/tags/%E5%9F%BA%E4%BA%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">
+                                <span class="chip bg-color">基于导数的优化方法</span>
                             </a>
                         
                     </div>
@@ -716,8 +716,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%9F%A9%E9%98%B5/" class="post-category">
-                                矩阵
+                            <a href="/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" class="post-category">
+                                最优化方法
                             </a>
                         
                     </div>
@@ -729,28 +729,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-01-05
+                    2022-06-23
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-04-21
+                    2022-06-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    1.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    8 分
                 </div>
                 
 
@@ -769,149 +769,62 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>接触到通信中的下行链路预编码，其中很多线性预编码方法涉及到矩阵求逆，而矩阵求逆的计算复杂度随着维度增加而剧增，因此出现了很多基于矩阵分解的简化求逆方法。在总结预编码方法时发现当时学线性代数好像只接触了LU分解和SVD分解，故在此对常见的一些矩阵分解算法做个记录以便查询。后续也许会系统学习矩阵计算相关并记录。也许。。。资料来源于网络上各大佬的博客以及潘建瑜老师的《矩阵计算》讲义。侵删~</p>
+<p>拟牛顿法的基本思想是用不包含二阶导数的矩阵近似牛顿法中的 Hessian 矩阵的逆矩阵，从而避免计算二阶导。拟牛顿法具有二次终止性，且对于一般情形具有 n 步二级收敛速率。缺点是所需存储量较大。是求解无约束最优化问题最有效的一类方法。</p>
 </blockquote>
-<h2 id="一、-LU-分解"><a href="#一、-LU-分解" class="headerlink" title="一、$LU$分解"></a>一、$LU$分解</h2><h3 id="1-1-LU-分解定理"><a href="#1-1-LU-分解定理" class="headerlink" title="1.1 $LU$分解定理"></a>1.1 $LU$分解定理</h3><p>&emsp;&emsp;$LU$分解实质就是将系数矩阵$A$分解为$L$和$U$两个矩阵的乘积。其中$L$是单位下三角矩阵，$U$为非奇异上三角矩阵。</p>
-<p>&emsp;&emsp;假定矩阵$A$存在$LU$分解，则原方程$Ax=b$就将转化为求解下面两个三角方程组，而三角方程组的求解非常容易求解。</p>
+<h2 id="一、拟牛顿条件"><a href="#一、拟牛顿条件" class="headerlink" title="一、拟牛顿条件"></a>一、拟牛顿条件</h2><p>&emsp;&emsp;牛顿法的迭代公式为：<br>$$<br>\boldsymbol{x}^{(k+1)}=\boldsymbol{x}^{(k)}+\lambda_k\boldsymbol{d}^{(k)}<br>$$<br>其中， $\lambda_k$ 是沿着牛顿方向搜索的步长， $\boldsymbol{d}^{(k)}$ 是在点 $\boldsymbol{x}^{(k)}$ 处的牛顿方向：<br>$$<br>\boldsymbol{d}^{(k)}=-\nabla^2f(\boldsymbol{x}^{(k)})^{-1}\nabla f(\boldsymbol{x}^{(k)})<br>$$<br>&emsp;&emsp;为构造 $\nabla^2f(\boldsymbol{x}^{(k)})^{-1}$ 的近似矩阵 $\bold{H}<em>k$ ，先分析 $\nabla^2f(\boldsymbol{x}^{(k)})^{-1}$ 与一阶导数的关系。假设在第 $k$ 次迭代后得到点 $\boldsymbol{x}^{(k+1)}$ ，在该点处将目标函数进行二阶 Taylor 近似：<br>$$<br>\begin{aligned}<br>f(\boldsymbol{x}) \approx &amp; f\left({\boldsymbol{x}}^{(k+1)}\right)+\nabla f\left({\boldsymbol{x}}^{(k+1)}\right)^{\mathrm{T}}\left({\boldsymbol{x}}-{\boldsymbol{x}}^{(k+1)}\right) \<br>&amp;+\frac{1}{2}\left({\boldsymbol{x}}-{\boldsymbol{x}}^{(k+1)}\right)^{\mathrm{T}} \nabla^{2} f\left({\boldsymbol{x}}^{(k+1)}\right)\left({\boldsymbol{x}}-{\boldsymbol{x}}^{(k+1)}\right)<br>\end{aligned}<br>$$<br>因此在 $\boldsymbol{x}^{(k+1)}$ 附近有（移项然后按求导定义变换）：<br>$$<br>\nabla f(\boldsymbol{x}) \approx \nabla f\left(\boldsymbol{x}^{(k+1)}\right)+\nabla^{2} f\left(\boldsymbol{x}^{(k+1)}\right)\left(\boldsymbol{x}-\boldsymbol{x}^{(k+1)}\right)<br>$$<br>令 $\boldsymbol{x}=\boldsymbol{x}^{(k)}$ ，则<br>$$<br>\nabla f\left({\boldsymbol{x}}^{(k)}\right) \approx \nabla f\left({\boldsymbol{x}}^{(k+1)}\right)+\nabla^{2} f\left({\boldsymbol{x}}^{(k+1)}\right)\left({\boldsymbol{x}}^{(k)}-{\boldsymbol{x}}^{(k+1)}\right)<br>$$<br>记：<br>$$<br>\begin{aligned}<br>&amp;\boldsymbol{p}^{(k)}={\boldsymbol{x}}^{(k+1)}-{\boldsymbol{x}}^{(k)} \<br>&amp;\boldsymbol{q}^{(k)}=\nabla f\left({\boldsymbol{x}}^{(k+1)}\right)-\nabla f\left({\boldsymbol{x}}^{(k)}\right)<br>\end{aligned}<br>$$<br>则有：<br>$$<br>\boldsymbol{q}^{(k)} \approx \nabla^{2} f\left(\boldsymbol{x}^{(k+1)}\right) \boldsymbol{p}^{(k)}<br>$$<br>假设 Hessian 矩阵 $\nabla^{2} f\left(\boldsymbol{x}^{(k+1)}\right) $ 可逆，则有（<strong>Hessian矩阵的逆与一阶导的关系式</strong>）：<br>$$<br>\boldsymbol{p}^{(k)} \approx \nabla^{2} f\left({\boldsymbol{x}}^{(k+1)}\right)^{-1} \boldsymbol{q}^{(k)}<br>$$<br>因此当计算出 $\boldsymbol{p}^{(k)}$ 和 $\boldsymbol{q}^{(k)}$ 后，就可以根据上式估计出点 $\boldsymbol{x}^{(k+1)}$ 处的 Hessian 矩阵的逆，因此可用不包含二阶导数的矩阵 $\bold{H}</em>{k+1}$ 替代 $\nabla^{2} f\left({\boldsymbol{x}}^{(k+1)}\right)^{-1}$ ，需要满足：<br>$$<br>\boldsymbol{p}^{(k)}=\bold{H}_{k+1}\boldsymbol{q}^{(k)}<br>$$<br>称之为<strong>拟牛顿条件</strong>。</p>
+<h2 id="二、秩-1-校正"><a href="#二、秩-1-校正" class="headerlink" title="二、秩 1 校正"></a>二、秩 1 校正</h2><p><strong>原理</strong></p>
+<p>&emsp;&emsp;当 $\nabla^{2} f\left({\boldsymbol{x}}^{(k)}\right)^{-1}$ 是 $n$ 阶<strong>对称正定</strong>矩阵时，满足拟牛顿条件的矩阵 $\bold{H}<em>{k}$ 也应该是 $n$ 阶对称正定矩阵。这种近似矩阵的一般构造策略是：初始的 $\bold{H}</em>{k}$ （$k=1$）取任意一个 $n$ 阶对称正定矩阵（一般取单位矩阵 $I$ ），然后通过修正  $\bold{H}<em>{k}$ 给出  $\bold{H}</em>{k+1}$ ，令<br>$$<br>\bold{H}<em>{k+1}=\bold{H}</em>{k}+\Delta\bold{H}<em>{k}<br>$$<br>其中，$\Delta\bold{H}</em>{k}$ 称为<strong>校正矩阵</strong>。</p>
+<p>&emsp;&emsp;确定 $\Delta\bold{H}<em>{k}$ 的方法之一是令<br>$$<br>\Delta\bold{H}</em>{k}=\alpha_{k} \boldsymbol{z}^{(k)}\left(\boldsymbol{z}^{(k)}\right)^{\mathrm{T}}<br>$$<br>这样得到的 $\Delta\bold{H}<em>{k}$ 是一个秩为1的对称矩阵，$\boldsymbol{z}^{(k)}$ 的选择应使得拟牛顿条件得到满足，因此<br>$$<br>\boldsymbol{p}^{(k)}=\bold{H}</em>{k} \boldsymbol{q}^{(k)}+\alpha_{k} \boldsymbol{z}^{(k)} \boldsymbol{z}^{(k) \mathrm{T}} \boldsymbol{q}^{(k)}<br>$$<br>等式两端同乘 $\boldsymbol{q}^{(k)\mathrm{T}}$ ，整理可得到<br>$$<br>\boldsymbol{q}^{(k) \mathrm{T}}\left(\boldsymbol{p}^{(k)}-\bold{H}<em>{k} \boldsymbol{q}^{(k)}\right)=\alpha</em>{k}\left(\boldsymbol{z}^{(k) \mathrm{T}} \boldsymbol{q}^{(k)}\right)^{2}<br>$$<br>另外<br>$$<br>\boldsymbol{z}^{(k)}=\frac{\boldsymbol{p}^{(k)}-\bold{H}<em>{k} \boldsymbol{q}^{(k)}}{\alpha</em>{k} \boldsymbol{z}^{(k) \mathrm{T}} \boldsymbol{q}^{(k)}}<br>$$<br>从而可得到 <strong>秩1校正公式</strong>：<br>$$<br>\bold{H}<em>{k+1}=\bold{H}</em>{k}+\frac{\left(\boldsymbol{p}^{(k)}-\bold{H}<em>{k} \boldsymbol{q}^{(k)}\right)\left(\boldsymbol{p}^{(k)}-\bold{H}</em>{k} \boldsymbol{q}^{(k)}\right)^{\mathrm{T}}}{\boldsymbol{q}^{(k) T}\left(\boldsymbol{p}^{(k)}-\bold{H}_{k} \boldsymbol{q}^{(k)}\right)}<br>$$<br><strong>用法</strong></p>
+<p>在利用该公式进行极小化目标函数 $f(x)$ 时，第 $k$ 次迭代中令搜索方向为<br>$$<br>\boldsymbol{d}^{(k)}=-\bold{H}<em>{k} \nabla f\left(\boldsymbol{x}^{(k)}\right)<br>$$<br>然后沿着该搜索方向搜索，计算步长 $\lambda_k$ ，从而确定后继点 $x^{(k+1)}$ 。进而计算后继点  $x^{(k+1)}$ 处的梯度 $\nabla f(\boldsymbol{x}^{(k+1)})$ 以及 $\boldsymbol{p}^{(k)}$ 和 $\boldsymbol{q}^{(k)}$ ，再利用 秩1校正公式 计算 $\bold{H}</em>{k+1}$ ，接着继续计算搜索方向 $\boldsymbol{d}^{(k+1)}$。以此类推直至满足算法的终止条件（最大迭代次数或精度要求）。</p>
+<p><strong>优缺点</strong></p>
 <ul>
-<li>$$<br>\left{\begin{align}&amp;Ly=b,\&amp;Ux=y.\end{align}\right.<br>$$</li>
-</ul>
-<p>&emsp;&emsp;此外，$LU$分解也可用于对矩阵求逆，分别对三角矩阵$L$和$U$求逆比直接对$A$求逆的计算复杂度低很多。假设$PA=LU$，则</p>
-<ul>
-<li>$$<br>A^{-1}=U^{-1}L^{-1}P<br>$$</li>
-</ul>
-<p>&emsp;&emsp;并不是每个非奇异矩阵都存在$LU$分解。</p>
-<blockquote>
-<p>定理（$LU$分解的存在性和唯一性）：矩阵$A \in \mathbb{R}^{n \times n}$存在$LU$分解（即存在单位下三角矩阵$L$和非奇异上三角矩阵$U$使得$A=LU$）的充要条件是$A$的所有顺序主子式都非奇异（行列式非零）。进一步地，若$A$存在 $LU$分解, 则分解是唯一的。                    </p>
-</blockquote>
-<h3 id="1-2-LU-分解的实现方式"><a href="#1-2-LU-分解的实现方式" class="headerlink" title="1.2 $LU$分解的实现方式"></a>1.2 $LU$分解的实现方式</h3><h4 id="1-2-1-Gauss消元法"><a href="#1-2-1-Gauss消元法" class="headerlink" title="1.2.1 Gauss消元法"></a>1.2.1 Gauss消元法</h4><p>&emsp;&emsp;Gauss消元法的本质是通过Gauss变换（矩阵初等变换的组合）来构造$A$的$LU$分解。给定一个矩阵</p>
-<ul>
-<li><p>$$<br>A = \left[ {\begin{array}{*{20}{c}}<br>a_{11}&amp;a_{12}&amp; \cdots &amp;a_{1n}\<br>a_{21}&amp;a_{22}&amp; \cdots &amp;a_{2n}\<br> \vdots &amp;{}&amp; \ddots &amp;{}\<br>a_{n1}&amp;a_{n2}&amp; \cdots &amp;a_{nn}<br>\end{array}} \right] \in \mathbb{R}{^{n \times n}}<br>$$</p>
-</li>
-<li><p>第一步，假定$a_{11}\ne 0$，构造矩阵</p>
-<ul>
-<li><p>$$<br>{L_1} = \left[ {\begin{array}{*{20}{c}}<br>1&amp;0&amp;0&amp; \cdots &amp;0\<br>l_{21}&amp;1&amp;0&amp; \cdots &amp;0\<br>l_{31}&amp;0&amp;1&amp; \cdots &amp;0\<br> \vdots &amp; \vdots &amp;{}&amp; \ddots &amp;{}\<br>l_{n1}&amp;0&amp;0&amp; \cdots &amp;1<br>\end{array}} \right],其中~l_{i1} = \frac{a_{i1}}{a_{11}},i = 2,3, \ldots ,n.<br>$$</p>
-</li>
-<li><p>易知$L_1$的逆为</p>
-</li>
-<li><p>$$<br>{L_1^{-1}} = \left[ {\begin{array}{*{20}{c}}<br>1&amp;0&amp;0&amp; \cdots &amp;0\<br>-l_{21}&amp;1&amp;0&amp; \cdots &amp;0\<br>-l_{31}&amp;0&amp;1&amp; \cdots &amp;0\<br> \vdots &amp; \vdots &amp;{}&amp; \ddots &amp;{}\<br>-l_{n1}&amp;0&amp;0&amp; \cdots &amp;1<br>\end{array}} \right]<br>$$</p>
-</li>
-<li><p>用$L_1^{-1}$左乘$A$，并将所得矩阵记为$A^{(1)}$，则</p>
-</li>
-<li><p>$$<br>A^{(1)}=L_{1}^{-1} A\left[\begin{array}{cccc}<br>a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1 n} \<br>0 &amp; a_{22}^{(1)} &amp; \cdots &amp; a_{2 n}^{(1)} \<br>\vdots &amp; \vdots &amp; \ddots &amp; \<br>0 &amp; a_{n 2}^{(1)} &amp; \cdots &amp; a_{n n}^{(1)}<br>\end{array}\right]<br>$$</p>
-</li>
-<li><p>即左乘$L_1^{-1}$后, $A$的第一列中除第一个元素外其它都变为0。</p>
-</li>
-</ul>
-</li>
-<li><p>第二步，类似地，将上面的操作作用在$A^{(1)}$的子矩阵$A^{(1)}(2:n,2:n)$上，将其第一列除第一个元素外都变为0。也就是说，假定$a_{22}^{(1)}\ne 0$，构造矩阵</p>
-<ul>
-<li><p>$$<br>{L_1} = \left[ {\begin{array}{*{20}{c}}<br>1&amp;0&amp;0&amp; \cdots &amp;0\<br>0&amp;1&amp;0&amp; \cdots &amp;0\<br>0&amp;l_{32}&amp;1&amp; \cdots &amp;0\<br> \vdots &amp; \vdots &amp;{}&amp; \ddots &amp;{}\<br>0&amp;l_{n2}&amp;0&amp; \cdots &amp;1<br>\end{array}} \right],其中{l_{i2}} = \frac{a_{i2}^{(1)}}{a_{22}^{(1)}},i = 3,4, \ldots ,n.<br>$$</p>
-</li>
-<li><p>用$L_2^{-1}$左乘$A^{(1)}$，所得矩阵记为$A^{(2)}$，则</p>
-</li>
-<li><p>$$<br>A^{(2)}=L_{2}^{-1} A^{(1)}=L_{2}^{-1} L_{1}^{-1} A=\left[\begin{array}{ccccc}<br>a_{11} &amp; a_{12} &amp; a_{13} &amp; \cdots &amp; a_{1 n} \<br>0 &amp; a_{22}^{(1)} &amp; a_{23}^{(1)} &amp; \cdots &amp; a_{2 n}^{(1)} \<br>0 &amp; 0 &amp; a_{33}^{(2)} &amp; \cdots &amp; a_{3 n}^{(2)} \<br>\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \<br>0 &amp; 0 &amp; a_{n 3}^{(2)} &amp; \cdots &amp; a_{n n}^{(2)}<br>\end{array}\right].<br>$$</p>
-</li>
-<li><p>依此类推，假定$a_{kk}^{(k-1)}\ne 0(k=3,4,\dots,n-1)$，则可以构造一系列矩阵$L3,L4,\dots,L_{n-1}$，使得</p>
-</li>
-<li><p>$$<br>L_{n-1}^{-1} \cdots L_{2}^{-1} L_{1}^{-1} A=\left[\begin{array}{ccccc}<br>a_{11} &amp; a_{12} &amp; a_{13} &amp; \cdots &amp; a_{1 n} \<br>0 &amp; a_{22}^{(1)} &amp; a_{23}^{(1)} &amp; \cdots &amp; a_{2 n}^{(1)} \<br>0 &amp; 0 &amp; a_{33}^{(2)} &amp; \cdots &amp; a_{3 n}^{(2)} \<br>\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \<br>0 &amp; 0 &amp; 0 &amp; \cdots &amp; a_{n n}^{(n-1)}<br>\end{array}\right]<br>$$</p>
-</li>
-<li><p>为一个上三角矩阵，即所需要分解得到的非奇异上三角矩阵$U$，并记</p>
-</li>
-<li><p>$$<br>L = {L_1}{L_2} \ldots {L_{n - 1}} = \left[ {\begin{array}{*{20}{c}}<br>1&amp;0&amp;0&amp; \cdots &amp;0\<br>l_{21}&amp;1&amp;0&amp; \cdots &amp;0\<br>l_{31}&amp;l_{32}&amp;1&amp; \cdots &amp;0\<br> \vdots &amp; \vdots &amp;{}&amp; \ddots &amp;{}\<br>l_{n1}&amp;l_{n2}&amp;l_{n3}&amp; \cdots &amp;1<br>\end{array}} \right]<br>$$</p>
-</li>
-<li><p>最终得到矩阵$A$的$LU$分解，即</p>
-</li>
-<li><p>$$<br>A=LU<br>$$</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-2-2-待定系数法"><a href="#1-2-2-待定系数法" class="headerlink" title="1.2.2 待定系数法"></a>1.2.2 待定系数法</h4><p>&emsp;&emsp;假定$A$存在$LU$分解，即$A=LU$，或</p>
-<ul>
-<li>$$<br>\left[\begin{array}{ccccc}<br>a_{11} &amp; a_{12} &amp; a_{13} &amp; \cdots &amp; a_{1 n} \<br>a_{21} &amp; a_{22} &amp; a_{23} &amp; \cdots &amp; a_{2 n} \<br>a_{31} &amp; a_{32} &amp; a_{33} &amp; \cdots &amp; a_{3 n} \<br>\vdots &amp; &amp; &amp; \ddots &amp; \vdots \<br>a_{n 1} &amp; a_{n 2} &amp; a_{n 3} &amp; \cdots &amp; a_{n n}<br>\end{array}\right]=\left[\begin{array}{ccccccccc}<br>1 &amp; &amp; &amp; &amp; \<br>l_{21} &amp; 1 &amp; &amp; &amp; \<br>l_{31} &amp; l_{32} &amp; 1 &amp; &amp; \<br>\vdots &amp; &amp; &amp; \ddots &amp; \<br>l_{n 1} &amp; l_{n 2} &amp; \cdots &amp; l_{n, n-1} &amp; 1<br>\end{array}\right]\left[\begin{array}{ccccc}<br>u_{11} &amp; u_{12} &amp; u_{13} &amp; \cdots &amp; u_{1 n} \<br>&amp; u_{22} &amp; u_{23} &amp; \cdots &amp; u_{2 n} \<br>&amp; &amp; u_{33} &amp; \cdots &amp; u_{2 n} \<br>&amp; &amp; &amp; \ddots &amp; \vdots \<br>&amp; &amp; &amp; &amp; &amp; u_{n n}<br>\end{array}\right]<br>$$</li>
-</ul>
-<p>可以通过比较等式两边的元素来计算$L$和$U$中各元素的值。具体计算过程如下：</p>
+<li><p>优点</p>
 <ol>
-<li><p>比较等式两边的<strong>第一行</strong>，可得<br>$$<br>u_{1j}=a_{1j},\quad j=1,2,\dots,n<br>$$<br>再比较等式两边的<strong>第一列</strong>，可得<br>$$<br>a_{i1}=l_{i1}u_{11}\Rightarrow l_{i1}=a_{i1}/u_{11},\quad i=2,3,\dots,n<br>$$</p>
+<li>不需要计算 Hessian 矩阵并求逆；</li>
+<li>具有二次终止性，收敛性好。</li>
+</ol>
 </li>
-<li><p>比较等式两边的<strong>第二行</strong>，可得<br>$$<br>a_{2 j}=l_{21} u_{1 j}+u_{2 j} \Rightarrow u_{2 j}=a_{2 j}-l_{21} u_{1 j}, \quad j=2,3, \ldots, n<br>$$<br>再比较等式两边的<strong>第二列</strong>，可得<br>$$<br>a_{i2}=l_{i1} u_{12}+l_{i2}u_{22} \Rightarrow l_{i2}=(a_{i2}-l_{i1}u_{12})/u_{22}, \quad j=3,4, \ldots, n<br>$$</p>
+<li><p>缺点</p>
+<ol>
+<li><p>需要满足一定的条件；</p>
+<blockquote>
+<p>仅当 $\boldsymbol{q}^{(k) \mathrm{T}}\left(\boldsymbol{p}^{(k)}-\bold{H}<em>{k} \boldsymbol{q}^{(k)}\right)&gt;0$ ，所求 $\bold{H}</em>{k+1}$ 才具有正定性。</p>
+</blockquote>
 </li>
-<li><p>以此类推吗，第$k$步时，比较等式两边的<strong>第$k$行</strong>，可得<br>$$<br>u_{k j}=a_{k j}-\left(l_{k 1} u_{1 j}+\cdots+l_{k, k-1} u_{k-1, j}\right), \quad j=k, k+1, \ldots, n<br>$$<br>比较等式两边的<strong>第$k$列</strong>，可得<br>$$<br>l_{i k}=\left(a_{i k}-l_{i 1} u_{1 k}-\cdots-l_{i, k-1} u_{k-1, k}\right) / u_{k k}, \quad i=k+1, k+2, \ldots, n<br>$$</p>
+<li><p>并且上一点是无法保证的，即使满足条件，也可能由于舍入误差的影响，导致 $\Delta\bold{H}_k$ 无界，数值计算困难。</p>
 </li>
 </ol>
-<h3 id="1-3-条件更弱的LU分解定理（选主元-LU-分解）"><a href="#1-3-条件更弱的LU分解定理（选主元-LU-分解）" class="headerlink" title="1.3  条件更弱的LU分解定理（选主元$LU$分解）"></a>1.3  条件更弱的LU分解定理（选主元$LU$分解）</h3><p>&emsp;&emsp;在$LU$分解算法中，称$a_{kk}^{(k-1)}$为主元，若$a_{kk}^{(k-1)}=0$，算法无法进行下去；若$|a_{kk}^{(k-1)}|$值非常小，则因为舍入误差导致结果误差非常大。可通过选主元来解决此问题。</p>
-<p>&emsp;&emsp;选主元需要引入置换矩阵，其基本性质如下：</p>
-<blockquote>
-<p>设$P\subset{\mathbb{R}^{n\times n}}$为置换矩阵，$X\subset{\mathbb{R}^{n\times n}}$为任意矩阵，则</p>
-<p>（1）$PX$相当于将$X$的行进行置换；$XP$相当于对$X$的列进行置换；</p>
-<p>（2）$P^{-1}=P^T$，即$P$是正交矩阵；</p>
-<p>（3）$\det(P)=\pm1$;</p>
-<p>（4）置换矩阵的乘积仍然是置换矩阵。</p>
-</blockquote>
-<p>&emsp;&emsp;另外选主元$LU$分解也不是一定存在的，其条件如下：</p>
-<blockquote>
-<p>定理（选主元$LU$分解的存在性）：设$A\subset{\mathbb{R}^{n\times n}}$非奇异，则存在置换矩阵$P_L,P_R$，以及单位下三角矩阵$L$和非奇异上三角矩阵$U$，使得<br>$$<br>P_LAP_R=LU<br>$$</p>
-</blockquote>
-<p>&emsp;&emsp;注意置换矩阵有两种选择方式：</p>
-<ul>
-<li><p>“全主元Gauss消元法”（GECP）：使主元为剩下矩阵中绝对值最大。</p>
-</li>
-<li><p>“部分选主元Gauss消元法”（GEPP）：使主元为第$k$列第$k$到第$n$个元素中绝对值最大，此时$P_R^{(k)}=I$，因此也成为列主元Gauss消元法</p>
-<blockquote>
-<p>（1）GECP 比 GEPP 更稳定, 但工作量太大, 在实际应用中通常使用 GEPP 算法. </p>
-<p>（2）GEPP 算法能保证 L 所有的元素的绝对值都不超过 1.</p>
-</blockquote>
 </li>
 </ul>
-<h2 id="二、-QR-分解"><a href="#二、-QR-分解" class="headerlink" title="二、$QR$分解"></a>二、$QR$分解</h2><p>&emsp;&emsp;$QR$分解是将一个矩阵分解为一个正交矩阵（酉矩阵）和一个上三角矩阵的乘积。$QR$分解被广泛应用于线性最小二乘问题的求解和矩阵特征值的计算。</p>
-<blockquote>
-<p>定理（$QR$分解）：设$A\in{\mathbb{C}^{m\times n}(m\ge n)}$，则存在一个单位列正交矩阵$Q\in \mathbb{C}^{m\times n}(即Q^*Q=I_{n\times n})$和一个上三角矩阵$R\in \mathbb{C}^{n\times n}$，使得</p>
+<h2 id="三、DFP算法（变尺度法）"><a href="#三、DFP算法（变尺度法）" class="headerlink" title="三、DFP算法（变尺度法）"></a>三、DFP算法（变尺度法）</h2><p><strong>校正矩阵</strong><br>$$<br>\Delta \bold{H}<em>{k}=\frac{\boldsymbol{p}^{(k)} \boldsymbol{p}^{(k) T}}{\boldsymbol{p}^{(k) T} \boldsymbol{q}^{(k)}}-\frac{\bold{H}</em>{k} \boldsymbol{q}^{(k)} \boldsymbol{q}^{(k) \mathrm{T}} \bold{H}<em>{k}}{\boldsymbol{q}^{(k) T} \bold{H}</em>{k} \boldsymbol{q}^{(k)}}<br>$$<br><strong>DFP公式</strong></p>
+<p>这样定义的校正矩阵能够使得 $\bold{H}<em>{k+1}$ 满足拟牛顿条件，记为 <strong>DFP 公式</strong>，表示为<br>$$<br>\bold{H}</em>{k+1}=\bold{H}<em>{k}+\frac{\boldsymbol{p}^{(k)} \boldsymbol{p}^{(k) T}}{\boldsymbol{p}^{(k) T} \boldsymbol{q}^{(k)}}-\frac{\bold{H}</em>{k} \boldsymbol{q}^{(k)} \boldsymbol{q}^{(k) \mathrm{T}} \bold{H}<em>{k}}{\boldsymbol{q}^{(k) T} \bold{H}</em>{k} \boldsymbol{q}^{(k)}}<br>$$<br>其计算步骤与秩1校正公式近似：</p>
+<ol>
+<li><p>选取初始点 $x^{(1)}$ ，给定终止精度要求 $\varepsilon&gt;0$ 。</p>
+</li>
+<li><p>置 $\bold{H}<em>{1}=\bold{I}</em>{n}$ （单位矩阵），计算在点 $x^{(1)}$ 处的梯度<br>$$<br>\boldsymbol{g}_1=\nabla f(\boldsymbol{x}^{(1)})<br>$$<br>置 $k=1$ 。</p>
+</li>
+<li><p>搜索方向 $\boldsymbol d^{(k)}=-\bold H_{k} \boldsymbol g_{k}$ 。</p>
+</li>
+<li><p>从  $\boldsymbol x^{(k)}$ 出发，沿着 $\boldsymbol d^{(k)}$ 方向搜索，求出步长 $\lambda_k$ ，使得 $\lambda_k=\arg\min _\limits{\lambda \geq 0} f\left(\boldsymbol x^{(k)}+\lambda \boldsymbol d^{(k)}\right)$ 。然后迭代搜索点 $\boldsymbol x^{(k+1)}=\boldsymbol x^{(k)}+\lambda_k\boldsymbol d^{(k)}$ 。</p>
+</li>
+<li><p>检验是否达到终止条件（$\left|\nabla f\left(\boldsymbol{x}^{(k+1)}\right)\right| \leqslant \varepsilon$），若达到则终止迭代；否则进入第6步。</p>
+</li>
+<li><p>若 $k=n$ ，则令 $\boldsymbol x^{(1)}=\boldsymbol x^{(k+1)}$ ，返回步骤2；否则进入步骤7。 </p>
+</li>
+<li><p>令 $\boldsymbol g_{(k+1)}=\nabla f(\boldsymbol{x}^{(k+1)}),\boldsymbol p^{(k)}=\boldsymbol x^{(k+1)}-\boldsymbol x^{(k)}, \boldsymbol q^{(k)}=\boldsymbol g_{k+1}-\boldsymbol g_{k}$ 。利用 DFP 公式计算 $\bold{H}_{k+1}$ ，置 $k=k+1$ ，返回步骤3。</p>
+</li>
+</ol>
+<p><strong>优缺点</strong></p>
 <ul>
-<li>$$<br>A=QR<br>$$</li>
+<li>用 DFP 方法构造出来的 $\bold{H}_{k}$ 均为对称正定矩阵。</li>
+<li>具有二次终止性，且对于一般情形具有 n 步二级收敛速率。</li>
 </ul>
-<p>若$A$列满秩，则存在一个具有对角线元素的上三角矩阵$R$使得$A=QR$成立，且此时$QR$分解唯一，即$Q$和$R$都唯一。</p>
-<p>推论：设$A\in{\mathbb{C}^{m\times n}(m\ge n)}$，且秩为$l(0\le l\le n)$，则存在一个置换矩阵$P$，使得</p>
-<ul>
-<li>$$<br>AP=Q\left[\begin{align}&amp;R_{11}~~R_{12}\&amp;~0~~~~~~~0\end{align}\right]_{n\times n},<br>$$</li>
-</ul>
-<p>其中$Q\in \mathbb{C}^{m\times n}$单位列正交，$R_{11}\in \mathbb{C}^{l\times l}$是非奇异上三角矩阵。</p>
+<h2 id="四、BFGS公式及Broyden族"><a href="#四、BFGS公式及Broyden族" class="headerlink" title="四、BFGS公式及Broyden族"></a>四、BFGS公式及Broyden族</h2><blockquote>
+<p>另一种形式的拟牛顿条件（DFP公式的对偶公式）。</p>
+<p>参考《最优化理论与算法》P314页。</p>
 </blockquote>
-<h2 id="三、-SVD"><a href="#三、-SVD" class="headerlink" title="三、$SVD$"></a>三、$SVD$</h2><p>&emsp;&emsp;设 $A ∈ \mathbb C^{m×n} (m ≥ n)$，则$ A^∗A ∈\mathbb C^{n×n} $和$AA^∗ ∈ \mathbb C^{m×m}$都是 Hermite 半正定矩阵，且它们具有相同的非零特征值 (都是正实数)。</p>
-<blockquote>
-<p>定理（$SVD$）：设任意矩阵 $A ∈ \mathbb C^{m×n} (m ≥ n)$，则存在酉矩阵$U\in \mathbb C^{m\times m}$和$V\in \mathbb C^{n\times n}$，使得</p>
-<ul>
-<li>$$<br>U^{<em>} A V=\left[\begin{array}{l}\Sigma_r&amp;0\ 0&amp;0\end{array}\right] \quad 或 \quad A=U\left[\begin{array}{l}\Sigma_r&amp;0\ 0&amp;0\end{array}\right]  V^{</em>}<br>$$</li>
-</ul>
-<p>其中$\sum=\mathrm{diag}(\sigma_1,\sigma_2,\ldots,\sigma_r)\in \mathbb R^{r\times r}$，且$\sigma_1\ge\sigma_2\ge\ldots\ge\sigma_r\ge0$。该分解称为$A$的奇异值分解（$SVD$）,而 $\sigma_1,\sigma_2,\ldots,\sigma_r$ 称为$A$的奇异值（特征值），$r$ 是矩阵 $A$ 的秩。</p>
-</blockquote>
-<h2 id="四、-Cholesky-分解"><a href="#四、-Cholesky-分解" class="headerlink" title="四、$Cholesky$分解"></a>四、$Cholesky$分解</h2><p>&emsp;&emsp;对称正定矩阵的基本性质：</p>
-<blockquote>
-<p>设$A\in\mathbb R^{n\times n}$.</p>
-<ul>
-<li>$A$ 对称正定当且仅当 $A$ 对称且所有特征值都是正的；</li>
-<li>$A$ 对称正定当且仅当$X^TAX$ 对称正定，其中 $X\in R_{n×n} $是一个任意的非奇异矩阵；</li>
-<li>若 $A$ 对称正定，则 $A$ 的任意主子矩阵都对称正定；</li>
-<li>若 $A$ 对称正定，则 $A$ 的所有对角线元素都是正的，且 $\max_\limits{i\ne j} {|a_{ij}|} &lt; \max_\limits{i} {|a_{ii}|}$， 即绝对值最大的元素出现在对角线上。</li>
-</ul>
-</blockquote>
-<p>&emsp;&emsp;基于对称正定的$Cholesky$分解：</p>
-<blockquote>
-<p>定理（$Cholesky$分解）：设$A\in\mathbb R^{n\times n}$对称正定，则存在唯一的对角线元素为正的下三角矩阵$L$，使得<br>$$<br>A=LL^T<br>$$<br>该分解称为$Cholesky$分解。</p>
-</blockquote>
-<h2 id="五、-Jordan-分解（-Jordan-标准型）"><a href="#五、-Jordan-分解（-Jordan-标准型）" class="headerlink" title="五、$Jordan$分解（$Jordan$标准型）"></a>五、$Jordan$分解（$Jordan$标准型）</h2><p>&emsp;&emsp;设$A\in\mathbb C^{n\times n}$，有$p$个不同特征值，则存在非奇异矩阵$X\in \mathbb C^{n\times n}$，使得</p>
-<ul>
-<li>$$<br>X^{-1} A X=\left[\begin{array}{cccc}J_{1} &amp; &amp; &amp; \ &amp; J_{2} &amp; &amp; \ &amp; &amp; \ddots &amp; \ &amp; &amp; &amp; J_{q}\end{array}\right] \triangleq J<br>$$</li>
-</ul>
-<p>&emsp;&emsp;其中$J_i$的维数等于$\lambda_i$的代数重数，且具有下面的结构：</p>
-<ul>
-<li>$$<br>J_{i}=\left[\begin{array}{llll}J_{i 1} &amp; &amp; &amp; \ &amp; J_{i 2} &amp; &amp; \ &amp; &amp; \ddots &amp; \ &amp; &amp; &amp; J_{i \nu_{i}}\end{array}\right], \quad J_{i k}=\left[\begin{array}{cccc}\lambda_{i} &amp; 1 &amp; &amp; \ &amp; \ddots &amp; \ddots &amp; \ &amp; &amp; \lambda_{i} &amp; 1 \ &amp; &amp; &amp; \lambda_{i}\end{array}\right]<br>$$</li>
-</ul>
-<p>&emsp;&emsp;这里的$v_i$为$\lambda_i$的几何重数，$J_{ik}$为（对应于$\lambda_i$的）$Jordan$块。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/mucai1/article/details/85242098">几种矩阵分解算法： LU分解，Cholesky分解，QR分解，SVD分解，Jordan分解</a></li>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/363948873">矩阵的LU分解</a></li>
-<li><a target="_blank" rel="noopener" href="http://math.ecnu.edu.cn/~jypan/Teaching/MatrixComp/index.html">矩阵计算</a></li>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>《最优化理论与算法》陈宝林著。</li>
 </ul>
 
                 
@@ -939,7 +852,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://321hjd.github.io/yyds/83153ec8.html">https://321hjd.github.io/yyds/83153ec8.html</a>
+                    <a href="https://321hjd.github.io/yyds/9c0ec5cf.html">https://321hjd.github.io/yyds/9c0ec5cf.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -977,8 +890,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/">
-                                    <span class="chip bg-color">矩阵分解</span>
+                                <a href="/tags/%E5%9F%BA%E4%BA%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">
+                                    <span class="chip bg-color">基于导数的优化方法</span>
                                 </a>
                             
                         </div>
@@ -1487,49 +1400,47 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/yyds/e943bc7e.html">
+                <a href="/yyds/9c0ec5cf.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/机器学习.jpg" class="responsive-img" alt="1-概述及分类">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg" class="responsive-img" alt="拟牛顿法">
                         
-                        <span class="card-title">1-概述及分类</span>
+                        <span class="card-title">拟牛顿法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学习《吴恩达-机器学习》视频时做的笔记。
+                            拟牛顿法，用不包含二阶导数的矩阵近似牛顿法中的 Hessian 矩阵的逆矩阵，从而避免计算二阶导。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-23
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" class="post-category">
+                                    最优化方法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">吴恩达-机器学习</span>
+                    <a href="/tags/%E5%9F%BA%E4%BA%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">
+                        <span class="chip bg-color">基于导数的优化方法</span>
                     </a>
                     
                 </div>
@@ -1543,30 +1454,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yyds/a86e8493.html">
+                <a href="/yyds/a20e437d.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/network.jpg" class="responsive-img" alt="校园网组网实验方案">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg" class="responsive-img" alt="惩罚函数法">
                         
-                        <span class="card-title">校园网组网实验方案</span>
+                        <span class="card-title">惩罚函数法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            大四上-通信工程综合实验。基于3台交换机、2台路由器、一台防火墙和4台电脑搭建的局域网。实验对真实网络组建进行了模拟。记录一下留个纪念😂
+                            通过构造惩罚函数将约束问题转化为无约束问题，进而用无约束最优化方法求解。对目标函数凹凸性无要求，且结合启发式算法几乎可求解任意问题。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/" class="post-category">
-                                    课程实验
+                            <a href="/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" class="post-category">
+                                    最优化方法
                                 </a>
                             
                             
@@ -1576,8 +1487,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%BB%84%E5%BB%BA/">
-                        <span class="chip bg-color">局域网组建</span>
+                    <a href="/tags/%E6%83%A9%E7%BD%9A%E5%87%BD%E6%95%B0/">
+                        <span class="chip bg-color">惩罚函数</span>
                     </a>
                     
                 </div>
