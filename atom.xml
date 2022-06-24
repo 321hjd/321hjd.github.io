@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2022-06-23T14:10:59.567Z</updated>
+  <updated>2022-06-24T09:56:14.370Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>信赖域法</title>
+    <link href="https://321hjd.github.io/yyds/3b5150c4.html"/>
+    <id>https://321hjd.github.io/yyds/3b5150c4.html</id>
+    <published>2022-06-24T09:52:55.000Z</published>
+    <updated>2022-06-24T09:56:14.370Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;最速下降法、牛顿法、共轭梯度法均为线搜索法，其一般策略是给定点 $\boldsymbol{x}^{(k)}$ 后，定义搜索方向 $\boldsymbol{d}^{(k)}$ ，并沿着该方向进行一维搜索。而信赖域法的搜索范围是一个以</summary>
+        
+      
+    
+    
+    
+    <category term="最优化方法" scheme="https://321hjd.github.io/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/"/>
+    
+    
+    <category term="基于导数的优化方法" scheme="https://321hjd.github.io/tags/%E5%9F%BA%E4%BA%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>拟牛顿法</title>
     <link href="https://321hjd.github.io/yyds/9c0ec5cf.html"/>
     <id>https://321hjd.github.io/yyds/9c0ec5cf.html</id>
     <published>2022-06-23T14:09:55.000Z</published>
-    <updated>2022-06-23T14:10:59.567Z</updated>
+    <updated>2022-06-24T01:07:57.291Z</updated>
     
     
       
@@ -549,33 +575,6 @@
     
     
     <category term="局域网组建" scheme="https://321hjd.github.io/tags/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%BB%84%E5%BB%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用Ubuntu搭建内网DNS服务</title>
-    <link href="https://321hjd.github.io/yyds/c9587404.html"/>
-    <id>https://321hjd.github.io/yyds/c9587404.html</id>
-    <published>2021-11-05T14:18:31.000Z</published>
-    <updated>2021-12-10T13:19:32.823Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;一、前言&quot;&gt;&lt;a href=&quot;#一、前言&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="配置" scheme="https://321hjd.github.io/categories/%E9%85%8D%E7%BD%AE/"/>
-    
-    
-    <category term="DNS搭建" scheme="https://321hjd.github.io/tags/DNS%E6%90%AD%E5%BB%BA/"/>
-    
-    <category term="Ubuntu" scheme="https://321hjd.github.io/tags/Ubuntu/"/>
     
   </entry>
   

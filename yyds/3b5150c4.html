@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ZF预编码相关矩阵知识, hjd&#39;blog">
+    <meta name="keywords" content="信赖域法, hjd&#39;blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ZF预编码相关矩阵知识 | hjd&#39;blog</title>
+    <title>信赖域法 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/awesome/css/all.css">
@@ -583,12 +583,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/13.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ZF预编码相关矩阵知识</h1>
+                    <h1 class="description center-align post-title">信赖域法</h1>
                 </div>
             </div>
         </div>
@@ -704,8 +704,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/">
-                                <span class="chip bg-color">预编码</span>
+                            <a href="/tags/%E5%9F%BA%E4%BA%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">
+                                <span class="chip bg-color">基于导数的优化方法</span>
                             </a>
                         
                     </div>
@@ -716,8 +716,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E9%80%9A%E4%BF%A1/" class="post-category">
-                                通信
+                            <a href="/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" class="post-category">
+                                最优化方法
                             </a>
                         
                     </div>
@@ -729,28 +729,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-02-25
+                    2022-06-24
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-25
+                    2022-06-24
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    984
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    6 分
                 </div>
                 
 
@@ -768,60 +768,48 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="一、矩阵转置、厄米特转置、求逆"><a href="#一、矩阵转置、厄米特转置、求逆" class="headerlink" title="一、矩阵转置、厄米特转置、求逆"></a>一、矩阵转置、厄米特转置、求逆</h4><ol>
-<li>矩阵转置：$A^T$</li>
-<li>厄米特转置（共轭转置）：$(A^T)^*=(A^*)^T$</li>
-<li>矩阵的逆：$A^{-1}$（前提：A是方阵）</li>
-<li>一些基本运算：<ul>
-<li>$(A^{-1})^{-1}=A;(A^T)^T=A;(A^H)^H=A;(A^*)^*=A$</li>
-<li>$(A^T)^{-1}=(A^{-1})^T;(A^H)^{-1}=(A^{-1})^H$</li>
-<li>$(AB)^{-1}=B^{-1}A^{-1};(AB)^T=B^TA^T;(AB)^H=B^HA^H$</li>
-</ul>
-</li>
-</ol>
-<h4 id="二、矩阵的广义逆-伪逆-Pseudo-inverse-Matrix"><a href="#二、矩阵的广义逆-伪逆-Pseudo-inverse-Matrix" class="headerlink" title="二、矩阵的广义逆/伪逆(Pseudo-inverse Matrix)"></a>二、矩阵的广义逆/伪逆(Pseudo-inverse Matrix)</h4><ol>
-<li><p>矩阵的逆：对于矩阵A，若存在一个矩阵B，使得$AB=BA=I$，其中I为与A、B同维度的单位阵，则称A为可逆矩阵，B为A的逆矩阵，记作$B=A^{-1}$。</p>
-</li>
-<li><p>矩阵的广义逆：奇异矩阵（行列式为0的方阵）和非方阵没有逆矩阵，但有广义逆矩阵。</p>
-<p>满足$A^LA=I$，但不满足$AA^L=I$的矩阵$A^L$为A的左逆矩阵</p>
-<p>满足$AA^R=I$，但不满足$A^RA=I$的矩阵$A^R$为A的右逆矩阵</p>
-<ul>
-<li><p>仅当$m\ge n$时，列满秩，矩阵$A_{m,n}$有左逆矩阵，$A^L=(A^TA)^{-1}A^T$</p>
-</li>
-<li><p>仅当$n\ge m$时，行满秩，矩阵$A_{m,n}$有右逆矩阵，$A^R=A^T(AA^T)^{-1}$</p>
-</li>
-<li><p>当$n=m$时，矩阵$A_{m,n}$的秩为$r\le m=n$</p>
-<p>对A进行<strong>奇异值分解</strong>：$A=UDV^T$</p>
-<p>A的广义逆矩阵为：$A^{\dagger}=VD^{\dagger}U^T$</p>
-<p>其中$D=\left(\begin{array}{ll}\Sigma &amp; 0 \ 0 &amp; 0\end{array}\right)$，$D^{\dagger}=\left(\begin{array}{ll}\Sigma^{-1} &amp; 0 \ 0 &amp; 0\end{array}\right)$。</p>
-<p><strong>广义逆是唯一的</strong>，满足：$ABA=A,BAB=B,(AB)^T=AB,(BA)^T=BA$（B为A的广义逆）</p>
-</li>
-</ul>
-</li>
-<li><p>广义逆矩阵的意义</p>
-<p>&emsp;&emsp;对于n元线性方程组$AX=B$，其解有3种情况：有唯一解、有无穷解、无解。其中$A_{m,n}$是非满秩矩阵（即不可逆）,$B_{m,1}$</p>
-<ul>
-<li><p>有唯一解。$r(A)=r(AB)=n$</p>
-</li>
-<li><p>有无穷解。$r(A)=r(AB)&lt;n$，此时A行满秩，线性方程个数小于变量个数，故有无穷解。通过构造右逆矩阵，可得到一个最接近原点的唯一解$X^0$。$X^0=BA^R$是方程$AX=B$所有解中最接近原点的。</p>
-</li>
-<li><p>无解。$r(A)&lt;r(AB)$，此时B不在A的列空间中，只能在A的列空间中找到一个与B的欧氏距离最小的$B’$，满足$B’=AX^0$，$X^0$是使得范数$||AX-B||$最小化的近似解。构造$X^0=A^LB$，$A^L$为左逆矩阵。</p>
-<p><strong>广义逆是几何约束条件下的最优解</strong></p>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="三、ZF预编码"><a href="#三、ZF预编码" class="headerlink" title="三、ZF预编码"></a>三、ZF预编码</h4><blockquote>
-<p>预编码技术是在下行链路的发送端利用信道状态信息（CSI）对发送信号进行预处理，将不同用户及天线之间的干扰最小化，并将信号能量集中到目标用户附近，使接收端获得较好的信噪比（SNR），提高系统信道容量。（其中采用基于统计信道信息的预编码，统计信道状态相较于即时信道状态变化慢，可采用简单的长期反馈方式或信道互易性得到）</p>
+                <blockquote>
+<p>最速下降法、牛顿法、共轭梯度法均为线搜索法，其一般策略是给定点 $\boldsymbol{x}^{(k)}$ 后，定义搜索方向 $\boldsymbol{d}^{(k)}$ ，并沿着该方向进行一维搜索。而信赖域法的搜索范围是一个以 $\boldsymbol{x}^{(k)}$ 为中心的球域（信赖域），在此域内优化目标函数的二次逼近式，直到满足精度要求。信赖域法稳定性强，收敛性好，既有牛顿法的快速局部收敛性，又有理想的全局收敛性质，且不要求目标函数的 Hessian 矩阵正定。</p>
 </blockquote>
-<p>&emsp;&emsp;信道矩阵$H_{M,K}$（K个用户，M根天线，每行为一个用户信道信息）；ZF预编码矩阵$W_{M,K}$（每列为一个用户的预编码向量）。（此处为左逆矩阵）<br>$$<br>\mathbf{W}=\mathbf{H}^{\dagger}=\mathbf{H}\left(\mathbf{H}^\mathbf{H}\mathbf{H}\right)^{-\mathbf{1}}=\left[w_{1}, w_{2}, \ldots, w_{k}\right]<br>$$<br>&emsp;&emsp;ZF预编码致力于消除不同用户间的干扰，不考虑噪声的影响。ZF预编码矩阵与信道矩阵相乘以后，得到一个近似的对角矩阵（除对角线元素为1以外的其它元素趋于0）</p>
-<p>例：</p>
-<p><img src="/medias/loading.gif" data-original="https://i.loli.net/2021/12/01/WwGhtxIsRqDnrY9.png" alt="ZF预编码"></p>
-<h4 id="四、参考"><a href="#四、参考" class="headerlink" title="四、参考"></a>四、参考</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/begtostudy/archive/2010/09/03/1817033.html">矩阵论基础 3.4线性方程组的解</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/609fa0cce409">伪逆矩阵（广义逆矩阵）</a></li>
-<li>郑和. 大规模 MIMO 预编码技术研究与实现[D]. 电子科技大学, 2015.</li>
-<li><a target="_blank" rel="noopener" href="https://www.eefocus.com/rf-microwave/441640">详解大规模MIMO系统中的预编码技术</a></li>
+<h2 id="一、信赖域法"><a href="#一、信赖域法" class="headerlink" title="一、信赖域法"></a>一、信赖域法</h2><p><strong>无约束问题</strong><br>$$<br>\min\quad f(\boldsymbol{x}),\quad \boldsymbol{x}\in\mathbb{R}^n<br>$$<br><strong>二次逼近式</strong></p>
+<p>&emsp;&emsp;将 $f(\boldsymbol{x})$ 在 $\boldsymbol{x}^{(k)}$ 处进行 Taylor 展开并取二次近似<br>$$<br>f(\boldsymbol{x}) \approx f\left(\boldsymbol{x}^{(k)}\right)+\nabla f\left(\boldsymbol{x}^{(k)}\right)^{\mathrm{T}}\left(\boldsymbol{x}-\boldsymbol{x}^{(k)}\right)+\frac{1}{2}\left(\boldsymbol{x}-\boldsymbol{x}^{(k)}\right)^{\mathrm{T}} {\nabla}^{2} f\left(\boldsymbol{x}^{(k)}\right)\left(\boldsymbol{x}-\boldsymbol{x}^{(k)}\right)<br>$$<br>记 $\boldsymbol d=\boldsymbol{x}-\boldsymbol{x}^{(k)}$ ，则得到一个二次模型 $\varphi_{k}(\boldsymbol{d})$ ，并且为了在 $\boldsymbol{x}^{(k)}$ 附近用  $\varphi_{k}(\boldsymbol{d})$ 近似 $f\left(\boldsymbol{x}^{(k)}+\boldsymbol{d}\right)$ ，需要限定 $|\boldsymbol{d}| \leqslant r_{k}$ ，$r_{k}$ 是常数，称为信赖域半径。因此原目标优化问题可以归结为求解一系列子问题：<br>$$<br>\begin{aligned}<br>&amp;\min \quad \varphi_{k}(\boldsymbol{d}) \stackrel{\text { def }}{=} f\left(\boldsymbol{x}^{(k)}\right)+\nabla f\left(\boldsymbol{x}^{(k)}\right)^{\mathrm{T}} \boldsymbol{d}+\frac{1}{2} \boldsymbol{d}^{\mathrm{T}} \nabla^{2} f\left(\boldsymbol{x}^{(k)}\right) \boldsymbol{d} \<br>&amp;\text { s.t. }|\boldsymbol{d}| \leqslant  r_{k}<br>\end{aligned}<br>$$<br>其中，范数未作规定，这里讨论取欧式范数，即 $|\cdot|=|\cdot|_{2}$ ，这样约束条件可写为 $(\boldsymbol d^\mathrm{T}\boldsymbol d)^{\frac{1}{2}}\le{r}_k$ 。</p>
+<p><strong>搜索方向</strong></p>
+<p>&emsp;&emsp;该约束子问题可通过<strong>对偶法</strong>求解（<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/36621652">理解KKT条件和对偶问题</a>）。若 $\boldsymbol{d}^{(k)}$ 是该问题的最优解，则存在乘子 $\hat w\ge 0$ ，使得<br>$$<br>\begin{aligned}<br>&amp;\nabla^{2} f\left(\boldsymbol{x}^{(k)}\right) \boldsymbol{d}^{(k)}+\nabla f\left(\boldsymbol{x}^{(k)}\right)+\frac{\hat{w}}{\left(\boldsymbol d^{(k)\mathrm{T}}\boldsymbol d^{(k)}\right)^{\frac{1}{2}}} \boldsymbol{d}^{(k)}=0 \<br>&amp;\hat{w}\left(|\boldsymbol{d}^{(k)} |-r_{k}\right)=0 .<br>\end{aligned}<br>$$<br>记作<br>$$<br>w=\frac{\hat{w}}{\left(\boldsymbol{d}^{(k) \mathrm T} \boldsymbol{d}^{(k)}\right)^{\frac{1}{2}}}<br>$$<br>得到 $\boldsymbol{d}^{(k)}$ 是问题最优解的必要条件（<strong>KKT条件</strong>）<br>$$<br>\left{\begin{array}{l}<br>\nabla^{2} f\left(\boldsymbol{x}^{(k)}\right) \boldsymbol d^{(k)}+w \boldsymbol d^{(k)}=-\nabla f\left(\boldsymbol{x}^{(k)}\right), \<br>w\left(\left|\boldsymbol{d}^{(k)}\right|-r_{k}\right)=0, \<br>w \geqslant 0, \<br>\left|\boldsymbol{d}^{(k)}\right| \leqslant r_{k} .<br>\end{array}\right.<br>$$<br>假设 $\nabla^{2} f\left(\boldsymbol x^{(k)}\right)+w \bold{I}$ 可逆，则由上式可得到<br>$$<br>\left|\boldsymbol{d}^{(k)}\right|=\left|\left(\nabla^{2} f\left(\boldsymbol{x}^{(k)}\right)+w \bold{I}\right)^{-1} \nabla f\left(\boldsymbol{x}^{(k)}\right)\right|<br>$$<br>可知二次模型的解 $\boldsymbol{d}^{(k)}$ 与信赖域半径 $r_k$ 有关。</p>
+<p>当信赖域半径由小到大逐渐增大时，搜索方向在最速下降方向和牛顿方向间连续变化。</p>
+<ul>
+<li>若 $r_k$ 充分大，则 $w$ 值可能很小，从而搜索方向接近牛顿方向，即</li>
+</ul>
+<p>$$<br>\boldsymbol d^{(k)} \approx-\nabla^{2} f\left(\boldsymbol x^{(k)}\right)^{-1} \nabla f\left(\boldsymbol x^{(k)}\right)<br>$$</p>
+<ul>
+<li>若 $r_k\rightarrow0$，则 $\boldsymbol{d}^{(k)}\rightarrow 0,w\rightarrow\infty$ ，此时搜索方向接近最速下降方向<br>$$<br>\boldsymbol{d}^{(k)} \approx-\frac{1}{w} \nabla f\left(\boldsymbol{x}^{(k)}\right)<br>$$</li>
+</ul>
+<p><strong>逼近判决</strong></p>
+<p>&emsp;&emsp;求出最优解 $\boldsymbol{d}^{(k)}$ 后，点 $\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}$ 是否能作为原问题的近似解还需要根据用 $\varphi_{k}(\boldsymbol{d})$ 逼近 $f(\boldsymbol{x})$ 是否成功来确定。用函数实际下降量与预测下降量之比来进行衡量<br>$$<br>\rho_k=\frac{f\left(\boldsymbol{x}^{(k)}\right)-f\left(\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}\right)}{f\left(\boldsymbol{x}^{(k)}\right)-\varphi_{k}\left(\boldsymbol{d}^{(k)}\right)}<br>$$<br>若 $\rho_k$ 足够大，则认为逼近成功，取 $\boldsymbol{x}^{(k+1)}=\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}$ ；否则后继点仍取 $\boldsymbol{x}^{(k)}$ 。</p>
+<p><strong>算法步骤</strong></p>
+<ol>
+<li><p>给定可行点 $\boldsymbol{x}^{(1)}$ ，信赖域半径 $r_1$ ，参数 $0&lt;\mu&lt;\eta&lt;1$ （一般取 $\mu=\frac{1}{4},\eta=\frac{3}{4}$）以及精度要求 $\varepsilon$，置 $k=1$ 。</p>
+</li>
+<li><p>计算 $f\left(\boldsymbol{x}^{(k)}\right), \nabla f\left(\boldsymbol{x}^{(k)}\right)$ ，若 $\left|\nabla f\left(\boldsymbol{x}^{(k)}\right)\right| \leqslant \varepsilon$ ，则停止计算，得解 $\boldsymbol{x}^{(k)}$ ；否则，计算 $\nabla^{2} f\left(\boldsymbol{x}^{(k)}\right)$ 。</p>
+</li>
+<li><p>求解子问题<br>$$<br>\begin{aligned}<br>&amp;\min \quad \varphi_{k}(\boldsymbol{d}) \stackrel{\text { def }}{=} f\left(\boldsymbol{x}^{(k)}\right)+\nabla f\left(\boldsymbol{x}^{(k)}\right)^{\mathrm{T}} \boldsymbol{d}+\frac{1}{2} \boldsymbol{d}^{\mathrm{T}} \nabla^{2} f\left(\boldsymbol{x}^{(k)}\right) \boldsymbol{d} \<br>&amp;\text { s.t. }|\boldsymbol{d}| \leqslant  r_{k}<br>\end{aligned}<br>$$<br>得到问题的最优解 $\boldsymbol{d}^{(k)}$ ，并计算<br>$$<br>\rho_k=\frac{f\left(\boldsymbol{x}^{(k)}\right)-f\left(\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}\right)}{f\left(\boldsymbol{x}^{(k)}\right)-\varphi_{k}\left(\boldsymbol{d}^{(k)}\right)}<br>$$</p>
+</li>
+<li><p>若 $\rho_k\le\mu$ ，则令 $\boldsymbol{x}^{(k+1)}=\boldsymbol{x}^{(k)}$ ；若 $\rho_k&gt;\mu$ ，则令 $\boldsymbol{x}^{(k+1)}=\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}$ 。</p>
+</li>
+<li><p>修改信赖域半径 $r_k$ 。若 $\rho_k\le\mu$ ，令 $r_{k+1}=\frac{1}{2}r_k$；若 $\mu&lt;\rho_k&lt;\eta$ ，令 $r_{k+1}=r_k$；若 $\rho_k\ge\eta$ ，令 $r_{k+1}=2r_k$ 。</p>
+</li>
+<li><p>置 $k=k+1$ ，转步骤2。</p>
+</li>
+</ol>
+<p><strong>算法特点</strong></p>
+<ol>
+<li>不要求目标函数的 Hessian 矩阵正定。</li>
+<li>既有牛顿法的快速局部收敛性，也有理想的全局收敛性。</li>
+<li>算法利用二次模型来修正步长，使得目标函数的下降比线搜索方法更有效。</li>
+<li>搜索步长受 Taylor 展开式有效的信赖域的限制，此方法又称为有限步长法。</li>
+</ol>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>《最优化理论与算法》陈宝林著。</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/36621652">理解KKT条件和对偶问题</a></li>
 </ul>
 
                 
@@ -849,7 +837,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://321hjd.github.io/yyds/aabaae8c.html">https://321hjd.github.io/yyds/aabaae8c.html</a>
+                    <a href="https://321hjd.github.io/yyds/3b5150c4.html">https://321hjd.github.io/yyds/3b5150c4.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -887,8 +875,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%A2%84%E7%BC%96%E7%A0%81/">
-                                    <span class="chip bg-color">预编码</span>
+                                <a href="/tags/%E5%9F%BA%E4%BA%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">
+                                    <span class="chip bg-color">基于导数的优化方法</span>
                                 </a>
                             
                         </div>
@@ -1397,49 +1385,47 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/yyds/1df36502.html">
+                <a href="/yyds/3b5150c4.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/ProfessionalPractice/1647606537650BaseStation.jpg" class="responsive-img" alt="通信工程专业实习总结">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg" class="responsive-img" alt="信赖域法">
                         
-                        <span class="card-title">通信工程专业实习总结</span>
+                        <span class="card-title">信赖域法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本科生涯的最后一次小组合作项目。也是除毕设以外的最后一次课程。主要记录下小组合作的复杂项目，即模拟对北京景山公园的TD-LTE基站搭建。
+                            与线搜索方法相比，信赖域法是在一个球域范围内优化原目标函数的二次逼近式，以此来修正步长，直到满足精度要求。该方法稳定性强，收敛性好，且不要求目标函数的 Hessian 矩阵正定。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-03-18
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-24
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%80%9A%E4%BF%A1/" class="post-category">
-                                    通信
+                            <a href="/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" class="post-category">
+                                    最优化方法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9F%BA%E7%AB%99/">
-                        <span class="chip bg-color">基站</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%B8%93%E4%B8%9A%E5%AE%9E%E4%B9%A0/">
-                        <span class="chip bg-color">专业实习</span>
+                    <a href="/tags/%E5%9F%BA%E4%BA%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">
+                        <span class="chip bg-color">基于导数的优化方法</span>
                     </a>
                     
                 </div>
@@ -1453,30 +1439,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yyds/a9eeda10.html">
+                <a href="/yyds/9c0ec5cf.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/机器学习.jpg" class="responsive-img" alt="12-应用实例-照片OCR">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg" class="responsive-img" alt="拟牛顿法">
                         
-                        <span class="card-title">12-应用实例-照片OCR</span>
+                        <span class="card-title">拟牛顿法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学习《吴恩达-机器学习》视频时做的笔记。本篇以照片OCR为例，介绍了如何构建复杂的机器学习系统。此外，提到对机器学习各模块做上限分析的重要性。涉及新算法为滑动窗口分类器。
+                            拟牛顿法，用不包含二阶导数的矩阵近似牛顿法中的 Hessian 矩阵的逆矩阵，从而避免计算二阶导。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-23
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" class="post-category">
+                                    最优化方法
                                 </a>
                             
                             
@@ -1486,12 +1472,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">吴恩达-机器学习</span>
+                    <a href="/tags/%E5%9F%BA%E4%BA%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">
+                        <span class="chip bg-color">基于导数的优化方法</span>
                     </a>
                     
                 </div>
