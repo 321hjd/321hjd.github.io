@@ -776,10 +776,16 @@
 <ol>
 <li><p>最速下降法是梯度下降法和一维搜索的结合</p>
 </li>
-<li><p>梯度下降法采用<strong>一阶泰勒展开式</strong>对函数近似，然后将变量沿着负梯度方向（下降最快的方向）移动一定的步长，目标函数就会一直减小，直至接近极小值<br>$$<br>\begin{align}<br>&amp;f(x) \approx f\left(x_{0}\right)+\nabla f(x)\left(x-x_{0}\right)\<br>&amp;d^{(k)}=-\nabla f(x)\<br>&amp;x^{(k)+1}=x^{(k)}+\lambda d^{(k)}<br>\end{align}<br>$$</p>
-</li>
-<li><p>步长的确定。让变量在负梯度方向走一段能让函数值最小的距离。可通过求解下式得到（一般通过令其对 $\lambda$ 求导为0直接求解或通过一维搜索算法如试探法、函数逼近法迭代求解）。<br>$$<br>\lambda_k=\arg\min _\limits{\lambda \geq 0} f\left(x^{(k)}+\lambda d^{(k)}\right)<br>$$</p>
-</li>
+<li><p>梯度下降法采用<strong>一阶泰勒展开式</strong>对函数近似，然后将变量沿着负梯度方向（下降最快的方向）移动一定的步长，目标函数就会一直减小，直至接近极小值</p>
+<script type="math/tex; mode=display">
+\begin{align}
+&f(x) \approx f\left(x_{0}\right)+\nabla f(x)\left(x-x_{0}\right)\\
+&d^{(k)}=-\nabla f(x)\\
+&x^{(k)+1}=x^{(k)}+\lambda d^{(k)}
+\end{align}</script></li>
+<li><p>步长的确定。让变量在负梯度方向走一段能让函数值最小的距离。可通过求解下式得到（一般通过令其对 $\lambda$ 求导为0直接求解或通过一维搜索算法如试探法、函数逼近法迭代求解）。</p>
+<script type="math/tex; mode=display">
+\lambda_k=\arg\min _\limits{\lambda \geq 0} f\left(x^{(k)}+\lambda d^{(k)}\right)</script></li>
 <li><p>一阶收敛条件。梯度的范数满足<strong>趋近于0</strong>的精度要求</p>
 </li>
 </ol>
@@ -791,8 +797,9 @@
 </li>
 <li><p>步骤3：取负梯度 $d^{(k)}=-\nabla f(x^k)$ 作为下降方向</p>
 </li>
-<li><p>步骤4：一维搜索求最佳步长 $\lambda_k$ ，使得其满足沿该方向移动步长 $\lambda_k$ 后，函数值最小<br>$$<br>\lambda_k=\arg\min _\limits{\lambda \geq 0} f\left(x^{(k)}+\lambda d^{(k)}\right)<br>$$</p>
-</li>
+<li><p>步骤4：一维搜索求最佳步长 $\lambda_k$ ，使得其满足沿该方向移动步长 $\lambda_k$ 后，函数值最小</p>
+<script type="math/tex; mode=display">
+\lambda_k=\arg\min _\limits{\lambda \geq 0} f\left(x^{(k)}+\lambda d^{(k)}\right)</script></li>
 <li><p>步骤5：变量迭代 $x^{(k+1)}=x^{(k)}+\lambda_k d^{(k)}$ ，回到步骤2继续迭代</p>
 </li>
 </ol>
@@ -801,7 +808,9 @@
 <li><p>最速下降法的搜索过程是<strong>锯齿形</strong>的，每一步所得方向（负梯度）都与上一步<strong>正交</strong>，在远离极值点时收敛速度快，但接近极值点时收敛非常慢（可以和其它在极值点附近收敛速度快的算法结合）</p>
 <blockquote>
 <p>正交的原因：</p>
-<p>一维搜索时无论是利用求导直接求解还是一维搜索方法，最终目的都是令其梯度趋近于零。即<br>$$<br>\frac{\partial f(x^{(k)}-\lambda\nabla f(x^{(k)}))}{\partial \lambda}=-\nabla f(x^{(k)}-\lambda\nabla f(x^{(k)}))\nabla f(x^{(k)})=-\nabla f(x^{(k+1)})\nabla f(x^{(k)})=0<br>$$<br>内积为0，因此相邻步的方向是正交的。</p>
+<p>一维搜索时无论是利用求导直接求解还是一维搜索方法，最终目的都是令其梯度趋近于零。即</p>
+<script type="math/tex; mode=display">
+\frac{\partial f(x^{(k)}-\lambda\nabla f(x^{(k)}))}{\partial \lambda}=-\nabla f(x^{(k)}-\lambda\nabla f(x^{(k)}))\nabla f(x^{(k)})=-\nabla f(x^{(k+1)})\nabla f(x^{(k)})=0</script><p>内积为0，因此相邻步的方向是正交的。</p>
 </blockquote>
 </li>
 <li><p>最速下降法所得解是局部最优解，而非全局最优解，<strong>仅当目标函数为凸函数</strong>时，为全局最优。可形象地解释为：<strong>在点x1处向梯度方向到达x2，x2再向梯度方向到达x3，但这不一定是x1到x3最快的路径。</strong> </p>
@@ -811,8 +820,7 @@
 <p>初始点：$(1,1)$ </p>
 <p>终止精度：$\mathrm{eps}=10^{-5}$ </p>
 <p>等高线及迭代点搜索过程图</p>
-<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/1652438509456steepestDescent.jpg" alt="steepestDescent" style="zoom:50%;">
-
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/1652438509456steepestDescent.jpg" alt="steepestDescent" style="zoom:50%;"></p>
 <p>经过9次迭代，算法终止。可以看到在接近极小值点时，最速下降法收敛速度非常慢。</p>
 <h2 id="二、牛顿法"><a href="#二、牛顿法" class="headerlink" title="二、牛顿法"></a>二、牛顿法</h2><h3 id="2-1-原理"><a href="#2-1-原理" class="headerlink" title="2.1 原理"></a>2.1 原理</h3><p><strong>算法思想</strong></p>
 <ol>
@@ -820,8 +828,13 @@
 </li>
 <li><p>近似极小值点。将近似得到二阶函数的极小值点作为原函数极小值点的近似，并不断重复这一近似的过程，直至得到满足精度要求的极小值点</p>
 </li>
-<li><p>终止条件仍然是满足梯度趋近于0<br>$$<br>\begin{align}<br>&amp;f(x) \approx f\left(x^{(k)}\right)+\nabla f(x^{(k)})\left(x-x^{(k)}\right)+\frac{1}{2}\nabla^2 f(x^{(k)})\left(x-x^{(k)}\right)^2\<br>&amp;f’(x)=\nabla f(x^{(k)})+\nabla^2 f(x^{(k)})\left(x-x^{(k)}\right)=0\<br>&amp;x^{(k+1)}=x^{(k)}-\frac{\nabla f(x^{(k)})}{\nabla^2 f(x^{(k)})}<br>\end{align}<br>$$</p>
-</li>
+<li><p>终止条件仍然是满足梯度趋近于0</p>
+<script type="math/tex; mode=display">
+\begin{align}
+&f(x) \approx f\left(x^{(k)}\right)+\nabla f(x^{(k)})\left(x-x^{(k)}\right)+\frac{1}{2}\nabla^2 f(x^{(k)})\left(x-x^{(k)}\right)^2\\
+&f'(x)=\nabla f(x^{(k)})+\nabla^2 f(x^{(k)})\left(x-x^{(k)}\right)=0\\
+&x^{(k+1)}=x^{(k)}-\frac{\nabla f(x^{(k)})}{\nabla^2 f(x^{(k)})}
+\end{align}</script></li>
 </ol>
 <p><strong>算法步骤</strong></p>
 <ol>
@@ -850,21 +863,23 @@
 <p>初始点：$(1,1)$ </p>
 <p>终止精度：$\mathrm{eps}=10^{-5}$ </p>
 <p>等高线及迭代点搜索过程图</p>
-<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/1652438602550Newton.jpg" alt="Newton" style="zoom:50%;">
-
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/1652438602550Newton.jpg" alt="Newton" style="zoom:50%;"></p>
 <p>由于牛顿法对于二次函数的一步收敛性，可见仅经过1次迭代，算法终止。</p>
 <h2 id="三、共轭梯度法"><a href="#三、共轭梯度法" class="headerlink" title="三、共轭梯度法"></a>三、共轭梯度法</h2><h3 id="3-1-原理"><a href="#3-1-原理" class="headerlink" title="3.1 原理"></a>3.1 原理</h3><p><strong>术语</strong></p>
 <ul>
 <li><p>残差</p>
 <blockquote>
 <p>假设目标函数为二次型 $f(x)=\frac{1}{2}x^TQx-x^Tb$ ，其中 $b,x\in\mathbb{R}^n,Q\in\mathbb{R}^{n\times n}$ 且矩阵 $Q$ 是对称正定的。$n$ 代表解空间是 $n$ 维的，即 $n$ 元二次函数。</p>
-<p>其最小值可以通过令一阶导为零得到：$\nabla f(x^*)=Qx^*-b=0$ </p>
-<p>假设通过迭代法求解，迭代法通常无法令该一阶导等于零，因此可将 $\nabla f(x^{(k)})-\nabla f(x^*)$  称作系统残差（也是梯度），具体表示为：<br>$$<br>r^{(k)}=Qx^{(k)}-b<br>$$</p>
-</blockquote>
+<p>其最小值可以通过令一阶导为零得到：$\nabla f(x^<em>)=Qx^</em>-b=0$ </p>
+<p>假设通过迭代法求解，迭代法通常无法令该一阶导等于零，因此可将 $\nabla f(x^{(k)})-\nabla f(x^*)$  称作系统残差（也是梯度），具体表示为：</p>
+<script type="math/tex; mode=display">
+r^{(k)}=Qx^{(k)}-b</script></blockquote>
 </li>
 <li><p>共轭向量</p>
 <blockquote>
-<p>当一组向量 ${p_0,p_1,\cdots,p_{n-1}}$ 满足如下条件时，称其关于对称正定矩阵 $Q$ 共轭。<br>$$<br>p_i^TQp_j=0\quad\forall i\ne j<br>$$<br>这样一组向量是线性独立的，可以张成整个空间 $\mathbb{R}^n$ ，因而可以用来表示其它向量。</p>
+<p>当一组向量 $\{p_0,p_1,\cdots,p_{n-1}\}$ 满足如下条件时，称其关于对称正定矩阵 $Q$ 共轭。</p>
+<script type="math/tex; mode=display">
+p_i^TQp_j=0\quad\forall i\ne j</script><p>这样一组向量是线性独立的，可以张成整个空间 $\mathbb{R}^n$ ，因而可以用来表示其它向量。</p>
 </blockquote>
 </li>
 </ul>
@@ -872,19 +887,28 @@
 <ol>
 <li><p>与最速下降法类似，需要找到下降方向（二者的区别也就在于确定的下降方向不同），然后通过一维搜索找到变量 $x_k$ 迭代的最优步长 $\lambda_k$ </p>
 <blockquote>
-<p>对于寻找最优步长 $\lambda_k$ ，需要将<br>$$<br>x_{k+1}=x_{k}+\lambda p_k<br>$$<br>代入目标函数 $f(x)$ 并对 $\lambda$ 求导。因此可以得到：<br>$$<br>\lambda_k=-\frac{r_k^Tp_k}{p_k^TQp_k}<br>$$</p>
-</blockquote>
+<p>对于寻找最优步长 $\lambda_k$ ，需要将</p>
+<script type="math/tex; mode=display">
+x_{k+1}=x_{k}+\lambda p_k</script><p>代入目标函数 $f(x)$ 并对 $\lambda$ 求导。因此可以得到：</p>
+<script type="math/tex; mode=display">
+\lambda_k=-\frac{r_k^Tp_k}{p_k^TQp_k}</script></blockquote>
 </li>
 <li><p>利用共轭梯度法确定下降方向 $p_k$。将最优解点和初始点的差用一组线性无关的共轭向量（向量个数与解空间维度相同）的线性组合近似。然后逐个寻找共轭向量及其系数（步长），构建每一个方向（维度）上的最优解，即<strong>沿着解空间的维度逐步构建最优解</strong>。具体可解释如下：</p>
 <blockquote>
-<p>将最优解和初始值的差表示为共轭向量的线性组合：<br>$$<br>x^{<em>}-x_{0}=\beta_{0} p_{0}+\beta_1 p_1+\ldots+\beta_{n-1} p_{n-1}<br>$$<br>其中 $\beta_k$ 就是沿着每个共轭向量$p_k$（方向）走的步长。对于第 $k$ 步，$x_k$ 将 $x^</em>$ 投影到由 $k$ 个线性独立的共轭向量张成的解空间中。</p>
-<p>共轭向量 $p_{k+1}$ 的寻找依赖于<strong>负残差</strong>和上一个<strong>共轭向量</strong>。负残差其实就是负梯度，因此称为共轭梯度法。每次迭代找到的新方向（共轭向量）是负残差和上一个搜索方向的线性组合：<br>$$<br>p_{k}=-r_{k}+\beta_kp_{k-1}<br>$$<br>其中，步长 $\beta_k$ 可以根据共轭条件（$p_{k-1}^TQp_{k}=0$）得到：<br>$$<br>\beta_{k}=\frac{r_{k}^T Q p_{k-1}}{p_{k-1}^{T} Q p_{k-1}}<br>$$</p>
-</blockquote>
+<p>将最优解和初始值的差表示为共轭向量的线性组合：</p>
+<script type="math/tex; mode=display">
+x^{*}-x_{0}=\beta_{0} p_{0}+\beta_1 p_1+\ldots+\beta_{n-1} p_{n-1}</script><p>其中 $\beta_k$ 就是沿着每个共轭向量$p_k$（方向）走的步长。对于第 $k$ 步，$x_k$ 将 $x^*$ 投影到由 $k$ 个线性独立的共轭向量张成的解空间中。</p>
+<p>共轭向量 $p_{k+1}$ 的寻找依赖于<strong>负残差</strong>和上一个<strong>共轭向量</strong>。负残差其实就是负梯度，因此称为共轭梯度法。每次迭代找到的新方向（共轭向量）是负残差和上一个搜索方向的线性组合：</p>
+<script type="math/tex; mode=display">
+p_{k}=-r_{k}+\beta_kp_{k-1}</script><p>其中，步长 $\beta_k$ 可以根据共轭条件（$p_{k-1}^TQp_{k}=0$）得到：</p>
+<script type="math/tex; mode=display">
+\beta_{k}=\frac{r_{k}^T Q p_{k-1}}{p_{k-1}^{T} Q p_{k-1}}</script></blockquote>
 </li>
 <li><p>$\lambda_k$ 和 $\beta_k$ 计算的简化</p>
 <blockquote>
-<p>$$<br>\lambda_k=-\frac{r_k^Tp_k}{p_k^TQp_k}=\frac{r_k^Tr_k}{p_k^TQp_k}\<br>\beta_{k}=\frac{r_{k}^T Q p_{k-1}}{p_{k-1}^{T} Q p_{k-1}}=\frac{r_{k}^{T}r_{k} }{r_{k-1}^{T} r_{k-1}}<br>$$</p>
-<ol>
+<script type="math/tex; mode=display">
+\lambda_k=-\frac{r_k^Tp_k}{p_k^TQp_k}=\frac{r_k^Tr_k}{p_k^TQp_k}\\
+\beta_{k}=\frac{r_{k}^T Q p_{k-1}}{p_{k-1}^{T} Q p_{k-1}}=\frac{r_{k}^{T}r_{k} }{r_{k-1}^{T} r_{k-1}}</script><ol>
 <li><p>对于 $\lambda_k=\frac{r_k^Tr_k}{p_k^TQp_k}$ </p>
 <blockquote>
 <p>由于 $p_{k}=-r_{k}+\beta_kp_{k-1}$ ，且 $r_k^Tp_{k-1}=0,r_{k+1}r_k=0$ </p>
@@ -910,8 +934,13 @@
 <ol>
 <li><p>步骤1：计算初始残差（梯度）$r_0=Qx_0-b$ ，初始下降方向（负梯度） $p_0=-r_0$  </p>
 </li>
-<li><p>步骤2：按下列公式迭代 $k=0,1,\cdots,n$ 直到收敛（n维搜索n步）（收敛条件仍然是残差（梯度）满足精度要求）<br>$$<br>\lambda_k=\frac{r_k^Tr_k}{p_k^TQp_k}\<br>x_{k+1}=x_{k}+\lambda p_k\<br>r_{k+1}=r_k+\lambda_kQp_k\<br>\beta_k=\frac{r_{k}^{T}r_{k} }{r_{k-1}^{T} r_{k-1}}\<br>p_{k+1}=-r_{k+1}+\beta_kp_k<br>$$</p>
-</li>
+<li><p>步骤2：按下列公式迭代 $k=0,1,\cdots,n$ 直到收敛（n维搜索n步）（收敛条件仍然是残差（梯度）满足精度要求）</p>
+<script type="math/tex; mode=display">
+\lambda_k=\frac{r_k^Tr_k}{p_k^TQp_k}\\
+x_{k+1}=x_{k}+\lambda p_k\\
+r_{k+1}=r_k+\lambda_kQp_k\\
+\beta_k=\frac{r_{k}^{T}r_{k} }{r_{k-1}^{T} r_{k-1}}\\
+p_{k+1}=-r_{k+1}+\beta_kp_k</script></li>
 </ol>
 <p><strong>算法特点</strong></p>
 <ol>
@@ -922,12 +951,10 @@
 <p>初始点：$(1,1)$ </p>
 <p>终止精度：$\mathrm{eps}=10^{-5}$ </p>
 <p>等高线及迭代点搜索过程图</p>
-<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/1652438620549conjugateGradient.jpg" alt="conjugateGradient" style="zoom:50%;">
-
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/1652438620549conjugateGradient.jpg" alt="conjugateGradient" style="zoom:50%;"></p>
 <p>因为是二元函数，可见仅经过2次迭代，算法终止。</p>
 <p><strong>三种方法的搜索过程对比</strong></p>
-<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/1652438637549%E5%9B%BE%E5%BD%A2%E5%AF%B9%E6%AF%94.jpg" alt="对比" style="zoom:50%;">
-
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/1652438637549%E5%9B%BE%E5%BD%A2%E5%AF%B9%E6%AF%94.jpg" alt="对比" style="zoom:50%;"></p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
 <li>《数学建模算法与应用第二版》</li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/392994929">比较数学建模中的优化方法 | 最速下降法 牛顿法 共轭梯度法 启发式算法</a></li>
@@ -1772,7 +1799,7 @@
 </main>
 
 
-<script src="https://fastly.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
     MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
@@ -1849,7 +1876,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">80.6k</span>&nbsp;字
+                class="white-color">80.3k</span>&nbsp;字
             
 
 			

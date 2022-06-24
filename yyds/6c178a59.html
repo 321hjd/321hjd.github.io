@@ -776,7 +776,7 @@
 <p>应用于大数据集较为合适的两种算法：随机梯度下降 和 mini-batch 梯度下降。</p>
 </blockquote>
 <h3 id="一、随机梯度下降（stochastic-gradient-descent）"><a href="#一、随机梯度下降（stochastic-gradient-descent）" class="headerlink" title="一、随机梯度下降（stochastic gradient descent）"></a>一、随机梯度下降（stochastic gradient descent）</h3><blockquote>
-<p>由于<strong>之前</strong>实现梯度下降时，每次迭代都需要考虑<strong>所有样本</strong>，因此也称为**批量梯度下降(batch gradient descent)**。如 $\theta_j := \theta_j-\alpha\frac{1}{m}\sum_\limits{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}$ ，其中第二项包含所有样本。对于大数据集，这种方法并不适用。</p>
+<p>由于<strong>之前</strong>实现梯度下降时，每次迭代都需要考虑<strong>所有样本</strong>，因此也称为<strong>批量梯度下降(batch gradient descent)</strong>。如 $\theta_j := \theta_j-\alpha\frac{1}{m}\sum_\limits{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x_j^{(i)}$ ，其中第二项包含所有样本。对于大数据集，这种方法并不适用。</p>
 </blockquote>
 <p>随机梯度下降与批量梯度下降的区别在于，其迭代时不需要对整个样本进行求和，而是仅利用一个训练样本就可以进行参数的迭代优化。</p>
 <p>算法过程：</p>
@@ -837,8 +837,8 @@
 <p>适用于数据过多以至于无法在单机上运行的大规模机器学习场景。只要算法能够表示为对训练集的求和，就可以使用MapReduce。</p>
 </blockquote>
 <p><strong>Map-reduce</strong> </p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/LargeDataSet/MapReduce-2.jpg"></p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/LargeDataSet/MapReduce-1.jpg"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/LargeDataSet/MapReduce-2.jpg" alt></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/LargeDataSet/MapReduce-1.jpg" alt></p>
 <p>基于上图所示过程，代价函数及其偏导计算，都可以分解至多个机器进行并行运算，然后整合。（对于多核计算机，即便是同一计算机，也可以利用MapReduce进行并行计算）</p>
 
                 
@@ -1681,7 +1681,7 @@
 </main>
 
 
-<script src="https://fastly.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
     MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
@@ -1758,7 +1758,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">80.6k</span>&nbsp;字
+                class="white-color">80.3k</span>&nbsp;字
             
 
 			

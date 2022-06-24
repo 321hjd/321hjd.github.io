@@ -771,28 +771,62 @@
                 <blockquote>
 <p>最速下降法、牛顿法、共轭梯度法均为线搜索法，其一般策略是给定点 $\boldsymbol{x}^{(k)}$ 后，定义搜索方向 $\boldsymbol{d}^{(k)}$ ，并沿着该方向进行一维搜索。而信赖域法的搜索范围是一个以 $\boldsymbol{x}^{(k)}$ 为中心的球域（信赖域），在此域内优化目标函数的二次逼近式，直到满足精度要求。信赖域法稳定性强，收敛性好，既有牛顿法的快速局部收敛性，又有理想的全局收敛性质，且不要求目标函数的 Hessian 矩阵正定。</p>
 </blockquote>
-<h2 id="一、信赖域法"><a href="#一、信赖域法" class="headerlink" title="一、信赖域法"></a>一、信赖域法</h2><p><strong>无约束问题</strong><br>$$<br>\min\quad f(\boldsymbol{x}),\quad \boldsymbol{x}\in\mathbb{R}^n<br>$$<br><strong>二次逼近式</strong></p>
-<p>&emsp;&emsp;将 $f(\boldsymbol{x})$ 在 $\boldsymbol{x}^{(k)}$ 处进行 Taylor 展开并取二次近似<br>$$<br>f(\boldsymbol{x}) \approx f\left(\boldsymbol{x}^{(k)}\right)+\nabla f\left(\boldsymbol{x}^{(k)}\right)^{\mathrm{T}}\left(\boldsymbol{x}-\boldsymbol{x}^{(k)}\right)+\frac{1}{2}\left(\boldsymbol{x}-\boldsymbol{x}^{(k)}\right)^{\mathrm{T}} {\nabla}^{2} f\left(\boldsymbol{x}^{(k)}\right)\left(\boldsymbol{x}-\boldsymbol{x}^{(k)}\right)<br>$$<br>记 $\boldsymbol d=\boldsymbol{x}-\boldsymbol{x}^{(k)}$ ，则得到一个二次模型 $\varphi_{k}(\boldsymbol{d})$ ，并且为了在 $\boldsymbol{x}^{(k)}$ 附近用  $\varphi_{k}(\boldsymbol{d})$ 近似 $f\left(\boldsymbol{x}^{(k)}+\boldsymbol{d}\right)$ ，需要限定 $|\boldsymbol{d}| \leqslant r_{k}$ ，$r_{k}$ 是常数，称为信赖域半径。因此原目标优化问题可以归结为求解一系列子问题：<br>$$<br>\begin{aligned}<br>&amp;\min \quad \varphi_{k}(\boldsymbol{d}) \stackrel{\text { def }}{=} f\left(\boldsymbol{x}^{(k)}\right)+\nabla f\left(\boldsymbol{x}^{(k)}\right)^{\mathrm{T}} \boldsymbol{d}+\frac{1}{2} \boldsymbol{d}^{\mathrm{T}} \nabla^{2} f\left(\boldsymbol{x}^{(k)}\right) \boldsymbol{d} \<br>&amp;\text { s.t. }|\boldsymbol{d}| \leqslant  r_{k}<br>\end{aligned}<br>$$<br>其中，范数未作规定，这里讨论取欧式范数，即 $|\cdot|=|\cdot|_{2}$ ，这样约束条件可写为 $(\boldsymbol d^\mathrm{T}\boldsymbol d)^{\frac{1}{2}}\le{r}_k$ 。</p>
+<h2 id="一、信赖域法"><a href="#一、信赖域法" class="headerlink" title="一、信赖域法"></a>一、信赖域法</h2><p><strong>无约束问题</strong></p>
+<script type="math/tex; mode=display">
+\min\quad f(\boldsymbol{x}),\quad \boldsymbol{x}\in\mathbb{R}^n</script><p><strong>二次逼近式</strong></p>
+<p>&emsp;&emsp;将 $f(\boldsymbol{x})$ 在 $\boldsymbol{x}^{(k)}$ 处进行 Taylor 展开并取二次近似</p>
+<script type="math/tex; mode=display">
+f(\boldsymbol{x}) \approx f\left(\boldsymbol{x}^{(k)}\right)+\nabla f\left(\boldsymbol{x}^{(k)}\right)^{\mathrm{T}}\left(\boldsymbol{x}-\boldsymbol{x}^{(k)}\right)+\frac{1}{2}\left(\boldsymbol{x}-\boldsymbol{x}^{(k)}\right)^{\mathrm{T}} {\nabla}^{2} f\left(\boldsymbol{x}^{(k)}\right)\left(\boldsymbol{x}-\boldsymbol{x}^{(k)}\right)</script><p>记 $\boldsymbol d=\boldsymbol{x}-\boldsymbol{x}^{(k)}$ ，则得到一个二次模型 $\varphi_{k}(\boldsymbol{d})$ ，并且为了在 $\boldsymbol{x}^{(k)}$ 附近用  $\varphi_{k}(\boldsymbol{d})$ 近似 $f\left(\boldsymbol{x}^{(k)}+\boldsymbol{d}\right)$ ，需要限定 $|\boldsymbol{d}| \leqslant r_{k}$ ，$r_{k}$ 是常数，称为信赖域半径。因此原目标优化问题可以归结为求解一系列子问题：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&\min \quad \varphi_{k}(\boldsymbol{d}) \stackrel{\text { def }}{=} f\left(\boldsymbol{x}^{(k)}\right)+\nabla f\left(\boldsymbol{x}^{(k)}\right)^{\mathrm{T}} \boldsymbol{d}+\frac{1}{2} \boldsymbol{d}^{\mathrm{T}} \nabla^{2} f\left(\boldsymbol{x}^{(k)}\right) \boldsymbol{d} \\
+&\text { s.t. }\|\boldsymbol{d}\| \leqslant  r_{k}
+\end{aligned}</script><p>其中，范数未作规定，这里讨论取欧式范数，即 $|\cdot|=|\cdot|_{2}$ ，这样约束条件可写为 $(\boldsymbol d^\mathrm{T}\boldsymbol d)^{\frac{1}{2}}\le{r}_k$ 。</p>
 <p><strong>搜索方向</strong></p>
-<p>&emsp;&emsp;该约束子问题可通过<strong>对偶法</strong>求解（<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/36621652">理解KKT条件和对偶问题</a>）。若 $\boldsymbol{d}^{(k)}$ 是该问题的最优解，则存在乘子 $\hat w\ge 0$ ，使得<br>$$<br>\begin{aligned}<br>&amp;\nabla^{2} f\left(\boldsymbol{x}^{(k)}\right) \boldsymbol{d}^{(k)}+\nabla f\left(\boldsymbol{x}^{(k)}\right)+\frac{\hat{w}}{\left(\boldsymbol d^{(k)\mathrm{T}}\boldsymbol d^{(k)}\right)^{\frac{1}{2}}} \boldsymbol{d}^{(k)}=0 \<br>&amp;\hat{w}\left(|\boldsymbol{d}^{(k)} |-r_{k}\right)=0 .<br>\end{aligned}<br>$$<br>记作<br>$$<br>w=\frac{\hat{w}}{\left(\boldsymbol{d}^{(k) \mathrm T} \boldsymbol{d}^{(k)}\right)^{\frac{1}{2}}}<br>$$<br>得到 $\boldsymbol{d}^{(k)}$ 是问题最优解的必要条件（<strong>KKT条件</strong>）<br>$$<br>\left{\begin{array}{l}<br>\nabla^{2} f\left(\boldsymbol{x}^{(k)}\right) \boldsymbol d^{(k)}+w \boldsymbol d^{(k)}=-\nabla f\left(\boldsymbol{x}^{(k)}\right), \<br>w\left(\left|\boldsymbol{d}^{(k)}\right|-r_{k}\right)=0, \<br>w \geqslant 0, \<br>\left|\boldsymbol{d}^{(k)}\right| \leqslant r_{k} .<br>\end{array}\right.<br>$$<br>假设 $\nabla^{2} f\left(\boldsymbol x^{(k)}\right)+w \bold{I}$ 可逆，则由上式可得到<br>$$<br>\left|\boldsymbol{d}^{(k)}\right|=\left|\left(\nabla^{2} f\left(\boldsymbol{x}^{(k)}\right)+w \bold{I}\right)^{-1} \nabla f\left(\boldsymbol{x}^{(k)}\right)\right|<br>$$<br>可知二次模型的解 $\boldsymbol{d}^{(k)}$ 与信赖域半径 $r_k$ 有关。</p>
+<p>&emsp;&emsp;该约束子问题可通过<strong>对偶法</strong>求解（<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/36621652">理解KKT条件和对偶问题</a>）。若 $\boldsymbol{d}^{(k)}$ 是该问题的最优解，则存在乘子 $\hat w\ge 0$ ，使得</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&\nabla^{2} f\left(\boldsymbol{x}^{(k)}\right) \boldsymbol{d}^{(k)}+\nabla f\left(\boldsymbol{x}^{(k)}\right)+\frac{\hat{w}}{\left(\boldsymbol d^{(k)\mathrm{T}}\boldsymbol d^{(k)}\right)^{\frac{1}{2}}} \boldsymbol{d}^{(k)}=0 \\
+&\hat{w}\left(\|\boldsymbol{d}^{(k)} \|-r_{k}\right)=0 .
+\end{aligned}</script><p>记作</p>
+<script type="math/tex; mode=display">
+w=\frac{\hat{w}}{\left(\boldsymbol{d}^{(k) \mathrm T} \boldsymbol{d}^{(k)}\right)^{\frac{1}{2}}}</script><p>得到 $\boldsymbol{d}^{(k)}$ 是问题最优解的必要条件（<strong>KKT条件</strong>）</p>
+<script type="math/tex; mode=display">
+\left\{\begin{array}{l}
+\nabla^{2} f\left(\boldsymbol{x}^{(k)}\right) \boldsymbol d^{(k)}+w \boldsymbol d^{(k)}=-\nabla f\left(\boldsymbol{x}^{(k)}\right), \\
+w\left(\left\|\boldsymbol{d}^{(k)}\right\|-r_{k}\right)=0, \\
+w \geqslant 0, \\
+\left\|\boldsymbol{d}^{(k)}\right\| \leqslant r_{k} .
+\end{array}\right.</script><p>假设 $\nabla^{2} f\left(\boldsymbol x^{(k)}\right)+w \bold{I}$ 可逆，则由上式可得到</p>
+<script type="math/tex; mode=display">
+\left\|\boldsymbol{d}^{(k)}\right\|=\left\|\left(\nabla^{2} f\left(\boldsymbol{x}^{(k)}\right)+w \bold{I}\right)^{-1} \nabla f\left(\boldsymbol{x}^{(k)}\right)\right\|</script><p>可知二次模型的解 $\boldsymbol{d}^{(k)}$ 与信赖域半径 $r_k$ 有关。</p>
 <p>当信赖域半径由小到大逐渐增大时，搜索方向在最速下降方向和牛顿方向间连续变化。</p>
 <ul>
 <li>若 $r_k$ 充分大，则 $w$ 值可能很小，从而搜索方向接近牛顿方向，即</li>
 </ul>
-<p>$$<br>\boldsymbol d^{(k)} \approx-\nabla^{2} f\left(\boldsymbol x^{(k)}\right)^{-1} \nabla f\left(\boldsymbol x^{(k)}\right)<br>$$</p>
-<ul>
-<li>若 $r_k\rightarrow0$，则 $\boldsymbol{d}^{(k)}\rightarrow 0,w\rightarrow\infty$ ，此时搜索方向接近最速下降方向<br>$$<br>\boldsymbol{d}^{(k)} \approx-\frac{1}{w} \nabla f\left(\boldsymbol{x}^{(k)}\right)<br>$$</li>
+<script type="math/tex; mode=display">
+\boldsymbol d^{(k)} \approx-\nabla^{2} f\left(\boldsymbol x^{(k)}\right)^{-1} \nabla f\left(\boldsymbol x^{(k)}\right)</script><ul>
+<li>若 $r_k\rightarrow0$，则 $\boldsymbol{d}^{(k)}\rightarrow 0,w\rightarrow\infty$ ，此时搜索方向接近最速下降方向<script type="math/tex; mode=display">
+\boldsymbol{d}^{(k)} \approx-\frac{1}{w} \nabla f\left(\boldsymbol{x}^{(k)}\right)</script></li>
 </ul>
 <p><strong>逼近判决</strong></p>
-<p>&emsp;&emsp;求出最优解 $\boldsymbol{d}^{(k)}$ 后，点 $\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}$ 是否能作为原问题的近似解还需要根据用 $\varphi_{k}(\boldsymbol{d})$ 逼近 $f(\boldsymbol{x})$ 是否成功来确定。用函数实际下降量与预测下降量之比来进行衡量<br>$$<br>\rho_k=\frac{f\left(\boldsymbol{x}^{(k)}\right)-f\left(\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}\right)}{f\left(\boldsymbol{x}^{(k)}\right)-\varphi_{k}\left(\boldsymbol{d}^{(k)}\right)}<br>$$<br>若 $\rho_k$ 足够大，则认为逼近成功，取 $\boldsymbol{x}^{(k+1)}=\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}$ ；否则后继点仍取 $\boldsymbol{x}^{(k)}$ 。</p>
+<p>&emsp;&emsp;求出最优解 $\boldsymbol{d}^{(k)}$ 后，点 $\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}$ 是否能作为原问题的近似解还需要根据用 $\varphi_{k}(\boldsymbol{d})$ 逼近 $f(\boldsymbol{x})$ 是否成功来确定。用函数实际下降量与预测下降量之比来进行衡量</p>
+<script type="math/tex; mode=display">
+\rho_k=\frac{f\left(\boldsymbol{x}^{(k)}\right)-f\left(\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}\right)}{f\left(\boldsymbol{x}^{(k)}\right)-\varphi_{k}\left(\boldsymbol{d}^{(k)}\right)}</script><p>若 $\rho_k$ 足够大，则认为逼近成功，取 $\boldsymbol{x}^{(k+1)}=\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}$ ；否则后继点仍取 $\boldsymbol{x}^{(k)}$ 。</p>
 <p><strong>算法步骤</strong></p>
 <ol>
 <li><p>给定可行点 $\boldsymbol{x}^{(1)}$ ，信赖域半径 $r_1$ ，参数 $0&lt;\mu&lt;\eta&lt;1$ （一般取 $\mu=\frac{1}{4},\eta=\frac{3}{4}$）以及精度要求 $\varepsilon$，置 $k=1$ 。</p>
 </li>
 <li><p>计算 $f\left(\boldsymbol{x}^{(k)}\right), \nabla f\left(\boldsymbol{x}^{(k)}\right)$ ，若 $\left|\nabla f\left(\boldsymbol{x}^{(k)}\right)\right| \leqslant \varepsilon$ ，则停止计算，得解 $\boldsymbol{x}^{(k)}$ ；否则，计算 $\nabla^{2} f\left(\boldsymbol{x}^{(k)}\right)$ 。</p>
 </li>
-<li><p>求解子问题<br>$$<br>\begin{aligned}<br>&amp;\min \quad \varphi_{k}(\boldsymbol{d}) \stackrel{\text { def }}{=} f\left(\boldsymbol{x}^{(k)}\right)+\nabla f\left(\boldsymbol{x}^{(k)}\right)^{\mathrm{T}} \boldsymbol{d}+\frac{1}{2} \boldsymbol{d}^{\mathrm{T}} \nabla^{2} f\left(\boldsymbol{x}^{(k)}\right) \boldsymbol{d} \<br>&amp;\text { s.t. }|\boldsymbol{d}| \leqslant  r_{k}<br>\end{aligned}<br>$$<br>得到问题的最优解 $\boldsymbol{d}^{(k)}$ ，并计算<br>$$<br>\rho_k=\frac{f\left(\boldsymbol{x}^{(k)}\right)-f\left(\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}\right)}{f\left(\boldsymbol{x}^{(k)}\right)-\varphi_{k}\left(\boldsymbol{d}^{(k)}\right)}<br>$$</p>
-</li>
+<li><p>求解子问题</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&\min \quad \varphi_{k}(\boldsymbol{d}) \stackrel{\text { def }}{=} f\left(\boldsymbol{x}^{(k)}\right)+\nabla f\left(\boldsymbol{x}^{(k)}\right)^{\mathrm{T}} \boldsymbol{d}+\frac{1}{2} \boldsymbol{d}^{\mathrm{T}} \nabla^{2} f\left(\boldsymbol{x}^{(k)}\right) \boldsymbol{d} \\
+&\text { s.t. }\|\boldsymbol{d}\| \leqslant  r_{k}
+\end{aligned}</script><p>得到问题的最优解 $\boldsymbol{d}^{(k)}$ ，并计算</p>
+<script type="math/tex; mode=display">
+\rho_k=\frac{f\left(\boldsymbol{x}^{(k)}\right)-f\left(\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}\right)}{f\left(\boldsymbol{x}^{(k)}\right)-\varphi_{k}\left(\boldsymbol{d}^{(k)}\right)}</script></li>
 <li><p>若 $\rho_k\le\mu$ ，则令 $\boldsymbol{x}^{(k+1)}=\boldsymbol{x}^{(k)}$ ；若 $\rho_k&gt;\mu$ ，则令 $\boldsymbol{x}^{(k+1)}=\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}$ 。</p>
 </li>
 <li><p>修改信赖域半径 $r_k$ 。若 $\rho_k\le\mu$ ，令 $r_{k+1}=\frac{1}{2}r_k$；若 $\mu&lt;\rho_k&lt;\eta$ ，令 $r_{k+1}=r_k$；若 $\rho_k\ge\eta$ ，令 $r_{k+1}=2r_k$ 。</p>
@@ -1642,7 +1676,7 @@
 </main>
 
 
-<script src="https://fastly.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
     MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
@@ -1719,7 +1753,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">80.6k</span>&nbsp;字
+                class="white-color">80.3k</span>&nbsp;字
             
 
 			

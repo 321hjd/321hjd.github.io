@@ -779,7 +779,7 @@
 <p>Input:</p>
 <ul>
 <li>K（簇的数量）</li>
-<li>无标签训练集${x^{(1)},x^{(2)},\ldots,x^{(m)}},x^{(i)}\in\mathbb{R}^n$ （注意，没有 $x_0=1$ ）</li>
+<li>无标签训练集$\{x^{(1)},x^{(2)},\ldots,x^{(m)}\},x^{(i)}\in\mathbb{R}^n$ （注意，没有 $x_0=1$ ）</li>
 </ul>
 </blockquote>
 <ol>
@@ -798,7 +798,7 @@
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/application-of-k-means.jpg" alt="application of k-means"></p>
 <p>一般来说是左图这类数据结构差异明显的，但也可用于右图这样分布结构比较紧密的数据。</p>
 <h4 id="2-2-K-means-算法的优化目标"><a href="#2-2-K-means-算法的优化目标" class="headerlink" title="2.2  K-means 算法的优化目标"></a>2.2  K-means 算法的优化目标</h4><p>Optimization Objective：(失真函数)</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/formulation-1.jpg"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/formulation-1.jpg" alt></p>
 <h4 id="2-3-随机初始化"><a href="#2-3-随机初始化" class="headerlink" title="2.3 随机初始化"></a>2.3 随机初始化</h4><blockquote>
 <p>目的：找到最优的簇，避免局部最优解。</p>
 </blockquote>
@@ -816,9 +816,9 @@
 </blockquote>
 </li>
 <li><p>根据<strong>实际需要/目的</strong>决定 $K$ 值。如对 T-shirt 的大小范围进行聚类（S、M、L，K=3 或 XS、S、M、L、XL，K=5），需要根据市场需求、销量等进行选择。</p>
-</li>
+<h3 id="三、降维"><a href="#三、降维" class="headerlink" title="三、降维"></a>三、降维</h3></li>
 </ol>
-<h3 id="三、降维"><a href="#三、降维" class="headerlink" title="三、降维"></a>三、降维</h3><blockquote>
+<blockquote>
 <p>降维（Dimension Reduction）的目的：数据压缩，数据可视化。</p>
 </blockquote>
 <h4 id="3-1-数据压缩"><a href="#3-1-数据压缩" class="headerlink" title="3.1 数据压缩"></a>3.1 数据压缩</h4><p>数据的某些特征可能是高度相关的，可以通过减少特征冗余达到数据压缩的目的。</p>
@@ -845,12 +845,15 @@
 <li>特征缩放。若不同特征数值范围差异很大，需要进行特征缩放。$x_j^{(i)}=\frac{x_j^{(i)}-\mu_j}{s_j}$ ($s_j$ 为标准偏差或 $x_{j_{max}}-x_{j_{min}}$)</li>
 </ul>
 </li>
-<li><p>计算协方差矩阵（covariance matrix）<br>$$<br>\Sigma=\frac{1}{m}\sum_{i=1}^m(x^{(i)})(x^{(i)})^T<br>$$</p>
-</li>
-<li><p>做 SVD 分解，计算协方差矩阵 $\Sigma$ 的特征向量（eigenvectors）$U\in\mathbb{R}^{n\times n}$<br>$$<br>[U,S,V] = \mathrm{svd}(\Sigma);<br>$$</p>
-</li>
-<li><p>仅取矩阵 $U$ 的前 $k$ 个向量组成的矩阵 $U_{reduce}\in\mathbb{R}^{n\times k}$ 。降维后得到新的特征向量（$x\in\mathbb{R}^n\rightarrow z\in\mathbb{R}^k$）<br>$$<br>z=U_{reduce}^Tx,\quad z\in\mathbb{R}^k<br>$$</p>
-</li>
+<li><p>计算协方差矩阵（covariance matrix）</p>
+<script type="math/tex; mode=display">
+\Sigma=\frac{1}{m}\sum_{i=1}^m(x^{(i)})(x^{(i)})^T</script></li>
+<li><p>做 SVD 分解，计算协方差矩阵 $\Sigma$ 的特征向量（eigenvectors）$U\in\mathbb{R}^{n\times n}$</p>
+<script type="math/tex; mode=display">
+[U,S,V] = \mathrm{svd}(\Sigma);</script></li>
+<li><p>仅取矩阵 $U$ 的前 $k$ 个向量组成的矩阵 $U_{reduce}\in\mathbb{R}^{n\times k}$ 。降维后得到新的特征向量（$x\in\mathbb{R}^n\rightarrow z\in\mathbb{R}^k$）</p>
+<script type="math/tex; mode=display">
+z=U_{reduce}^Tx,\quad z\in\mathbb{R}^k</script></li>
 </ol>
 <p>选择合适的主成分的数量 $k$ ，以<strong>最小化平均平方投影误差</strong></p>
 <ol>
@@ -861,7 +864,9 @@
 </li>
 <li><p>总方差：$\frac{1}{m}\sum_\limits{i=1}^{m}||x^{(i)}||^2$</p>
 </li>
-<li><p>一般来说，选择尽可能小的 $k$ 值，但要求保证<br>$$<br>\frac{\frac{1}{m}\sum_\limits{i=1}^m||x^{(i)}-x_{approx}^{(i)}||^2}{\frac{1}{m}\sum_\limits{i=1}^{m}||x^{(i)}||^2}\le 0.01/0.05/0.10/\ldots<br>$$<br>保留 99%（95%, 90%,…） 的方差（<strong>方差保留比例</strong>），代表了投影数据逼近原始数据的程度。</p>
+<li><p>一般来说，选择尽可能小的 $k$ 值，但要求保证</p>
+<script type="math/tex; mode=display">
+\frac{\frac{1}{m}\sum_\limits{i=1}^m||x^{(i)}-x_{approx}^{(i)}||^2}{\frac{1}{m}\sum_\limits{i=1}^{m}||x^{(i)}||^2}\le 0.01/0.05/0.10/\ldots</script><p>保留 99%（95%, 90%,…） 的方差（<strong>方差保留比例</strong>），代表了投影数据逼近原始数据的程度。</p>
 <p>对于这个计算，实际上相当于计算 $1-\frac{\sum_\limits{i=1}^kS_{ii}}{\sum_\limits{i=1}^nS_{ii}}\le 0.01$ ，其中 $S_{ii}$ 为前面进行 $SVD$ 分解时得到的对角矩阵 $S(\in\mathbb{R}^{n\times n})$ 对角线上的值。</p>
 </li>
 </ol>
@@ -1711,7 +1716,7 @@
 </main>
 
 
-<script src="https://fastly.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
     MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
@@ -1788,7 +1793,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">80.6k</span>&nbsp;字
+                class="white-color">80.3k</span>&nbsp;字
             
 
 			
