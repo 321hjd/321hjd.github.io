@@ -781,9 +781,7 @@
 </ul>
 <p>$$<br>\boldsymbol d^{(k)} \approx-\nabla^{2} f\left(\boldsymbol x^{(k)}\right)^{-1} \nabla f\left(\boldsymbol x^{(k)}\right)<br>$$</p>
 <ul>
-<li><p>若 $r_k\rightarrow0$，则 $\boldsymbol{d}^{(k)}\rightarrow 0,w\rightarrow\infty$ ，此时搜索方向接近最速下降方向<br>$$<br>\boldsymbol{d}^{(k)} \approx-\frac{1}{w} \nabla f\left(\boldsymbol{x}^{(k)}\right)<br>$$</p>
-</li>
-<li></li>
+<li>若 $r_k\rightarrow0$，则 $\boldsymbol{d}^{(k)}\rightarrow 0,w\rightarrow\infty$ ，此时搜索方向接近最速下降方向<br>$$<br>\boldsymbol{d}^{(k)} \approx-\frac{1}{w} \nabla f\left(\boldsymbol{x}^{(k)}\right)<br>$$</li>
 </ul>
 <p><strong>逼近判决</strong></p>
 <p>&emsp;&emsp;求出最优解 $\boldsymbol{d}^{(k)}$ 后，点 $\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}$ 是否能作为原问题的近似解还需要根据用 $\varphi_{k}(\boldsymbol{d})$ 逼近 $f(\boldsymbol{x})$ 是否成功来确定。用函数实际下降量与预测下降量之比来进行衡量<br>$$<br>\rho_k=\frac{f\left(\boldsymbol{x}^{(k)}\right)-f\left(\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}\right)}{f\left(\boldsymbol{x}^{(k)}\right)-\varphi_{k}\left(\boldsymbol{d}^{(k)}\right)}<br>$$<br>若 $\rho_k$ 足够大，则认为逼近成功，取 $\boldsymbol{x}^{(k+1)}=\boldsymbol{x}^{(k)}+\boldsymbol{d}^{(k)}$ ；否则后继点仍取 $\boldsymbol{x}^{(k)}$ 。</p>
@@ -1644,7 +1642,7 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="https://cdn.bootcss.com/mathjax/3.0.5/es5/tex-mml-chtml.js"></script>
 <script>
     MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
