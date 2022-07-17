@@ -776,6 +776,7 @@
 1&gt;D:\18482\visual studio\source\repos\OpenGL\Debug\OpenGL.exe : fatal error LNK1120: 2 个无法解析的外部命令
 1&gt;已完成生成项目“OpenGL.vcxproj”的操作 - 失败。
 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 生成: 成功 0 个，失败 1 个，最新 0 个，跳过 0 个 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <p>解决：在include”stb_image.h”前加上#define STB_IMAGE_IMPLEMENTATION，通过定义STB_IMAGE_IMPLEMENTATION，预处理器会修改头文件，让其只包含相关的函数定义源码，相当于把这个头文件变为一个 .cpp 文件（原stb_image.h库的教程给出，具体原因未知）</p>
 
                 
@@ -1676,7 +1677,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">80.2k</span>&nbsp;字
+                class="white-color">80.6k</span>&nbsp;字
             
 
 			

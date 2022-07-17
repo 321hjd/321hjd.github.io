@@ -792,7 +792,7 @@
 <p>​    $J_{\text {test }}(\theta)=-\frac{1}{m_{\text {test }}} \sum_{i=1}^{m_{\text {test }}} y_{\text {test }}^{(i)} \log h_{\theta}\left(x_{\text {test }}^{(i)}\right)+\left(1-y_{\text {test }}^{(i)}\right) \log h_{\theta}\left(x_{\text {test }}^{(i)}\right)$</p>
 <ul>
 <li><p>或计算错误分类误差（0/1）</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/ModelSelectionAndImprovement/TestError.jpg" alt></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/ModelSelectionAndImprovement/TestError.jpg"></p>
 </li>
 </ul>
 </li>
@@ -850,7 +850,7 @@
 <p>$J_{\text {test }}(\theta)=\frac{1}{2 m_{\text {test }}} \sum_{i=1}^{m_{\text {test }}}\left(h_{\theta}\left(x_{\text {test }}^{(i)}\right)-y_{\text {test }}^{(i)}\right)^{2}$ </p>
 </li>
 <li><p>自动选择正则化参数 $\lambda$ </p>
-<p>​    选取一系列$\lambda$值，如$\{\lambda|0,0.01,0.02,0.04,\dots,10\}$，分别利用验证集计算每个模型对应的训练误差进行模型选择，选择最小误差所对应的$\lambda$值即可。</p>
+<p>​    选取一系列$\lambda$值，如${\lambda|0,0.01,0.02,0.04,\dots,10}$，分别利用验证集计算每个模型对应的训练误差进行模型选择，选择最小误差所对应的$\lambda$值即可。</p>
 </li>
 <li><p>正则化与偏差/方差的关系</p>
 <ul>
@@ -868,11 +868,11 @@
 </li>
 <li><p>高偏差情况</p>
 <p><font color="red"><strong>高偏差情况下，不断增大数据集的样本数量无益。</strong></font>其$J_{train}$和$J_{cv}$都非常大且值相近，并随着m增大而趋于一个常数。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/ModelSelectionAndImprovement/J_t&amp;J_cv-under-high-bias.jpg" alt="J_t&amp;J_cv under high bias"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/ModelSelectionAndImprovement/J_t&J_cv-under-high-bias.jpg" alt="J_t&amp;J_cv under high bias"></p>
 </li>
 <li><p>高方差情况</p>
 <p><font color="red"><strong>高方差情况下，不断增大数据集样本数量有益。</strong></font>其$J_{train}$和$J_{cv}$随着样本数m增大而逐渐接近，模型性能逐渐提升。</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/ModelSelectionAndImprovement/J_t&amp;J_cv-under-high-variance.jpg" alt="J_t&amp;J_cv under high vaiance"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/ModelSelectionAndImprovement/J_t&J_cv-under-high-variance.jpg" alt="J_t&amp;J_cv under high vaiance"></p>
 </li>
 </ol>
 <h3 id="六、算法改进"><a href="#六、算法改进" class="headerlink" title="六、算法改进"></a>六、算法改进</h3><ol>
@@ -916,7 +916,7 @@
 <blockquote>
 <p><strong>Precision</strong>=真阳性/(真阳性+假阳性)</p>
 <p><strong>Recall</strong>=真阳性/(真阳性+假阴性)</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/ModelSelectionAndImprovement/Precision&amp;Recall.png" alt="Precision&amp;Recall"></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/ModelSelectionAndImprovement/Precision&Recall.png" alt="Precision&amp;Recall"></p>
 </blockquote>
 </li>
 <li><p><strong>拥有高Precision和高Recall的模型表现很好</strong> </p>
@@ -1791,7 +1791,7 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/3.0.5/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
     MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
@@ -1868,7 +1868,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">80.2k</span>&nbsp;字
+                class="white-color">80.6k</span>&nbsp;字
             
 
 			

@@ -736,7 +736,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-06-18
+                    2022-07-17
                 </div>
                 
 
@@ -769,60 +769,27 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>基本思想：通过构造<strong>惩罚函数</strong>将约束问题转化为无约束问题，进而用无约束最优化方法求解。主要分为<strong>内点法</strong>和<strong>外点法</strong>。</p>
-<p>注意：罚函数法<strong>对目标函数的凹凸性没有要求</strong>，且结合启发式算法（如遗传算法、蚁群算法、禁忌搜索等）几乎可以求解任何问题。因为启发式算法无需目标函数的梯度等信息。</p>
+<p>基本思想：通过构造<strong>惩罚函数</strong>将约束问题转化为无约束问题，进而用无约束最优化方法求解。主要分为<strong>内点法</strong>和<strong>外点法</strong>。<br>注意：罚函数法<strong>对目标函数的凹凸性没有要求</strong>，且结合启发式算法（如遗传算法、蚁群算法、禁忌搜索等）几乎可以求解任何问题。因为启发式算法无需目标函数的梯度等信息。</p>
 </blockquote>
-<h2 id="一、惩罚函数"><a href="#一、惩罚函数" class="headerlink" title="一、惩罚函数"></a>一、惩罚函数</h2><p><strong>约束优化问题</strong></p>
-<script type="math/tex; mode=display">
-\begin{array}{ll}
-\min & f(\boldsymbol{x}) \\
-\text { s. t. } & g_{i}(\boldsymbol{x}) \geqslant 0, \quad i=1, \cdots, p \\
-& h_{j}(\boldsymbol{x})=0, \quad j=1, \cdots, q
-\end{array}</script><p>其中，$f(\boldsymbol{x}),g_i(\boldsymbol{x})(i=1,2,\cdots,p)$ 和 $h_j(\boldsymbol{x})(j=1,2,\cdots,q)$ 是 $\mathbb{R}^n$ 上的连续函数。</p>
+<h2 id="一、惩罚函数"><a href="#一、惩罚函数" class="headerlink" title="一、惩罚函数"></a>一、惩罚函数</h2><p><strong>约束优化问题</strong><br>$$<br>\begin{array}{ll}<br>\min &amp; f(\boldsymbol{x}) \<br>\text { s. t. } &amp; g_{i}(\boldsymbol{x}) \geqslant 0, \quad i=1, \cdots, p \<br>&amp; h_{j}(\boldsymbol{x})=0, \quad j=1, \cdots, q<br>\end{array}<br>$$<br>其中，$f(\boldsymbol{x}),g_i(\boldsymbol{x})(i=1,2,\cdots,p)$ 和 $h_j(\boldsymbol{x})(j=1,2,\cdots,q)$ 是 $\mathbb{R}^n$ 上的连续函数。</p>
 <p>&emsp;&emsp;由于约束条件是非线性的，不能用消元法将其转换为无约束问题，在求解时需同时考虑目标函数值下降和满足约束条件。可以通过由目标函数和约束条件组成惩罚函数，将原问题转化为极小化惩罚函数的无约束问题。</p>
 <p><strong>惩罚函数</strong></p>
-<p>&emsp;&emsp;对于一般情形（多个等式/不等式约束条件），<strong>惩罚函数</strong>的一般形式为：</p>
-<script type="math/tex; mode=display">
-\phi(\boldsymbol{x},\boldsymbol{r},\boldsymbol{m})=f(\boldsymbol{x})+\boldsymbol{r} \sum_{i=1}^{p} G\left[g_{i}(x)\right]+\boldsymbol{m} \sum_{j=1}^{q} H\left[h_{j}(x)\right]</script><p>其中，$\boldsymbol{r},\boldsymbol{m}$ 称为<strong>罚因子</strong>，${r}G\left[g_{i}(x)\right],{m}<br>H\left[h_{j}(x)\right]$ 称为<strong>惩罚项</strong>。且其典型构造方法为：</p>
-<script type="math/tex; mode=display">
-\left\{\begin{array}{l}
-G\left[g_{i}(x)\right]= \begin{cases}\frac{1}{g_{i}(x)}\;\text{or}\;-\ln\left(g_{i}(x)\right)&\text{(内点形式)} \\
-\left\{\min \left[0, g_{i}(x)\right]\right\}^{2}&(\text{外点形式})\end{cases} \\
-H\left[h_{j}(x)\right]=\left[h_{j}(x)\right]^{2}
-\end{array}\right.</script><p>若要使用内点形式，且统一使用一个罚因子序列，则可以使 $\boldsymbol{m}^{(k)}=\frac{1}{\sqrt{\boldsymbol{r}^{(k)}}}$ （对于外点法，罚因子是递增序列，对于内点法，罚因子是递减序列）。</p>
+<p>&emsp;&emsp;对于一般情形（多个等式/不等式约束条件），<strong>惩罚函数</strong>的一般形式为：<br>$$<br>\phi(\boldsymbol{x},{r},\boldsymbol{m})=f(\boldsymbol{x})+{r} \sum_{i=1}^{p} G\left[g_{i}(x)\right]+{m} \sum_{j=1}^{q} H\left[h_{j}(x)\right]<br>$$<br>其中，${r},{m}$ 称为<strong>罚因子</strong>，${r}G\left[g_{i}(x)\right],{m}<br>H\left[h_{j}(x)\right]$ 称为<strong>惩罚项</strong>。且其典型构造方法为：<br>$$<br>\left{\begin{array}{l}<br>G\left[g_{i}(x)\right]= \begin{cases}\frac{1}{g_{i}(x)};\text{or};-\ln\left(g_{i}(x)\right)&amp;\text{(内点形式)} \<br>\left{\min \left[0, g_{i}(x)\right]\right}^{2}&amp;(\text{外点形式})\end{cases} \<br>H\left[h_{j}(x)\right]=\left[h_{j}(x)\right]^{2}<br>\end{array}\right.<br>$$<br>若要使用内点形式，且统一使用一个罚因子序列，则可以使 ${m}^{(k)}=\frac{1}{\sqrt{r^{(k)}}}$ （对于外点法，罚因子是递增序列，对于内点法，罚因子是递减序列）。</p>
 <p><strong>基本原理</strong></p>
 <ul>
-<li><p>当 $\boldsymbol{x}$ 为可行点时，惩罚项等于0，即 $\phi(\boldsymbol{x},\boldsymbol{r},\boldsymbol{m})=f(\boldsymbol{x})$ ；</p>
+<li><p>当 $\boldsymbol{x}$ 为可行点时，惩罚项等于0，即 $\phi(\boldsymbol{x},{r},{m})=f(\boldsymbol{x})$ ；</p>
 </li>
 <li><p>当 $\boldsymbol{x}$ 为不可行点，惩罚项是一个很大的正数，其存在是对点脱离可行域的惩罚，作用是在极小化过程中迫使迭代点靠近可行域。</p>
 <blockquote>
-<p>因为惩罚函数一定满足 $\phi(\boldsymbol{x},\boldsymbol{r},\boldsymbol{m})\ge f(\boldsymbol{x})$ ，随着迭代的进行，惩罚函数应该逐渐逼近原函数，即惩罚项逐渐趋于0，只有让迭代点靠近可行域，才能达到这个目的。</p>
+<p>因为惩罚函数一定满足 $\phi(\boldsymbol{x},{r},{m})\ge f(\boldsymbol{x})$ ，随着迭代的进行，惩罚函数应该逐渐逼近原函数，即惩罚项逐渐趋于0，只有让迭代点靠近可行域，才能达到这个目的。</p>
 </blockquote>
 </li>
 </ul>
 <h2 id="二、内点法"><a href="#二、内点法" class="headerlink" title="二、内点法"></a>二、内点法</h2><blockquote>
 <p>内点法总是从内点出发，并保持在<strong>可行域内</strong>进行搜索，仅适用于只包含<strong>不等式约束</strong>的优化问题。</p>
 </blockquote>
-<p><strong>优化问题</strong></p>
-<script type="math/tex; mode=display">
-\begin{array}{ll}
-\min & f(\boldsymbol{x}) \\
-\text { s. t. } & g_{i}(\boldsymbol{x}) \geqslant 0, \quad i=1, \cdots, p
-\end{array}</script><p>其中，$f(\boldsymbol{x}),g_i(\boldsymbol{x})(i=1,2,\cdots,p)$ 是 $\mathbb{R}^n$ 上的连续函数。可行域可记为</p>
-<script type="math/tex; mode=display">
-S=\{\boldsymbol{x}|g_i(\boldsymbol{x})\ge 0,\;i=1,2,\cdots,p\}</script><p><strong>惩罚函数</strong></p>
-<script type="math/tex; mode=display">
-\phi(\boldsymbol{x},\boldsymbol{r})=f(\boldsymbol{x})+\boldsymbol{r}\sum_{i=1}^pG(\boldsymbol{x})</script><p>其中，当点 $\boldsymbol{x}$ 靠近可行域边界时， $G(\boldsymbol{x})\rightarrow\infty$ 。$G(\boldsymbol{x})$ 的两种最重要的形式为：</p>
-<script type="math/tex; mode=display">
-G(\boldsymbol{x})=\frac{1}{g_i(\boldsymbol{x})}\;\text{or}\;-\ln(g_i(\boldsymbol{x}))</script><p>$r$ 是很小的正数。这样，当点 $\boldsymbol{x}$ 靠近可行域边界时，$\phi(\boldsymbol{x},\boldsymbol{r})\rightarrow\infty$ ；反之，由于 $r$ 的存在，惩罚函数的取值近似等于原函数。这样可以将迭代点限制在可行域内。因此，可通过求解无约束的极小化惩罚函数问题作为原问题的近似解：</p>
-<script type="math/tex; mode=display">
-\begin{array}{ll}
-\min & \phi(\boldsymbol{x},\boldsymbol{r}) \\
-\text { s. t. } &\boldsymbol{x}\in \text{int}\;S
-\end{array}</script><p><strong>罚因子的变化趋势</strong></p>
-<p>&emsp;&emsp;罚因子是一个逐渐变小的值，可表示为：</p>
-<script type="math/tex; mode=display">
-r^{(k)}=Cr^{(k-1)}</script><p>$C$ 是罚因子递减系数，通常取 $0&lt;C&lt;1$ ，即 $\lim_\limits{k\rightarrow\infty}r^{(k)}=0$ 。因此随着迭代进行，惩罚函数会逐渐变小，进而逼近原函数。</p>
+<p><strong>优化问题</strong><br>$$<br>\begin{array}{ll}<br>\min &amp; f(\boldsymbol{x}) \<br>\text { s. t. } &amp; g_{i}(\boldsymbol{x}) \geqslant 0, \quad i=1, \cdots, p<br>\end{array}<br>$$<br>其中，$f(\boldsymbol{x}),g_i(\boldsymbol{x})(i=1,2,\cdots,p)$ 是 $\mathbb{R}^n$ 上的连续函数。可行域可记为<br>$$<br>S={\boldsymbol{x}|g_i(\boldsymbol{x})\ge 0,;i=1,2,\cdots,p}<br>$$<br><strong>惩罚函数</strong><br>$$<br>\phi(\boldsymbol{x},{r})=f(\boldsymbol{x})+{r}\sum_{i=1}^pG(\boldsymbol{x})<br>$$<br>其中，当点 $\boldsymbol{x}$ 靠近可行域边界时， $G(\boldsymbol{x})\rightarrow\infty$ 。$G(\boldsymbol{x})$ 的两种最重要的形式为：<br>$$<br>G(\boldsymbol{x})=\frac{1}{g_i(\boldsymbol{x})};\text{or};-\ln(g_i(\boldsymbol{x}))<br>$$<br>$r$ 是很小的正数。这样，当点 $\boldsymbol{x}$ 靠近可行域边界时，$\phi(\boldsymbol{x},{r})\rightarrow\infty$ ；反之，由于 $r$ 的存在，惩罚函数的取值近似等于原函数。这样可以将迭代点限制在可行域内。因此，可通过求解无约束的极小化惩罚函数问题作为原问题的近似解：<br>$$<br>\begin{array}{ll}<br>\min &amp; \phi(\boldsymbol{x},{r}) \<br>\text { s. t. } &amp;\boldsymbol{x}\in \text{int};S<br>\end{array}<br>$$<br><strong>罚因子的变化趋势</strong></p>
+<p>&emsp;&emsp;罚因子是一个逐渐变小的值，可表示为：<br>$$<br>r^{(k)}=Cr^{(k-1)}<br>$$<br>$C$ 是罚因子递减系数，通常取 $0&lt;C&lt;1$ ，即 $\lim_\limits{k\rightarrow\infty}r^{(k)}=0$ 。因此随着迭代进行，惩罚函数会逐渐变小，进而逼近原函数。</p>
 <p><strong>参数选择</strong></p>
 <ul>
 <li><p>初始点 $x^{(0)}$</p>
@@ -853,12 +820,10 @@ r^{(k)}=Cr^{(k-1)}</script><p>$C$ 是罚因子递减系数，通常取 $0&lt;C&l
 </ul>
 <p><strong>终止条件</strong></p>
 <ol>
-<li><p>相邻两次惩罚函数无约束最优点间距离足够小。一般取收敛精度 $\varepsilon_1=[10^{-4},10^{-5}]$，满足</p>
-<script type="math/tex; mode=display">
-|x^*_k-x^*_{k-1}|\le\varepsilon_1</script></li>
-<li><p>相邻两次惩罚函数值相对变化量足够小。一般取 $\varepsilon_2=[10^{-3},10^{-4}]$ ，满足</p>
-<script type="math/tex; mode=display">
-\left|\frac{\phi_{k}^{*}-\phi_{k-1}^{*}}{\phi_{k}^{*}}\right| \leq \varepsilon_{2}</script></li>
+<li><p>相邻两次惩罚函数无约束最优点间距离足够小。一般取收敛精度 $\varepsilon_1=[10^{-4},10^{-5}]$，满足<br>$$<br>|x^*<em>k-x^*</em>{k-1}|\le\varepsilon_1<br>$$</p>
+</li>
+<li><p>相邻两次惩罚函数值相对变化量足够小。一般取 $\varepsilon_2=[10^{-3},10^{-4}]$ ，满足<br>$$<br>\left|\frac{\phi_{k}^{<em>}-\phi_{k-1}^{</em>}}{\phi_{k}^{*}}\right| \leq \varepsilon_{2}<br>$$</p>
+</li>
 </ol>
 <p><strong>算法步骤</strong></p>
 <ol>
@@ -876,13 +841,8 @@ r^{(k)}=Cr^{(k-1)}</script><p>$C$ 是罚因子递减系数，通常取 $0&lt;C&l
 <blockquote>
 <p>仅以不等式约束为例（等式约束类似，二者混合形式的可见第一节惩罚函数统一形式部分）</p>
 </blockquote>
-<script type="math/tex; mode=display">
-\begin{array}{ll}
-\min & f(\boldsymbol{x}) \\
-\text { s. t. } & g_{i}(\boldsymbol{x}) \geqslant 0, \quad i=1, \cdots, p
-\end{array}</script><p><strong>惩罚函数</strong></p>
-<script type="math/tex; mode=display">
-\phi(\boldsymbol{x},\boldsymbol{r}^{(k)})=f(\boldsymbol{x})+\boldsymbol{r}^{(k)} \sum_{i=1}^{p}\left\{\min \left[0, g_{i}(x)\right]\right\}^{2}</script><p>其中，$\boldsymbol{r}^{(k)}$ 为趋于无穷大的严格递增正数列，$r^{(k)}=Cr^{(k-1)}$ 且 $C&gt;1$ ，$\lim_\limits{k\rightarrow\infty}r^{(k)}=\infty$ 。迭代点在可行域内时，惩罚项为0，惩罚函数等于原函数；迭代点在可行域外时，惩罚项大于0，大于原函数。因此，由于罚因子严格递增，随着迭代进行，可以迫使惩罚项趋于0，从而逼近原函数。 </p>
+<p>$$<br>\begin{array}{ll}<br>\min &amp; f(\boldsymbol{x}) \<br>\text { s. t. } &amp; g_{i}(\boldsymbol{x}) \geqslant 0, \quad i=1, \cdots, p<br>\end{array}<br>$$</p>
+<p><strong>惩罚函数</strong><br>$$<br>\phi(\boldsymbol{x},{r}^{(k)})=f(\boldsymbol{x})+{r}^{(k)} \sum_{i=1}^{p}\left{\min \left[0, g_{i}(x)\right]\right}^{2}<br>$$<br>其中，$\boldsymbol{r}^{(k)}$ 为趋于无穷大的严格递增正数列，$r^{(k)}=Cr^{(k-1)}$ 且 $C&gt;1$ ，$\lim_\limits{k\rightarrow\infty}r^{(k)}=\infty$ 。迭代点在可行域内时，惩罚项为0，惩罚函数等于原函数；迭代点在可行域外时，惩罚项大于0，大于原函数。因此，由于罚因子严格递增，随着迭代进行，可以迫使惩罚项趋于0，从而逼近原函数。 </p>
 <p><strong>几何解释</strong></p>
 <p><img src="/medias/loading.gif" data-original="https://fastly.jsdelivr.net/gh/321hjd/ImageBed@main/sundry/1655517184338%E5%A4%96%E7%82%B9%E6%B3%95%E5%87%A0%E4%BD%95%E8%A7%A3%E9%87%8A.jpg" alt="外点法几何解释"></p>
 <p><strong>参数选择</strong></p>
@@ -1751,7 +1711,7 @@ r^{(k)}=Cr^{(k-1)}</script><p>$C$ 是罚因子递减系数，通常取 $0&lt;C&l
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/3.0.5/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
     MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
@@ -1828,7 +1788,7 @@ r^{(k)}=Cr^{(k-1)}</script><p>$C$ 是罚因子递减系数，通常取 $0&lt;C&l
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">80.2k</span>&nbsp;字
+                class="white-color">80.6k</span>&nbsp;字
             
 
 			

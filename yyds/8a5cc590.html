@@ -747,7 +747,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1k
                 </div>
                 
 
@@ -781,18 +781,11 @@
 </ul>
 <p>参数估计：估计参数 $\mu$ 和 $\sigma$ 。</p>
 <h3 id="二、异常检测算法"><a href="#二、异常检测算法" class="headerlink" title="二、异常检测算法"></a>二、异常检测算法</h3><ol>
-<li><p>特征提取。提取出一些对异常敏感的特征量 $x_i$ ，得到<strong>无标签训练集</strong> $\{x^{(1)},\ldots,x^{(m)}\}$ </p>
+<li><p>特征提取。提取出一些对异常敏感的特征量 $x_i$ ，得到<strong>无标签训练集</strong> ${x^{(1)},\ldots,x^{(m)}}$ </p>
 </li>
-<li><p>参数拟合（估计）。$\mu_1,\ldots,\mu_n,\sigma_1^2,\ldots,\sigma_n^2$ </p>
-<script type="math/tex; mode=display">
-\begin{align}
-&\mu_j=\frac{1}{m}\sum_{i=1}^mx_j^{(i)}\\
-&\sigma_j^2=\frac{1}{m}\sum_{i=1}^m(x_j^{(i)}-\mu_j)^2
-\end{align}</script><p>注意：对于大训练集，估计方差时用 $m或(m-1)$ 影响不大。</p>
+<li><p>参数拟合（估计）。$\mu_1,\ldots,\mu_n,\sigma_1^2,\ldots,\sigma_n^2$<br>$$<br>\begin{align}<br>&amp;\mu_j=\frac{1}{m}\sum_{i=1}^mx_j^{(i)}\<br>&amp;\sigma_j^2=\frac{1}{m}\sum_{i=1}^m(x_j^{(i)}-\mu_j)^2<br>\end{align}<br>$$<br>注意：对于大训练集，估计方差时用 $m或(m-1)$ 影响不大。</p>
 </li>
-<li><p>获取一些新的实测数据 $x$ （<strong>测试集</strong>），计算其概率值 $p(x)$ </p>
-<script type="math/tex; mode=display">
-p(x)=\prod_{j=1}^np(x_j;\mu_j,\sigma_j^2)=\prod_{j=1}^n\frac{1}{\sqrt{2\pi}\sigma_j}\exp(-\frac{(x_j-\mu_j)^2}{2\sigma_j^2})</script><p>若 $p(x)&lt;\varepsilon$ （一个很小的值），则该值为异常值。</p>
+<li><p>获取一些新的实测数据 $x$ （<strong>测试集</strong>），计算其概率值 $p(x)$<br>$$<br>p(x)=\prod_{j=1}^np(x_j;\mu_j,\sigma_j^2)=\prod_{j=1}^n\frac{1}{\sqrt{2\pi}\sigma_j}\exp(-\frac{(x_j-\mu_j)^2}{2\sigma_j^2})<br>$$<br>若 $p(x)&lt;\varepsilon$ （一个很小的值），则该值为异常值。</p>
 <p>$p(x)=p(x_1;\mu_1,\sigma_1^2)\times p(x_2;\mu_2,\sigma_2^2)\times\ldots\times p(x_n;\mu_n,\sigma_n^2)$</p>
 </li>
 </ol>
@@ -814,38 +807,34 @@ p(x)=\prod_{j=1}^np(x_j;\mu_j,\sigma_j^2)=\prod_{j=1}^n\frac{1}{\sqrt{2\pi}\sigm
 <li>$F_1$ score</li>
 </ul>
 </blockquote>
-<h3 id="四、异常检测-VS-监督学习"><a href="#四、异常检测-VS-监督学习" class="headerlink" title="四、异常检测 VS 监督学习"></a>四、异常检测 VS 监督学习</h3><div class="table-container">
-<table>
+<h3 id="四、异常检测-VS-监督学习"><a href="#四、异常检测-VS-监督学习" class="headerlink" title="四、异常检测 VS 监督学习"></a>四、异常检测 VS 监督学习</h3><table>
 <thead>
 <tr>
-<th style="text-align:left">异常检测</th>
-<th style="text-align:left">监督学习</th>
+<th align="left">异常检测</th>
+<th align="left">监督学习</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">正常样本数非常少（0~50）</td>
-<td style="text-align:left">拥有大量正常样本和异常样本</td>
+<tbody><tr>
+<td align="left">正常样本数非常少（0~50）</td>
+<td align="left">拥有大量正常样本和异常样本</td>
 </tr>
 <tr>
-<td style="text-align:left">大量异常样本</td>
-<td style="text-align:left"></td>
+<td align="left">大量异常样本</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td style="text-align:left">很多<strong>不同类型</strong>的异常样本</td>
-<td style="text-align:left"></td>
+<td align="left">很多<strong>不同类型</strong>的异常样本</td>
+<td align="left"></td>
 </tr>
 <tr>
-<td style="text-align:left">未来的异常样本很大可能与之前出现过的不一样</td>
-<td style="text-align:left">未来出现的异常样本很大可能与已经出现的异常样本类似</td>
+<td align="left">未来的异常样本很大可能与之前出现过的不一样</td>
+<td align="left">未来出现的异常样本很大可能与已经出现的异常样本类似</td>
 </tr>
 <tr>
-<td style="text-align:left">欺诈检测、工厂产品检测、数据中心监控计算机</td>
-<td style="text-align:left">天气预测、邮件分类、癌症分类</td>
+<td align="left">欺诈检测、工厂产品检测、数据中心监控计算机</td>
+<td align="left">天气预测、邮件分类、癌症分类</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h3 id="五、异常检测算法的特征选择"><a href="#五、异常检测算法的特征选择" class="headerlink" title="五、异常检测算法的特征选择"></a>五、异常检测算法的特征选择</h3><ul>
 <li>对于数据分布不像高斯分布的，可以尝试进行变换，令其更接近高斯分布。如<strong>对数变换</strong>（如 $\log(x)$）、<strong>指数变换</strong>（如 $x^{0.5}$）等。</li>
 <li>选择值不会很大也不会很小的特征量。 </li>
@@ -868,31 +857,25 @@ p(x)=\prod_{j=1}^np(x_j;\mu_j,\sigma_j^2)=\prod_{j=1}^n\frac{1}{\sqrt{2\pi}\sigm
 <p>对于多变量高斯分布，通过调整参数元素的分布，可以得到侧重不同方面的数据分布图像。如下图</p>
 <ol>
 <li><p>协方差矩阵对角线元素调整</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/multivariate-Gaussian-example-1.jpg" alt><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/multivariate-Gaussian-example-2.jpg" alt><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/multivariate-Gaussian-example-3.jpg" alt></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/multivariate-Gaussian-example-1.jpg"><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/multivariate-Gaussian-example-2.jpg"><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/multivariate-Gaussian-example-3.jpg"></p>
 </li>
-</ol>
-<ol>
 <li><p>协方差矩阵次对角线元素调整</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/multivariate-Gaussian-example-4.jpg" alt><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/multivariate-Gaussian-example-5.jpg" alt></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/multivariate-Gaussian-example-4.jpg"><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/multivariate-Gaussian-example-5.jpg"></p>
 </li>
 <li><p>均值调整</p>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/multivariate-Gaussian-example-6.jpg" alt></p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/UnsupervisedLearning/multivariate-Gaussian-example-6.jpg"></p>
 </li>
 </ol>
-<h3 id="七、单变量高斯分布-VS-多变量高斯分布"><a href="#七、单变量高斯分布-VS-多变量高斯分布" class="headerlink" title="七、单变量高斯分布 VS 多变量高斯分布"></a>七、单变量高斯分布 VS 多变量高斯分布</h3><div class="table-container">
-<table>
+<h3 id="七、单变量高斯分布-VS-多变量高斯分布"><a href="#七、单变量高斯分布-VS-多变量高斯分布" class="headerlink" title="七、单变量高斯分布 VS 多变量高斯分布"></a>七、单变量高斯分布 VS 多变量高斯分布</h3><table>
 <thead>
 <tr>
 <th>单变量</th>
 <th>多变量</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>$p(x_1;\mu_1,\sigma_1^2)\times p(x_2;\mu_2,\sigma_2^2)\times\ldots\times p(x_n;\mu_n,\sigma_n^2)$</td>
 <td>$p(x;\mu,\sigma^2)=\frac{1}{(2\pi)^{\frac{n}{2}}</td>
-<td>\Sigma</td>
-<td>^{\frac{1}{2}}}\exp(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))$</td>
 </tr>
 <tr>
 <td>当需要手动设计新特征变量时，如 $x_3=\frac{x_1}{x_2}$ （其实就是<strong>寻找变量间的关系</strong>）</td>
@@ -906,9 +889,7 @@ p(x)=\prod_{j=1}^np(x_j;\mu_j,\sigma_j^2)=\prod_{j=1}^n\frac{1}{\sqrt{2\pi}\sigm
 <td>可用样本数 m 较小时</td>
 <td><strong>必须满足条件</strong>：$m&gt;n$ （远大于会更好）否则 $\Sigma$ 将不可逆（矩阵奇异，含有冗余特征）</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 
                 
             </div>
@@ -1750,7 +1731,7 @@ p(x)=\prod_{j=1}^np(x_j;\mu_j,\sigma_j^2)=\prod_{j=1}^n\frac{1}{\sqrt{2\pi}\sigm
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/3.0.5/es5/tex-mml-chtml.js"></script>
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script>
     MathJax.Hub.Config({
         tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
@@ -1827,7 +1808,7 @@ p(x)=\prod_{j=1}^np(x_j;\mu_j,\sigma_j^2)=\prod_{j=1}^n\frac{1}{\sqrt{2\pi}\sigm
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">80.2k</span>&nbsp;字
+                class="white-color">80.6k</span>&nbsp;字
             
 
 			
