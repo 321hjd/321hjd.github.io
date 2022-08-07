@@ -1,0 +1,2097 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="对偶理论, hjd&#39;blog">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>对偶理论 | hjd&#39;blog</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/css/my.css">
+	<link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/artitalk/artitalk.min.css">
+
+    <script src="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/jquery/jquery.min.js"></script>
+
+<style type="text/css" lang="css">
+    #loading-container{
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100vw;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #FFF;
+        text-align: center;
+        /* loader页面消失采用渐隐的方式*/
+        -webkit-transition: opacity 1s ease;
+        -moz-transition: opacity 1s ease;
+        -o-transition: opacity 1s ease;
+        transition: opacity 1s ease;
+    }
+    .loading-image{
+        width: 120px;
+        height: 50px;
+        transform: translate(-50%);
+    }
+
+    .loading-image div:nth-child(2) {
+        -webkit-animation: pacman-balls 1s linear 0s infinite;
+        animation: pacman-balls 1s linear 0s infinite
+    }
+
+    .loading-image div:nth-child(3) {
+        -webkit-animation: pacman-balls 1s linear .33s infinite;
+        animation: pacman-balls 1s linear .33s infinite
+    }
+
+    .loading-image div:nth-child(4) {
+        -webkit-animation: pacman-balls 1s linear .66s infinite;
+        animation: pacman-balls 1s linear .66s infinite
+    }
+
+    .loading-image div:nth-child(5) {
+        -webkit-animation: pacman-balls 1s linear .99s infinite;
+        animation: pacman-balls 1s linear .99s infinite
+    }
+
+   .loading-image div:first-of-type {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_up .5s 0s infinite;
+        animation: rotate_pacman_half_up .5s 0s infinite;
+    }
+    .loading-image div:nth-child(2) {
+        width: 0;
+        height: 0;
+        border: 25px solid #49b1f5;
+        border-right-color: transparent;
+        border-radius: 25px;
+        -webkit-animation: rotate_pacman_half_down .5s 0s infinite;
+        animation: rotate_pacman_half_down .5s 0s infinite;
+        margin-top: -50px;
+    }
+    @-webkit-keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @keyframes rotate_pacman_half_up {0% {transform: rotate(270deg)}50% {transform: rotate(1turn)}to {transform: rotate(270deg)}}
+
+    @-webkit-keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @keyframes rotate_pacman_half_down {0% {transform: rotate(90deg)}50% {transform: rotate(0deg)}to {transform: rotate(90deg)}}
+
+    @-webkit-keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+    @keyframes pacman-balls {75% {opacity: .7}to {transform: translate(-100px, -6.25px)}}
+
+
+    .loading-image div:nth-child(3),
+    .loading-image div:nth-child(4),
+    .loading-image div:nth-child(5),
+    .loading-image div:nth-child(6){
+        background-color: #49b1f5;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        margin: 2px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        transform: translateY(-6.25px);
+        top: 25px;
+        left: 100px;
+    }
+    .loading-text{
+        margin-bottom: 20vh;
+        text-align: center;
+        color: #2c3e50;
+        font-size: 2rem;
+        box-sizing: border-box;
+        padding: 0 10px;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    @media only screen and (max-width: 500px) {
+         .loading-text{
+            font-size: 1.5rem;
+         }
+    }
+    .fadeout {
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+    /* logo出现动画 */
+    @-webkit-keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);transform:translate3d(0,-100%,0)}100%{opacity:1;-webkit-transform:none;transform:none}}
+    @keyframes fadeInDown{0%{opacity:0;-webkit-transform:translate3d(0,-100%,0);}}
+ </style>
+ <script>
+(function () {
+    const loaded = function(){
+       setTimeout(function(){
+            const loader = document.getElementById("loading-container");
+            loader.className="fadeout" ;//使用渐隐的方法淡出loading page
+            // document.getElementById("body-wrap").style.display="flex";
+            setTimeout(function(){
+                loader.style.display="none";
+            },1000); 
+        },1000);//强制显示loading page 1s  
+    };
+    loaded();
+})()
+ </script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="hjd'blog" type="application/atom+xml">
+</head>
+
+
+
+
+
+ <div id="loading-container">
+     <p class="loading-text">玩命加载中 . . . </p> 
+     <div class="loading-image">
+         <div></div>
+         <div></div>
+         <div></div>
+         <div></div> 
+         <div></div>
+     </div>
+ </div><body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+					<div>
+						
+						<img src="/medias/loading.gif" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
+						
+						<span class="logo-span">hjd&#39;blog</span>
+					</div>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/archives">
+          
+          <i class="fas fa-paper-plane" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>时轴</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/categories">
+          
+          <i class="fas fa-bookmark" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>分类</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/tags">
+          
+          <i class="fas fa-tags" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>标签</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-heartbeat" style="zoom: 0.6;"></i>
+      
+      <span>清单</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/music">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/galleries">
+          
+          <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>相册</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/books">
+          
+          <i class="fas fa-list" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>书单</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>电影</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/resources">
+          
+          <i class="fas fa-cloud-download-alt" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>资源</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/artitalk" class="waves-effect waves-light">
+      
+      <i class="fas fa-heart" style="zoom: 0.6;"></i>
+      
+      <span>说说</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tools" class="waves-effect waves-light">
+      
+      <i class="fas fa-toolbox" style="zoom: 0.6;"></i>
+      
+      <span>工具箱</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/loading.gif" data-original="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">hjd&#39;blog</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-archive"></i>
+			
+			归档
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/archives " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-paper-plane" style="left: 25px; position: absolute;"></i>
+			      
+		          <span>时轴</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/categories " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-bookmark" style="left: 25px; position: absolute;"></i>
+			      
+		          <span>分类</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/tags " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-tags" style="left: 25px; position: absolute;"></i>
+			      
+		          <span>标签</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-heartbeat"></i>
+			
+			清单
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/music " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="left: 25px; position: absolute;"></i>
+			      
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/galleries " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-image" style="left: 25px; position: absolute;"></i>
+			      
+		          <span>相册</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/books " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-list" style="left: 25px; position: absolute;"></i>
+			      
+		          <span>书单</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="left: 25px; position: absolute;"></i>
+			      
+		          <span>电影</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/resources " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-cloud-download-alt" style="left: 25px; position: absolute;"></i>
+			      
+		          <span>资源</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/artitalk" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-heart"></i>
+			
+			说说
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友链
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tools" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-toolbox"></i>
+			
+			工具箱
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">对偶理论</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%AF%B9%E5%81%B6%E7%90%86%E8%AE%BA/">
+                                <span class="chip bg-color">对偶理论</span>
+                            </a>
+                        
+                            <a href="/tags/KKT%E6%9D%A1%E4%BB%B6/">
+                                <span class="chip bg-color">KKT条件</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" class="post-category">
+                                最优化方法
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-08-07
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-08-07
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    12 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>对偶问题的意义在于无论原问题是凸还是非凸，对偶问题都是凸优化问题。通过将原问题转化为对偶问题，有将复杂问题简单化的可能性，并能够求得原问题的全局最优解。</p>
+</blockquote>
+<p><img src="/medias/loading.gif" data-original="https://fastly.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/16598620414101659862041208.png" alt="对偶理论"></p>
+<h2 id="一、线性规划中的对偶理论"><a href="#一、线性规划中的对偶理论" class="headerlink" title="一、线性规划中的对偶理论"></a>一、线性规划中的对偶理论</h2><h3 id="1-1-对偶的三种形式"><a href="#1-1-对偶的三种形式" class="headerlink" title="1.1 对偶的三种形式"></a>1.1 对偶的三种形式</h3><ol>
+<li><p>对称形式的对偶（只包含不等式约束）</p>
+<p>原问题<br>$$<br>\begin{array}{ll}<br>\min &amp; c x \<br>\text { s. t. } &amp; A x \geqslant b,\<br>&amp; x \geqslant 0 .<br>\end{array}\quad\quad(1)<br>$$<br>对偶问题<br>$$<br>\begin{array}{ll}<br>\max &amp; w b \<br>\text { s. t. } &amp; w A \leqslant c,\<br>&amp; w \geqslant 0 .<br>\end{array}\quad\quad(2)<br>$$<br>其中，$A=(p_1,p_2,\cdots,p_n)$ 是 $m\times n$ 矩阵，$b=(b_1,b_2,\cdots,b_m)$ 是 $m$ 维列向量，$c=(c_1,c_2,\cdots,c_n)$ 是 $n$ 维行向量，$x=(x_1,x_2,\cdots,x_n)$ 是由原问题的变量组成的 $n$ 维列向量，$w=(w_1,w_2,\cdots,w_m)$ 是由对偶问题的变量组成的 $m$ 维行向量。（原问题约束条件个数=对偶问题中变量的个数；原问题中变量个数=对偶问题中约束条件的个数）</p>
+</li>
+<li><p>非对称形式的对偶（只包含等式约束）</p>
+<p>原问题<br>$$<br>\begin{array}{ll}<br>\min &amp; c x \<br>\text { s. t. } &amp; A x=b, \<br>&amp; x \geqslant 0<br>\end{array}\quad\quad(3)<br>$$<br>需要先写成等价形式<br>$$<br>\begin{array}{ll}<br>\min &amp; c x \<br>\text { s. t. } &amp; A x\ge b, \<br>&amp;-A x\le -b, \<br>&amp; x \geqslant 0<br>\end{array}\quad\quad(4)<br>$$<br>对偶问题<br>$$<br>\begin{array}{ll}<br>\max &amp; wb \<br>\text { s. t. } &amp; wA \le c.<br>\end{array}\quad\quad(5)<br>$$<br>其中，对偶问题中的变量无正负号限制。</p>
+</li>
+<li><p>一般情形</p>
+<p>原问题<br>$$<br>\begin{array}{ll}<br>\min &amp; {c x} \<br>\text { s. t. } &amp; {A}<em>{1} {x} \geqslant {b}</em>{1}, \<br>&amp; {A}<em>{2} {x}={b}</em>{2}, \<br>&amp; {A}<em>{3} {x} \leqslant {b}</em>{3}, \<br>&amp; {x} \geqslant {0}<br>\end{array}\quad\quad(6)<br>$$<br>引入松弛变量将其写成等价形式<br>$$<br>\begin{array}{ll}<br>\min &amp; {c x} \<br>\text { s. t. } &amp; {A}<em>{1} {x} -x_s = {b}</em>{1}, \<br>&amp; {A}<em>{2} {x}={b}</em>{2}, \<br>&amp; {A}<em>{3} {x}+x_t = {b}</em>{3}, \<br>&amp; x,x_s,x_t \geqslant {0}<br>\end{array}\quad\quad(7)<br>$$<br>对偶问题为<br>$$<br>\begin{array}{ll}<br>\max &amp; {w}<em>{1} {b}</em>{1}+{w}<em>{2} {b}</em>{2}+{w}<em>{3} {b}</em>{3} \<br>\text { s. t. } &amp; {w}<em>{1} {A}</em>{1}+{w}<em>{2} {A}</em>{2}+{w}<em>{3} {A}</em>{3} \leqslant {c}, \<br>&amp; {w}<em>{1} \geqslant {0}, \<br>&amp; {w}</em>{3} \leqslant {0}, \<br>&amp; {w}_{2} \text { 无限制 , }<br>\end{array}\quad\quad(8)<br>$$</p>
+</li>
+</ol>
+<h3 id="1-2-对偶变换规则"><a href="#1-2-对偶变换规则" class="headerlink" title="1.2 对偶变换规则"></a>1.2 对偶变换规则</h3><ol>
+<li>若原问题是极大化问题, 那么对偶问题就是极小化问题；若原问题是极小化问 题，那么对偶问题就是极大化问题。</li>
+<li>在原问题和对偶问题中，约束右端向量与目标函数中系数向量恰好对换。</li>
+<li>对于极小化问题的“$\ge$”型约束（极大化问题中的“$\le$”型约束），相应的对偶问题有非负限制；对于极小化问题的“ $\le$ ”型约束（极大化问题中的“$\ge$”型约束），相应的对偶变量有非正制；对于原问题中的“$=$”型约束，相应的对偶变量无正负限制。</li>
+<li>对于极小化问题的具有非负限制的变量（极大化问题的具有非正限制的变量），在其对偶问题中，相应的约束为“ $\le$ ”型不等式；对极小化问题中具有非正限制的变量（极大化问题的具有非负限制的变量），在其对偶问题中，相应的约束为“$\ge$”型不等式；对于原问题中无正负限制的变量, 在其对偶问题中, 相应的约束为等式。</li>
+</ol>
+<p><strong>例子</strong></p>
+<img src="/medias/loading.gif" data-original="https://fastly.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/16598620844121659862083577.png" alt style="zoom:67%;">
+
+<img src="/medias/loading.gif" data-original="https://fastly.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/16598621014091659862101187.png" alt style="zoom:67%;">
+
+<h3 id="1-3-对偶定理"><a href="#1-3-对偶定理" class="headerlink" title="1.3 对偶定理"></a>1.3 对偶定理</h3><ul>
+<li><p><strong>定理 4.1.1</strong>  设 $x^{(0)}$ 和 $w^{(0)}$ 分别是问题 $(1)$ 和 $(2)$ 的可行解，则 $cx^{(0)}\ge w^{(0)}b$.</p>
+<blockquote>
+<p>即极小化问题给出极大化问题的目标函数值的上界；极大化问题给出极小化问题的目标函数的下界。</p>
+</blockquote>
+<ul>
+<li>推论1：若 $x^{(0)}$ 和 $w^{(0)}$ 分别是问题 $(1)$ 和 $(2)$ 的可行解，且$cx^{(0)}=w^{(0)}b$，则 $x^{(0)}$ 和 $w^{(0)}$ 分别是原问题和对偶问题的<strong>最优解</strong>。</li>
+<li>推论2：对偶规划 $(1)$ 和 $(2)$ 有最优解的充要条件是它们同时有可行解。</li>
+<li>推论3：若原问题的目标函数值在可行域无下界，则对偶问题无可行解；反之同理。</li>
+</ul>
+</li>
+<li><p><strong>定理 4.1.2</strong>  设原问题和对偶问题中有一个问题存在最优解，则另一个问题也存在最优解，且两个问题的目标函数的最优值相等。</p>
+</li>
+</ul>
+<h3 id="1-4-互补松弛性质"><a href="#1-4-互补松弛性质" class="headerlink" title="1.4 互补松弛性质"></a>1.4 互补松弛性质</h3><ul>
+<li><p><strong>定理 4.1.3</strong>  设 $x^{(0)}$ 和 $w^{(0)}$ 分别是问题 $(1)$ 和 $(2)$ 的可行解，那么 $x^{(0)}$ 和 $w^{(0)}$ 都是最优解的充要条件是，对所有的 $i$ 和 $j$ ，下列关系成立：</p>
+<ol>
+<li>若 $x_{j}^{(0)}&gt;0$，就有 ${w}^{(0)} {p}<em>{j}=c</em>{j}$ ；</li>
+<li>若 ${w}^{(0)} {p}<em>{j}&lt;c</em>{j}$，就有 $x_{j}^{(0)}=0$ ；</li>
+<li>若 $w_j^{(0)}&gt;0$，就有 $A_ix^{(0)}=b_i$ ；</li>
+<li>若 $A_ix^{(0)}&gt;b_i$ ，就有 $w_j^{(0)}=0$ ；</li>
+</ol>
+<p>其中，$p_j$ 是 $A$ 的第 $j$ 列，$A_i$ 是 $A$ 的第 $i$ 行。</p>
+</li>
+</ul>
+<h2 id="二、非线性规划中的对偶理论"><a href="#二、非线性规划中的对偶理论" class="headerlink" title="二、非线性规划中的对偶理论"></a>二、非线性规划中的对偶理论</h2><blockquote>
+<p>对偶问题的极大值等于原问题的极小值。这种现象对于线性规划中的对偶是必然的；但是对于非线性规划，这一结论并不是普遍成立。</p>
+</blockquote>
+<h3 id="2-1-共轭函数（对偶函数）"><a href="#2-1-共轭函数（对偶函数）" class="headerlink" title="2.1 共轭函数（对偶函数）"></a>2.1 共轭函数（对偶函数）</h3><ul>
+<li><p>定义</p>
+<p>假设 $f:\mathrm{R}^n\rightarrow \mathrm{R}$，则将其共轭函数定义为 $f^*:\mathrm{R}^n\rightarrow \mathrm{R}$ ，表示为<br>$$<br>f^{*}(y)=\sup _{x \in \operatorname{dom} f}\left(y^{T} x-f(x)\right)<br>$$<br>该共轭函数的定义域由 $y\in\mathrm{R}^n$​ 组成，其上确界是有限的。其定义可由下图解释</p>
+<img src="/medias/loading.gif" data-original="https://fastly.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/16598621184091659862117797.png" alt="conjugate function" style="zoom:67%;"></li>
+<li><p>解释</p>
+<blockquote>
+<p>共轭函数 $f^*$ 实际上是由一系列仿射函数的逐点上确界组成（$\sup _{x \in \operatorname{dom} f}\left(y^{T} x-f(x)\right)$ 的第一项是关于 $y$ 的线性函数，第二项无关），由于仿射函数是凸函数，而逐点上确界是保凸运算，因此 $f^*$ 是<strong>凸函数</strong>。因此无论原函数 $f$ 是否为凸，其共轭函数都是凸函数。且仅当 $f$ 为凸且闭合时，$f^{**}=f$ 。</p>
+</blockquote>
+</li>
+<li><p>共轭函数的意义</p>
+<blockquote>
+<p>即便一个函数为非凸函数，也可以通过共轭运算获得一个凸函数以求得其最优解。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2-2-Lagrange-对偶问题"><a href="#2-2-Lagrange-对偶问题" class="headerlink" title="2.2 Lagrange 对偶问题"></a>2.2 Lagrange 对偶问题</h3><p>考虑非线性规划问题<br>$$<br>\begin{array}{ll}<br>\operatorname{min} &amp; f(x) \<br>\text { s.t. } &amp; g_{i}(x) \leq 0, \quad i=1, \ldots, m \<br>&amp; h_{j}(x)=0, \quad j=1, \ldots, p,\<br>&amp; x\in D<br>\end{array}\quad\quad(9)<br>$$<br>则其对偶问题可以写为<br>$$<br>\begin{array}{ll}<br>\operatorname{max} &amp; \theta(\lambda,\nu) \<br>\text { s.t. } &amp;\lambda\ge 0<br>\end{array}\quad\quad(10)<br>$$<br>称为 <strong>Lagrange 对偶问题</strong> 。其目标函数 $\theta(\lambda,\nu)$ 为 Lagrange 对偶函数，其定义如下：<br>$$<br>\theta(\lambda,\nu)=\inf_{x\in D} L(x, \lambda, \nu)=\inf_{x\in D}\left( f(x)+\sum_{i=1}^{m} \lambda_{i} g_{i}(x)+\sum_{j=1}^{p} \nu_{j} h_{j}(x)\right)<br>$$<br>其中，$L(x, \lambda, \nu)$ 是 Lagrange 函数，$L$ 称为 Lagrange 算符，$\lambda, \nu$ 是 Lagrange 乘子。根据 2.1 节所述，由于 Lagrange 对偶函数是一系列仿射函数的逐点下确界，因此 $\theta(\lambda,\nu)$ 是<strong>凹函数</strong>，而对偶问题的约束条件为凸集，因此 <strong>Lagrange 对偶问题为凸优化问题</strong>，且无论原问题是否为凸优化问题。</p>
+<h3 id="2-3-对偶定理"><a href="#2-3-对偶定理" class="headerlink" title="2.3 对偶定理"></a>2.3 对偶定理</h3><ul>
+<li><p><strong>7.3.1 弱对偶定理</strong>  设 $x$ 和 $(\lambda,\nu)$ 分别是原问题和对偶问题的可行解，则<br>$$<br>f(x)\ge \theta(\lambda,\nu).<br>$$</p>
+<ul>
+<li><p>推论1：对于原问题和对偶问题，必有<br>$$<br>\inf{f(x)|g(x)\ge 0,h(x)=0,x\in D} \ge \sup{\theta(\lambda,\nu)|\lambda\ge 0}<br>$$</p>
+</li>
+<li><p>推论2：若 $f(\overline{x})\le\theta(\overline{\lambda},\overline{\nu})$ ，其中<br>$$<br>\overline{x}\in{x|g(x)\ge 0,h(x)=0,x\in D},\overline{\lambda}\ge 0<br>$$<br>则 $\overline{x}$ 和 $(\overline{\lambda},\overline{\nu})$ 分别是原问题和对偶问题的最优解。</p>
+</li>
+<li><p>推论3：若<br>$$<br>\inf{f(x)|g(x)\ge 0,h(x)=0,x\in D} = -\infty<br>$$<br>则对每个 $\lambda\ge 0$ ，有 $\theta(\lambda,\nu)=-\infty$ 。</p>
+</li>
+<li><p>推论4：若<br>$$<br>\sup{\theta(\lambda,\nu)|\lambda\ge 0}=\infty<br>$$<br>则原问题无可行解。</p>
+</li>
+</ul>
+<blockquote>
+<p>若原问题目标函数最优值为 $f_{\mathrm{min}}$ ，对偶问题最优值为 $\theta_{\mathrm{max}}$ ，则必有 $f_{\mathrm{min}}\ge \theta_{\mathrm{max}}$ ，若严格不等号成立，即 $f_{\mathrm{min}}&gt; \theta_{\mathrm{max}}$ ，则称存在<strong>对偶间隙</strong>。为了保证不出现对偶间隙，需要对目标函数和约束函数的性态给予适当的限定，以建立强对偶定理。</p>
+</blockquote>
+</li>
+<li><p><strong>定理7.3.3 强对偶定理</strong>  设 $D$ 是 $\mathbb{R}^n$ 中的一个非空凸集，$f$ 和 $g_i(i=1,2,\cdots,m)$ 是 $\mathbb{R}^n$ 上的凸函数，$h_j(j=1,2,\cdots,p)$ 是 $\mathbb{R}^n$ 上的仿射函数，即 $h(x)=Ax-b$ ，又设存在点 $\hat x\in D$，使得<br>$$<br>g(\hat{x})&gt;0, \quad h(\hat{x})=0, \quad 0 \in \text { int } H(D)<br>$$<br>其中，$H(D)={h(x)|x\in D}$ ，则<br>$$<br>\inf{f(x)|g(x)\ge 0,h(x)=0,x\in D} = \sup{\theta(\lambda,\nu)|\lambda\ge 0}<br>$$<br>且若式子中 $\inf$ 为有限值，则<br>$$<br>\sup{\theta(\lambda,\nu)|\lambda\ge 0}<br>$$<br>在 $(\overline{\lambda},\overline{\nu})$ 处达到，$\overline{\lambda}\ge 0$ 。如果 $\inf$ 在点 $\overline{x}$ 达到，则 $\overline{\lambda}^\mathrm{T}g(\overline x)=0$ 。</p>
+<blockquote>
+<p>对于凸优化问题，在适当的约束规格下（Slater 条件），原问题的极小值与对偶问题的极大值是相等的。</p>
+</blockquote>
+</li>
+<li><p><strong>Slater 条件</strong></p>
+<blockquote>
+<p>在原问题是凸优化问题时，Slater 条件是强对偶成立的充分不必要条件。</p>
+</blockquote>
+<p>定义：存在点 $x\in \mathrm{relint};D$ （$\mathrm{relint};D$ 指的是集合 $D$ 的相对内部，去除边缘的集合，相当于开集），使得<br>$$<br>g_{i}(x)&lt;0, \quad i=1,2, \ldots, m, \quad h_j=0,\quad j=1,2,\cdots,p<br>$$<br>其中，$h_j(x)$ 是仿射函数，即 $h(x)=Ax-b$ 。一般称之满足 Slater 条件的点为<strong>严格可行点</strong>。</p>
+</li>
+</ul>
+<h3 id="2-4-KKT-条件"><a href="#2-4-KKT-条件" class="headerlink" title="2.4 KKT 条件"></a>2.4 KKT 条件</h3><ul>
+<li><p>当原问题和对偶问题满足强对偶时，若 $x^*$ 和 $(\lambda^*,\nu^*)$ 分别是原问题和对偶问题的最优点，则存在下式<br>$$<br>\begin{aligned}<br>f\left(x^<em>\right) &amp;=\theta\left(\lambda^{</em>}, \nu^{<em>}\right) \<br>&amp;=\inf <em>{x}\left(f(x)+\sum</em>{i=1}^{m} \lambda_{i}^{</em>} g_{i}(x)+\sum_{j=1}^{p} \nu_{j}^{<em>} h_{j}(x)\right) \<br>&amp; \leq f\left(x^{</em>}\right)+\sum_{i=1}^{m} \lambda_{i}^{<em>} g_{i}\left(x^{</em>}\right)+\sum_{j=1}^{p} \nu_{j}^{<em>} h_{j}\left(x^{</em>}\right) \<br>&amp; \leq f\left(x^{<em>}\right) .<br>\end{aligned}<br>$$<br>其中，第三行式子代表 $L(x, \lambda^</em>, \nu^*)$ 在 $x^*$ 处取得最小值。</p>
+</li>
+<li><p><strong>互补松弛条件（complementary slackness）</strong></p>
+<p>根据该式第三行，可得到<br>$$<br>\lambda_{i}^{<em>} g_{i}\left(x^{</em>}\right)=0, \quad i=1,2, \ldots, m .<br>$$<br>此条件的含义是：要么第 $i$ 个 Lagrange 乘子为0，要么第 $i$ 个约束条件有效。因为<br>$$<br>\begin{aligned}<br>&amp;\lambda_{i}^{<em>}&gt;0 \Longrightarrow g_{i}\left(x^{</em>}\right)=0, \<br>&amp;\mathrm{or}\<br>&amp;g_{i}\left(x^{<em>}\right)&lt;0 \Longrightarrow \lambda_{i}^{</em>}=0 .<br>\end{aligned}<br>$$</p>
+</li>
+<li><p><strong>Karush-Kuhn-Tucker（KKT）条件</strong></p>
+<blockquote>
+<p>对于非凸问题，若原问题和对偶问题满足强对偶，则一定满足 KKT 条件（KKT 条件是强对偶的必要不充分条件）；</p>
+<p>对于凸问题，若满足 KKT 条件，则其原问题和对偶问题一定满足强对偶（充要条件）。</p>
+</blockquote>
+<p>$$<br>\begin{aligned}<br>g_{i}\left(x^{<em>}\right) &amp; \leq 0, \quad i=1,2, \ldots, m \<br>h_{j}\left(x^{</em>}\right) &amp;=0, \quad j=1,2, \ldots, p \<br>\lambda_{i}^{<em>} &amp; \geq 0, \quad i=1,2, \ldots, m \<br>\lambda_{i}^{</em>} g_{i}\left(x^{<em>}\right) &amp;=0, \quad i=1,2, \ldots, m \<br>\nabla f\left(x^{</em>}\right)+\sum_{i=1}^{m} \lambda_{i}^{<em>} \nabla g_{i}\left(x^{</em>}\right)+\sum_{j=1}^{p} \nu_{j}^{<em>} \nabla h_{j}\left(x^{</em>}\right) &amp;=0,<br>\end{aligned}<br>$$</p>
+<p>其中，第 1，2，3 项为原问题和对偶问题的约束条件，第 4 项是互补松弛条件，第 5 项是因为 $L(x, \lambda^*, \nu^*)$ 在 $x^*$ 处取得最小值，因此梯度为 0。</p>
+</li>
+<li><p>总结</p>
+<p><img src="/medias/loading.gif" data-original="https://fastly.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/16598621504141659862149782.png" alt="强对偶、Slater条件、KKT条件间的关系"></p>
+</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li>《最优化理论与算法》第4章、第7章。陈宝林著</li>
+<li>《Convex Optimization》</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44037337/article/details/109804487">整体理解对偶问题,slater,kkt条件</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv10510092">简单介绍KKT条件</a></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">hjd</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://321hjd.github.io/yyds/b9a4c8b0.html">https://321hjd.github.io/yyds/b9a4c8b0.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">hjd</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%AF%B9%E5%81%B6%E7%90%86%E8%AE%BA/">
+                                    <span class="chip bg-color">对偶理论</span>
+                                </a>
+                            
+                                <a href="/tags/KKT%E6%9D%A1%E4%BB%B6/">
+                                    <span class="chip bg-color">KKT条件</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/loading.gif" data-original="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/loading.gif" data-original="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/valine/Valine.min.js"></script>
+<script>
+	new Valine({ 
+		el: '#vcomments', 
+		enableQQ: 'true',  
+		appId: 'V4ETGQevyrFzDtGcQSSRttRN-gzGzoHsz',
+		appKey: 'FahUXUXEu0pDxHsRduIOcBF6', 
+		visitor: 'true' === 'true',
+		avatar: 'monsterid',
+		pageSize: '10', 
+		lang: 'zh-cn', 
+		placeholder: 'just go go',
+		meta: ['nick', 'mail'],
+		requiredFields: ['nick','mail'],
+		tagMeta: ["博主", "小伙伴", "访客"],
+		master: ["d502ea4605b856df3b9b73bad1e8592e"],	// 似乎只能用小写，大写无法识别
+		// friends: // 小伙伴MD5加密后的邮箱
+		// metaPlaceholder: // 昵称和邮箱无内容时的显示内容
+		recordIP: true, 
+		emojiCDN: '//i0.hdslb.com/bfs/emote/',
+		// 表情title和图片映射
+		emojiMaps: { 
+			"让我瞅瞅": "https://i.loli.net/2021/07/18/bzTH82kc7KnsBXC.jpg",
+			"tv_doge": "6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png", 
+			"tv_亲亲": "a8111ad55953ef5e3be3327ef94eb4a39d535d06.png", 
+			"tv_偷笑": "bb690d4107620f1c15cff29509db529a73aee261.png",
+			"tv_再见": "180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png", 
+			"tv_冷漠": "b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png",
+			"tv_发怒": "34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png",
+			"tv_发财": "34db290afd2963723c6eb3c4560667db7253a21a.png", 
+			"tv_可爱": "9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png", 
+			"tv_吐血": "09dd16a7aa59b77baa1155d47484409624470c77.png", 
+			"tv_呆": "fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png",
+			"tv_呕吐": "9f996894a39e282ccf5e66856af49483f81870f3.png",
+			"tv_困": "241ee304e44c0af029adceb294399391e4737ef2.png",
+			"tv_坏笑": "1f0b87f731a671079842116e0991c91c2c88645a.png",
+			"tv_大佬": "093c1e2c490161aca397afc45573c877cdead616.png",
+			"tv_大哭": "23269aeb35f99daee28dda129676f6e9ea87934f.png",
+			"tv_委屈": "d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png",
+			"tv_害羞": "a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png",
+			"tv_尴尬": "7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png",
+			"tv_微笑": "70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png",
+			"tv_思考": "90cf159733e558137ed20aa04d09964436f618a1.png",
+			"tv_惊吓": "0d15c7e2ee58e935adc6a7193ee042388adc22af.png", 
+			"tv_打脸": "56ab10b624063e966bfcb76ea5dc4794d87dfd47.png",
+			"tv_抓狂": "fe31c08edad661d63762b04e17b8d5ae3c71a757.png",
+			"tv_抠鼻": "c666f55e88d471e51bbd9fab9bb308110824a6eb.png", 
+			"tv_斜眼笑": "911f987aa8bc1bee12d52aafe62bc41ef4474e6c.png",
+			"tv_无奈": "ea8ed89ee9878f2fece2dda0ea8a5dbfe21b5751.png",
+			"tv_晕": "5443c22b4d07fb1907ccc610c8e6db254f2461b7.png",
+			"tv_流汗": "cead1c351ab8d79e9f369605beb90148db0fbed3.png",
+			"tv_流泪": "7e71cde7858f0cd50d74b0264aa26db612a8a167.png",
+			"tv_流鼻血": "c32d39db2737f89b904ca32700d140a9241b0767.png",
+			"tv_点赞": "f85c354995bd99e28fc76c869bfe42ba6438eff4.png",
+			"tv_生气": "26702dcafdab5e8225b43ffd23c94ac1ff932654.png", 
+			"tv_生病": "8b0ec90e6b86771092a498c54f09fc94621c1900.png", 
+			"tv_疑问": "0793d949b18d7be716078349c202c15ff166f314.png",
+			"tv_白眼": "c1d59f439e379ee50eef488bcb5e5378e5044ea4.png",
+			"tv_皱眉": "72ccad6679fea0d14cce648b4d818e09b8ffea2d.png",
+			"tv_目瞪口呆": "0b8cb81a68de5d5365212c99375e7ace3e7891b7.png",
+			"tv_睡着": "8b196675b53af58264f383c50ad0945048290b33.png",
+			"tv_笑哭": "1abc628f6d4f4caf9d0e7800878f4697abbc8273.png",
+			"tv_腼腆": "89712c0d4af73e67f89e35cbc518420380a7f6f4.png",
+			"tv_色": "61822c7e9aae5da76475e7892534545336b23a6f.png",
+			"tv_调侃": "4bc022533ef31544ca0d72c12c808cf4a1cce3e3.png",
+			"tv_调皮": "b9c41de8e82dd7a8515ae5e3cb63e898bf245186.png", 
+			"tv_鄙视": "6e72339f346a692a495b123174b49e4e8e781303.png", 
+			"tv_闭嘴": "c9e990da7f6e93975e25fd8b70e2e290aa4086ef.png",
+			"tv_难过": "87f46748d3f142ebc6586ff58860d0e2fc8263ba.png",
+			"tv_馋": "fc7e829b845c43c623c8b490ee3602b7f0e76a31.png",
+			"tv_鬼脸": "0ffbbddf8a94d124ca2f54b360bbc04feb6bbfea.png",
+			"tv_黑人问号": "45821a01f51bc867da9edbaa2e070410819a95b2.png",
+			"tv_鼓掌": "1d21793f96ef4e6f48b23e53e3b9e42da833a0f6.png" 
+			// ... 更多表情 
+		} 
+	});
+
+</script>
+
+<!--酷Q推送-->
+
+
+<!-- 直达评论 -->
+<div id="to_comment" class="comment-scroll">     
+	<a class="btn-floating btn-large waves-effect waves-light" href="#vcomments" title="直达评论">        
+		<i class="fas fa-comments"></i>    
+	</a> 
+</div> 
+ 
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/yyds/b9a4c8b0.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg" class="responsive-img" alt="对偶理论">
+                        
+                        <span class="card-title">对偶理论</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            简单介绍了线性规划以及非线性规划中的对偶理论。包含对偶函数、Lagrange 对偶问题、弱/强对偶定理以及 Slater条件、KKT条件。其中，Slater条件是原问题为凸时关于强对偶的充分不必要条件；KKT条件是关于强对偶的必要不充分条件，原问题为凸时则是充要条件。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" class="post-category">
+                                    最优化方法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AF%B9%E5%81%B6%E7%90%86%E8%AE%BA/">
+                        <span class="chip bg-color">对偶理论</span>
+                    </a>
+                    
+                    <a href="/tags/KKT%E6%9D%A1%E4%BB%B6/">
+                        <span class="chip bg-color">KKT条件</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/yyds/3b5150c4.html">
+                    <div class="card-image">
+                        
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg" class="responsive-img" alt="信赖域法">
+                        
+                        <span class="card-title">信赖域法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            与线搜索方法相比，信赖域法是在一个球域范围内优化原目标函数的二次逼近式，以此来修正步长，直到满足精度要求。该方法稳定性强，收敛性好，且不要求目标函数的 Hessian 矩阵正定。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" class="post-category">
+                                    最优化方法
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%9F%BA%E4%BA%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/">
+                        <span class="chip bg-color">基于导数的优化方法</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE' || selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: hjd&#39;blog<br />'
+            + '文章作者: hjd<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+
+    <footer class="page-footer bg-color">
+	
+        <link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="8085887776"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&copy; 2021 hjd.
+			
+			<br>             
+			<span id="sitetime"></span><span class="my-face">(ง •_•)ง</span> 
+            <br>
+			
+			
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">83.5k</span>&nbsp;字
+            
+
+			
+
+            
+                         
+					<span id="busuanzi_container_site_pv" style='display:none'></span>    
+						&nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;   
+						<span id="busuanzi_value_site_pv" class="white-color"></span>  
+				            
+				               
+					<span id="busuanzi_container_site_uv" style='display:none'></span>   
+						&nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;                    
+						<span id="busuanzi_value_site_uv" class="white-color"></span>       
+				
+            
+			
+			
+            <br>
+
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/321hjd" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<script language=javascript>    
+	function siteTime() {        
+		window.setTimeout("siteTime()", 1000);       
+		var seconds = 1000;        
+		var minutes = seconds * 60;        
+		var hours = minutes * 60;        
+		var days = hours * 24;      
+		var years = days * 365;       
+		var today = new Date();       
+		var todayYear = today.getFullYear();     
+		var todayMonth = today.getMonth() + 1;      
+		var todayDate = today.getDate();        
+		var todayHour = today.getHours();       
+		var todayMinute = today.getMinutes();     
+		var todaySecond = today.getSeconds();       
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)        
+		year - 作为date对象的年份，为4位年份值       
+		month - 0-11之间的整数，做为date对象的月份     
+		day - 1-31之间的整数，做为date对象的天数        
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数     
+		minutes - 0-59之间的整数，做为date对象的分钟数       
+		seconds - 0-59之间的整数，做为date对象的秒数        
+		microseconds - 0-999之间的整数，做为date对象的毫秒数 */    
+		var t1 = Date.UTC(2021, 07, 13, 00, 00, 00); //北京时间2021-7-13 00:00:00       
+		var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);       
+		var diff = t2 - t1;    
+		var diffYears = Math.floor(diff / years);  
+		var diffDays = Math.floor((diff / days) - diffYears * 365);         var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);      
+		var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);     
+		var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);   
+		document.getElementById("sitetime").innerHTML = "本站已努力运行了 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";    
+	}/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/   
+	siteTime();
+</script>
+
+<script> 
+	$(document).ready(function () {
+		var int = setInterval(fixCount, 50); // 50ms周期检测函数
+		var pvcountOffset = 0; // 初始化首次数据
+		var uvcountOffset = 0; 
+		function fixCount() { 
+			if (document.getElementById("busuanzi_container_site_pv").style.display != "none") {
+				$("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + pvcountOffset); clearInterval(int);
+				} 
+			if ($("#busuanzi_container_site_pv").css("display") != "none") {
+				$("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + uvcountOffset); // 加上初始数据
+				clearInterval(int); // 停止检测
+			} 
+		} 
+	});
+</script> 
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/materialize/materialize.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/aos/aos.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+	<script type="text/javascript">   
+		var OriginTitile = document.title, st;    
+		document.addEventListener("visibilitychange", function () {
+			document.hidden ? (document.title = "🙈😜有本事点我", clearTimeout(st)) : (document.title = "( ఠൠఠ )ﾉ啊你还真点啊", 
+				st = setTimeout(function () {
+					document.title = OriginTitile             
+				}, 3e3))    
+		}) 
+	</script>
+
+	<!--动态线条背景--> 
+	<script type="text/javascript" 
+		color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"> 
+	</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+
+</html>

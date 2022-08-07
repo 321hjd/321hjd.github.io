@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2022-06-24T10:49:31.580Z</updated>
+  <updated>2022-08-07T08:55:17.331Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>对偶理论</title>
+    <link href="https://321hjd.github.io/yyds/b9a4c8b0.html"/>
+    <id>https://321hjd.github.io/yyds/b9a4c8b0.html</id>
+    <published>2022-08-07T08:50:25.000Z</published>
+    <updated>2022-08-07T08:55:17.331Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;对偶问题的意义在于无论原问题是凸还是非凸，对偶问题都是凸优化问题。通过将原问题转化为对偶问题，有将复杂问题简单化的可能性，并能够求得原问题的全局最优解。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="最优化方法" scheme="https://321hjd.github.io/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/"/>
+    
+    
+    <category term="对偶理论" scheme="https://321hjd.github.io/tags/%E5%AF%B9%E5%81%B6%E7%90%86%E8%AE%BA/"/>
+    
+    <category term="KKT条件" scheme="https://321hjd.github.io/tags/KKT%E6%9D%A1%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>信赖域法</title>
@@ -541,39 +571,6 @@
     
     
     <category term="矩阵分解" scheme="https://321hjd.github.io/tags/%E7%9F%A9%E9%98%B5%E5%88%86%E8%A7%A3/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>校园网组网实验方案</title>
-    <link href="https://321hjd.github.io/yyds/a86e8493.html"/>
-    <id>https://321hjd.github.io/yyds/a86e8493.html</id>
-    <published>2021-12-10T13:35:00.000Z</published>
-    <updated>2021-12-31T05:23:45.022Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;center&gt;&lt;font size=&quot;5&quot;&gt;
-    &lt;b&gt;信息与通信工程学院&lt;/b&gt;
-    &lt;br&gt;
-    &lt;br&gt;
-    &lt;b&gt;通信工程专业综合实验报告&lt;/b&gt;
-    &lt;br&gt;
-    &lt;br&gt;
-    &lt;b&gt;2021年9月20日~12月20日&lt;/b&gt;
-   </summary>
-        
-      
-    
-    
-    
-    <category term="课程实验" scheme="https://321hjd.github.io/categories/%E8%AF%BE%E7%A8%8B%E5%AE%9E%E9%AA%8C/"/>
-    
-    
-    <category term="局域网组建" scheme="https://321hjd.github.io/tags/%E5%B1%80%E5%9F%9F%E7%BD%91%E7%BB%84%E5%BB%BA/"/>
     
   </entry>
   
