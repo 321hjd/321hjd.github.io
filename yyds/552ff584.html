@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2-线性回归（Linear-Regression）, hjd&#39;blog">
+    <meta name="keywords" content="最优性条件, hjd&#39;blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2-线性回归（Linear-Regression） | hjd&#39;blog</title>
+    <title>最优性条件 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/awesome/css/all.css">
@@ -583,12 +583,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/机器学习.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2-线性回归（Linear-Regression）</h1>
+                    <h1 class="description center-align post-title">最优性条件</h1>
                 </div>
             </div>
         </div>
@@ -704,12 +704,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">机器学习</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">吴恩达-机器学习</span>
+                            <a href="/tags/%E6%9C%80%E4%BC%98%E6%80%A7%E6%9D%A1%E4%BB%B6/">
+                                <span class="chip bg-color">最优性条件</span>
                             </a>
                         
                     </div>
@@ -720,8 +716,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                学习笔记
+                            <a href="/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" class="post-category">
+                                最优化方法
                             </a>
                         
                     </div>
@@ -733,28 +729,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-02-08
+                    2022-08-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-02-08
+                    2022-08-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    3.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    15 分
                 </div>
                 
 
@@ -772,192 +768,146 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、模型描述"><a href="#一、模型描述" class="headerlink" title="一、模型描述"></a>一、模型描述</h3><ol>
-<li><p>建立y关于x的线性函数</p>
-<ul>
-<li><p>Hypothesis Function:$H_\theta(x)=\theta_0+\theta_1 x$</p>
+                <blockquote>
+<p>非线性规划的最优解所满足的必要条件和充分条件（仅包含定理）</p>
+<p>注意：文中很多地方的变量其实是矢量，比如方向 $d$ 和梯度，为了方便写都没有写粗体。</p>
+</blockquote>
+<h2 id="一、无约束问题的最优性条件"><a href="#一、无约束问题的最优性条件" class="headerlink" title="一、无约束问题的最优性条件"></a>一、无约束问题的最优性条件</h2><ul>
+<li><p><strong>定理 7.1.1 （其它定理证明需要的基础定理）</strong></p>
 <blockquote>
-<p>用$H_\theta(x)$来拟合y与x的关系</p>
+<p>设函数 $f(x)$ 在点 $\bar{x}$ 处可微，如果存在方向 ${d}$ ，使得 $\nabla f(\bar)^{\mathrm{T}} {d}&lt;0$ ，则存在 $\delta&gt;0$ ，使得对每个 $\lambda\in(0,\delta)$，有 $f(\bar{x}+\lambda d)&lt;f(\bar{x})$.</p>
 </blockquote>
 </li>
-<li><p>Parameters:$\theta_0,\theta_1$</p>
+<li><p><strong>定理 7.1.2 （局部极小点的一阶必要条件）</strong></p>
 <blockquote>
-<p>需要估计的参数</p>
+<p>设函数 $f(x)$ 在点 $\bar{x}$ 处二次可微，若点 $\bar{x}$ 是局部极小点，则梯度 $\nabla f(\bar{x})={0}$.</p>
 </blockquote>
 </li>
-<li><p>Cost Function:$J(\theta_0,\theta_1)=\frac{1}{2m}\sum_\limits{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2$</p>
+<li><p><strong>定理 7.1.3 （局部极小点的二阶必要条件）</strong></p>
 <blockquote>
-<p>此处为<strong>平方误差代价函数</strong>。即通过令$H_\theta(x)$与y差异最小使得假设函数最接近真实值。<br>其中m是训练样本集的容量，$\frac{1}{2m}$表示求平均误差最小。</p>
+<p>设函数 $f(x)$ 在点 $\bar{x}$ 处二次可微，若点 $\bar{x}$ 是局部极小点，则梯度 $\nabla f(\bar{x})=\boldsymbol{0}$，且 Hesse 矩阵 $\nabla^{2} f(\bar{x})$ <strong>半正定</strong>.</p>
 </blockquote>
 </li>
-<li><p>Goal Funtion: $\min_\limits{\theta_0\theta_1}J(\theta_0,\theta_1)$ </p>
-</li>
-</ul>
-</li>
-<li><p>Cost Function</p>
-<ul>
-<li><p>代价函数-3维图像</p>
+<li><p><strong>定理 7.1.4 局部极小点的二阶充分条件</strong></p>
 <blockquote>
-<p>每个点到底部的距离为一次拟合的代价函数的值</p>
+<p>设函数 $f(x)$ 在点 $\bar{x}$ 处二次可微，若梯度 $\nabla f(\bar{x})={0}$，且 Hesse 矩阵 $\nabla^{2} f(\bar{x})$ <strong>正定</strong>，则 $\bar{x}$ 是局部极小点.</p>
 </blockquote>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/Linear-Regression/CostFunction-3DFigure.jpg" alt="代价函数-3维图像"></p>
 </li>
-<li><p>代价函数-等高线图</p>
+<li><p><strong>定理 7.1.5 （函数凸性假设下，全局极小点的充要条件）</strong></p>
 <blockquote>
-<p>每条等高线代表拥有相同代价函数值的参数配置<br>绿点为此次拟合直线的代价值，中心为最小代价值</p>
-</blockquote>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/Linear-Regression/CostFunction-ContourFigure.jpg" alt="代价函数-等高线图"></p>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="二、梯度下降算法"><a href="#二、梯度下降算法" class="headerlink" title="二、梯度下降算法"></a>二、梯度下降算法</h3><blockquote>
-<p>用于最小化代价函数（不仅仅是最小化线性回归的代价函数）<br>特点：</p>
-<ul>
-<li>只能得到局部最小值</li>
-<li>相比正规方程组法（直接计算最小值），Gradient Descent更适合大数据集<br>此处的梯度下降算法被称为”Batch” Gradient Descent，因为每一次迭代遍历整个样本集</li>
-</ul>
-</blockquote>
-<ol>
-<li>思想<ul>
-<li>从任意参数值$\theta_0,\theta_1$开始，如 $\theta_0=0,\theta_1=0$ </li>
-<li>不断改变 $\theta_0,\theta_1$（朝梯度方向）,以减小 $J(\theta_0,\theta_1)$ </li>
-<li>直到我们找到 J 的最小值或者局部最小值</li>
-</ul>
-</li>
-<li>图像解释</li>
-</ol>
-<blockquote>
-<p>将图像想象成一座山，沿着下山最快的方向下降（即梯度方向），直到到达山谷</p>
-</blockquote>
-<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/MachineLearning/Linear-Regression/GradientDescent.jpg" alt="梯度下降"></p>
-<ol start="3">
-<li><p>迭代公式<br>循环直至收敛 {</p>
-<p>$\theta_j=\theta_j-\alpha\frac{\partial}{\partial\theta_j}J(\theta_0,\theta_1)$           </p>
-<p>（for j = 0 and j = 1）<br>}</p>
-<ul>
-<li><p>其中$\alpha$是学习速率，决定以多大幅度更新参数</p>
-</li>
-<li><p>更新过程（注意$\theta$和temp0赋值的执行顺序不能交换，因为需要同步更新$\theta_0\theta_1$）</p>
-<blockquote>
-<p>$temp0=\theta_0-\alpha\frac{\partial}{\partial\theta_0}J(\theta_0,\theta_1)$<br>$temp1=\theta_1-\alpha\frac{\partial}{\partial\theta_1}J(\theta_0,\theta_1)$<br>$theta_0=temp0$<br>$theta_1=temp1$</p>
+<p>设函数 $f(x)$ 是定义在 $\mathbb{R}^n$ 上的可微<strong>凸函数</strong>，$\bar{x}\in\mathbb{R^n}$ ，则 $\bar{x}$ 是全局极小点的充分必要条件是梯度 $\nabla f(\bar{x})={0}$.</p>
 </blockquote>
 </li>
 </ul>
-</li>
-<li><p>收敛</p>
-<ul>
-<li><p>学习速率$\alpha$</p>
+<h2 id="二、含约束问题的最优性条件"><a href="#二、含约束问题的最优性条件" class="headerlink" title="二、含约束问题的最优性条件"></a>二、含约束问题的最优性条件</h2><h3 id="2-1-含约束的极值问题表示"><a href="#2-1-含约束的极值问题表示" class="headerlink" title="2.1 含约束的极值问题表示"></a>2.1 含约束的极值问题表示</h3><p>有约束的极值问题<br>$$<br>\begin{array}{ll}<br>\min &amp; f(\boldsymbol{x}) \quad {x} \in \mathbb{R}^{n} \<br>\text { s.t. } &amp; g_{i}({x}) \geqslant 0, \quad i=1, \cdots, m, \<br>&amp; h_{j}({x})=0, \quad j=1, \cdots, l,<br>\end{array}<br>$$<br>其中，$g_{i}({x}) \geqslant 0$ 为<strong>不等式约束</strong>，$h_{j}({x})=0$ 为<strong>等式约束</strong>，集合<br>$$<br>S=\left&lt;!–swig￼1–&gt;)^{\mathrm{T}} {d}&lt;0$ ，则根据定理 7.1.1，$d$ 是函数 $f(x)$ 在 $\bar{x}$ 处的下降方向，记作</p>
 <blockquote>
-<p>如果$\alpha$过小，收敛速度会非常慢<br>如果$\alpha$过大，梯度下降可能会越过最小值，收敛速度慢甚至发散</p>
+<p>$$<br>F_{0}=\left&lt;!–swig￼2–&gt;)^{\mathrm{T}} {d}&lt;0\right}<br>$$</p>
+</blockquote>
+<ul>
+<li><p><strong>可行方向</strong></p>
+<blockquote>
+<p>设集合 $S \subset \mathbb{R}^{n},\bar{x}\in \mathrm{cl};S$，$d$ 是非零向量，若存在数 $\delta&gt;0$ ，使得对每个 $\lambda\in(0,\delta)$，都有<br>$$<br>\bar{x}+\lambda d \in S<br>$$<br>则称 $d$ 是集合 $S$ 在 $\bar{x}$ 处的可行方向。其中 “cl” 表示闭包。</p>
+<p>集合 $S$ 在在 $\bar{x}$ 处的可行方向组成的集合<br>$$<br>D=&lt;!–swig￼3–&gt; \in \mathrm{cl}; S, \exists \delta&gt;0 \text {, 使得 } \forall \lambda \in(0, \delta) \text {, 有 } \overline+\lambda {d} \in S}<br>$$<br>称为在 $\bar{x}$ 处的<strong>可行方向锥</strong>。</p>
 </blockquote>
 </li>
-<li><p>由于最低点导数值为0，因此随着梯度下降算法的执行，它会自动采取较小的幅度（因为导数值越来越小），因此没必要逐渐减小$\alpha$</p>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="三、矩阵乘法的特性"><a href="#三、矩阵乘法的特性" class="headerlink" title="三、矩阵乘法的特性"></a>三、矩阵乘法的特性</h3><ol>
-<li>不符合交换律: $A\times B\ne B\times A$</li>
-<li>符合结合律: $(A\times B)\times C=A\times (B\times C)$</li>
-<li>单位矩阵$I_{n\times n}$，$I\times A=A\times I=A$</li>
-</ol>
-<h3 id="四、特殊运算"><a href="#四、特殊运算" class="headerlink" title="四、特殊运算"></a>四、特殊运算</h3><ol>
-<li>矩阵的逆: $AA^{-1}=A^{-1}A=I$（其中A是一个方阵）</li>
-<li>矩阵的转置 $A^T$，$A_{ij}=A^T_{ji}$ </li>
-</ol>
-<h3 id="五、多元梯度下降法"><a href="#五、多元梯度下降法" class="headerlink" title="五、多元梯度下降法"></a>五、多元梯度下降法</h3><ol>
-<li><p>Hypothesis Function: $H_\theta(x)=\theta_0+\theta_1 x_1+\theta_2 x_2+…+\theta_n x_n$ </p>
-<ul>
-<li>为了方便，一般假设 $x_0=1$ </li>
-<li>可用矩阵形式表示: $H_\theta(x)=\theta^T\mathrm{x}$ </li>
-</ul>
-</li>
-<li><p>Parameters: $\theta_0,\theta_1,…,\theta_n$，n+1维向量</p>
-</li>
-<li><p>Cost Function: $J(\theta_0,\theta_1,\dots,\theta_n)=\frac{1}{2m}\sum_\limits{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})^2$ </p>
-</li>
-<li><p>Multiple Gradient Descent:<br>Repeat{<br>$\theta_j=\theta_j-\alpha\frac{1}{m}\sum_\limits{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}_j$<br>更新 $\theta_j,j=0,1,\dots,n$<br>}<br>例如有2个特征的梯度下降算法:<br>$\theta_0=\theta_0-\alpha\frac{1}{m}\sum_\limits{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}_0$<br>$\theta_1=\theta_1-\alpha\frac{1}{m}\sum_\limits{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}_1$<br>$\theta_2=\theta_2-\alpha\frac{1}{m}\sum_\limits{i=1}^m(h_\theta(x^{(i)})-y^{(i)})x^{(i)}_2$</p>
-</li>
-<li><p>梯度下降运算的技巧</p>
-<ul>
-<li><p><strong>特征缩放（Feature Scaling）</strong> </p>
+<li><p><strong>定理 7.2.1</strong></p>
 <blockquote>
-<p>使几个特征的大小在相似的规模，使变量间具有可比性，这样会使得梯度下降收敛得更快<br>如让每一个特征的取值都在与 $-1\le x_i\le 1$ 相近的范围内<br>例如可以接受 $0\le x_1\le 3,-2\le x_2\le 0.5$ ，不能接受 $-100\le x_3\le 100,-0.0001\le x_4\le 0.0001$<br>方法有：</p>
-<ul>
-<li>Z-Score标准化: $x^*=\frac{x-\mu}{\sigma}$ </li>
-<li>min-max归一化（将结果映射到0-1之间）: $x^*=\frac{x-min}{max-min}$ </li>
-<li>…</li>
-</ul>
-</blockquote>
-</li>
-<li><p><strong>调试（Debugging）</strong> </p>
-<ul>
-<li><p>确定梯度下降是否正确运行</p>
-<blockquote>
-<p>代价函数的值应该随迭代减小。在迭代到达一定程度时，代价函数值变化不会太大，可以通过画出代价函数值随着迭代次数的变化曲线，判断应该选择的迭代次数</p>
-</blockquote>
-</li>
-<li><p>选择合适的学习速率</p>
-<blockquote>
-<p>可以通过每隔一段步长选择 $\alpha$ 值，画出代价函数值的变化曲线来选取合适的 $\alpha$ 值。如0.001,0.003,0.01,0.03,0.1,0.3,…,1,…</p>
+<p>设 $S$ 是 $\mathbb{R}^{n}$ 中的非空集合，$\bar{x}\in S$， $f(x)$ 在点 $\bar{x}$ 处可微，若 $\bar{x}$ 是局部最优解，则 $F_{0} \cap D=\varnothing$. 即若 $\bar{x}$ 是局部最优解，则 $\bar{x}$ 处的可行方向一定不是下降方向。</p>
 </blockquote>
 </li>
 </ul>
+<h3 id="2-3-不等式约束问题"><a href="#2-3-不等式约束问题" class="headerlink" title="2.3 不等式约束问题"></a>2.3 不等式约束问题</h3><p>非线性规划问题<br>$$<br>\begin{array}{ll}<br>\min &amp; f({x}) \<br>\text { s. t. } &amp; g_{i}({x}) \geqslant 0, \quad i=1, \cdots, m .<br>\end{array}<br>$$<br>可行域为<br>$$<br>S=\left&lt;!–swig￼5–&gt;)=0\right}<br>    $$</p>
+<ul>
+<li><p>用 $G_0$ 替代定理 7.2.1 中的可行方向锥 $D$<br>$$<br>G_{0}=\left&lt;!–swig￼6–&gt;(\bar)^{\mathrm{T}} {d}&gt;0, i \in I\right}<br>$$</p>
 </li>
-</ul>
-</li>
-<li><p>特征和多项式回归</p>
+<li><p><strong>定理 7.2.2（由7.2.1变化而来）</strong>—— 最优性的几何表示</p>
 <blockquote>
-<p>通过<strong>观察数据分布</strong>选择多项式如二次模型、三次模型等<br>$h_\theta(x)=\theta_0+\theta_1 x_1+\theta_2 x_2^2$<br>$h_\theta(x)=\theta_0+\theta_1 x_1+\theta_2 x_2^2+\sqrt{\theta_3 x_3}$<br>$h_\theta(x)=\theta_0+\theta_1 x_1+\theta_2 x_2^2+\theta_3 x_3^3$</p>
+<p>设 $\bar{x}\in S$， $f(x)$ 在点 $\bar{x}$ 处可微，$g_i(x)(i\notin I)$ 在 $\bar{x}$ 连续，若 $\bar{x}$ 是局部最优解，则<br>$$<br>F_{0} \cap G_0=\varnothing<br>$$</p>
 </blockquote>
 </li>
-</ol>
-<h3 id="六、正规方程解法（区别于迭代法的直接解法）"><a href="#六、正规方程解法（区别于迭代法的直接解法）" class="headerlink" title="六、正规方程解法（区别于迭代法的直接解法）"></a>六、正规方程解法（区别于迭代法的直接解法）</h3><ol>
-<li><p>方法</p>
-<ul>
-<li>如让目标函数对每一个未知变量求偏导，并将其置零，得到每一个变量值</li>
-<li>令 $\theta=(X^TX)^{-1}X^TY$ ，会得到代价函数的最小值 $\min_\limits{\theta}J(\theta)$ </li>
-</ul>
+<li><p><strong>定理 7.2.3 （Fritz John条件）</strong>—— 最优性的代数表示</p>
+<blockquote>
+<p>设 $\bar{x}\in S$，$I={i|g_i(\bar{x})=0}$， $f,g_i\in I$ 在点 $\bar{x}$ 处可微，$g_i(x)(i\notin I)$ 在 $\bar{x}$ 连续，若 $\bar{x}$ 是局部最优解，则存在不全为0的非负数 $w_0,w_i(i\in I)$ ，使得<br>$$<br>w_{0} \nabla f(\bar{x})-\sum_{i \in I} w_{i} \nabla g_{i}(\bar{x})=0<br>$$<br>证明需要用到 <strong>Gordan 定理</strong>，即 如果一组基的非负组合是一个凸锥，则等价为这组基的正组合表示不了原点，除非系数都是0（两个条件只有一个成立）</p>
+</blockquote>
 </li>
-<li><p>和梯度下降法的对比(m个训练样本，n个特征值)</p>
+<li><p><strong>定理 7.2.4 （Kuhn-Tucker 条件）</strong>—— K-T条件，在Fritz John条件基础上增加了起约束作用的梯度线性无关的<strong>约束规格</strong>（对约束条件的限制），以避免出现 $w_0=0$ 的情形。</p>
+<blockquote>
+<p>设 $\bar{x}\in S$​，$I={i|g_i(\bar{x})=0}$​， $f,g_i\in I$​ 在点 $\bar{x}$​ 处可微，$g_i(x)(i\notin I)$​ 在 $\bar{x}$​ 连续，$\left{\nabla g_{i}(\bar{x}) \mid i \in I\right}$​ <strong>线性无关</strong>， 若 $\bar{x}$​ 是局部最优解，则存在非负数 $w_i(i\in I)$​ ，使得<br>$$<br>\nabla f(\bar)-\sum_{i \in I} w_{i} \nabla g_{i}(\bar)=\mathbf{0}<br>$$<br>若 $g_i(x)(i\notin I)$ 在点 $\bar{x}$ 处可微，K-T 条件可等价表示为<br>$$<br>\begin{aligned}<br>&amp;\nabla f(\bar{x})-\sum_{i=1}^{m} w_{i} \nabla g_{i}(\bar)=\mathbf{0}, \<br>&amp;w_{i} g_{i}(\bar{x})=0, \quad i=1, \cdots, m, \<br>&amp;w_{i} \geqslant 0, \quad i=1, \cdots, m .<br>\end{aligned}<br>$$<br>其中，$w_{i} g_{i}(\bar{x})=0$ 称为<strong>互补松弛条件</strong>。</p>
+</blockquote>
+</li>
+<li><p><strong>定理 7.2.5 凸优化问题最优解的一阶充分条件</strong></p>
+<blockquote>
+<p>设问题中 $f$ 是凸函数，$g_i(i=1,2,\cdots,m)$ 是凹函数（注意不等式约束 $g_i$ 的符号（若是 $g_i\le0$ ，则应该是凸函数），$S$ 是可行域，$\bar{x}\in S$，$I={i|g_i(\bar{x})=0}$， $f,g_i\in I$ 在点 $\bar{x}$ 处可微，$g_i(x)(i\notin I)$ 在 $\bar{x}$ 连续，K-T 条件成立，则 $\bar{x}$ 为全局最优解。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2-4-一般约束问题"><a href="#2-4-一般约束问题" class="headerlink" title="2.4 一般约束问题"></a>2.4 一般约束问题</h3><p>一般约束问题（含不等式和等式约束）<br>$$<br>\begin{array}{ll}<br>\min &amp; f({x}) \<br>\text { s. t. } &amp; g_{i}({x}) \geqslant 0, \quad i=1, \cdots, m,\<br>&amp; h_{j}({x}) \geqslant 0, \quad j=1, \cdots, l.<br>\end{array}<br>$$</p>
 <ul>
-<li><p>梯度下降法（Gradient Descent）</p>
+<li><p><strong>正则点</strong></p>
+<blockquote>
+<p>设 $\bar{x}$ 为可行点，不等式约束中在 $\bar{x}$ 起作用约束下标集记作 $I$ ，如果向量组 $\left{\nabla g_{i}(\bar{x}), \nabla h_{j}(\bar{x}) \mid i \in I, j=1,2, \cdots, l\right}$ 线性无关，就称 $\bar{x}$ 为约束 $g(x)\ge 0$ 和 $h(x)=0$ 的正则点。</p>
+</blockquote>
+</li>
+<li><p><strong>可行曲线与切平面</strong>（为描述等式约束的可行移动引入）</p>
 <blockquote>
 <ul>
-<li>需要选择学习速率 $\alpha$ </li>
-<li>需要多次迭代</li>
-<li>在特征量很多时效果比较好</li>
+<li>定义 7.2.4 点集 $\left{x=x(t) \mid t_{0} \leqslant t \leqslant t_{1}\right}$ 称为超曲面 $S={x|h(x)=0}$ 上的一条曲线， 若对所有的 $t\in[t_0,t_1]$  均有$h(x)=0$ ，则如果导数 $x’(t)=\frac{\mathrm dx(t)}{\mathrm dt}$ 存在，则称曲线是可微的，该一阶导数是曲线在点 $x(t)$ 处的切向量，曲面 $S$ 在点 $x$ 处所有可微切向量组成的集合，称为曲面 $S$ 在点 $x$ 的切平面，记作 $T(x)$。 </li>
 </ul>
 </blockquote>
 </li>
-<li><p>正规方程法（Normal Equation）</p>
+<li><p><strong>等式约束的几何表示</strong></p>
 <blockquote>
-<ul>
-<li>不需要选择 $\alpha$ </li>
-<li>不需要迭代</li>
-<li>需要计算 $(X^TX)^{-1}$ （是一个 $n\times n$ 的矩阵，计算逆矩阵的时间复杂度是 $O(n^3)$ ）</li>
-<li>特征量多时运行很慢</li>
-<li>矩阵可逆才能使用</li>
-</ul>
+<p>设 $\bar{x}$ 为曲面 $S={x|h(x)=0}$ 上一个正则点，则在点 $\bar{x}$ 切平面 $T(\bar{x})$ 等于子空间 $H=\left{d \mid \nabla h(\bar{x})^{\top} d=0\right}$.</p>
 </blockquote>
 </li>
-</ul>
-</li>
-<li><p>正规方程法在矩阵不可逆的情况下的解决方法</p>
+<li><p><strong>定理 7.2.7 一般约束问题最优解的一阶必要条件</strong> —— 几何表示</p>
 <blockquote>
-<p>不可逆的原因：</p>
-<ul>
-<li>由于某些原因，学习问题包含了多余的特征</li>
-<li>学习算法有很多特征，导致m小于n，即样本数少于特征数<br>解决：<ul>
-<li>可以通过观察特征之间的关系，也许是线性相关的，可以删掉多余特征</li>
-<li>可以用MATLAB的求逆函数求出伪逆</li>
-</ul>
-</li>
-</ul>
+<p>设 $\bar{x}$ 为可行点，$I={i|g_i(\bar{x})=0}$， $f,g_i\in I$ 在点 $\bar{x}$ 处可微，$g_i(x)(i\notin I)$ 在 $\bar{x}$ 连续，$h_j(j=1,2,\cdots,l)$ 在点 $\bar{x}$ 连续可微，$\nabla h_j(\bar{x})(j=1,2,\cdots,l)$ <strong>线性无关</strong>， 若 $\bar{x}$ 是局部最优解，则在 $\bar{x}$ 处，有<br>$$<br>F_{0} \cap G_{0} \cap H_{0}=\varnothing<br>$$<br>其中，$F_{0},G_{0},H_{0}$ 的定义为<br>$$<br>\begin{aligned}<br>&amp;F_{0}=\left&lt;!–swig￼11–&gt; d&lt;0\right}, \<br>&amp;G_{0}=\left&lt;!–swig￼12–&gt; {d}&gt;0, i \in I\right} \<br>&amp;H_{0}=\left&lt;!–swig￼13–&gt; d=0, j=1,2, \cdots, l\right}.<br>\end{aligned}<br>$$</p>
 </blockquote>
 </li>
-</ol>
+<li><p><strong>定理 7.2.8 （Fritz John条件）</strong> —— 代数表示</p>
+<blockquote>
+<p>设 $\bar{x}$ 为可行点，$I={i|g_i(\bar{x})=0}$， $f,g_i\in I$ 在点 $\bar{x}$ 处可微，$g_i(x)(i\notin I)$ 在 $\bar{x}$ 连续，$h_j(j=1,2,\cdots,l)$ 在点 $\bar{x}$ 连续可微，若 $\bar{x}$ 是局部最优解，则存在不全为零的数 $w_0,w_i(j\in I)$ 和 $v_j(j=1,2,\cdots,l)$ ，使得<br>$$<br>w_{0} \nabla f(\bar{x})-\sum_{i \in I} w_{i} \nabla g_{i}(\bar{x})-\sum_{j=1}^{i} v_{j} \nabla h_{j}(\bar{x})=\mathbf{0}, \quad w_{0}, w_{i} \geqslant 0, \quad i \in I .<br>$$</p>
+</blockquote>
+</li>
+<li><p><strong>定理 7.2.9 （Kuhn-Tucker 条件）</strong>—— K-T条件，在Fritz John条件基础上增加了起约束作用的梯度线性无关的<strong>约束规格</strong>（对约束条件的限制），以避免出现 $w_0=0$ 的情形。</p>
+<blockquote>
+<p>设 $\bar{x}$ 为可行点，$I={i|g_i(\bar{x})=0}$， $f,g_i\in I$ 在点 $\bar{x}$ 处可微，$g_i(x)(i\notin I)$ 在 $\bar{x}$ 连续，$h_j(j=1,2,\cdots,l)$ 在点 $\bar{x}$ 连续可微，向量集<br>$$<br>\left{\nabla g_{i}(\bar{x}), \nabla h_{j}(\bar{x}) \mid i \in I, j=1, \cdots, l\right}<br>$$<br><strong>线性无关</strong>，若 $\bar{x}$​ 是局部最优解，则存在数 $w_i(j\in I)$​ 和 $v_j(j=1,2,\cdots,l)$​ ，使得<br>$$<br>\nabla f(\bar{x})-\sum_{i \in I} w_{i} \nabla g_{i}(\bar{x})-\sum_{j=1}^{i} v_{j} \nabla h_{j}(\bar{x})=\mathbf{0}, \quad w_{i} \geqslant 0, \quad i \in I .<br>$$<br>若 $g_i(x)(i\notin I)$ 在点 $\bar{x}$ 处可微，K-T 条件可等价表示为<br>$$<br>\begin{aligned}<br>&amp;\nabla f(\bar{x})-\sum_{i=1}^{m} w_{i} \nabla g_{i}(\bar{x})-\sum_{j=1}^{t} v_{j} \nabla h_{j}(\bar)=\mathbf{0} \<br>&amp;w_{i} g_{i}(\bar{x})=0, \quad i=1, \cdots, m \<br>&amp;w_{i} \geqslant 0, \quad i=1, \cdots, m,<br>\end{aligned}<br>$$</p>
+</blockquote>
+</li>
+<li><p>广义 Lagrange 函数<br>$$<br>L({x}, {w}, {v})=f({x})-\sum_{i=1}^{m} w_{i} g_{i}({x})-\sum_{j=1}^{l} v_{j} h_{j}({x})<br>$$<br>若 $\bar{x}$ 是局部最优解，则存在 Lagrange 乘子 $\bar{w}\ge 0$ 和 $v$ ，使得<br>$$<br>\nabla_{x} L(\bar{x}, \bar{w}, \bar{v})=0<br>$$<br>此时一般约束问题的一阶必要条件可表示为<br>$$<br>\begin{aligned}<br>&amp;\nabla_{x} L({x}, {w}, {v})=\mathbf{0}, \<br>&amp;g_{i}({x}) \geqslant 0, \quad i=1, \cdots, m, \<br>&amp;h_{j}({x})=0, \quad j=1, \cdots, l, \<br>&amp;w_{i} g_{i}({x})=0, \quad i=1, \cdots, m, \<br>&amp;w_{i} \geqslant 0, \quad i=1, \cdots, m .<br>\end{aligned}<br>$$</p>
+</li>
+<li><p><strong>定理 7.2.10 凸优化问题最优解的充分条件</strong></p>
+<blockquote>
+<p>设问题中 $f$ 是凸函数，$g_i(i=1,2,\cdots,m)$ 是凹函数（注意不等式约束 $g_i$ 的符号（若是 $g_i\le0$ ，则应该是凸函数）$h_j(j=1,2,\cdots,l)$  是线性函数，$S$ 是可行域，$\bar{x}\in S$，$I={i|g_i(\bar{x})=0}$，且在 $\bar{x}$ 处 K-T 条件成立，即存在 $w_i\ge 0(i\in I)$ 及 $v_j(j=1,2,\cdots,l)$ ，使得<br>$$<br>\nabla f(\bar{x})-\sum_{i \in I} w_{i} \nabla g_{i}(\bar{x})-\sum_{j=1}^{i} v_{j} \nabla h_{j}(\bar{x})=\mathbf{0}, \quad w_{i} \geqslant 0, \quad i \in I .<br>$$<br>则 $\bar{x}$ 为全局最优解。</p>
+<p>注：此处关于函数凸性的假设还可以适当放宽，涉及到准凸和伪凸的概念。</p>
+</blockquote>
+</li>
+<li><p><strong>切锥</strong></p>
+<blockquote>
+<p>设 $S$ 是 $\mathbb{R}^{”}$ 中一个非空集合, 点 $\overline{\boldsymbol{x}} \in \mathrm{cl} S$, 集合 $T=\left{\boldsymbol{d} \mid\right.$ 存在 ${x}^{(k)} \in S, {x}^{(k)} \rightarrow \bar$ 及 $\lambda_{k}&gt;0$, 使得 $\left.{d}=\lim <em>{k \rightarrow \infty} \lambda</em>{k}\left({x}^{(k)}-\bar\right)\right}$, 则称 ${T}$ 为集合 $S$ 在点 $\bar$ 的切锥.</p>
+<p><img src="/medias/loading.gif" data-original="https://fastly.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/16601375687321660137568706.png" alt="切锥"></p>
+</blockquote>
+</li>
+<li><p><strong>定理 7.2.11 （二阶必要条件）</strong></p>
+<blockquote>
+<p>设 $\bar{x}$ 是局部最优解，$f,g_i,h_j$ 二次连续可微，并存在满足<strong>一阶必要条件</strong>的乘子 $\bar{w}$ 和 $\bar{v}$ ，再假设在点 $\bar{x}$ 约束规格 $\bar{G}=\bar{T}$ 成立，则对每一个向量 $d\in G$，都有<br>$$<br>d^{\mathrm{T}} {\nabla}<em>{x}^{2} L(\bar{x}, \bar{w}, \bar{v}) {d} \geqslant 0<br>$$<br>其中，<br>$$<br>\nabla</em>{x_{x}^{2}}^{2} L(\bar{x}, \bar{w}, \bar{v})=\nabla^{2} f(\bar{x})-\sum_{i=1}^{m} \bar{w}<em>{i} \nabla^{2} g</em>{i}(\bar{x})-\sum_{j=1}^{1} \bar{v}<em>{j} \nabla^{2} h</em>{j}(\bar)<br>$$<br>是 Lagrange 函数 $L(x,w,v)$ 在 $\bar{x}$ 关于 $x$ 的 Hesse 矩阵。</p>
+<p>集合 $\bar G$ 为<br>$$<br>\bar{G}=\left{d\left | \begin{array}{ll}<br>{d} \in \mathbb{R}^{n} \<br>\nabla g_{i}(\bar{x})^{\mathrm{T}} {d}=0, &amp; i \in I \text { 且 } \bar{w}<em>{i}&gt;0 \<br>\nabla g</em>{i}(\bar{x})^{\mathrm{T}} {d} \geqslant 0, &amp; i \in I \text { 且 } \bar{w}<em>{i}=0 \<br>\nabla h</em>{j}(\bar{x})^{\mathrm{T}} {d}=0, &amp; j=1, \cdots, l<br>\end{array}\right}\right.<br>$$</p>
+</blockquote>
+</li>
+<li><p><strong>定理 7.2.12 （二阶充分条件）</strong></p>
+<blockquote>
+<p>设 $f,g_i,h_j$ 二次连续可微， $\bar{x}$ 是可行点，并存在乘子 $\bar{w}$ 和 $\bar{v}$ 满足<strong>一阶必要条件</strong>，且对每一个向量 $d\in G$​，都有<br>$$<br>d^{\mathrm{T}} {\nabla}_{x}^{2} L(\bar{x}, \bar{w}, \bar{v}) {d}&gt;0<br>$$<br>则 $\bar{x}$ 是严格局部最优解。</p>
+<p>其中，集合 $G$ 为<br>$$<br>\bar{G}=\left{d\left | \begin{array}{ll}<br>d\ne 0\<br>\nabla g_{i}(\bar{x})^{\mathrm{T}} {d}=0, &amp; i \in I \text { 且 } \bar{w}<em>{i}&gt;0 \<br>\nabla g</em>{i}(\bar{x})^{\mathrm{T}} {d} \geqslant 0, &amp; i \in I \text { 且 } \bar{w}<em>{i}=0 \<br>\nabla h</em>{j}(\bar{x})^{\mathrm{T}} {d}=0, &amp; j=1, \cdots, l<br>\end{array}\right}\right.<br>$$</p>
+</blockquote>
+<ul>
+<li>注意：对于含等式约束优化问题的二阶极值条件，不能仅考虑 Hesse 矩阵，即便 Hesse 矩阵正定，也不一定是局部最优解。</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li>《最优化理论与算法》（第7章 最优性条件） 陈宝林著</li>
+</ul>
 
                 
             </div>
@@ -984,7 +934,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://321hjd.github.io/yyds/ce525ac0.html">https://321hjd.github.io/yyds/ce525ac0.html</a>
+                    <a href="https://321hjd.github.io/yyds/552ff584.html">https://321hjd.github.io/yyds/552ff584.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1022,12 +972,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">机器学习</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">吴恩达-机器学习</span>
+                                <a href="/tags/%E6%9C%80%E4%BC%98%E6%80%A7%E6%9D%A1%E4%BB%B6/">
+                                    <span class="chip bg-color">最优性条件</span>
                                 </a>
                             
                         </div>
@@ -1536,49 +1482,47 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/yyds/9feb0fb4.html">
+                <a href="/yyds/552ff584.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/机器学习.jpg" class="responsive-img" alt="3-逻辑回归（Logistic-Regression）">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg" class="responsive-img" alt="最优性条件">
                         
-                        <span class="card-title">3-逻辑回归（Logistic-Regression）</span>
+                        <span class="card-title">最优性条件</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学习《吴恩达-机器学习》视频时做的笔记。本篇为逻辑回归。
+                            非线性规划的最优解所满足的必要条件和充分条件（仅包含定理）
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-02-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" class="post-category">
+                                    最优化方法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">吴恩达-机器学习</span>
+                    <a href="/tags/%E6%9C%80%E4%BC%98%E6%80%A7%E6%9D%A1%E4%BB%B6/">
+                        <span class="chip bg-color">最优性条件</span>
                     </a>
                     
                 </div>
@@ -1592,30 +1536,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yyds/e943bc7e.html">
+                <a href="/yyds/b9a4c8b0.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/cover/机器学习.jpg" class="responsive-img" alt="1-概述及分类">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg" class="responsive-img" alt="对偶理论">
                         
-                        <span class="card-title">1-概述及分类</span>
+                        <span class="card-title">对偶理论</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学习《吴恩达-机器学习》视频时做的笔记。
+                            简单介绍了线性规划以及非线性规划中的对偶理论。包含对偶函数、Lagrange 对偶问题、弱/强对偶定理以及 Slater条件、KKT条件。其中，Slater条件是原问题为凸时关于强对偶的充分不必要条件；KKT条件是关于强对偶的必要不充分条件，原问题为凸时则是充要条件。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    学习笔记
+                            <a href="/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/" class="post-category">
+                                    最优化方法
                                 </a>
                             
                             
@@ -1625,12 +1569,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
+                    <a href="/tags/%E5%AF%B9%E5%81%B6%E7%90%86%E8%AE%BA/">
+                        <span class="chip bg-color">对偶理论</span>
                     </a>
                     
-                    <a href="/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">吴恩达-机器学习</span>
+                    <a href="/tags/KKT%E6%9D%A1%E4%BB%B6/">
+                        <span class="chip bg-color">KKT条件</span>
                     </a>
                     
                 </div>
@@ -1798,13 +1742,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 
