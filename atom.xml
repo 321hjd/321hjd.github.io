@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2022-08-16T08:54:17.918Z</updated>
+  <updated>2022-08-16T14:41:35.997Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>凸优化-凸函数</title>
+    <link href="https://321hjd.github.io/yyds/382459b6.html"/>
+    <id>https://321hjd.github.io/yyds/382459b6.html</id>
+    <published>2022-08-16T14:01:51.000Z</published>
+    <updated>2022-08-16T14:41:35.997Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、定义和基本性质&quot;&gt;&lt;a href=&quot;#一、定义和基本性质&quot; class=&quot;headerlink&quot; title=&quot;一、定义和基本性质&quot;&gt;&lt;/a&gt;一、定义和基本性质&lt;/h3&gt;&lt;h4 id=&quot;1-1-定义&quot;&gt;&lt;a href=&quot;#1-1-定义&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="数学优化" scheme="https://321hjd.github.io/categories/%E6%95%B0%E5%AD%A6%E4%BC%98%E5%8C%96/"/>
+    
+    
+    <category term="凸优化" scheme="https://321hjd.github.io/tags/%E5%87%B8%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
     <title>凸优化-凸集</title>
     <link href="https://321hjd.github.io/yyds/facfe333.html"/>
     <id>https://321hjd.github.io/yyds/facfe333.html</id>
     <published>2022-08-16T08:41:51.000Z</published>
-    <updated>2022-08-16T08:54:17.918Z</updated>
+    <updated>2022-08-16T09:03:27.970Z</updated>
     
     
       
@@ -530,36 +555,6 @@
 &lt;blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;0:</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="https://321hjd.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="机器学习" scheme="https://321hjd.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="吴恩达-机器学习" scheme="https://321hjd.github.io/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2-线性回归（Linear-Regression）</title>
-    <link href="https://321hjd.github.io/yyds/ce525ac0.html"/>
-    <id>https://321hjd.github.io/yyds/ce525ac0.html</id>
-    <published>2022-02-08T02:43:14.000Z</published>
-    <updated>2022-02-08T03:06:21.391Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;一、模型描述&quot;&gt;&lt;a href=&quot;#一、模型描述&quot; class=&quot;headerlink&quot; title=&quot;一、模型描述&quot;&gt;&lt;/a&gt;一、模型描述&lt;/h3&gt;&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;建立y关于x的线性函数&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Hypothesis</summary>
         
       
     
