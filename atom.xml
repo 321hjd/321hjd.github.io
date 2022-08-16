@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2022-08-10T13:35:29.728Z</updated>
+  <updated>2022-08-16T08:44:58.331Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>凸优化-凸集</title>
+    <link href="https://321hjd.github.io/yyds/facfe333.html"/>
+    <id>https://321hjd.github.io/yyds/facfe333.html</id>
+    <published>2022-08-16T08:41:51.000Z</published>
+    <updated>2022-08-16T08:44:58.331Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h4 id=&quot;1-直线和线段&quot;&gt;&lt;a href=&quot;#1-直线和线段&quot; class=&quot;headerlink&quot; title=&quot;1. 直线和线段&quot;&gt;&lt;/a&gt;1. 直线和线段&lt;/h4&gt;&lt;p&gt;假设 $x_1\ne x_2$ 是 $\mathbf{R}^n$</summary>
+        
+      
+    
+    
+    
+    <category term="数学优化" scheme="https://321hjd.github.io/categories/%E6%95%B0%E5%AD%A6%E4%BC%98%E5%8C%96/"/>
+    
+    
+    <category term="凸优化" scheme="https://321hjd.github.io/tags/%E5%87%B8%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
     <title>最优性条件</title>
     <link href="https://321hjd.github.io/yyds/552ff584.html"/>
     <id>https://321hjd.github.io/yyds/552ff584.html</id>
     <published>2022-08-10T13:34:21.000Z</published>
-    <updated>2022-08-10T13:35:29.728Z</updated>
+    <updated>2022-08-16T08:44:28.309Z</updated>
     
     
       
@@ -38,7 +63,7 @@
     
     
     
-    <category term="最优化方法" scheme="https://321hjd.github.io/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/"/>
+    <category term="数学优化" scheme="https://321hjd.github.io/categories/%E6%95%B0%E5%AD%A6%E4%BC%98%E5%8C%96/"/>
     
     
     <category term="最优性条件" scheme="https://321hjd.github.io/tags/%E6%9C%80%E4%BC%98%E6%80%A7%E6%9D%A1%E4%BB%B6/"/>
@@ -50,7 +75,7 @@
     <link href="https://321hjd.github.io/yyds/b9a4c8b0.html"/>
     <id>https://321hjd.github.io/yyds/b9a4c8b0.html</id>
     <published>2022-08-07T08:50:25.000Z</published>
-    <updated>2022-08-07T08:55:33.302Z</updated>
+    <updated>2022-08-16T08:45:36.228Z</updated>
     
     
       
@@ -66,7 +91,7 @@
     
     
     
-    <category term="最优化方法" scheme="https://321hjd.github.io/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/"/>
+    <category term="数学优化" scheme="https://321hjd.github.io/categories/%E6%95%B0%E5%AD%A6%E4%BC%98%E5%8C%96/"/>
     
     
     <category term="对偶理论" scheme="https://321hjd.github.io/tags/%E5%AF%B9%E5%81%B6%E7%90%86%E8%AE%BA/"/>
@@ -80,7 +105,7 @@
     <link href="https://321hjd.github.io/yyds/3b5150c4.html"/>
     <id>https://321hjd.github.io/yyds/3b5150c4.html</id>
     <published>2022-06-24T09:52:55.000Z</published>
-    <updated>2022-06-24T10:49:31.580Z</updated>
+    <updated>2022-08-16T08:46:07.967Z</updated>
     
     
       
@@ -94,7 +119,7 @@
     
     
     
-    <category term="最优化方法" scheme="https://321hjd.github.io/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/"/>
+    <category term="数学优化" scheme="https://321hjd.github.io/categories/%E6%95%B0%E5%AD%A6%E4%BC%98%E5%8C%96/"/>
     
     
     <category term="基于导数的优化方法" scheme="https://321hjd.github.io/tags/%E5%9F%BA%E4%BA%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/"/>
@@ -106,7 +131,7 @@
     <link href="https://321hjd.github.io/yyds/9c0ec5cf.html"/>
     <id>https://321hjd.github.io/yyds/9c0ec5cf.html</id>
     <published>2022-06-23T14:09:55.000Z</published>
-    <updated>2022-06-24T10:28:24.121Z</updated>
+    <updated>2022-08-16T08:46:20.949Z</updated>
     
     
       
@@ -120,7 +145,7 @@
     
     
     
-    <category term="最优化方法" scheme="https://321hjd.github.io/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/"/>
+    <category term="数学优化" scheme="https://321hjd.github.io/categories/%E6%95%B0%E5%AD%A6%E4%BC%98%E5%8C%96/"/>
     
     
     <category term="基于导数的优化方法" scheme="https://321hjd.github.io/tags/%E5%9F%BA%E4%BA%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/"/>
@@ -132,7 +157,7 @@
     <link href="https://321hjd.github.io/yyds/a20e437d.html"/>
     <id>https://321hjd.github.io/yyds/a20e437d.html</id>
     <published>2022-06-18T02:26:13.000Z</published>
-    <updated>2022-07-17T03:20:39.588Z</updated>
+    <updated>2022-08-16T08:45:52.811Z</updated>
     
     
       
@@ -146,7 +171,7 @@
     
     
     
-    <category term="最优化方法" scheme="https://321hjd.github.io/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/"/>
+    <category term="数学优化" scheme="https://321hjd.github.io/categories/%E6%95%B0%E5%AD%A6%E4%BC%98%E5%8C%96/"/>
     
     
     <category term="惩罚函数" scheme="https://321hjd.github.io/tags/%E6%83%A9%E7%BD%9A%E5%87%BD%E6%95%B0/"/>
@@ -158,7 +183,7 @@
     <link href="https://321hjd.github.io/yyds/e7f02e65.html"/>
     <id>https://321hjd.github.io/yyds/e7f02e65.html</id>
     <published>2022-05-13T10:16:13.000Z</published>
-    <updated>2022-06-23T14:11:21.853Z</updated>
+    <updated>2022-08-16T08:46:30.476Z</updated>
     
     
       
@@ -173,7 +198,7 @@
     
     
     
-    <category term="最优化方法" scheme="https://321hjd.github.io/categories/%E6%9C%80%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/"/>
+    <category term="数学优化" scheme="https://321hjd.github.io/categories/%E6%95%B0%E5%AD%A6%E4%BC%98%E5%8C%96/"/>
     
     
     <category term="基于导数的优化方法" scheme="https://321hjd.github.io/tags/%E5%9F%BA%E4%BA%8E%E5%AF%BC%E6%95%B0%E7%9A%84%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95/"/>
@@ -535,34 +560,6 @@
 &lt;li&gt;&lt;p&gt;建立y关于x的线性函数&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Hypothesis</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="https://321hjd.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="机器学习" scheme="https://321hjd.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="吴恩达-机器学习" scheme="https://321hjd.github.io/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>1-概述及分类</title>
-    <link href="https://321hjd.github.io/yyds/e943bc7e.html"/>
-    <id>https://321hjd.github.io/yyds/e943bc7e.html</id>
-    <published>2022-02-08T02:17:32.000Z</published>
-    <updated>2022-02-08T12:19:38.782Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;声明：本系列十二篇文章均为[&lt;a</summary>
         
       
     
