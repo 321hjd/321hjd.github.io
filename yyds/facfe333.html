@@ -778,20 +778,20 @@
 </ul>
 <p>维基百科上非常形象的一个gif图像：</p>
 <p><img src="/medias/loading.gif" data-original="https://pic3.zhimg.com/50/v2-01d06795480b91a9bc1fa57ce5fd7009_720w.webp?source=1940ef5c" alt="仿射变换"></p>
-<p>**仿射壳/包(affine full)**。某个集合 $C\in\mathbf{R}$ 中的点的所有仿射组合组成的集合，称为仿射壳，表示为：<br>$$<br>\mathbf{aff}<del>C={\theta_1 x_1+\ldots+\theta_k x_k|x_1,\ldots,x_k\in C,\theta_1+\ldots+\theta_k=1}<br>$$<br><strong>仿射壳是包含集合 $C$ 的最小仿射集</strong>。即集合 $S$ 是任意满足 $C\subseteq S$ 的仿射集，从而 $\mathbf{aff}</del>C\subseteq S$ 。</p>
+<p>**仿射壳/包(affine full)**。某个集合 $C\in\mathbf{R}$ 中的点的所有仿射组合组成的集合，称为仿射壳，表示为：<br>$$<br>\mathbf{aff},C={\theta_1 x_1+\ldots+\theta_k x_k|x_1,\ldots,x_k\in C,\theta_1+\ldots+\theta_k=1}<br>$$<br><strong>仿射壳是包含集合 $C$ 的最小仿射集</strong>。即集合 $S$ 是任意满足 $C\subseteq S$ 的仿射集，从而 $\mathbf{aff},C\subseteq S$ 。</p>
 <p>仿射维数：仿射包的维数。</p>
 <p><strong>内点（interior）</strong>：$\text { int } C={x \mid B(x, r) \subseteq C, r&gt;0}$</p>
 <p><strong>相对内点（relative interior）</strong>：$\text { relint } C={x \mid B(x, r) \cap \operatorname{aff} C \subseteq C, r&gt;0}$ </p>
-<h4 id="3-凸集-convex-sets"><a href="#3-凸集-convex-sets" class="headerlink" title="3. 凸集(convex sets)"></a>3. 凸集(convex sets)</h4><p>如果 $C$ 中任意两点之间的线段位于 $C$ 中，则集合 $C$​ 是凸的。对于任意 $x_1,x_2\in C$ ，任意 $0\le\theta\le 1$ ，有<br>$$<br>\theta x_1 + (1-\theta)x_2\in C<br>$$<br>下图可直观地认识一些简单的凸集和非凸集。</p>
+<h4 id="3-凸集（convex-sets）"><a href="#3-凸集（convex-sets）" class="headerlink" title="3. 凸集（convex sets）"></a>3. 凸集（convex sets）</h4><p>如果 $C$ 中任意两点之间的线段位于 $C$ 中，则集合 $C$​ 是凸的。对于任意 $x_1,x_2\in C$ ，任意 $0\le\theta\le 1$ ，有<br>$$<br>\theta x_1 + (1-\theta)x_2\in C<br>$$<br>下图可直观地认识一些简单的凸集和非凸集。</p>
 <p><img src="/medias/loading.gif" data-original="/yyds/facfe333/学习资料\学习\数学优化\笔记\Images\simple-convex-and-nonconvex-sets.jpg" alt="简单的凸集和非凸集"></p>
 <p>从凸集的几何意义来看，凸集中的任意两点间一定是“无障碍可见”的，即任意一点能通过一条线段到达另外一点，且中间经过的所有点都属于该集合。这意味着凸集都是边界向外凸的，且不能含有未包含的边界点。</p>
-<p><strong>凸包</strong>。凸包是集合 $C$ 的最小凸集，包含集合 $C$ 中点的所有凸组合。<br>$$<br>\mathbf{conv}<del>C={\theta_1 x_1+\ldots+\theta_k x_k|x_i\in C,</del>\theta_i\ge 0,i=1,\ldots,k,~\theta_1+\ldots+\theta_k=1}<br>$$<br>下图是两个非凸集合的凸包。</p>
+<p><strong>凸包</strong>。凸包是集合 $C$ 的最小凸集，包含集合 $C$ 中点的所有凸组合。<br>$$<br>\mathbf{conv},C={\theta_1 x_1+\ldots+\theta_k x_k|x_i\in C,\theta_i\ge 0,i=1,\ldots,k,\theta_1+\ldots+\theta_k=1}<br>$$<br>下图是两个非凸集合的凸包。</p>
 <p><img src="/medias/loading.gif" data-original="/yyds/facfe333/学习资料\学习\数学优化\笔记\Images\convex-hull.jpg" alt="凸包"></p>
 <p>凸组合的思想可以被推广至<strong>无穷和</strong>、<strong>积分</strong>以及最广泛的<strong>概率分布</strong>中（如数学期望）。</p>
-<h4 id="4-凸锥-cones"><a href="#4-凸锥-cones" class="headerlink" title="4. 凸锥(cones)"></a>4. 凸锥(cones)</h4><p>对于任意 $x_1,x_2,\in C$，以及任意 $\theta_1,\theta_2\ge 0$，凸锥满足<br>$$<br>\theta_1x_1+\theta_2x_2\in C<br>$$<br>凸锥：<strong>既是凸集又是锥</strong>。</p>
+<h4 id="4-凸锥（cones）"><a href="#4-凸锥（cones）" class="headerlink" title="4. 凸锥（cones）"></a>4. 凸锥（cones）</h4><p>对于任意 $x_1,x_2,\in C$，以及任意 $\theta_1,\theta_2\ge 0$，凸锥满足<br>$$<br>\theta_1x_1+\theta_2x_2\in C<br>$$<br>凸锥：<strong>既是凸集又是锥</strong>。</p>
 <p>其几何形状如下图。</p>
 <p><img src="/medias/loading.gif" data-original="/yyds/facfe333/学习资料\学习\数学优化\笔记\Images\convex-conic.jpg" alt="凸锥"></p>
-<p>**锥包(conic hull)**是包含集合 $C$ 的最小凸锥（集合 $C$ 内的点的所有锥的组合）。可表示为<br>$$<br>\left{\theta_{1} x_{1}+\cdots+\theta_{k} x_{k} \mid x_{i} \in C, \theta_{i} \geq 0, i=1, \ldots, k\right}<br>$$<br>锥包的几何意义可由下图解释。</p>
+<p><strong>锥包（conic hull）</strong>是包含集合 $C$ 的最小凸锥（集合 $C$ 内的点的所有锥的组合）。可表示为<br>$$<br>\left{\theta_{1} x_{1}+\cdots+\theta_{k} x_{k} \mid x_{i} \in C, \theta_{i} \geq 0, i=1, \ldots, k\right}<br>$$<br>锥包的几何意义可由下图解释。</p>
 <p><img src="/medias/loading.gif" data-original="/yyds/facfe333/学习资料\学习\数学优化\笔记\Images\conic-hull.jpg" alt="锥包"></p>
 <h4 id="5-超平面和半空间"><a href="#5-超平面和半空间" class="headerlink" title="5. 超平面和半空间"></a>5. 超平面和半空间</h4><p><strong>超平面</strong>。其中a为该平面的法向量（这里是用二维的线来表示超平面），表示超平面的方向。</p>
 <p><img src="/medias/loading.gif" data-original="/yyds/facfe333/Users\18482\AppData\Roaming\Typora\typora-user-images\image-20220319215833572.png" alt="超平面"></p>
