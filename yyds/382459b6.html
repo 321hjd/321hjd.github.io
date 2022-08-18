@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="凸优化-凸函数, hjd&#39;blog">
+    <meta name="keywords" content="凸优化|凸函数, hjd&#39;blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>凸优化-凸函数 | hjd&#39;blog</title>
+    <title>凸优化|凸函数 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/awesome/css/all.css">
@@ -588,7 +588,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">凸优化-凸函数</h1>
+                    <h1 class="description center-align post-title">凸优化|凸函数</h1>
                 </div>
             </div>
         </div>
@@ -736,21 +736,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-16
+                    2022-08-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    843
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    3 分
                 </div>
                 
 
@@ -768,29 +768,41 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="一、定义和基本性质"><a href="#一、定义和基本性质" class="headerlink" title="一、定义和基本性质"></a>一、定义和基本性质</h3><h4 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h4><p>一个函数 $f:\mathbf{R}^n\rightarrow \mathbf{R}$ 是凸函数当且仅当 $\mathrm{dom};f$ 是凸集，且对于所有的 $x,y\in\mathrm{dom};f$ 和 $0\le\theta\le 1$，满足<br>$$<br>f\left(\theta x+(1-\theta)y\right) \leq \theta f\left(x\right)+(1-\theta) f\left(y\right)<br>$$</p>
-<ul>
+                <h3 id="一、定义和基本性质"><a href="#一、定义和基本性质" class="headerlink" title="一、定义和基本性质"></a>一、定义和基本性质</h3><h4 id="1-1-定义"><a href="#1-1-定义" class="headerlink" title="1.1 定义"></a>1.1 定义</h4><p>一个函数 $f:\mathbf{R}^n\rightarrow \mathbf{R}$ 是凸函数当且仅当 $\mathrm{dom}\;f$ 是凸集，且对于所有的 $x,y\in\mathrm{dom}\;f$ 和 $0\le\theta\le 1$，满足</p>
+<script type="math/tex; mode=display">
+f\left(\theta x+(1-\theta)y\right) \leq \theta f\left(x\right)+(1-\theta) f\left(y\right)</script><ul>
 <li>若 $x\ne y$ 且 $0&lt;\theta&lt;1$ 时上述不等式严格成立，则称函数 $f$ <strong>严格凸</strong>。若 $f$ 为凸函数，则  $-f$ 为凹函数；若 $f$ 为严格凸函数，则 $-f$ 为严格凹函数。 </li>
 <li>仿射函数总是满足上述不等式，且所有的仿射函数都是既凸又凹的；所有既凸又凹的函数都是仿射函数；而凸函数不一定是仿射函数。</li>
 </ul>
 <h4 id="1-2-一阶条件"><a href="#1-2-一阶条件" class="headerlink" title="1.2 一阶条件"></a>1.2 一阶条件</h4><ul>
 <li><p>可微</p>
-<p>若梯度<br>$$<br>\nabla f(x)=\left(\frac{\partial f(x)}{\partial x_{1}}, \frac{\partial f(x)}{\partial x_{2}}, \ldots, \frac{\partial f(x)}{\partial x_{n}}\right)<br>$$<br>在 $\mathrm{dom};f$ （开集）的每个点 $x$ 上都存在，则称 $f$ 可微。</p>
+<p>若梯度</p>
+<script type="math/tex; mode=display">
+\nabla f(x)=\left(\frac{\partial f(x)}{\partial x_{1}}, \frac{\partial f(x)}{\partial x_{2}}, \ldots, \frac{\partial f(x)}{\partial x_{n}}\right)</script><p>在 $\mathrm{dom}\;f$ （开集）的每个点 $x$ 上都存在，则称 $f$ 可微。</p>
 </li>
 <li><p>first-order conditions</p>
-<p>假设 $f$ 可微，则 $f$ 为凸函数当且仅当 $\mathrm{dom};f$ 为凸，且对于所有的 $x,y\in\mathrm{dom};f$​，满足<br>$$<br>f(y)\ge f(x)+\nabla f(x)^T(y-x)<br>$$</p>
-<img src="/medias/loading.gif" data-original="/yyds/382459b6/凸优化-凸集\凸函数一阶条件.png" alt="凸函数一阶条件" style="zoom: 80%;">
-
-<p>若对于所有的 $x,y\in\mathrm{dom};f$，满足<br>$$<br>f(y)&gt; f(x)+\nabla f(x)^T(y-x)<br>$$<br>则称 $f$ 为严格凸。</p>
-<p>对于凹函数，则是： $f$ 为凹函数当且仅当 $\mathrm{dom};f$ 为凸，且对于所有的 $x,y\in\mathrm{dom};f$​，满足<br>$$<br>f(y)\le f(x)+\nabla f(x)^T(y-x)<br>$$</p>
-</li>
+<p>假设 $f$ 可微，则 $f$ 为凸函数当且仅当 $\mathrm{dom}\;f$ 为凸，且对于所有的 $x,y\in\mathrm{dom}\;f$​，满足</p>
+<script type="math/tex; mode=display">
+f(y)\ge f(x)+\nabla f(x)^T(y-x)</script><p><img src="/medias/loading.gif" data-original="/yyds/382459b6/凸优化-凸集\凸函数一阶条件.png" alt="凸函数一阶条件" style="zoom: 80%;"></p>
+<p>若对于所有的 $x,y\in\mathrm{dom}\;f$，满足</p>
+<script type="math/tex; mode=display">
+f(y)> f(x)+\nabla f(x)^T(y-x)</script><p>则称 $f$ 为严格凸。</p>
+<p>对于凹函数，则是： $f$ 为凹函数当且仅当 $\mathrm{dom}\;f$ 为凸，且对于所有的 $x,y\in\mathrm{dom}\;f$​，满足</p>
+<script type="math/tex; mode=display">
+f(y)\le f(x)+\nabla f(x)^T(y-x)</script></li>
 </ul>
 <h4 id="1-3-二阶条件"><a href="#1-3-二阶条件" class="headerlink" title="1.3 二阶条件"></a>1.3 二阶条件</h4><ul>
 <li><p>二次可微</p>
-<p>若 Hessian 矩阵或二阶导<br>$$<br>\nabla^{2} f(x)<em>{i j}=\frac{\partial^{2} f(x)}{\partial x</em>{i} \partial x_{j}}, \quad i, j=1, \ldots, n<br>$$<br>在 $\mathrm{dom};f$ （开集）的每个点 $x$ 上都存在，则称 $f$ 二次可微。</p>
+<p>若 Hessian 矩阵或二阶导</p>
+<script type="math/tex; mode=display">
+\nabla^{2} f(x)_{i j}=\frac{\partial^{2} f(x)}{\partial x_{i} \partial x_{j}}, \quad i, j=1, \ldots, n</script><p>在 $\mathrm{dom}\;f$ （开集）的每个点 $x$ 上都存在，则称 $f$ 二次可微。</p>
 </li>
 <li><p>second-order conditions</p>
-<p>假设 $f$ 二次可微，则 $f$ 为凸函数当且仅当 $\mathrm{dom};f$ 为凸，且对于所有的 $x\in\mathrm{dom};f$​，满足<br>$$<br>\nabla^2 f(x)\ge0<br>$$<br>若对于所有的 $x\in\mathrm{dom};f$，满足<br>$$<br>\nabla^2 f(x)&gt;0<br>$$<br>则称 $f$ 为严格凸。但反过来不成立，如函数 $f(x)=x^4$ 为严格凸的，但其二阶导在 $x=0$ 时为 0。</p>
+<p>假设 $f$ 二次可微，则 $f$ 为凸函数当且仅当 $\mathrm{dom}\;f$ 为凸，且对于所有的 $x\in\mathrm{dom}\;f$​，满足</p>
+<script type="math/tex; mode=display">
+\nabla^2 f(x)\ge0</script><p>若对于所有的 $x\in\mathrm{dom}\;f$，满足</p>
+<script type="math/tex; mode=display">
+\nabla^2 f(x)>0</script><p>则称 $f$ 为严格凸。但反过来不成立，如函数 $f(x)=x^4$ 为严格凸的，但其二阶导在 $x=0$ 时为 0。</p>
 <blockquote>
 <p>其实二阶性质和一阶性质的本质是一样的。二阶相当于一阶性质不等式的泰勒展开式右边增加了一个二次项（都省去了余项-高阶无穷小）。二次项相当于 $(y-x)^T\nabla^2f(x) (y-x)\ge0$ ，即海森矩阵需满足半正定。</p>
 </blockquote>
@@ -808,7 +820,7 @@
 </li>
 <li><p>指数函数。$e^{ax},a\in\mathbf{R}$ </p>
 </li>
-<li><p>幂函数。$x^{a},a&gt;1; \mathrm{or};a&lt;0$ </p>
+<li><p>幂函数。$x^{a},a&gt;1\; \mathrm{or}\;a&lt;0$ </p>
 </li>
 <li><p>绝对值的幂函数。$|x|^p,p\ge 1$ </p>
 </li>
@@ -819,15 +831,16 @@
 <ul>
 <li><p>范数（Norms）</p>
 </li>
-<li><p>max function。$f(x)=\max{x_1,x_2,\cdots,x_n}$ </p>
+<li><p>max function。$f(x)=\max\{x_1,x_2,\cdots,x_n\}$ </p>
 </li>
-<li><p>二次超线性函数。如 $f(x,y)=x^2/y$​ ，其定义域为<br>$$<br>\mathrm{dom};f=\mathbf{R}\times\mathbf{R}_{++}={(x,y)\in\mathbf{R}^2|y&lt;0}<br>$$</p>
-</li>
+<li><p>二次超线性函数。如 $f(x,y)=x^2/y$​ ，其定义域为</p>
+<script type="math/tex; mode=display">
+\mathrm{dom}\;f=\mathbf{R}\times\mathbf{R}_{++}=\{(x,y)\in\mathbf{R}^2|y<0\}</script></li>
 <li><p>log-sum-exp。$f(x)=\log(e^{x_1}+e^{x_2}+\cdots,+e^{x_n})$ </p>
 </li>
-<li><p>几何平均。$f(x)=(\prod_{i=1}^nx_i)^{1/n},;\mathrm{dom};f=\mathbf{R}_{++}^n$ </p>
+<li><p>几何平均。$f(x)=(\prod_{i=1}^nx_i)^{1/n},\;\mathrm{dom}\;f=\mathbf{R}_{++}^n$ </p>
 </li>
-<li><p>log-determinant。$f(X)=\log\det X,;\mathrm{dom};f=\mathbf{S}_{++}^n$ </p>
+<li><p>log-determinant。$f(X)=\log\det X,\;\mathrm{dom}\;f=\mathbf{S}_{++}^n$ </p>
 </li>
 </ul>
 </blockquote>
@@ -846,23 +859,38 @@
 </li>
 </ul>
 <h4 id="1-6-Epigraph-and-sublevel-set"><a href="#1-6-Epigraph-and-sublevel-set" class="headerlink" title="1.6 Epigraph and sublevel set"></a>1.6 Epigraph and sublevel set</h4><p>与凸锥类似。其实 epigraph 就是在 sublevel set 的基础上增加了一个维度，假设原来 sublevel set 指的是 sublevel 以下函数线上的点集，epigraph 指的则是 sublevel 和函数之间的面上的点集合。 </p>
-<p><img src="/medias/loading.gif" data-original="/yyds/382459b6/.%5C%E5%87%B8%E4%BC%98%E5%8C%96-%E5%87%B8%E9%9B%86%5CEpigraph&sublevelset.png" alt="Epigraph and sublevel set"></p>
+<p><img src="/medias/loading.gif" data-original="/yyds/382459b6/凸优化-凸集\Epigraph&amp;sublevelset.png" alt="Epigraph and sublevel set"></p>
 <h4 id="1-7-Jensen-不等式"><a href="#1-7-Jensen-不等式" class="headerlink" title="1.7 Jensen 不等式"></a>1.7 Jensen 不等式</h4><ul>
 <li>若 $f$ 为<strong>凸函数</strong>，则有：</li>
 </ul>
-<p>$$<br>f\left(\theta_{1} x_{1}+\ldots+\theta_{n} x_{n}\right) \leq \theta_{1} f\left(x_{1}\right)+\ldots+\theta_{n} f\left(x_{n}\right)<br>$$</p>
-<p>​    其中 $0\le\theta_i\le1,\theta_1+\ldots+\theta_n=1$ 。</p>
+<script type="math/tex; mode=display">
+f\left(\theta_{1} x_{1}+\ldots+\theta_{n} x_{n}\right) \leq \theta_{1} f\left(x_{1}\right)+\ldots+\theta_{n} f\left(x_{n}\right)</script><p>​    其中 $0\le\theta_i\le1,\theta_1+\ldots+\theta_n=1$ 。</p>
 <ul>
-<li>Jensen不等式的另外形式：（从概率论的角度看其实就是<strong>数学期望</strong> $f[E(x)]\le E[f(x)]$）<br>$$<br>f\left(\int_{S} p(x) x d x\right) \leq \int_{S} p(x) f(x) d x<br>$$</li>
+<li>Jensen不等式的另外形式：（从概率论的角度看其实就是<strong>数学期望</strong> $f[E(x)]\le E[f(x)]$） <script type="math/tex; mode=display">
+f\left(\int_{S} p(x) x d x\right) \leq \int_{S} p(x) f(x) d x</script></li>
 </ul>
 <h3 id="二、保凸运算"><a href="#二、保凸运算" class="headerlink" title="二、保凸运算"></a>二、保凸运算</h3><ol>
-<li><p>非负加权和、无穷和与积分。<br>$$<br>\begin{align}<br>&amp;f=w_1f_1+w_2f_2+\cdots+w_mf_m\<br>&amp;g(x)=\int_\mathcal{A}w(y)f(x,y)\mathrm{d}y<br>\end{align}<br>$$</p>
-</li>
-<li><p>仿射映射和复合（如缩放、平移、投影）<br>$$<br>g(x)=f(Ax+b)<br>$$</p>
-</li>
-<li><p>逐点最大值和上确界<br>$$<br>\begin{align}<br>&amp;f(x)=\max\left{f_1(x)+f_2(x)+\cdots+f_n(x)\right}\<br>&amp;f(x)=\sup_{y\in\mathcal{A}}g(x,y)<br>\end{align}<br>$$</p>
-</li>
-<li><p>复合运算<br>$$<br>\begin{align}<br>g:{\cal R}^n \to {\cal R},h:{\cal R^k} \to {\cal R},f:{\cal R^n} \to {\cal R}\<br>f(x) = h(g(x))<br>\end{align}<br>$$<br>规则：</p>
+<li><p>非负加权和、无穷和与积分。</p>
+<script type="math/tex; mode=display">
+\begin{align}
+&f=w_1f_1+w_2f_2+\cdots+w_mf_m\\
+&g(x)=\int_\mathcal{A}w(y)f(x,y)\mathrm{d}y
+\end{align}</script></li>
+<li><p>仿射映射和复合（如缩放、平移、投影）</p>
+<script type="math/tex; mode=display">
+g(x)=f(Ax+b)</script></li>
+<li><p>逐点最大值和上确界</p>
+<script type="math/tex; mode=display">
+\begin{align}
+&f(x)=\max\left\{f_1(x)+f_2(x)+\cdots+f_n(x)\right\}\\
+&f(x)=\sup_{y\in\mathcal{A}}g(x,y)
+\end{align}</script></li>
+<li><p>复合运算</p>
+<script type="math/tex; mode=display">
+\begin{align}
+g:{\cal R}^n \to {\cal R},h:{\cal R^k} \to {\cal R},f:{\cal R^n} \to {\cal R}\\
+f(x) = h(g(x))
+\end{align}</script><p>规则：</p>
 <ol>
 <li>$f$ 为凸。$h$ 为凸且非递减，并且 $g$ 为凸。</li>
 <li>$f$ 为凸。$h$ 为凸且非递增，并且 $g$ 为凹。</li>
@@ -870,16 +898,20 @@
 <li>$f$ 为凹。$h$ 为凹且非递增，并且 $g$ 为凸。</li>
 </ol>
 </li>
-<li><p>凸函数的透视算子<br>$$<br>g(x,t)=tf(x/t)<br>$$</p>
-</li>
+<li><p>凸函数的透视算子</p>
+<script type="math/tex; mode=display">
+g(x,t)=tf(x/t)</script></li>
 </ol>
 <h3 id="三、共轭函数（对偶函数）"><a href="#三、共轭函数（对偶函数）" class="headerlink" title="三、共轭函数（对偶函数）"></a>三、共轭函数（对偶函数）</h3><ul>
 <li><p>定义</p>
-<p>假设 $f:\mathrm{R}^n\rightarrow \mathrm{R}$，则将其共轭函数定义为 $f^*:\mathrm{R}^n\rightarrow \mathrm{R}$ ，表示为<br>$$<br>f^{*}(y)=\sup _{x \in \operatorname{dom} f}\left(y^{T} x-f(x)\right)<br>$$<br>该共轭函数的定义域由 $y\in\mathrm{R}^n$​ 组成，其上确界是有限的。其定义可由下图解释</p>
-<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/16598621184091659862117797.png" alt="conjugate function" style="zoom:67%;"></li>
+<p>假设 $f:\mathrm{R}^n\rightarrow \mathrm{R}$，则将其共轭函数定义为 $f^*:\mathrm{R}^n\rightarrow \mathrm{R}$ ，表示为</p>
+<script type="math/tex; mode=display">
+f^{*}(y)=\sup _{x \in \operatorname{dom} f}\left(y^{T} x-f(x)\right)</script><p>该共轭函数的定义域由 $y\in\mathrm{R}^n$​ 组成，其上确界是有限的。其定义可由下图解释</p>
+<p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/16598621184091659862117797.png" alt="conjugate function" style="zoom:67%;"></p>
+</li>
 <li><p>解释</p>
 <blockquote>
-<p>共轭函数 $f^*$ 实际上是由一系列仿射函数的逐点上确界组成（$\sup _{x \in \operatorname{dom} f}\left(y^{T} x-f(x)\right)$ 的第一项是关于 $y$ 的线性函数，第二项无关），由于仿射函数是凸函数，而逐点上确界是保凸运算，因此 $f^*$ 是<strong>凸函数</strong>。因此无论原函数 $f$ 是否为凸，其共轭函数都是凸函数。且仅当 $f$ 为凸且闭合时，$f^{**}=f$ 。</p>
+<p>共轭函数 $f^<em>$ 实际上是由一系列仿射函数的逐点上确界组成（$\sup _{x \in \operatorname{dom} f}\left(y^{T} x-f(x)\right)$ 的第一项是关于 $y$ 的线性函数，第二项无关），由于仿射函数是凸函数，而逐点上确界是保凸运算，因此 $f^</em>$ 是<strong>凸函数</strong>。因此无论原函数 $f$ 是否为凸，其共轭函数都是凸函数。且仅当 $f$ 为凸且闭合时，$f^{**}=f$ 。</p>
 </blockquote>
 </li>
 <li><p>共轭函数的意义</p>
@@ -895,8 +927,10 @@
 </ul>
 </li>
 </ul>
-<h3 id="四、准凸函数"><a href="#四、准凸函数" class="headerlink" title="四、准凸函数"></a>四、准凸函数</h3><h4 id="4-1-定义"><a href="#4-1-定义" class="headerlink" title="4.1 定义"></a>4.1 定义</h4><p>设函数 $f:\mathbf{R}^n\rightarrow \mathbf{R}$ ，若函数的定义域及其任意下水平集（sublevel）<br>$$<br>S_{\alpha}={x\in\mathrm{dom};f|f(x)\le\alpha,\alpha\in\mathrm{dom};f}<br>$$<br>为凸集，则称 $f$ 为<strong>准凸函数</strong>（quasiconvex）。</p>
-<p><img src="/medias/loading.gif" data-original="/yyds/382459b6/.%5C%E5%87%B8%E4%BC%98%E5%8C%96-%E5%87%B8%E9%9B%86%5C%E5%87%86%E5%87%B8%E5%87%BD%E6%95%B0.png" alt="准凸函数"></p>
+<h3 id="四、准凸函数"><a href="#四、准凸函数" class="headerlink" title="四、准凸函数"></a>四、准凸函数</h3><h4 id="4-1-定义"><a href="#4-1-定义" class="headerlink" title="4.1 定义"></a>4.1 定义</h4><p>设函数 $f:\mathbf{R}^n\rightarrow \mathbf{R}$ ，若函数的定义域及其任意下水平集（sublevel）</p>
+<script type="math/tex; mode=display">
+S_{\alpha}=\{x\in\mathrm{dom}\;f|f(x)\le\alpha,\alpha\in\mathrm{dom}\;f\}</script><p>为凸集，则称 $f$ 为<strong>准凸函数</strong>（quasiconvex）。</p>
+<p><img src="/medias/loading.gif" data-original="/yyds/382459b6/凸优化-凸集\准凸函数.png" alt="准凸函数"></p>
 <ul>
 <li>准凸函数对应的下水平集可能是一个区间，也可能包括无穷区间。</li>
 <li>实例：$\log(x),x\in\mathbf{R}_{++}$ 是准凸/准凹的，因此也是准线性的。</li>
@@ -905,16 +939,22 @@
 <p>凸函数的许多性质对于准凸函数来说是成立的，或者有类似的性质。</p>
 </blockquote>
 <ul>
-<li><p>若函数 $f$ 为准凸函数，当且仅当 $\mathrm{dom};f$ 为凸集，且对于所有的 $x,y\in\mathrm{dom};f$ 和 $0\le\theta\le1$​ 满足<br>$$<br>f(\theta x+(1-\theta)y)\le \max{f(x),f(y)}<br>$$<br><img src="/medias/loading.gif" data-original="/yyds/382459b6/.%5C%E5%87%B8%E4%BC%98%E5%8C%96-%E5%87%B8%E9%9B%86%5C%E5%87%86%E5%87%B8%E5%87%BD%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%A7%E8%B4%A8.png" alt="准凸函数的基本性质"></p>
+<li><p>若函数 $f$ 为准凸函数，当且仅当 $\mathrm{dom}\;f$ 为凸集，且对于所有的 $x,y\in\mathrm{dom}\;f$ 和 $0\le\theta\le1$​ 满足</p>
+<script type="math/tex; mode=display">
+f(\theta x+(1-\theta)y)\le \max\{f(x),f(y)\}</script><p><img src="/medias/loading.gif" data-original="/yyds/382459b6/凸优化-凸集\准凸函数的基本性质.png" alt="准凸函数的基本性质"></p>
 </li>
 <li><p>准凸函数的一阶条件</p>
-<p>若函数 $f$ 一阶可微，则 $f$ 为准凸函数，当且仅当 $\mathrm{dom};f$ 为凸集，且对于所有的 $x,y\in\mathrm{dom};f$ ，满足（实际和凸函数的一阶条件是一样的）<br>$$<br>f(y)\le f(x)\Longrightarrow\nabla f(x)^T(y-x)\le 0<br>$$<br><img src="/medias/loading.gif" data-original="/yyds/382459b6/18482\MyBlog\source_posts\凸优化-凸集\准凸函数一阶条件的几何解释.png" alt="准凸函数一阶条件的几何解释"></p>
+<p>若函数 $f$ 一阶可微，则 $f$ 为准凸函数，当且仅当 $\mathrm{dom}\;f$ 为凸集，且对于所有的 $x,y\in\mathrm{dom}\;f$ ，满足（实际和凸函数的一阶条件是一样的）</p>
+<script type="math/tex; mode=display">
+f(y)\le f(x)\Longrightarrow\nabla f(x)^T(y-x)\le 0</script><p><img src="/medias/loading.gif" data-original="/yyds/382459b6/18482\MyBlog\source\_posts\凸优化-凸集\准凸函数一阶条件的几何解释.png" alt="准凸函数一阶条件的几何解释"></p>
 <blockquote>
 <p>凸函数与准凸函数的区别：如果 $f$ 是凸的，$\nabla f(x) = 0$，那么 $x$ 是 $f$ 的全局极小点，但对于准凸函数，此条件不成立：有可能 $\nabla f(x) =0$，但 $x$ 不是 $f$ 的全局极小点。</p>
 </blockquote>
 </li>
 <li><p>准凸函数的二阶条件（实际这里写的是二阶条件的部分逆）</p>
-<p>若函数 $f$ 二阶可微，且对于所有的 $x\in\mathrm{dom};f$ 且 $y\in\mathbf{R}^n,y\ne 0$​ ，满足<br>$$<br>y^T\nabla f(x)=0\Longrightarrow y^T\nabla^2 f(x)y&gt;0<br>$$<br>则 $f$ 为准凸函数。也即要求二阶导 $\nabla^2 f(x)$ 正定。</p>
+<p>若函数 $f$ 二阶可微，且对于所有的 $x\in\mathrm{dom}\;f$ 且 $y\in\mathbf{R}^n,y\ne 0$​ ，满足</p>
+<script type="math/tex; mode=display">
+y^T\nabla f(x)=0\Longrightarrow y^T\nabla^2 f(x)y>0</script><p>则 $f$ 为准凸函数。也即要求二阶导 $\nabla^2 f(x)$ 正定。</p>
 </li>
 </ul>
 <h4 id="4-3-保准凸的算子"><a href="#4-3-保准凸的算子" class="headerlink" title="4.3 保准凸的算子"></a>4.3 保准凸的算子</h4><ul>
@@ -1499,47 +1539,46 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/yyds/382459b6.html">
+                <a href="/yyds/2155beef.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg" class="responsive-img" alt="凸优化-凸函数">
                         
-                        <span class="card-title">凸优化-凸函数</span>
+                        <img src="/medias/loading.gif" data-original="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/12.jpg" class="responsive-img" alt="4G和5G性能指标对比">
+                        
+                        <span class="card-title">4G和5G性能指标对比</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            介绍了凸函数的定义、保凸运算、一/二阶性质、一些典型的凸函数实例、共轭函数和准凸函数。
+                            4G和5G的性能指标对比
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-18
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E5%AD%A6%E4%BC%98%E5%8C%96/" class="post-category">
-                                    数学优化
+                            <a href="/categories/%E9%80%9A%E4%BF%A1/" class="post-category">
+                                    通信
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%87%B8%E4%BC%98%E5%8C%96/">
-                        <span class="chip bg-color">凸优化</span>
+                    <a href="/tags/5G/">
+                        <span class="chip bg-color">5G</span>
                     </a>
                     
                 </div>
@@ -1556,9 +1595,9 @@
                 <a href="/yyds/facfe333.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg" class="responsive-img" alt="凸优化-凸集">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg" class="responsive-img" alt="凸优化|凸集">
                         
-                        <span class="card-title">凸优化-凸集</span>
+                        <span class="card-title">凸优化|凸集</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1833,7 +1872,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">89.8k</span>&nbsp;字
+                class="white-color">89k</span>&nbsp;字
             
 
 			
@@ -2109,12 +2148,12 @@ $(function () {
 		color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"> 
 	</script>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script><script>
+<script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 
 </html>

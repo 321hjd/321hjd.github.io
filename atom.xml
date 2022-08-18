@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2022-08-16T14:41:35.997Z</updated>
+  <updated>2022-08-18T00:55:32.208Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>凸优化-凸函数</title>
+    <title>4G和5G性能指标对比</title>
+    <link href="https://321hjd.github.io/yyds/2155beef.html"/>
+    <id>https://321hjd.github.io/yyds/2155beef.html</id>
+    <published>2022-08-18T00:54:33.000Z</published>
+    <updated>2022-08-18T00:55:32.208Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div class=&quot;table-container&quot;&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;&lt;/th&gt;
+&lt;th style=&quot;text-align:center&quot;&gt;4G&lt;/th&gt;
+&lt;th</summary>
+        
+      
+    
+    
+    
+    <category term="通信" scheme="https://321hjd.github.io/categories/%E9%80%9A%E4%BF%A1/"/>
+    
+    
+    <category term="5G" scheme="https://321hjd.github.io/tags/5G/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>凸优化|凸函数</title>
     <link href="https://321hjd.github.io/yyds/382459b6.html"/>
     <id>https://321hjd.github.io/yyds/382459b6.html</id>
     <published>2022-08-16T14:01:51.000Z</published>
-    <updated>2022-08-16T14:41:35.997Z</updated>
+    <updated>2022-08-17T03:02:14.520Z</updated>
     
     
       
@@ -42,11 +73,11 @@
   </entry>
   
   <entry>
-    <title>凸优化-凸集</title>
+    <title>凸优化|凸集</title>
     <link href="https://321hjd.github.io/yyds/facfe333.html"/>
     <id>https://321hjd.github.io/yyds/facfe333.html</id>
     <published>2022-08-16T08:41:51.000Z</published>
-    <updated>2022-08-16T09:03:27.970Z</updated>
+    <updated>2022-08-17T03:02:05.261Z</updated>
     
     
       
@@ -525,36 +556,6 @@
         
         
     <summary type="html">&lt;h3 id=&quot;一、欠-过拟合问题（Under-fitting-Overfitting-Problem）&quot;&gt;&lt;a href=&quot;#一、欠-过拟合问题（Under-fitting-Overfitting-Problem）&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="https://321hjd.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="机器学习" scheme="https://321hjd.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="吴恩达-机器学习" scheme="https://321hjd.github.io/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>3-逻辑回归（Logistic-Regression）</title>
-    <link href="https://321hjd.github.io/yyds/9feb0fb4.html"/>
-    <id>https://321hjd.github.io/yyds/9feb0fb4.html</id>
-    <published>2022-02-08T03:36:58.000Z</published>
-    <updated>2022-02-08T04:11:16.137Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;一、分类问题介绍&quot;&gt;&lt;a href=&quot;#一、分类问题介绍&quot; class=&quot;headerlink&quot; title=&quot;一、分类问题介绍&quot;&gt;&lt;/a&gt;一、分类问题介绍&lt;/h3&gt;&lt;p&gt;$y\in{0,1}$&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;0:</summary>
         
       
     

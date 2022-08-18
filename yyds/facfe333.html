@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="凸优化-凸集, hjd&#39;blog">
+    <meta name="keywords" content="凸优化|凸集, hjd&#39;blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>凸优化-凸集 | hjd&#39;blog</title>
+    <title>凸优化|凸集 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/awesome/css/all.css">
@@ -588,7 +588,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">凸优化-凸集</h1>
+                    <h1 class="description center-align post-title">凸优化|凸集</h1>
                 </div>
             </div>
         </div>
@@ -736,7 +736,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-16
+                    2022-08-17
                 </div>
                 
 
@@ -768,7 +768,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-直线和线段"><a href="#1-直线和线段" class="headerlink" title="1. 直线和线段"></a>1. 直线和线段</h4><p>假设 $x_1\ne x_2$ 是 $\mathbf{R}^n$ 空间（n维欧氏空间）中的两个点，直线<br>$$<br>y=\theta x_1 + (1-\theta)x_2<br>$$<br>是穿过 $x_1$ 和 $x_2$ 的直线，$\theta\in \mathbf{R}$ 。若满足 $\theta\in(0,1)$ ，则 $y$ 为连接 $x_1,x_2$ 的线段上的一点。</p>
+                <h4 id="1-直线和线段"><a href="#1-直线和线段" class="headerlink" title="1. 直线和线段"></a>1. 直线和线段</h4><p>假设 $x_1\ne x_2$ 是 $\mathbf{R}^n$ 空间（n维欧氏空间）中的两个点，直线</p>
+<script type="math/tex; mode=display">
+y=\theta x_1 + (1-\theta)x_2</script><p>是穿过 $x_1$ 和 $x_2$ 的直线，$\theta\in \mathbf{R}$ 。若满足 $\theta\in(0,1)$ ，则 $y$ 为连接 $x_1,x_2$ 的线段上的一点。</p>
 <h4 id="2-仿射集-affine-sets"><a href="#2-仿射集-affine-sets" class="headerlink" title="2. 仿射集(affine sets)"></a>2. 仿射集(affine sets)</h4><p>若集合 $C$ 包含 $C$ 中任意两点的线性组合，并且其系数之和为 1，则集合 $C$ 称为仿射集（两点形成的线段上任意一点都属于集合 $C$）。即对任意 $x_1,x_2\in C$ 并且 $\theta\in\mathbf{R}$ ，有 $\theta x_1+(1-\theta)x_2\in C$ 。</p>
 <p>仿射集可以扩展至多个点。即任意 $x_1,x_2,\ldots,x_k\in C$ 并且 $\theta\in\mathbf{R}$ ，有 $\theta_1 x_1+\ldots+\theta_kx_k\in C$ ，其中 $\theta_1+\ldots+\theta_k=1$ ，则该集合为仿射集。</p>
 <p><strong>几何解释：</strong></p>
@@ -778,29 +780,63 @@
 </ul>
 <p>维基百科上非常形象的一个gif图像：</p>
 <p><img src="/medias/loading.gif" data-original="https://pic3.zhimg.com/50/v2-01d06795480b91a9bc1fa57ce5fd7009_720w.webp?source=1940ef5c" alt="仿射变换"></p>
-<p>**仿射壳/包(affine full)**。某个集合 $C\in\mathbf{R}$ 中的点的所有仿射组合组成的集合，称为仿射壳，表示为：<br>$$<br>\mathbf{aff},C={\theta_1 x_1+\ldots+\theta_k x_k|x_1,\ldots,x_k\in C,\theta_1+\ldots+\theta_k=1}<br>$$<br><strong>仿射壳是包含集合 $C$ 的最小仿射集</strong>。即集合 $S$ 是任意满足 $C\subseteq S$ 的仿射集，从而 $\mathbf{aff},C\subseteq S$ 。</p>
+<p><strong>仿射壳/包(affine full)</strong>。某个集合 $C\in\mathbf{R}$ 中的点的所有仿射组合组成的集合，称为仿射壳，表示为：</p>
+<script type="math/tex; mode=display">
+\mathbf{aff}\,C=\{\theta_1 x_1+\ldots+\theta_k x_k|x_1,\ldots,x_k\in C,\theta_1+\ldots+\theta_k=1\}</script><p><strong>仿射壳是包含集合 $C$ 的最小仿射集</strong>。即集合 $S$ 是任意满足 $C\subseteq S$ 的仿射集，从而 $\mathbf{aff}\,C\subseteq S$ 。</p>
 <p>仿射维数：仿射包的维数。</p>
-<p><strong>内点（interior）</strong>：$\text { int } C={x \mid B(x, r) \subseteq C, r&gt;0}$</p>
-<p><strong>相对内点（relative interior）</strong>：$\text { relint } C={x \mid B(x, r) \cap \operatorname{aff} C \subseteq C, r&gt;0}$ </p>
-<h4 id="3-凸集（convex-sets）"><a href="#3-凸集（convex-sets）" class="headerlink" title="3. 凸集（convex sets）"></a>3. 凸集（convex sets）</h4><p>如果 $C$ 中任意两点之间的线段位于 $C$ 中，则集合 $C$​ 是凸的。对于任意 $x_1,x_2\in C$ ，任意 $0\le\theta\le 1$ ，有<br>$$<br>\theta x_1 + (1-\theta)x_2\in C<br>$$<br>下图可直观地认识一些简单的凸集和非凸集。</p>
+<p><strong>内点（interior）</strong>：$\text { int } C=\{x \mid B(x, r) \subseteq C, r&gt;0\}$</p>
+<p><strong>相对内点（relative interior）</strong>：$\text { relint } C=\{x \mid B(x, r) \cap \operatorname{aff} C \subseteq C, r&gt;0\}$ </p>
+<h4 id="3-凸集（convex-sets）"><a href="#3-凸集（convex-sets）" class="headerlink" title="3. 凸集（convex sets）"></a>3. 凸集（convex sets）</h4><p>如果 $C$ 中任意两点之间的线段位于 $C$ 中，则集合 $C$​ 是凸的。对于任意 $x_1,x_2\in C$ ，任意 $0\le\theta\le 1$ ，有</p>
+<script type="math/tex; mode=display">
+\theta x_1 + (1-\theta)x_2\in C</script><p>下图可直观地认识一些简单的凸集和非凸集。</p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/simple-convex-and-nonconvex-sets.jpg" alt="简单的凸集和非凸集"></p>
 <p>从凸集的几何意义来看，凸集中的任意两点间一定是“无障碍可见”的，即任意一点能通过一条线段到达另外一点，且中间经过的所有点都属于该集合。这意味着凸集都是边界向外凸的，且不能含有未包含的边界点。</p>
-<p><strong>凸包</strong>。凸包是集合 $C$ 的最小凸集，包含集合 $C$ 中点的所有凸组合。<br>$$<br>\mathbf{conv},C={\theta_1 x_1+\ldots+\theta_k x_k|x_i\in C,\theta_i\ge 0,i=1,\ldots,k,\theta_1+\ldots+\theta_k=1}<br>$$<br>下图是两个非凸集合的凸包。</p>
+<p><strong>凸包</strong>。凸包是集合 $C$ 的最小凸集，包含集合 $C$ 中点的所有凸组合。</p>
+<script type="math/tex; mode=display">
+\mathbf{conv}\,C=\{\theta_1 x_1+\ldots+\theta_k x_k|x_i\in C,\theta_i\ge 0,i=1,\ldots,k,\theta_1+\ldots+\theta_k=1\}</script><p>下图是两个非凸集合的凸包。</p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/convex-hull.jpg" alt="凸包"></p>
 <p>凸组合的思想可以被推广至<strong>无穷和</strong>、<strong>积分</strong>以及最广泛的<strong>概率分布</strong>中（如数学期望）。</p>
-<h4 id="4-凸锥（cones）"><a href="#4-凸锥（cones）" class="headerlink" title="4. 凸锥（cones）"></a>4. 凸锥（cones）</h4><p>对于任意 $x_1,x_2,\in C$，以及任意 $\theta_1,\theta_2\ge 0$，凸锥满足<br>$$<br>\theta_1x_1+\theta_2x_2\in C<br>$$<br>凸锥：<strong>既是凸集又是锥</strong>。</p>
+<h4 id="4-凸锥（cones）"><a href="#4-凸锥（cones）" class="headerlink" title="4. 凸锥（cones）"></a>4. 凸锥（cones）</h4><p>对于任意 $x_1,x_2,\in C$，以及任意 $\theta_1,\theta_2\ge 0$，凸锥满足</p>
+<script type="math/tex; mode=display">
+\theta_1x_1+\theta_2x_2\in C</script><p>凸锥：<strong>既是凸集又是锥</strong>。</p>
 <p>其几何形状如下图。</p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/convex-conic.jpg" alt="凸锥"></p>
-<p><strong>锥包（conic hull）</strong>是包含集合 $C$ 的最小凸锥（集合 $C$ 内的点的所有锥的组合）。可表示为<br>$$<br>\left{\theta_{1} x_{1}+\cdots+\theta_{k} x_{k} \mid x_{i} \in C, \theta_{i} \geq 0, i=1, \ldots, k\right}<br>$$<br>锥包的几何意义可由下图解释。</p>
+<p><strong>锥包（conic hull）</strong>是包含集合 $C$ 的最小凸锥（集合 $C$ 内的点的所有锥的组合）。可表示为</p>
+<script type="math/tex; mode=display">
+\left\{\theta_{1} x_{1}+\cdots+\theta_{k} x_{k} \mid x_{i} \in C, \theta_{i} \geq 0, i=1, \ldots, k\right\}</script><p>锥包的几何意义可由下图解释。</p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/conic-hull.jpg" alt="锥包"></p>
 <h4 id="5-超平面和半空间"><a href="#5-超平面和半空间" class="headerlink" title="5. 超平面和半空间"></a>5. 超平面和半空间</h4><p><strong>超平面</strong>。其中a为该平面的法向量（这里是用二维的线来表示超平面），表示超平面的方向。</p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/image-20220319215833572.png" alt="超平面"></p>
 <p><strong>半空间</strong>。被超平面分割为两个半空间。</p>
 <p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/image-20220319220018398.png" alt="半空间"></p>
-<h4 id="6-欧式球和椭球"><a href="#6-欧式球和椭球" class="headerlink" title="6. 欧式球和椭球"></a>6. 欧式球和椭球</h4><p><strong>欧式球（euclidean ball）</strong>：二维的圆，三维的球，……（以下为两种定义）<br>$$<br>\begin{aligned}<br>B\left(x_{c}, r\right) &amp;=\left{x \mid\left|x-x_{c}\right|<em>{2} \leq r\right} \<br>&amp;=\left{x \mid\left(x-x</em>{c}\right)^{T}\left(x-x_{c}\right) \leq r^{2}\right} \<br>B\left(x_{c}, r\right) &amp;=\left{x_{c}+r u \mid|u|<em>{2} \leq 1\right}<br>\end{aligned}<br>$$<br><strong>椭球（ellipsoid）</strong>：欧式球是椭球的特例，当且仅当 $P$ 为单位矩阵时椭球变为欧式球。（相当于欧式球做了旋转操作）<br>$$<br>\begin{align}<br>&amp;E=\left{x \mid\left(x-x</em>{c}\right)^{T} P^{-1}\left(x-x_{c}\right) \leq r^{2}\right}, P 为对称正定矩阵<br>\<br>&amp;E=\left{x_{c}+A u \mid|u|_{2} \leq 1\right}, A=P^{1 / 2}<br>\end{align}<br>$$</p>
-<h4 id="7-范数球和范数锥"><a href="#7-范数球和范数锥" class="headerlink" title="7. 范数球和范数锥"></a>7. 范数球和范数锥</h4><p><strong>范数（norm）</strong>：<br>$$<br>\begin{aligned}<br>&amp;|x| \geq 0,|x|=0 \text { 当且仅当 } x=0 \<br>&amp;|t x|=|t||x|, t \in \mathcal{R} ; \<br>&amp;|x+y| \leq|x|+|y|<br>\end{aligned}<br>$$<br><strong>范数球（norm ball）</strong>：<br>$$<br>B\left(x_{c}, r\right)=\left{x \mid\left|x-x_{c}\right| \leq r\right}<br>$$<br><strong>范数锥（norm cone）</strong>：<br>$$<br>{(x, t) \mid|x| \leq t}<br>$$</p>
-<h4 id="8-多面体（Polyhedra）和单纯形（simplex）"><a href="#8-多面体（Polyhedra）和单纯形（simplex）" class="headerlink" title="8. 多面体（Polyhedra）和单纯形（simplex）"></a>8. 多面体（Polyhedra）和单纯形（simplex）</h4><p>由多个超平面围成的区域。<br>$$<br>P=\left{x \mid a_{j}^{T} x \leq b_{j}, c_{i}^{T} x=d_{i}\right}<br>$$<br><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/image-20220319221316833.png" alt="多面体"></p>
-<p><strong>单纯形（simplex）</strong>：<br>$$<br>\left{\sum_{i=0}^{k} \theta_{i} v_{i} \mid \theta_{i} \geq 0, \sum_{i=0}^{k} \theta_{i}=1, v_{1}-v_{0}, \ldots, v_{k}-v_{0} \text { 线性无关 }\right}<br>$$<br><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/image-20220319221356988.png" alt="单纯形"></p>
+<h4 id="6-欧式球和椭球"><a href="#6-欧式球和椭球" class="headerlink" title="6. 欧式球和椭球"></a>6. 欧式球和椭球</h4><p><strong>欧式球（euclidean ball）</strong>：二维的圆，三维的球，……（以下为两种定义）</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+B\left(x_{c}, r\right) &=\left\{x \mid\left\|x-x_{c}\right\|_{2} \leq r\right\} \\
+&=\left\{x \mid\left(x-x_{c}\right)^{T}\left(x-x_{c}\right) \leq r^{2}\right\} \\
+B\left(x_{c}, r\right) &=\left\{x_{c}+r u \mid\|u\|_{2} \leq 1\right\}
+\end{aligned}</script><p><strong>椭球（ellipsoid）</strong>：欧式球是椭球的特例，当且仅当 $P$ 为单位矩阵时椭球变为欧式球。（相当于欧式球做了旋转操作）</p>
+<script type="math/tex; mode=display">
+\begin{align}
+&E=\left\{x \mid\left(x-x_{c}\right)^{T} P^{-1}\left(x-x_{c}\right) \leq r^{2}\right\}, P 为对称正定矩阵
+\\
+&E=\left\{x_{c}+A u \mid\|u\|_{2} \leq 1\right\}, A=P^{1 / 2}
+\end{align}</script><h4 id="7-范数球和范数锥"><a href="#7-范数球和范数锥" class="headerlink" title="7. 范数球和范数锥"></a>7. 范数球和范数锥</h4><p><strong>范数（norm）</strong>：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&\|x\| \geq 0,\|x\|=0 \text { 当且仅当 } x=0 \\
+&\|t x\|=|t|\|x\|, t \in \mathcal{R} ; \\
+&\|x+y\| \leq\|x\|+\|y\|
+\end{aligned}</script><p><strong>范数球（norm ball）</strong>：</p>
+<script type="math/tex; mode=display">
+B\left(x_{c}, r\right)=\left\{x \mid\left\|x-x_{c}\right\| \leq r\right\}</script><p><strong>范数锥（norm cone）</strong>：</p>
+<script type="math/tex; mode=display">
+\{(x, t) \mid\|x\| \leq t\}</script><h4 id="8-多面体（Polyhedra）和单纯形（simplex）"><a href="#8-多面体（Polyhedra）和单纯形（simplex）" class="headerlink" title="8. 多面体（Polyhedra）和单纯形（simplex）"></a>8. 多面体（Polyhedra）和单纯形（simplex）</h4><p>由多个超平面围成的区域。</p>
+<script type="math/tex; mode=display">
+P=\left\{x \mid a_{j}^{T} x \leq b_{j}, c_{i}^{T} x=d_{i}\right\}</script><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/image-20220319221316833.png" alt="多面体"></p>
+<p><strong>单纯形（simplex）</strong>：</p>
+<script type="math/tex; mode=display">
+\left\{\sum_{i=0}^{k} \theta_{i} v_{i} \mid \theta_{i} \geq 0, \sum_{i=0}^{k} \theta_{i}=1, v_{1}-v_{0}, \ldots, v_{k}-v_{0} \text { 线性无关 }\right\}</script><p><img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/NumericalOptimization/image-20220319221356988.png" alt="单纯形"></p>
 <p>例如在二维平面有三个点（三点不在同一直线），任意其构成两个向量可以是线性无关的。</p>
 <p>三维的单纯形其实就相当于去寻找包含三点的<strong>凸包</strong>。</p>
 
@@ -1384,9 +1420,9 @@
                 <a href="/yyds/382459b6.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg" class="responsive-img" alt="凸优化-凸函数">
+                        <img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed@main/cover/1652439104300math.jpg" class="responsive-img" alt="凸优化|凸函数">
                         
-                        <span class="card-title">凸优化-凸函数</span>
+                        <span class="card-title">凸优化|凸函数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1709,7 +1745,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">89.8k</span>&nbsp;字
+                class="white-color">89k</span>&nbsp;字
             
 
 			
@@ -1985,12 +2021,12 @@ $(function () {
 		color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"> 
 	</script>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script><script>
+<script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 
 </html>
