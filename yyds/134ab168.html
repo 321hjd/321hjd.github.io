@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="波束赋形|基于可重构全息表面的波束赋形方案, hjd&#39;blog">
+    <meta name="keywords" content="波束赋形|振幅控制的可重构全息表面波束赋形, hjd&#39;blog">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>波束赋形|基于可重构全息表面的波束赋形方案 | hjd&#39;blog</title>
+    <title>波束赋形|振幅控制的可重构全息表面波束赋形 | hjd&#39;blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/libs/awesome/css/all.css">
@@ -588,7 +588,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">波束赋形|基于可重构全息表面的波束赋形方案</h1>
+                    <h1 class="description center-align post-title">波束赋形|振幅控制的可重构全息表面波束赋形</h1>
                 </div>
             </div>
         </div>
@@ -803,7 +803,7 @@
 </li>
 </ol>
 <h3 id="三、可重构全息表面（Reconfigurable-Holographic-Surface，RHS）"><a href="#三、可重构全息表面（Reconfigurable-Holographic-Surface，RHS）" class="headerlink" title="三、可重构全息表面（Reconfigurable Holographic Surface，RHS）"></a>三、可重构全息表面（Reconfigurable Holographic Surface，RHS）</h3><h4 id="3-1-物理结构"><a href="#3-1-物理结构" class="headerlink" title="3.1 物理结构"></a>3.1 物理结构</h4><p>&emsp;&emsp;基于 RHS 的系统工作流程为：发射机将发射信号发送到 RF 链。然后，RF 链将信号上变频到载波频率，并将上变频后的信号发送到 RHS。在 RF 链中作为高频电流传输的信号将被转换成在 RHS 上传播的电磁波（参考波）。RHS 再通过全息波束形成产生具有期望方向的波束。</p>
-<img src="/medias/loading.gif" data-original="/yyds/134ab168/18482\MyBlog\source\_posts\波束赋形-基于可重构全息表面的波束赋形方案\image-20220817204159793.png" alt="image-20220817204159793" style="zoom:67%;">
+<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/research/Beamforming/16607921751961660792174282.png" alt="image-20220817204159793" style="zoom:67%;">
 
 <p>&emsp;&emsp;RHS 由三部分组成：馈电（Feed）、波导（waveguide）和亚波长超材料辐射单元构成的离散阵列平面。</p>
 <ul>
@@ -821,7 +821,7 @@
 <p>干涉的实部 $\mathrm{Re}[\Psi_{intf}]$ 恰好是目标波与参考波之间相位差的余弦，因此当其相位差增大时 $\mathrm{Re}[\Psi_{intf}]$ 减小，正好符合对振幅控制的要求。为保证值非负， $\mathrm{Re}[\Psi_{intf}]$ 被归一化到 $[0,1]$ 间，因此数学上可将沿方向 $(\theta_0,\varphi_0)$ 传播的目标波表示为<br>$$<br>M\left(\mathbf{r}<em>{m,n}^k,\theta_0,\varphi_0\right)=\frac{\mathrm{Re}[\Psi</em>{intf}\left(\mathbf{r}_{m,n}^k,\theta_0,\varphi_0\right)]+1}{2}\quad\quad(4)<br>$$<br>通过改变每个辐射元件中的辐射振幅，可以记录对应于不同目标波方向的不同全息图案。</p>
 </blockquote>
 <h3 id="四、系统模型"><a href="#四、系统模型" class="headerlink" title="四、系统模型"></a>四、系统模型</h3><h4 id="4-1-配置"><a href="#4-1-配置" class="headerlink" title="4.1 配置"></a>4.1 配置</h4><p>&emsp;&emsp;如图3所示，BS 共传输 $L$ 路数据流给 $L$ 个 UE，每个 UE 配置 $J$ 根天线和一条 RF 链。BS 共配置 $K$ 条 RF 链（要求 $K\ge L$），每条 RF 链连接至一个 Feed，每个 Feed 连接到每一个超材料辐射单元（共 MN 个），然后所有辐射单元的参考波叠加，获得多个目标方向的波束，每个辐射单元的振幅由全息波束赋形矩阵中的元素 ${M_{m,n}}$ 控制。</p>
-<img src="/medias/loading.gif" data-original="/yyds/134ab168/18482\MyBlog\source\_posts\波束赋形-基于可重构全息表面的波束赋形方案\image-20220817212052036.png" alt="基于RHS的HBF框图" style="zoom: 50%;">
+<img src="/medias/loading.gif" data-original="https://cdn.jsdelivr.net/gh/321hjd/ImageBed/research/Beamforming/image-20220817212052036.png" alt="基于RHS的HBF框图" style="zoom: 50%;">
 
 <h4 id="4-2-通信模型"><a href="#4-2-通信模型" class="headerlink" title="4.2 通信模型"></a>4.2 通信模型</h4><ul>
 <li><p>用户 $l$​ 接收信号：</p>
@@ -1487,9 +1487,9 @@
                 <a href="/yyds/134ab168.html">
                     <div class="card-image">
                         
-                        <img src="/medias/loading.gif" data-original="https://i0.hippopx.com/photos/88/43/753/tower-antennas-technology-communication-preview.jpg" class="responsive-img" alt="波束赋形|基于可重构全息表面的波束赋形方案">
+                        <img src="/medias/loading.gif" data-original="https://i0.hippopx.com/photos/88/43/753/tower-antennas-technology-communication-preview.jpg" class="responsive-img" alt="波束赋形|振幅控制的可重构全息表面波束赋形">
                         
-                        <span class="card-title">波束赋形|基于可重构全息表面的波束赋形方案</span>
+                        <span class="card-title">波束赋形|振幅控制的可重构全息表面波束赋形</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1818,7 +1818,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">92k</span>&nbsp;字
+                class="white-color">93.1k</span>&nbsp;字
             
 
 			
