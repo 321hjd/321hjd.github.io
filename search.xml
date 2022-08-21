@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>坐标下降法&amp;块坐标下降法（CD&amp;BCD）</title>
+      <link href="/yyds/fd5feb04.html"/>
+      <url>/yyds/fd5feb04.html</url>
+      
+        <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><blockquote><p>本文简要介绍两种<strong>非梯度优化方法</strong>：坐标下降法和块坐标下降法。二者用于求解<strong>无约束优化问题</strong>，属于直接法。</p><p>我一直没太搞清楚坐标下降和坐标轮换的区别，但感觉应该是一个东西？都是循环沿单一维度进行线性搜索直至函数收敛，只是看很多坐标轮换法的介绍文章，提到该方法无需知道目标函数的解析式，但其实二者本质应该是一样的吧。另外，坐标下降和坐标上升是一对，前者用于求解最小化问题，后者用于求解最大化问题。</p></blockquote><h3 id="一、坐标下降法（Coordinate-Descent）"><a href="#一、坐标下降法（Coordinate-Descent）" class="headerlink" title="一、坐标下降法（Coordinate Descent）"></a>一、坐标下降法（Coordinate Descent）</h3><ul><li><p>基本思想：每次迭代只沿单一维度搜索，得到当前维度的极小值之后再循环沿其它维度搜索，最终收敛得到目标函数的极小值。也就是每次迭代只对一个变量进行优化，而固定其它变量的值。</p></li><li><p>算法原理：</p><p>对于目标函数 $f(\mathbf{x})$ ，$\mathbf{x}={x_1,x_2,\cdots,x_n}$ ，利用 CD 法求解该函数的最小值过程可以表示为：</p><blockquote><p><strong>repeat</strong></p><blockquote><p>$$<br>\begin{aligned}<br>&amp;x_{1}^{(k)}=\underset{x_{1}}{\arg \min } f\left(x_{1}, x_{2}^{(k-1)}, x_{3}^{(k-1)}, \ldots x_{n}^{(k-1)}\right) \<br>&amp;x_{2}^{(k)}=\underset{x_{2}}{\arg \min } f\left(x_{1}^{(k)}, x_{2}, x_{3}^{(k-1)}, \ldots ,x_{n}^{(k-1)}\right) \<br>&amp;\ldots \<br>&amp;x_{n}^{(k)}=\underset{x_{n}}{\arg \min } f\left(x_{1}^{(k)},x_{2}^{(k)}, x_{3}^{(k)}, \ldots ,x_{n}\right)<br>\end{aligned}<br>$$</p></blockquote><p><strong>until</strong> <em>convergence</em></p><p>其中，$k$ 代表第 $k$ 次迭代，每次对单变量求最小值时，若该函数可微，则可以令 $\partial f(\mathbf{x})/\partial x_i=0$ 求解；若不可微，则可以利用<strong>黄金分割法、进退法</strong>等一维搜索方法求解。</p></blockquote></li><li><p>算法特点：</p><ol><li><p>无需计算梯度，逻辑简单，但计算效率低，适用于低维优化问题；</p></li><li><p>搜索方向的顺序是任意的，可选择 ${1,2,\cdots,n}$ 的任意排列；</p></li><li><p>收敛程度很大程度上取决于目标函数等值线的形状；</p><blockquote><ul><li><p>等值线为椭圆族，其长短轴与坐标轴平行时，收敛很快，即 $\mathbf{x}$ 的维度步数即可收敛；</p></li><li><p>当椭圆族的长短轴与坐标轴斜交时，迭代次数将大大增加，收敛速度慢；</p></li><li><p>当目标函数等值线出现“脊线”时，沿坐标轴方向搜索不能使得函数值有所下降,坐标轮换法在求优过程中将失败,这类函数对于坐标轮换法就是病态函数。</p><p><img src="/yyds/fd5feb04/CD%E6%B3%95%E4%B8%8E%E7%9B%AE%E6%A0%87%E5%87%BD%E6%95%B0%E7%AD%89%E5%80%BC%E7%BA%BF%E7%9A%84%E5%85%B3%E7%B3%BB.jpg" alt="CD法与目标函数等值线的关系"></p></li></ul></blockquote></li><li><p>只能得到局部极小值，为得到更好的解，需要选择多个初始点求解再选择。</p></li><li><p>若变量间的相关性很高，收敛过程会非常缓慢，可以利用主成分分析法（Principle Components Analysis，PCA）获得尽可能独立的变量进行优化。</p></li></ol></li></ul><h3 id="二、块坐标下降法（Block-Coordinate-Descent，BCD）"><a href="#二、块坐标下降法（Block-Coordinate-Descent，BCD）" class="headerlink" title="二、块坐标下降法（Block Coordinate Descent，BCD）"></a>二、块坐标下降法（Block Coordinate Descent，BCD）</h3><blockquote><p>BCD 法是 CD 法的一般化，用于解决 CD 法效率低下的问题。</p></blockquote><ul><li><p>基本思想：每次迭代<strong>对变量的子集进行优化</strong>，即每次沿着多个坐标轴的方向（超平面）取极值。其下降过程中子集的更新顺序可以是确定的也可以是随机的。子集的更新方法可参考： <a href="https://zhuanlan.zhihu.com/p/52300427">非线性规划:坐标下降&amp;&amp;块坐标下降</a> 一文。</p></li><li><p>算法通用框架：</p><p>优化问题：$\underset{\mathbf{x}}{\operatorname{minimize}} F\left(\mathbf{x}<em>{1}, \cdots, \mathbf{x}</em>{s}\right) \equiv f\left(\mathbf{x}<em>{1}, \cdots, \mathbf{x}</em>{s}\right)+\sum_{i=1}^{s} r_{i}\left(\mathbf{x}_{i}\right)$ </p><p>其中，$\mathbf{x}_1,\mathbf{x}_2,\cdots,\mathbf{x}_s$ 都是变量 $\mathbf{x}$ 的子集。</p><p><img src="/yyds/fd5feb04/BCD%E7%AE%97%E6%B3%95%E9%80%9A%E7%94%A8%E6%A1%86%E6%9E%B6.jpg" alt="BCD算法通用框架"></p></li></ul><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul><li><a href="https://zhuanlan.zhihu.com/p/52300427">非线性规划:坐标下降&amp;&amp;块坐标下降</a> </li><li><a href="https://www.jianshu.com/p/4b651bb3c01a">无约束优化方法-直接方法（坐标轮换法）</a></li><li><a href="https://zhuanlan.zhihu.com/p/59734411">优化算法——坐标下降法(Coordinate Descent)</a></li><li><a href="https://blog.csdn.net/u010626937/article/details/75044343">坐标上升/下降算法</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学优化 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 非梯度优化 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>通信中的数学优化-分式规划求解和速率最大化问题（非凸）</title>
       <link href="/yyds/c0d2405e.html"/>
       <url>/yyds/c0d2405e.html</url>
@@ -21,6 +46,8 @@
         <tags>
             
             <tag> 通信中的数学优化 </tag>
+            
+            <tag> 分式规划 </tag>
             
         </tags>
       
