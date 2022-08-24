@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>矩阵的迹——性质及运算</title>
+      <link href="/yyds/44c7b5d9.html"/>
+      <url>/yyds/44c7b5d9.html</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>最近看论文时遇到很多有关矩阵迹的相关运算，故在网上搜索了不少相关资料，将其整理为此文。包含矩阵的迹相关的概念、性质和运算（如求导）。</p></blockquote><h3 id="一、定义"><a href="#一、定义" class="headerlink" title="一、定义"></a>一、定义</h3><p>矩阵的迹是指：一个 $n\times n$ 矩阵 $\mathbf{A}$​ 主对角线上各元素的和。即<br>$$<br>\operatorname{tr}(\mathbf{A})=\sum_{i=1}^na_{ii}<br>$$<br>显然，<strong>只有方阵才有迹</strong>。</p><h3 id="二、迹的性质"><a href="#二、迹的性质" class="headerlink" title="二、迹的性质"></a>二、迹的性质</h3><ol><li><p>$\operatorname{tr}(\mathbf{A})=\operatorname{tr}(\mathbf{A}^T)$ </p><p>即：矩阵的迹等于其转置的迹。</p><blockquote><p>证明：矩阵转置不改变主对角线元素。</p></blockquote></li><li><p>$\operatorname{tr}(\mathbf{A}+\mathbf{B})=\operatorname{tr}(\mathbf{A})+\operatorname{tr}(\mathbf{B})$ </p></li><li><p>$\operatorname{tr}(\mathbf{AB})=\operatorname{tr}(\mathbf{BA})$ </p><blockquote><p>证明：<br>$$<br>\begin{aligned}<br>\operatorname{tr}(\mathbf{A B})&amp;=\sum_{i=1}^{n}(\mathbf{A B})<em>{i i}=\sum</em>{i=1}^{n} \sum_{j=1}^{m} a_{i j} * b_{j i} \<br>&amp;=\sum_{j=1}^{m} \sum_{i=1}^{n} b_{j i} * a_{i j}=\sum_{j=1}^{m}(\mathbf{B A})_{j j}=\operatorname{tr}(\mathbf{B A})<br>\end{aligned}<br>$$</p></blockquote></li><li><p>$\operatorname{tr}(\mathbf{ABC})=\operatorname{tr}(\mathbf{CAB})=\operatorname{tr}(\mathbf{BCA})$ </p><p>即：连乘矩阵的迹，<strong>循环交换位置</strong>后，迹不变。</p><blockquote><p>证明：这是 $\operatorname{tr}(\mathbf{AB})=\operatorname{tr}(\mathbf{BA})$ 的推广。<br>$$<br>\operatorname{tr}(\mathbf{ABC})=\operatorname{tr}(\mathbf{(AB)C})=\operatorname{tr}(\mathbf{CAB})<br>$$</p></blockquote></li><li><p>$\operatorname{tr}(\mathbf{A})=\sum_{k=1}^n\lambda_k$ </p><p>即：<strong>矩阵的迹等于矩阵特征值之和</strong>。</p><blockquote><p>证明：可参考文章<a href="https://www.zhihu.com/question/267405336">为什么特征值之和会等于矩阵的迹？</a>。</p></blockquote></li><li><p>若 $\mathbf{A}=\alpha\beta^T$，则 $\operatorname{tr}(\mathbf{A})=\operatorname{tr}(\alpha\beta^T)=\alpha^T\beta=\beta^T\alpha$ </p><p>其中，$\alpha$ 和 $\beta$ 都是列向量。</p></li><li><p>$\operatorname{tr}(\mathbf{x}^T\mathbf{Ax})=\operatorname{tr}(\mathbf{Ax}\mathbf{x}^T)=\mathbf{x}^T\mathbf{Ax}$ </p><p>即：<strong>二次型的迹就是其本身</strong>。其中，$\mathbf{x}$ 是列向量。因为二次型是一个 $1\times1$ 的矩阵。</p></li></ol><h3 id="三、矩阵的迹对矩阵求导"><a href="#三、矩阵的迹对矩阵求导" class="headerlink" title="三、矩阵的迹对矩阵求导"></a>三、矩阵的迹对矩阵求导</h3><ol><li><p>$\frac{\partial\operatorname{tr}(\mathbf{X})}{\partial\mathbf{X}}=\mathbf{I}$ </p><blockquote><p>证明：<br>$$<br>\frac{\partial \operatorname{tr}(\mathbf{X})}{\partial \mathbf{X}}=\left[\begin{array}{cccc}<br>\frac{\partial \sum_{i=1}^{n} x_{i i}}{\partial x_{11}} &amp; \frac{\partial \sum_{i=1}^{n} x_{i i}}{\partial x_{12}} &amp; \cdots &amp; \frac{\partial \sum_{i=1}^{n} x_{i i}}{\partial x_{1 n}} \<br>&amp; \frac{\partial \sum_{i=1}^{n} x_{i i}}{\partial x_{22}} &amp; &amp; \<br>&amp; &amp; \ddots &amp; \<br>&amp; &amp; &amp; \frac{\partial \sum_{i=1}^{n} x_{i i}}{\partial x_{n n}}<br>\end{array}\right]=\mathbf{I}<br>$$</p></blockquote></li><li><p>$\frac{\partial \operatorname{tr}(g(\mathbf{X}))}{\partial \mathbf{X}}=g^{\prime}(\mathbf{X})$ </p></li><li><p>$\frac{\partial \operatorname{tr}(\mathbf{AX})}{\partial \mathbf{X}}=\frac{\partial \operatorname{tr}(\mathbf{XA})}{\partial \mathbf{X}}=\mathbf{A}^T$ </p><blockquote><p>证明：</p><p>由于<br>$$<br>\operatorname{tr}(\mathbf{A X})=\sum_{i=1}^{n} \sum_{j=1}^{m} a_{i j} * x_{j i}=\sum_{j=1}^{m} \sum_{i=1}^{n} x_{j i} * a_{i j}<br>$$<br>则 $\frac{\partial \operatorname{tr}(\mathbf{AX})}{\partial x_{ij}}=a_{ji}$ ，恰好是矩阵 $\mathbf{A}$ 的转置对应元素，因此得证。</p></blockquote></li><li><p>$\frac{\partial \operatorname{tr}(\mathbf{AX}^T)}{\partial \mathbf{X}}=\frac{\partial \operatorname{tr}(\mathbf{X}^T\mathbf{A})}{\partial \mathbf{X}}=\mathbf{A}$ </p><blockquote><p>证明同上。</p></blockquote></li><li><p>$\frac{\partial \operatorname{tr}(\mathbf{AXB})}{\partial \mathbf{X}}=\frac{\partial \operatorname{tr}(\mathbf{XBA})}{\partial \mathbf{X}}=(\mathbf{BA})^T=\mathbf{A}^T\mathbf{B}^T$ </p><blockquote><p>证明：把矩阵 $\mathbf{BA}$ 当作整体再利用上面的定理即可。</p></blockquote></li><li><p>$\frac{\partial \operatorname{tr}(\mathbf{AXB}\mathbf{X}^T)}{\partial \mathbf{X}}=\mathbf{AXB}+\mathbf{A}^T\mathbf{X}\mathbf{B}^T$ </p><blockquote><p>证明：分步求导。<br>$$<br>\begin{aligned}<br>\frac{\partial \operatorname{tr}(\mathbf{AXB}\mathbf{X}^T)}{\partial \mathbf{X}}&amp;=\frac{\partial \operatorname{tr}(\mathbf{X}\mathbf{BX}^T\mathbf{A})}{\partial \mathbf{X}}+\frac{\partial \operatorname{tr}(\mathbf{X}^T\mathbf{AXB})}{\partial \mathbf{X}}\<br>&amp;=(\mathbf{BX}^T\mathbf{A})^T+\mathbf{AXB}\<br>&amp;=\mathbf{AXB}+\mathbf{A}^T\mathbf{X}\mathbf{B}^T<br>\end{aligned}<br>$$</p></blockquote></li></ol><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul><li><a href="https://blog.csdn.net/u012421852/article/details/79594933">【机器学习】汇总详解：矩阵的迹以及迹对矩阵求导</a></li><li><a href="https://blog.csdn.net/shyjhyp11/article/details/122450532">矩阵运算_迹的相关性质</a></li><li><a href="https://www.zybuluo.com/wjcper2008/note/662700">矩阵求导和迹</a></li><li><a href="https://www.zhihu.com/question/267405336">为什么特征值之和会等于矩阵的迹？</a></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 矩阵理论 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 矩阵的迹 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>坐标下降法&amp;块坐标下降法（CD&amp;BCD）</title>
       <link href="/yyds/fd5feb04.html"/>
       <url>/yyds/fd5feb04.html</url>

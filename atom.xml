@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2022-08-21T02:59:12.374Z</updated>
+  <updated>2022-08-24T03:33:38.109Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -17,11 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>矩阵的迹——性质及运算</title>
+    <link href="https://321hjd.github.io/yyds/44c7b5d9.html"/>
+    <id>https://321hjd.github.io/yyds/44c7b5d9.html</id>
+    <published>2022-08-24T03:32:24.000Z</published>
+    <updated>2022-08-24T03:33:38.109Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;最近看论文时遇到很多有关矩阵迹的相关运算，故在网上搜索了不少相关资料，将其整理为此文。包含矩阵的迹相关的概念、性质和运算（如求导）。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;一、定义&quot;&gt;&lt;a href=&quot;#一、定义&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="矩阵理论" scheme="https://321hjd.github.io/categories/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA/"/>
+    
+    
+    <category term="矩阵的迹" scheme="https://321hjd.github.io/tags/%E7%9F%A9%E9%98%B5%E7%9A%84%E8%BF%B9/"/>
+    
+  </entry>
+  
+  <entry>
     <title>坐标下降法&amp;块坐标下降法（CD&amp;BCD）</title>
     <link href="https://321hjd.github.io/yyds/fd5feb04.html"/>
     <id>https://321hjd.github.io/yyds/fd5feb04.html</id>
     <published>2022-08-21T02:56:57.000Z</published>
-    <updated>2022-08-21T02:59:12.374Z</updated>
+    <updated>2022-08-21T02:59:39.208Z</updated>
     
     
       
@@ -527,36 +555,6 @@
         
     <summary type="html">&lt;h3 id=&quot;一、无监督学习&quot;&gt;&lt;a href=&quot;#一、无监督学习&quot; class=&quot;headerlink&quot; title=&quot;一、无监督学习&quot;&gt;&lt;/a&gt;一、无监督学习&lt;/h3&gt;&lt;p&gt;定义：训练数据不带有任何标签。算法的目的是找到数据本身具有的结构特征。&lt;/p&gt;
 &lt;p&gt;&lt;img</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="https://321hjd.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="机器学习" scheme="https://321hjd.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="吴恩达-机器学习" scheme="https://321hjd.github.io/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>7-支持向量机（SVM）</title>
-    <link href="https://321hjd.github.io/yyds/e16db3fa.html"/>
-    <id>https://321hjd.github.io/yyds/e16db3fa.html</id>
-    <published>2022-02-08T08:29:37.000Z</published>
-    <updated>2022-02-08T09:01:32.589Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;SVM 也被称作大间距分类器。对&lt;strong&gt;非线性分类&lt;/strong&gt;有较好的处理。SVM处理的问题都是凸优化问题，因此找到的几乎都是全局最优值。而神经网络存在局部最优的问题。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3</summary>
         
       
     
