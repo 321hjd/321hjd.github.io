@@ -736,21 +736,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-24
+                    2022-08-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    861
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -769,10 +769,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>最近看论文时遇到很多有关矩阵迹的相关运算，故在网上搜索了不少相关资料，将其整理为此文。包含矩阵的迹相关的概念、性质和运算（如求导）。</p>
+<p>最近看论文时遇到很多有关矩阵迹的相关运算，故在网上搜索了不少相关资料，将其整理为此文。包含矩阵的迹相关的概念、性质和运算（如求导）；此外还包含共轭转置对矩阵的求导——将矩阵本身和其共轭转置当作两个无关的变量即可。</p>
 </blockquote>
 <h3 id="一、定义"><a href="#一、定义" class="headerlink" title="一、定义"></a>一、定义</h3><p>矩阵的迹是指：一个 $n\times n$ 矩阵 $\mathbf{A}$​ 主对角线上各元素的和。即<br>$$<br>\operatorname{tr}(\mathbf{A})=\sum_{i=1}^na_{ii}<br>$$<br>显然，<strong>只有方阵才有迹</strong>。</p>
 <h3 id="二、迹的性质"><a href="#二、迹的性质" class="headerlink" title="二、迹的性质"></a>二、迹的性质</h3><ol>
+<li><p>$\operatorname{tr}(a)=a$ </p>
+<p>即：标量的迹就是其本身。在标量对矩阵或向量求导中应用较多。</p>
+</li>
 <li><p>$\operatorname{tr}(\mathbf{A})=\operatorname{tr}(\mathbf{A}^T)$ </p>
 <p>即：矩阵的迹等于其转置的迹。</p>
 <blockquote>
@@ -791,6 +794,9 @@
 <blockquote>
 <p>证明：这是 $\operatorname{tr}(\mathbf{AB})=\operatorname{tr}(\mathbf{BA})$ 的推广。<br>$$<br>\operatorname{tr}(\mathbf{ABC})=\operatorname{tr}(\mathbf{(AB)C})=\operatorname{tr}(\mathbf{CAB})<br>$$</p>
 </blockquote>
+</li>
+<li><p>$\operatorname{tr}((\mathbf{A}\odot\mathbf{B})^T\mathbf{C})=\operatorname{tr}((\mathbf{A})^T(\mathbf{B}\odot\mathbf{C}))$ </p>
+<p>矩阵乘法和迹交换，其中 $\odot$ 是哈德玛积，即对应元素之积。</p>
 </li>
 <li><p>$\operatorname{tr}(\mathbf{A})=\sum_{k=1}^n\lambda_k$ </p>
 <p>即：<strong>矩阵的迹等于矩阵特征值之和</strong>。</p>
@@ -835,6 +841,19 @@
 </blockquote>
 </li>
 </ol>
+<h3 id="四、含共轭的迹求导"><a href="#四、含共轭的迹求导" class="headerlink" title="四、含共轭的迹求导"></a>四、含共轭的迹求导</h3><ul>
+<li><p>$\frac{\partial \operatorname{tr}(\mathbf{X}^*)}{\partial \mathbf{X}}=\mathbf{0}$ </p>
+<blockquote>
+<p>将复数矩阵 $\mathbf{X}$ 写成实部和虚部，即 $\mathbf{X}=\mathbf{A}+i\mathbf{B}$ 。然后再分别求导即可证明。<br>$$<br>\frac{\partial \operatorname{tr}(\mathbf{X}^*)}{\partial \mathbf{X}}=\frac{\partial \operatorname{tr}(\mathbf{A}-i\mathbf{B})}{\partial (\mathbf{A}+i\mathbf{B})}=\frac{\partial \operatorname{tr}(\mathbf{A})}{\partial (\mathbf{A}+i\mathbf{B})}+\frac{\partial \operatorname{tr}(i\mathbf{B})}{\partial (\mathbf{A}+i\mathbf{B})}=\mathbf{0}<br>$$<br>即求导时，矩阵与其共轭矩阵相当于两个无关的变量。</p>
+</blockquote>
+</li>
+<li><p>$\frac{\partial \operatorname{tr}(\mathbf{X})}{\partial \mathbf{X}^*}=\mathbf{0}$ </p>
+</li>
+<li><p>$\frac{\partial \operatorname{tr}(\mathbf{AX}^H)}{\partial \mathbf{X}}=\mathbf{0}$ </p>
+</li>
+<li><p>$\frac{\partial \operatorname{tr}(\mathbf{X}^H\mathbf{A}\mathbf{X})}{\partial \mathbf{X}}=(\mathbf{X}^H\mathbf{A}）^T=\mathbf{A}^T\mathbf{X}^*$ </p>
+</li>
+</ul>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012421852/article/details/79594933">【机器学习】汇总详解：矩阵的迹以及迹对矩阵求导</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/shyjhyp11/article/details/122450532">矩阵运算_迹的相关性质</a></li>
@@ -1415,50 +1434,40 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/yyds/44c7b5d9.html">
+                <a href="/yyds/b7e7ed64.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/loading.gif" data-original="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/15.jpg" class="responsive-img" alt="矩阵的迹——性质及运算">
+                        <img src="/medias/loading.gif" data-original="https://fastly.jsdelivr.net/gh/321hjd/CDN-for-Hexo@b4706a7/source/medias/featureimages/2.jpg" class="responsive-img" alt="虚警率、漏警率、准确率、精确率、召回率">
                         
-                        <span class="card-title">矩阵的迹——性质及运算</span>
+                        <span class="card-title">虚警率、漏警率、准确率、精确率、召回率</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            最近看论文时遇到很多有关矩阵迹的相关运算，故在网上搜索了不少相关资料，将其整理为此文。包含矩阵的迹相关的概念、性质和运算（如求导）。
+                            在 5G NR 的 PUCCH 仿真中遇到了有关虚警率和漏警率的概念。在此记录一下。
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-24
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-28
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%9F%A9%E9%98%B5%E7%90%86%E8%AE%BA/" class="post-category">
-                                    矩阵理论
+                            <a href="/categories/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/" class="post-category">
+                                    基本概念
                                 </a>
                             
                             
                         </span>
                     </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%9F%A9%E9%98%B5%E7%9A%84%E8%BF%B9/">
-                        <span class="chip bg-color">矩阵的迹</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1751,7 +1760,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">97.2k</span>&nbsp;字
+                class="white-color">101.3k</span>&nbsp;字
             
 
 			

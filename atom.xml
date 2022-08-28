@@ -6,7 +6,7 @@
   <link href="https://321hjd.github.io/atom.xml" rel="self"/>
   
   <link href="https://321hjd.github.io/"/>
-  <updated>2022-08-24T03:33:38.109Z</updated>
+  <updated>2022-08-28T14:40:35.303Z</updated>
   <id>https://321hjd.github.io/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>矩阵的迹——性质及运算</title>
-    <link href="https://321hjd.github.io/yyds/44c7b5d9.html"/>
-    <id>https://321hjd.github.io/yyds/44c7b5d9.html</id>
-    <published>2022-08-24T03:32:24.000Z</published>
-    <updated>2022-08-24T03:33:38.109Z</updated>
+    <title>信道估计|LS、MMSE、LMMSE算法</title>
+    <link href="https://321hjd.github.io/yyds/3186788.html"/>
+    <id>https://321hjd.github.io/yyds/3186788.html</id>
+    <published>2022-08-28T14:40:12.000Z</published>
+    <updated>2022-08-28T14:40:35.303Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;最近在学习 5G NR 的仿真，无论是控制信道还是数据信道，都涉及到信道估计的相关算法，如 LMMSE 和 基于</summary>
+        
+      
+    
+    
+    
+    <category term="通信" scheme="https://321hjd.github.io/categories/%E9%80%9A%E4%BF%A1/"/>
+    
+    
+    <category term="信道估计" scheme="https://321hjd.github.io/tags/%E4%BF%A1%E9%81%93%E4%BC%B0%E8%AE%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>虚警率、漏警率、准确率、精确率、召回率</title>
+    <link href="https://321hjd.github.io/yyds/b7e7ed64.html"/>
+    <id>https://321hjd.github.io/yyds/b7e7ed64.html</id>
+    <published>2022-08-28T06:37:23.000Z</published>
+    <updated>2022-08-28T06:37:52.176Z</updated>
     
     
       
@@ -29,9 +55,32 @@
         
         
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;最近看论文时遇到很多有关矩阵迹的相关运算，故在网上搜索了不少相关资料，将其整理为此文。包含矩阵的迹相关的概念、性质和运算（如求导）。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;一、定义&quot;&gt;&lt;a href=&quot;#一、定义&quot;</summary>
+&lt;p&gt;在 5G NR 的 PUCCH 仿真中遇到了有关虚警率和漏警率的概念。在此记录一下。文章内容来自于：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="基本概念" scheme="https://321hjd.github.io/categories/%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>矩阵的迹——性质及运算</title>
+    <link href="https://321hjd.github.io/yyds/44c7b5d9.html"/>
+    <id>https://321hjd.github.io/yyds/44c7b5d9.html</id>
+    <published>2022-08-24T03:32:24.000Z</published>
+    <updated>2022-08-25T13:51:31.788Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;最近看论文时遇到很多有关矩阵迹的相关运算，故在网上搜索了不少相关资料，将其整理为此文。包含矩阵的迹相关的概念、性质和运算（如求导）；此外还包含共轭转置对矩阵的求导——将矩阵本身和其共轭转置当作两个无关的变量即可。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
         
       
     
@@ -497,64 +546,6 @@
         
         
     <summary type="html">&lt;h3 id=&quot;1-基于内容的推荐系统（Content-based-recommender-systems）&quot;&gt;&lt;a href=&quot;#1-基于内容的推荐系统（Content-based-recommender-systems）&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="https://321hjd.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="机器学习" scheme="https://321hjd.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="吴恩达-机器学习" scheme="https://321hjd.github.io/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>9-异常检测（Anomaly-Detection）</title>
-    <link href="https://321hjd.github.io/yyds/8a5cc590.html"/>
-    <id>https://321hjd.github.io/yyds/8a5cc590.html</id>
-    <published>2022-02-08T09:25:03.000Z</published>
-    <updated>2022-02-08T09:46:22.159Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;例：飞机引擎检测、欺诈检测（用户的网站行为检测）&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id=&quot;一、高斯分布&quot;&gt;&lt;a href=&quot;#一、高斯分布&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="学习笔记" scheme="https://321hjd.github.io/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="机器学习" scheme="https://321hjd.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="吴恩达-机器学习" scheme="https://321hjd.github.io/tags/%E5%90%B4%E6%81%A9%E8%BE%BE-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>8-无监督学习（Unsupervised Learning）</title>
-    <link href="https://321hjd.github.io/yyds/2ae4f87d.html"/>
-    <id>https://321hjd.github.io/yyds/2ae4f87d.html</id>
-    <published>2022-02-08T09:02:30.000Z</published>
-    <updated>2022-02-08T09:25:34.845Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;一、无监督学习&quot;&gt;&lt;a href=&quot;#一、无监督学习&quot; class=&quot;headerlink&quot; title=&quot;一、无监督学习&quot;&gt;&lt;/a&gt;一、无监督学习&lt;/h3&gt;&lt;p&gt;定义：训练数据不带有任何标签。算法的目的是找到数据本身具有的结构特征。&lt;/p&gt;
-&lt;p&gt;&lt;img</summary>
         
       
     
