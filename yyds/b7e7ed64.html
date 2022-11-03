@@ -790,19 +790,24 @@
 </blockquote>
 <ol>
 <li><p><strong>准确率（accuracy）</strong></p>
-<p>反映模型正确判断样本正确与否的能力。即正确地将正样本判定为正，负样本判定为负的正确分类能力。<br>$$<br>ACC=\frac{TP+TN}{P+N}<br>$$</p>
-</li>
+<p>反映模型正确判断样本正确与否的能力。即正确地将正样本判定为正，负样本判定为负的正确分类能力。</p>
+<script type="math/tex; mode=display">
+ACC=\frac{TP+TN}{P+N}</script></li>
 <li><p><strong>精确率（precision）</strong></p>
-<p>反映模型正确预测正样本精度的能力。<br>$$<br>precision=\frac{TP}{TP+FP}<br>$$</p>
-</li>
+<p>反映模型正确预测正样本精度的能力。</p>
+<script type="math/tex; mode=display">
+precision=\frac{TP}{TP+FP}</script></li>
 <li><p><strong>召回率（recall）</strong>，也称为真阳率、命中率</p>
-<p>反映模型正确预测正样本全度的能力。即正样本被预测为正样本占总的正样本的比例。<br>$$<br>recall=TPR=\frac{TP}{TP+FN}<br>$$</p>
-</li>
+<p>反映模型正确预测正样本全度的能力。即正样本被预测为正样本占总的正样本的比例。</p>
+<script type="math/tex; mode=display">
+recall=TPR=\frac{TP}{TP+FN}</script></li>
 <li><p><strong>虚警率（false alarm），</strong>也称为假阳率、误检率</p>
-<p>反映模型正确预测正样本纯度的能力。即负样本被预测为正样本占总的负样本的比例。<br>$$<br>falsealarm=FPR=\frac{FP}{TN+FP}<br>$$</p>
-</li>
-<li><p><strong>漏警率（miss rate）</strong>，也称为漏检率<br>$$<br>missrate=FNR=\frac{FN}{TP+FN}<br>$$</p>
-</li>
+<p>反映模型正确预测正样本纯度的能力。即负样本被预测为正样本占总的负样本的比例。</p>
+<script type="math/tex; mode=display">
+falsealarm=FPR=\frac{FP}{TN+FP}</script></li>
+<li><p><strong>漏警率（miss rate）</strong>，也称为漏检率</p>
+<script type="math/tex; mode=display">
+missrate=FNR=\frac{FN}{TP+FN}</script></li>
 </ol>
 <h3 id="三、实例"><a href="#三、实例" class="headerlink" title="三、实例"></a>三、实例</h3><p>&emsp;&emsp;在 5G NR 的 PUCCH 仿真中，当上行控制信息（UCI）小于或等于 11 比特时需要进行能量检测，保证虚警率、漏警率满足一定的指标。根据典型仿真场景，考虑 format 0、1、2 三种格式下小于等于 11 比特的能量检测，其基本方法如下：</p>
 <ol>
@@ -1713,7 +1718,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">101.3k</span>&nbsp;字
+                class="white-color">101.2k</span>&nbsp;字
             
 
 			
@@ -1989,12 +1994,12 @@ $(function () {
 		color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"> 
 	</script>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script><script>
+<script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 
 </html>

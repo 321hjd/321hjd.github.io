@@ -800,24 +800,95 @@
 </ul>
 </li>
 </ul>
-<h3 id="二、基本假设"><a href="#二、基本假设" class="headerlink" title="二、基本假设"></a>二、基本假设</h3><p>考虑一般的接收信号模型：<br>$$<br>\mathbf{y}=\mathbf{X h}+\mathbf{z}<br>$$<br>其中，$\mathbf{y}\in\mathbb{C}^{N\times1}$ 为接收信号向量，$\mathbf{h}\in\mathbb{C}^{M\times1}$ 为信道向量，$\mathbf{X}\in\mathbb{C}^{N\times M}$ 为发送信号矩阵（<strong>导频</strong>），$\mathbf{z}\in\mathbb{C}^{N\times 1}$ 为噪声向量，且 $\mathbf{z}\sim\mathcal{CN}(\mathbf{0},\sigma_z^2\mathbf{I})$。</p>
-<h3 id="三、LS-算法"><a href="#三、LS-算法" class="headerlink" title="三、LS 算法"></a>三、LS 算法</h3><h4 id="3-1-公式推导"><a href="#3-1-公式推导" class="headerlink" title="3.1 公式推导"></a>3.1 公式推导</h4><p>LS 算法基于最小二乘准则，优化目标是**实际观测量 $\mathbf{y}$ 与估计观测量 $\mathbf{X\hat{h}}$ **间误差最小。即令下述目标函数最小化：<br>$$<br>\begin{aligned}<br>\mathrm{J}(\hat{\mathbf{h}})<em>{\mathrm{LS}}&amp;=||\mathbf{y-X\hat{h}}||^2\<br>&amp;=(\mathbf{y-X\hat{h}})^\mathrm{H}(\mathbf{y-X\hat{h}})\<br>&amp;=\mathbf{y}^{\mathrm{H}}\mathbf{y}-\mathbf{y}^{\mathrm{H}}\mathbf{X}\mathbf{\hat h}-\mathbf{\hat h}^{\mathrm{H}}\mathbf{X}^{\mathrm{H}}\mathbf{y}+\mathbf{\hat h}^{\mathrm{H}}\mathbf{X}^{\mathrm{H}}\mathbf{X}\mathbf{\hat h}<br>\end{aligned}<br>$$<br>令该函数的一阶导为0，即：（这里是标量对向量求导，可以利用矩阵迹的性质，可参考文章：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/hjd21/p/16619280.html">矩阵的迹——性质及运算</a>）<br>$$<br>\frac{\partial \mathrm{J}(\hat{\mathbf{h}})</em>{\mathrm{LS}}}{\partial \hat{\mathbf{h}}}=-(\mathbf{y}^{\mathrm{H}}\mathbf{X})^{\mathrm{T}}+(\mathbf{\hat h}^{\mathrm{H}}\mathbf{X}^{\mathrm{H}}\mathbf{X})^{\mathrm{T}}=0<br>$$<br>可得到 LS 信道估计的解：<br>$$<br>\mathbf{\hat h}_{\mathrm{LS}}=(\mathbf{X}^{\mathrm{H}}\mathbf{X})^{-1}\mathbf{X}^{\mathrm{H}}\mathbf{y}<br>$$<br>这里求解的方法除了求导以外，还可以利用配方法和投影法，另外两种方法可以参考这位大佬的文章：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/358985352">LS信道估计和MMSE信道估计部分公式推导</a>。</p>
-<p>当发送信号矩阵 $\mathbf{X}$ 满秩时，可化简为：<br>$$<br>\mathbf{\hat h}_{\mathrm{LS}}=\mathbf{X}^{-1}\mathbf{y}<br>$$</p>
-<h4 id="3-2-估计误差"><a href="#3-2-估计误差" class="headerlink" title="3.2 估计误差"></a>3.2 估计误差</h4><p>LS 估计算法忽略了噪声的影响，因为它使用的是实际观测量与估计观测量的误差，这并不能精确的代表估计量的真值与估计值的误差。从其估计值和真实值间的均方误差可以看出来：<br>$$<br>\begin{aligned}<br>\varepsilon_{\mathrm{LS}} &amp;=\mathbb{E}\left{\left|\hat{\mathbf{h}}<em>{\mathrm{LS}}-\mathbf{h}\right|^{2}\right} \<br>&amp;=\mathbb{E}\left{\left|\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1} \mathbf{X}^{\mathrm{H}}(\mathbf{X h}+\mathbf{z})-\mathbf{h}\right|^{2}\right} \<br>&amp;=\mathbb{E}\left{\left|\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1} \mathbf{X}^{\mathrm{H}} \mathbf{z}\right|^{2}\right} \<br>&amp;=\mathbb{E}\left{\left(\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1} \mathbf{X}^{\mathrm{H}} \mathbf{z}\right)^{\mathrm{H}}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1} \mathbf{X}^{\mathrm{H}} \mathbf{z}\right} \<br>&amp;=\mathbb{E}\left{\operatorname{tr}\left(\mathbf{z}^{\mathrm{H}} \mathbf{X}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-2} \mathbf{X}^{\mathrm{H}} \mathbf{z}\right)\right} \<br>&amp;=\operatorname{tr}\left(\mathbf{X}^{\mathrm{H}} \mathbb{E}\left{\mathbf{z} \mathbf{z}^{\mathrm{H}}\right} \mathbf{X}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-2}\right) \<br>&amp;=\operatorname{tr}\left(\sigma</em>{z}^{2}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1}\right)\<br>&amp;=\frac{\sigma_z^2}{\sigma_x^2}\<br>&amp;=\frac{1}{\mathrm{SNR}}<br>\end{aligned}<br>$$<br>由此可知，在<strong>低信噪比</strong>下，LS 估计算法的估计误差将会非常大。</p>
-<h3 id="四、MMSE-算法"><a href="#四、MMSE-算法" class="headerlink" title="四、MMSE 算法"></a>四、MMSE 算法</h3><h4 id="4-1-公式推导"><a href="#4-1-公式推导" class="headerlink" title="4.1 公式推导"></a>4.1 公式推导</h4><p>MMSE 算法基于最小均方误差准则，以信道估计值和真实值误差最小化为优化目标，由滤波矩阵和接收信号向量组成，即 $\mathbf{\hat h}<em>{\mathrm{MMSE}}=\mathbf{W}\mathbf{y}$​。其目标函数为：<br>$$<br>\begin{aligned}<br>\mathrm{J}(\mathbf{W})&amp;=\mathbb{E}\left{||\mathbf{\hat{h}-h}||^2\right}\<br>&amp;=\mathbb{E}\left{(\mathbf{\mathbf{W}\mathbf{y}-h})^\mathrm{H}(\mathbf{\mathbf{W}\mathbf{y}-h})\right}\<br>&amp;=\mathbb{E}\left{\mathbf{y}^{\mathrm{H}}\mathbf{W}^{\mathrm{H}}\mathbf{W}\mathbf{y}-\mathbf{y}^{\mathrm{H}}\mathbf{W}^{\mathrm{H}}\mathbf{h}-\mathbf{h}^{\mathrm{H}}\mathbf{W}\mathbf{y}+\mathbf{h}^{\mathrm{H}}\mathbf{h}\right}\<br>&amp;=\mathbb{E}\left{\operatorname{tr}\left(\mathbf{y}^{\mathrm{H}}\mathbf{W}^{\mathrm{H}}\mathbf{W}\mathbf{y}-\mathbf{y}^{\mathrm{H}}\mathbf{W}^{\mathrm{H}}\mathbf{h}-\mathbf{h}^{\mathrm{H}}\mathbf{W}\mathbf{y}+\mathbf{h}^{\mathrm{H}}\mathbf{h}\right)\right}<br>\end{aligned}<br>$$<br>同样利用标量对向量求导的运算方法，令其一阶导为0，得到<br>$$<br>\frac{\partial \mathrm{J}(\mathbf{W})}{\partial \mathbf{W}}=\mathbb{E}\left{(\mathbf{yy}^{\mathrm{H}}\mathbf{W}^{\mathrm{H}})^{\mathrm{T}}-(\mathbf{y}\mathbf{h}^{\mathrm{H}})^{\mathrm{T}}\right}=0<br>$$<br>因此对应的滤波矩阵为<br>$$<br>\begin{aligned}<br>\mathbf{W}&amp;=\mathbb{E}\left{\mathbf{hy}^{\mathrm{H}}\right}\mathbb{E}\left{\mathbf{yy}^{\mathrm{H}}\right}^{-1}\<br>&amp;=\mathbf{R}</em>{\mathbf{hy}}\mathbf{R}<em>{\mathbf{yy}}^{-1}<br>\end{aligned}<br>$$<br>其中，<br>$$<br>\begin{aligned}<br>\mathbf{R}</em>{\mathbf{h y}} &amp;=\mathbb{E}\left{\mathbf{h} \mathbf{y}^{\mathrm{H}}\right}=\mathbb{E}\left{\mathbf{h}(\mathbf{X} \mathbf{h}+\mathbf{z})^{\mathrm{H}}\right} \<br>&amp;=\mathbb{E}\left{\mathbf{h} \mathbf{h}^{\mathrm{H}}\right} \mathbf{X}^{\mathrm{H}}+\mathbb{E}\left{\mathbf{h} \mathbf{z}^{\mathrm{H}}\right} \<br>&amp;=\mathbf{R}<em>{\mathbf{hh}} \mathbf{X}^{\mathrm{H}} \<br>\mathbf{R}</em>{\mathbf{yy}} &amp;=\mathbb{E}\left{\mathbf{y} \mathbf{y}^{\mathrm{H}}\right}=\mathbb{E}\left{(\mathbf{X} \mathbf{h}+\mathbf{z})(\mathbf{X h}+\mathbf{z})^{\mathrm{H}}\right} \<br>&amp;=\mathbb{E}\left{\mathbf{X h h ^ { \mathrm { H } }} \mathbf{X}^{\mathrm{H}}\right}+\mathbb{E}\left{\mathbf{z} \mathbf{z}^{\mathrm{H}}\right} \<br>&amp;=\mathbf{X R}<em>{\mathbf{hh}} \mathbf{X}^{\mathrm{H}}+\sigma</em>{z}^{2} \mathbf{I}<br>\end{aligned}<br>$$<br>因此，MMSE 信道估计值为：<br>$$<br>\begin{aligned}<br>\hat{\mathbf{h}}<em>{\mathrm{MMSE}}&amp;=\mathbf{R}</em>{\mathbf{hy}}\mathbf{R}<em>{\mathbf{yy}}^{-1}\mathbf{y}\<br>&amp;=\mathbf{R}</em>{\mathbf{hh}} \mathbf{X}^{\mathrm{H}}\left(\mathbf{X R}<em>{\mathbf{hh}} \mathbf{X}^{\mathrm{H}}+\sigma</em>{z}^{2} \mathbf{I}\right)^{-1}\mathbf{y}\<br>&amp;=\mathbf{R}<em>{\mathbf{hh}}\left[\mathbf{X}^{-1}\left(\mathbf{X R}</em>{\mathbf{hh}} \mathbf{X}^{\mathrm{H}}+\sigma_{z}^{2} \mathbf{I}\right)(\mathbf{X}^{\mathrm{H}})^{-1}\right]^{-1}\mathbf{X}^{-1}\mathbf{y}\<br>&amp;=\mathbf{R}<em>{\mathbf{hh}}\left[\mathbf{R}</em>{\mathbf{hh}}+\sigma_z^2\left(\mathbf{X}^{\mathbf{H}}\mathbf{X}\right)^{-1}\right]^{-1}\mathbf{X}^{-1}\mathbf{y}\<br>&amp;=\mathbf{R}<em>{\mathbf{hh}}\left[\mathbf{R}</em>{\mathbf{hh}}+\sigma_z^2\left(\mathbf{X}^{\mathbf{H}}\mathbf{X}\right)^{-1}\right]^{-1}\mathbf{\hat h_{\mathrm{LS}}}<br>\end{aligned}<br>$$<br>注意：最后一个等号满足的条件是 $\mathbf{X}$ 满秩。</p>
-<h4 id="4-2-估计误差"><a href="#4-2-估计误差" class="headerlink" title="4.2 估计误差"></a>4.2 估计误差</h4><p>MMSE 算法考虑了噪声的影响，其估计值与真实值之间的均方误差为<br>$$<br>\begin{aligned}<br>\varepsilon_{\mathrm{MMSE}}&amp;=\mathbb{E}\left{(\mathbf{\hat h-h})^{\mathrm{H}}(\mathbf{\hat h-h})\right}\<br>&amp;…\<br>&amp;=\sigma_z^2\operatorname{tr}\left{\mathbf{R}<em>{\mathbf{hh}}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X} \mathbf{R}</em>{\mathbf{hh}}+\sigma_{z}^{2} \mathbf{I}\right)^{-1} \right}<br>\end{aligned}<br>$$<br>具体推导过程请参考这位大佬的文章：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/358985352">LS信道估计和MMSE信道估计部分公式推导</a>。此处不再详细描述。</p>
-<p>此外，通过比较 LS 和 MMSE 均方误差大小，可以看出在均方误差意义上，MMSE 的性能优于 LS 的性能：<br>$$<br>\begin{aligned}<br>\varepsilon_{\mathrm{LS}}-\varepsilon_{\mathrm{MMSE}} &amp;=\sigma_{z}^{2} \operatorname{tr}\left{\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1}-\mathbf{R}<em>{\mathbf{hh}}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X} \mathbf{R}</em>{\mathbf{hh}}+\sigma_{z}^{2} \mathbf{I}\right)^{-1}\right} \<br>&amp;=\sigma_{z}^{2} \operatorname{tr}\left{\left(\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X} \mathbf{R}<em>{\mathbf{h}}+\sigma</em>{z}^{2} \mathbf{I}\right)-\mathbf{R}<em>{\mathbf{hh}}\right)\left(\mathbf{X}^{\mathrm{H}} \mathbf{X} \mathbf{R}</em>{\mathbf{hh}}+\sigma_{z}^{2} \mathbf{I}\right)^{-1}\right} \<br>&amp;=\sigma_{z}^{4} \operatorname{tr}\left{\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X} \mathbf{R}<em>{\mathbf{hh}}+\sigma</em>{z}^{2} \mathbf{I}\right)^{-1}\right} \<br>&amp;=\sigma_{z}^{4} \operatorname{tr}\left{\left(\mathbf{X}^{\mathrm{H}} \mathbf{X} \mathbf{R}<em>{\mathbf{hh}} \mathbf{X}^{\mathrm{H}} \mathbf{X}+\sigma</em>{z}^{2} \mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1}\right}<br>\end{aligned}<br>$$<br>其中，迹函数中的两个矩阵分别是半正定和正定的，因此该式大于0，故 LS 算法的估计误差大于 MMSE 算法的估计误差。</p>
+<h3 id="二、基本假设"><a href="#二、基本假设" class="headerlink" title="二、基本假设"></a>二、基本假设</h3><p>考虑一般的接收信号模型：</p>
+<script type="math/tex; mode=display">
+\mathbf{y}=\mathbf{X h}+\mathbf{z}</script><p>其中，$\mathbf{y}\in\mathbb{C}^{N\times1}$ 为接收信号向量，$\mathbf{h}\in\mathbb{C}^{M\times1}$ 为信道向量，$\mathbf{X}\in\mathbb{C}^{N\times M}$ 为发送信号矩阵（<strong>导频</strong>），$\mathbf{z}\in\mathbb{C}^{N\times 1}$ 为噪声向量，且 $\mathbf{z}\sim\mathcal{CN}(\mathbf{0},\sigma_z^2\mathbf{I})$。</p>
+<h3 id="三、LS-算法"><a href="#三、LS-算法" class="headerlink" title="三、LS 算法"></a>三、LS 算法</h3><h4 id="3-1-公式推导"><a href="#3-1-公式推导" class="headerlink" title="3.1 公式推导"></a>3.1 公式推导</h4><p>LS 算法基于最小二乘准则，优化目标是<strong>实际观测量 $\mathbf{y}$ 与估计观测量 $\mathbf{X\hat{h}}$ </strong>间误差最小。即令下述目标函数最小化：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mathrm{J}(\hat{\mathbf{h}})_{\mathrm{LS}}&=||\mathbf{y-X\hat{h}}||^2\\
+&=(\mathbf{y-X\hat{h}})^\mathrm{H}(\mathbf{y-X\hat{h}})\\
+&=\mathbf{y}^{\mathrm{H}}\mathbf{y}-\mathbf{y}^{\mathrm{H}}\mathbf{X}\mathbf{\hat h}-\mathbf{\hat h}^{\mathrm{H}}\mathbf{X}^{\mathrm{H}}\mathbf{y}+\mathbf{\hat h}^{\mathrm{H}}\mathbf{X}^{\mathrm{H}}\mathbf{X}\mathbf{\hat h}
+\end{aligned}</script><p>令该函数的一阶导为0，即：（这里是标量对向量求导，可以利用矩阵迹的性质，可参考文章：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/hjd21/p/16619280.html">矩阵的迹——性质及运算</a>）</p>
+<script type="math/tex; mode=display">
+\frac{\partial \mathrm{J}(\hat{\mathbf{h}})_{\mathrm{LS}}}{\partial \hat{\mathbf{h}}}=-(\mathbf{y}^{\mathrm{H}}\mathbf{X})^{\mathrm{T}}+(\mathbf{\hat h}^{\mathrm{H}}\mathbf{X}^{\mathrm{H}}\mathbf{X})^{\mathrm{T}}=0</script><p>可得到 LS 信道估计的解：</p>
+<script type="math/tex; mode=display">
+\mathbf{\hat h}_{\mathrm{LS}}=(\mathbf{X}^{\mathrm{H}}\mathbf{X})^{-1}\mathbf{X}^{\mathrm{H}}\mathbf{y}</script><p>这里求解的方法除了求导以外，还可以利用配方法和投影法，另外两种方法可以参考这位大佬的文章：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/358985352">LS信道估计和MMSE信道估计部分公式推导</a>。</p>
+<p>当发送信号矩阵 $\mathbf{X}$ 满秩时，可化简为：</p>
+<script type="math/tex; mode=display">
+\mathbf{\hat h}_{\mathrm{LS}}=\mathbf{X}^{-1}\mathbf{y}</script><h4 id="3-2-估计误差"><a href="#3-2-估计误差" class="headerlink" title="3.2 估计误差"></a>3.2 估计误差</h4><p>LS 估计算法忽略了噪声的影响，因为它使用的是实际观测量与估计观测量的误差，这并不能精确的代表估计量的真值与估计值的误差。从其估计值和真实值间的均方误差可以看出来：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varepsilon_{\mathrm{LS}} &=\mathbb{E}\left\{\left\|\hat{\mathbf{h}}_{\mathrm{LS}}-\mathbf{h}\right\|^{2}\right\} \\
+&=\mathbb{E}\left\{\left\|\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1} \mathbf{X}^{\mathrm{H}}(\mathbf{X h}+\mathbf{z})-\mathbf{h}\right\|^{2}\right\} \\
+&=\mathbb{E}\left\{\left\|\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1} \mathbf{X}^{\mathrm{H}} \mathbf{z}\right\|^{2}\right\} \\
+&=\mathbb{E}\left\{\left(\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1} \mathbf{X}^{\mathrm{H}} \mathbf{z}\right)^{\mathrm{H}}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1} \mathbf{X}^{\mathrm{H}} \mathbf{z}\right\} \\
+&=\mathbb{E}\left\{\operatorname{tr}\left(\mathbf{z}^{\mathrm{H}} \mathbf{X}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-2} \mathbf{X}^{\mathrm{H}} \mathbf{z}\right)\right\} \\
+&=\operatorname{tr}\left(\mathbf{X}^{\mathrm{H}} \mathbb{E}\left\{\mathbf{z} \mathbf{z}^{\mathrm{H}}\right\} \mathbf{X}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-2}\right) \\
+&=\operatorname{tr}\left(\sigma_{z}^{2}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1}\right)\\
+&=\frac{\sigma_z^2}{\sigma_x^2}\\
+&=\frac{1}{\mathrm{SNR}}
+\end{aligned}</script><p>由此可知，在<strong>低信噪比</strong>下，LS 估计算法的估计误差将会非常大。</p>
+<h3 id="四、MMSE-算法"><a href="#四、MMSE-算法" class="headerlink" title="四、MMSE 算法"></a>四、MMSE 算法</h3><h4 id="4-1-公式推导"><a href="#4-1-公式推导" class="headerlink" title="4.1 公式推导"></a>4.1 公式推导</h4><p>MMSE 算法基于最小均方误差准则，以信道估计值和真实值误差最小化为优化目标，由滤波矩阵和接收信号向量组成，即 $\mathbf{\hat h}_{\mathrm{MMSE}}=\mathbf{W}\mathbf{y}$​。其目标函数为：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mathrm{J}(\mathbf{W})&=\mathbb{E}\left\{||\mathbf{\hat{h}-h}||^2\right\}\\
+&=\mathbb{E}\left\{(\mathbf{\mathbf{W}\mathbf{y}-h})^\mathrm{H}(\mathbf{\mathbf{W}\mathbf{y}-h})\right\}\\
+&=\mathbb{E}\left\{\mathbf{y}^{\mathrm{H}}\mathbf{W}^{\mathrm{H}}\mathbf{W}\mathbf{y}-\mathbf{y}^{\mathrm{H}}\mathbf{W}^{\mathrm{H}}\mathbf{h}-\mathbf{h}^{\mathrm{H}}\mathbf{W}\mathbf{y}+\mathbf{h}^{\mathrm{H}}\mathbf{h}\right\}\\
+&=\mathbb{E}\left\{\operatorname{tr}\left(\mathbf{y}^{\mathrm{H}}\mathbf{W}^{\mathrm{H}}\mathbf{W}\mathbf{y}-\mathbf{y}^{\mathrm{H}}\mathbf{W}^{\mathrm{H}}\mathbf{h}-\mathbf{h}^{\mathrm{H}}\mathbf{W}\mathbf{y}+\mathbf{h}^{\mathrm{H}}\mathbf{h}\right)\right\}
+\end{aligned}</script><p>同样利用标量对向量求导的运算方法，令其一阶导为0，得到</p>
+<script type="math/tex; mode=display">
+\frac{\partial \mathrm{J}(\mathbf{W})}{\partial \mathbf{W}}=\mathbb{E}\left\{(\mathbf{yy}^{\mathrm{H}}\mathbf{W}^{\mathrm{H}})^{\mathrm{T}}-(\mathbf{y}\mathbf{h}^{\mathrm{H}})^{\mathrm{T}}\right\}=0</script><p>因此对应的滤波矩阵为</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mathbf{W}&=\mathbb{E}\left\{\mathbf{hy}^{\mathrm{H}}\right\}\mathbb{E}\left\{\mathbf{yy}^{\mathrm{H}}\right\}^{-1}\\
+&=\mathbf{R}_{\mathbf{hy}}\mathbf{R}_{\mathbf{yy}}^{-1}
+\end{aligned}</script><p>其中，</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mathbf{R}_{\mathbf{h y}} &=\mathbb{E}\left\{\mathbf{h} \mathbf{y}^{\mathrm{H}}\right\}=\mathbb{E}\left\{\mathbf{h}(\mathbf{X} \mathbf{h}+\mathbf{z})^{\mathrm{H}}\right\} \\
+&=\mathbb{E}\left\{\mathbf{h} \mathbf{h}^{\mathrm{H}}\right\} \mathbf{X}^{\mathrm{H}}+\mathbb{E}\left\{\mathbf{h} \mathbf{z}^{\mathrm{H}}\right\} \\
+&=\mathbf{R}_{\mathbf{hh}} \mathbf{X}^{\mathrm{H}} \\
+\mathbf{R}_{\mathbf{yy}} &=\mathbb{E}\left\{\mathbf{y} \mathbf{y}^{\mathrm{H}}\right\}=\mathbb{E}\left\{(\mathbf{X} \mathbf{h}+\mathbf{z})(\mathbf{X h}+\mathbf{z})^{\mathrm{H}}\right\} \\
+&=\mathbb{E}\left\{\mathbf{X h h ^ { \mathrm { H } }} \mathbf{X}^{\mathrm{H}}\right\}+\mathbb{E}\left\{\mathbf{z} \mathbf{z}^{\mathrm{H}}\right\} \\
+&=\mathbf{X R}_{\mathbf{hh}} \mathbf{X}^{\mathrm{H}}+\sigma_{z}^{2} \mathbf{I}
+\end{aligned}</script><p>因此，MMSE 信道估计值为：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\hat{\mathbf{h}}_{\mathrm{MMSE}}&=\mathbf{R}_{\mathbf{hy}}\mathbf{R}_{\mathbf{yy}}^{-1}\mathbf{y}\\
+&=\mathbf{R}_{\mathbf{hh}} \mathbf{X}^{\mathrm{H}}\left(\mathbf{X R}_{\mathbf{hh}} \mathbf{X}^{\mathrm{H}}+\sigma_{z}^{2} \mathbf{I}\right)^{-1}\mathbf{y}\\
+&=\mathbf{R}_{\mathbf{hh}}\left[\mathbf{X}^{-1}\left(\mathbf{X R}_{\mathbf{hh}} \mathbf{X}^{\mathrm{H}}+\sigma_{z}^{2} \mathbf{I}\right)(\mathbf{X}^{\mathrm{H}})^{-1}\right]^{-1}\mathbf{X}^{-1}\mathbf{y}\\
+&=\mathbf{R}_{\mathbf{hh}}\left[\mathbf{R}_{\mathbf{hh}}+\sigma_z^2\left(\mathbf{X}^{\mathbf{H}}\mathbf{X}\right)^{-1}\right]^{-1}\mathbf{X}^{-1}\mathbf{y}\\
+&=\mathbf{R}_{\mathbf{hh}}\left[\mathbf{R}_{\mathbf{hh}}+\sigma_z^2\left(\mathbf{X}^{\mathbf{H}}\mathbf{X}\right)^{-1}\right]^{-1}\mathbf{\hat h_{\mathrm{LS}}}
+\end{aligned}</script><p>注意：最后一个等号满足的条件是 $\mathbf{X}$ 满秩。</p>
+<h4 id="4-2-估计误差"><a href="#4-2-估计误差" class="headerlink" title="4.2 估计误差"></a>4.2 估计误差</h4><p>MMSE 算法考虑了噪声的影响，其估计值与真实值之间的均方误差为</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varepsilon_{\mathrm{MMSE}}&=\mathbb{E}\left\{(\mathbf{\hat h-h})^{\mathrm{H}}(\mathbf{\hat h-h})\right\}\\
+&...\\
+&=\sigma_z^2\operatorname{tr}\left\{\mathbf{R}_{\mathbf{hh}}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X} \mathbf{R}_{\mathbf{hh}}+\sigma_{z}^{2} \mathbf{I}\right)^{-1} \right\}
+\end{aligned}</script><p>具体推导过程请参考这位大佬的文章：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/358985352">LS信道估计和MMSE信道估计部分公式推导</a>。此处不再详细描述。</p>
+<p>此外，通过比较 LS 和 MMSE 均方误差大小，可以看出在均方误差意义上，MMSE 的性能优于 LS 的性能：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\varepsilon_{\mathrm{LS}}-\varepsilon_{\mathrm{MMSE}} &=\sigma_{z}^{2} \operatorname{tr}\left\{\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1}-\mathbf{R}_{\mathbf{hh}}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X} \mathbf{R}_{\mathbf{hh}}+\sigma_{z}^{2} \mathbf{I}\right)^{-1}\right\} \\
+&=\sigma_{z}^{2} \operatorname{tr}\left\{\left(\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X} \mathbf{R}_{\mathbf{h}}+\sigma_{z}^{2} \mathbf{I}\right)-\mathbf{R}_{\mathbf{hh}}\right)\left(\mathbf{X}^{\mathrm{H}} \mathbf{X} \mathbf{R}_{\mathbf{hh}}+\sigma_{z}^{2} \mathbf{I}\right)^{-1}\right\} \\
+&=\sigma_{z}^{4} \operatorname{tr}\left\{\left(\mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1}\left(\mathbf{X}^{\mathrm{H}} \mathbf{X} \mathbf{R}_{\mathbf{hh}}+\sigma_{z}^{2} \mathbf{I}\right)^{-1}\right\} \\
+&=\sigma_{z}^{4} \operatorname{tr}\left\{\left(\mathbf{X}^{\mathrm{H}} \mathbf{X} \mathbf{R}_{\mathbf{hh}} \mathbf{X}^{\mathrm{H}} \mathbf{X}+\sigma_{z}^{2} \mathbf{X}^{\mathrm{H}} \mathbf{X}\right)^{-1}\right\}
+\end{aligned}</script><p>其中，迹函数中的两个矩阵分别是半正定和正定的，因此该式大于0，故 LS 算法的估计误差大于 MMSE 算法的估计误差。</p>
 <h3 id="五、LMMSE-算法"><a href="#五、LMMSE-算法" class="headerlink" title="五、LMMSE 算法"></a>五、LMMSE 算法</h3><p>LMMSE 信道估计是在 MMSE 信道估计的基础上做了一次线性平滑。因为随着输入信号和噪声的变化，MMSE 算法需要不断进行矩阵求逆运算（包含两个矩阵求逆），计算量非常大。因此可以考虑将 MMSE 式中的 $\mathbf{X}^{\mathbf{H}}\mathbf{X}$ 用其均值来替代，可以减少一个矩阵求逆的运算量。</p>
 <blockquote>
 <p>这样做的原因在于：该矩阵是一个 $M\times M$ 的方阵，对角线上是导频信号的功率值，非对角线元素则是导频信号与其延迟信号的相关，该相关值可近似为满足标准正态分布的信号，即均值为0。故可以用均值来替代原来的矩阵，以损失部分精度为代价，大幅降低计算复杂度。</p>
 </blockquote>
-<p>则对应的 LMMSE 估计值可以表示为<br>$$<br>\hat{\mathbf{h}}<em>{\mathrm{LMMSE}}=\mathbf{R}</em>{\mathbf{hh}}\left[\mathbf{R}<em>{\mathbf{hh}}+\frac{\beta}{\mathrm{SNR}}\right]^{-1}\mathbf{\hat h</em>{\mathrm{LS}}}<br>$$<br>其中，$\beta$ 是调制类型参数，当采用 QPSK 调制时，$\beta=1$，采用 16QAM 时，$\beta=17/9$。</p>
+<p>则对应的 LMMSE 估计值可以表示为</p>
+<script type="math/tex; mode=display">
+\hat{\mathbf{h}}_{\mathrm{LMMSE}}=\mathbf{R}_{\mathbf{hh}}\left[\mathbf{R}_{\mathbf{hh}}+\frac{\beta}{\mathrm{SNR}}\right]^{-1}\mathbf{\hat h_{\mathrm{LS}}}</script><p>其中，$\beta$ 是调制类型参数，当采用 QPSK 调制时，$\beta=1$，采用 16QAM 时，$\beta=17/9$。</p>
 <p>此时每次传输只需要进行一次求逆即可，可以通过 SVD 等方法继续简化，具体推导可见：<a target="_blank" rel="noopener" href="https://blog.csdn.net/shenyuhou/article/details/121871048">信道估计之LMMSE估计</a>。</p>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BF%A1%E9%81%93%E4%BC%B0%E8%AE%A1/9975386">信道估计</a></li>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/358985352">LS信道估计和MMSE信道估计部分公式推导</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hjd21/p/16619280.html">矩阵的迹——性质及运算</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/ddatalent/article/details/121132095">信道估计—LS、MMSE、LMMSE准则</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/ddatalent/article/details/121132095">信道估计—-LS、MMSE、LMMSE准则</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/shenyuhou/article/details/121871048">信道估计之LMMSE估计</a></li>
 </ul>
 
@@ -1722,7 +1793,7 @@
 			
 			
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">101.3k</span>&nbsp;字
+                class="white-color">101.2k</span>&nbsp;字
             
 
 			
@@ -1998,12 +2069,12 @@ $(function () {
 		color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"> 
 	</script>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script><script>
+<script>
             window.imageLazyLoadSetting = {
                 isSPA: false,
                 preloadRatio: 1,
                 processImages: null,
             };
-        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=o;var e=n.imageLazyLoadSetting.isSPA,i=n.imageLazyLoadSetting.preloadRatio||1,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight*i||document.documentElement.clientHeight*i)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},t.src!==i&&(n.src=i)}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","hOffset":100,"vOffset":-50,"width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 
 </html>
